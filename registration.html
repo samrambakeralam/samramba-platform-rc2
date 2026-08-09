@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Complete Your Registration | SAMRAMBA KERALAM 2030
+    </title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="css/register.css">
+
+</head>
+
+<body>
+
+<!-- ==========================
+     HEADER
+========================== -->
+
+<header class="registration-header">
+
+    <div class="container">
+
+        <a href="index.html" class="logo">
+
+            <img src="assets/logo.png"
+                 alt="SAMRAMBA KERALAM 2030">
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- ==========================
+     PAGE HERO
+========================== -->
+
+<section class="registration-hero">
+
+    <div class="container">
+
+        <div class="page-heading">
+
+            <div class="progress-indicator">
+
+                <div class="step active">
+
+                    <span>1</span>
+
+                    <p>Registration</p>
+
+                </div>
+
+                <div class="progress-line"></div>
+
+                <div class="step">
+
+                    <span>2</span>
+
+                    <p>Secure Payment</p>
+
+                </div>
+
+            </div>
+
+            <h1>
+
+                Unlock Your Learning Library
+
+            </h1>
+
+            <p>
+
+                You're just one step away from lifetime access to the
+                Complete Entrepreneurial Learning Library.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================
+     MAIN CONTENT
+========================== -->
+
+<section class="registration-content">
+
+    <div class="container">
+
+        <div class="registration-wrapper">
+
+
+
+            <!-- LEFT PANEL -->
+
+            <div class="registration-info">
+
+                <div class="product-image">
+
+                    <img src="assets/bundle-mockup.png"
+                         alt="SK Learning Library">
+
+                </div>
+
+                <h2>
+
+                    Complete Learning Library
+
+                </h2>
+
+                <p>
+
+                    Invest once and gain lifetime access to carefully curated
+                    learning resources designed to strengthen entrepreneurial
+                    thinking, financial awareness, business knowledge,
+                    leadership, and lifelong learning.
+
+                </p>
+
+                <div class="feature-grid">
+
+    <div class="feature-card">
+
+        <i data-lucide="book-open"></i>
+
+        <div>
+
+            <h4>500+ Learning Modules</h4>
+
+            <p>
+                Carefully curated practical learning resources.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="feature-card">
+
+        <i data-lucide="target"></i>
+
+        <div>
+
+            <h4>12 Learning Tracks</h4>
+
+            <p>
+                Business, Finance, Leadership, Psychology and more.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="feature-card">
+
+        <i data-lucide="infinity"></i>
+
+        <div>
+
+            <h4>Lifetime Access</h4>
+
+            <p>
+                Pay once and continue learning anytime.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="feature-card">
+
+        <i data-lucide="zap"></i>
+
+        <div>
+
+            <h4>Instant Digital Delivery</h4>
+
+            <p>
+                Get immediate access after successful payment.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="feature-card">
+
+        <i data-lucide="shield-check"></i>
+
+        <div>
+
+            <h4>Secure Checkout</h4>
+
+            <p>
+                Protected payment powered by Razorpay.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="feature-card">
+
+        <i data-lucide="smartphone"></i>
+
+        <div>
+
+            <h4>Learn Anywhere</h4>
+
+            <p>
+                Access from mobile, tablet and desktop.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+                <div class="price-box">
+
+                    <span class="price">
+
+                        ₹499
+
+                    </span>
+
+                    <span class="purchase">
+
+                        One-Time Purchase
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RIGHT PANEL -->
+
+<div class="registration-card">
+
+    <div class="form-badge">
+
+        <i data-lucide="shield-check"></i>
+
+        <span>Secure Registration</span>
+
+    </div>
+
+    <h2>
+
+        Complete Your Registration
+
+    </h2>
+
+    <p class="form-description">
+
+        Enter your details below to continue to secure checkout and unlock your
+        complete learning library.
+
+    </p>
+
+    <form id="registrationForm" novalidate>
+
+        <!-- FULL NAME -->
+
+        <div class="form-group">
+
+            <label for="name">
+
+                Full Name <span>*</span>
+
+            </label>
+
+            <div class="input-box">
+
+                <i data-lucide="user"></i>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="John Mathew"
+                    autocomplete="name">
+
+            </div>
+
+            <small class="validation-message"></small>
+
+        </div>
+
+
+
+        <!-- EMAIL -->
+
+        <div class="form-group">
+
+            <label for="email">
+
+                Email Address <span>*</span>
+
+            </label>
+
+            <div class="input-box">
+
+                <i data-lucide="mail"></i>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="john@example.com"
+                    autocomplete="email">
+
+            </div>
+
+            <small class="validation-message"></small>
+
+        </div>
+
+
+
+        <!-- INSTITUTION -->
+
+        <div class="form-group">
+
+            <label for="institution">
+
+                Institution <span>*</span>
+
+            </label>
+
+            <div class="input-box">
+
+                <i data-lucide="school"></i>
+
+                <select id="institution" required>
+
+    <option value="">Choose Your Institution</option>
+
+    <option value="GEMS">GEMS</option>
+
+    <option value="JAMIA">JAMIA</option>
+
+    <option value="PTM">PTM</option>
+
+</select>
+
+            </div>
+
+            <small class="validation-message"></small>
+
+        </div>
+
+
+
+        <!-- TRUST STRIP -->
+
+        <div class="trust-strip">
+
+            <div class="trust-pill">
+
+                <i data-lucide="shield-check"></i>
+
+                <span>Secure Checkout</span>
+
+            </div>
+
+            <div class="trust-pill">
+
+                <i data-lucide="zap"></i>
+
+                <span>Instant Access</span>
+
+            </div>
+
+            <div class="trust-pill">
+
+                <i data-lucide="mail-check"></i>
+
+                <span>Email Delivery</span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ORDER SUMMARY -->
+
+        <div class="mini-summary">
+
+            <div class="summary-header">
+
+                <span>Your Purchase</span>
+
+            </div>
+
+            <div class="summary-row">
+
+                <span>Product</span>
+
+                <strong>SK Learning Library</strong>
+
+            </div>
+
+            <div class="summary-row">
+
+                <span>Access</span>
+
+                <strong>Lifetime</strong>
+
+            </div>
+
+            <div class="summary-row">
+
+                <span>Price</span>
+
+                <strong>₹499</strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- BUTTON -->
+
+        <button
+            id="continueButton"
+            type="submit">
+
+            Continue to Secure Checkout
+
+            <i data-lucide="arrow-right"></i>
+
+        </button>
+
+
+
+        <!-- FOOTER -->
+
+        <div class="payment-footer">
+
+            <div class="payment-brand">
+
+                <i data-lucide="lock-keyhole"></i>
+
+                <span>
+
+                    Secure payment powered by Razorpay
+
+                </span>
+
+            </div>
+
+            <p>
+
+                One-Time Purchase • No Subscription • Lifetime Access
+
+            </p>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+
+<!-- ==========================
+     HELP
+========================== -->
+
+<section class="registration-help">
+
+    <div class="container">
+
+        <h3>
+
+            Need Assistance?
+
+        </h3>
+
+        <p>
+
+            If you have any questions before completing your purchase,
+            feel free to contact us.
+
+        </p>
+
+        <a href="mailto:samrambakerala@gmail.com">
+
+            samrambakerala@gmail.com
+
+        </a>
+
+    </div>
+
+</section>
+
+<script src="js/config.js"></script>
+
+<script src="js/register.js"></script>
+
+</body>
+
+</html>

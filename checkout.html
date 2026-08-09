@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Review & Secure Checkout | SAMRAMBA KERALAM 2030
+    </title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="css/checkout.css">
+
+</head>
+
+<body>
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header class="checkout-header">
+
+    <div class="container">
+
+        <a href="index.html" class="logo">
+
+            <img src="assets/logo.png"
+                 alt="SAMRAMBA KERALAM 2030">
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- ==========================================
+     HERO
+========================================== -->
+
+<section class="checkout-hero">
+
+    <div class="container">
+
+        <div class="page-heading">
+
+            <div class="progress-indicator">
+
+                <div class="step completed">
+
+                    <span>
+
+                        ✓
+
+                    </span>
+
+                    <p>
+
+                        Registration
+
+                    </p>
+
+                </div>
+
+                <div class="progress-line active"></div>
+
+                <div class="step active">
+
+                    <span>
+
+                        2
+
+                    </span>
+
+                    <p>
+
+                        Checkout
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <h1>
+
+                Review & Secure Checkout
+
+            </h1>
+
+            <p>
+
+                Please review your information before proceeding to secure payment.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     CHECKOUT CARD
+========================================== -->
+
+<section class="checkout-section">
+
+    <div class="container">
+
+        <div class="checkout-card">
+
+            <div class="checkout-success">
+
+                <i data-lucide="badge-check"></i>
+
+                Registration Completed
+
+            </div>
+
+
+
+            <!-- CUSTOMER DETAILS -->
+
+            <div class="checkout-block">
+
+                <h2>
+
+                    Customer Information
+
+                </h2>
+
+                <div class="info-row">
+
+                    <span>Full Name</span>
+
+                    <strong id="customerName">
+
+                        John Mathew
+
+                    </strong>
+
+                </div>
+
+                <div class="info-row">
+
+                    <span>Email Address</span>
+
+                    <strong id="customerEmail">
+
+                        john@example.com
+
+                    </strong>
+
+                </div>
+
+                <div class="info-row">
+
+                    <span>Institution</span>
+
+                    <strong id="customerInstitution">
+
+                        GEMS Public School
+
+                    </strong>
+
+                </div>
+
+                <div class="info-row">
+
+                    <span>Customer ID</span>
+
+                    <strong id="customerID">
+
+                        SK-2026-00035
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT -->
+
+            <div class="checkout-block">
+
+                <h2>
+
+                    Purchase Summary
+
+                </h2>
+
+                <div class="info-row">
+
+                    <span>
+
+                        Product
+
+                    </span>
+
+                    <strong>
+
+                        SK Learning Library
+
+                    </strong>
+
+                </div>
+
+                <div class="info-row">
+
+                    <span>
+
+                        Learning Modules
+
+                    </span>
+
+                    <strong>
+
+                        500+
+
+                    </strong>
+
+                </div>
+
+                <div class="info-row">
+
+                    <span>
+
+                        Learning Tracks
+
+                    </span>
+
+                    <strong>
+
+                        12
+
+                    </strong>
+
+                </div>
+
+                <div class="info-row">
+
+                    <span>
+
+                        Access
+
+                    </span>
+
+                    <strong>
+
+                        Lifetime
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRICE -->
+
+            <div class="price-summary">
+
+                <span>
+
+                    Investment
+
+                </span>
+
+                <strong>
+
+                    ₹499
+
+                </strong>
+
+                <small>
+
+                    One-Time Purchase
+
+                </small>
+
+            </div>
+
+
+
+            <!-- TRUST -->
+
+            <div class="trust-strip">
+
+                <div class="trust-pill">
+
+                    <i data-lucide="shield-check"></i>
+
+                    Secure Checkout
+
+                </div>
+
+                <div class="trust-pill">
+
+                    <i data-lucide="zap"></i>
+
+                    Instant Access
+
+                </div>
+
+                <div class="trust-pill">
+
+                    <i data-lucide="mail-check"></i>
+
+                    Email Delivery
+
+                </div>
+
+            </div>
+
+
+
+            <!-- BUTTON -->
+
+            <button id="paymentButton">
+
+                Continue to Payment
+
+                <i data-lucide="arrow-right"></i>
+
+            </button>
+
+
+
+            <!-- FOOTER -->
+
+            <div class="checkout-footer">
+
+                <div class="payment-brand">
+
+                    <i data-lucide="lock-keyhole"></i>
+
+                    Protected by Razorpay
+
+                </div>
+
+                <a href="registration.html">
+
+                    ← Back to Registration
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<script>
+
+lucide.createIcons();
+
+</script>
+
+<script src="js/checkout.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CORS Test</title>
+</head>
+<body>
+
+<h2>CORS Test</h2>
+
+<input id="name" placeholder="Name">
+
+<br><br>
+
+<button onclick="sendData()">Send</button>
+
+<script>
+function sendData() {
+
+    const form = new FormData();
+
+    form.append(
+        "name",
+        document.getElementById("name").value
+    );
+
+    fetch(
+        "https://script.google.com/macros/s/AKfycbzQFLeWMQAX7gbedsu859N8nEZnGoAFinj4dn1JgpX0La7GSy-2xGHK38MdjcHM2ckk/exec",
+        {
+            method: "POST",
+            body: form
+        }
+    )
+    .then(r => r.text())
+    .then(result => {
+        console.log(result);
+        alert(result);
+    })
+    .catch(error => {
+        console.error(error);
+        alert(error);
+    });
+
+}
+</script>
+
+</body>
+</html>
