@@ -17,19 +17,25 @@ const CAROUSEL_DATA = [
         id: "fastlane",
         type: "book",
 
-        title: "The Fastlane",
-        subtitle:
-            "A powerful perspective on entrepreneurship, wealth and building a better future.",
+        title: "The Millionaire Fastlane",
 
-        image: "assets/fastlane.jpg",
+        category:
+            "Entrepreneurship • Wealth",
 
-        badge: "FEATURED",
+        image:
+            "assets/fastlane.jpg",
 
-        buttonText: "Explore",
+        badge:
+            "FEATURED",
 
-        link: "#learning-modules",
+        buttonText:
+            "Explore",
 
-        active: true
+        link:
+            "#learning-modules",
+
+        active:
+            true
     },
 
 
@@ -37,19 +43,25 @@ const CAROUSEL_DATA = [
         id: "hack",
         type: "book",
 
-        title: "The Millionaire Fastlane",
-        subtitle:
-            "Explore ideas around wealth creation, business and financial independence.",
+        title: "Hack The Buyer Brain",
 
-        image: "assets/hack.jpg",
+        category:
+            "Marketing • Psychology",
 
-        badge: "FEATURED",
+        image:
+            "assets/hack.jpg",
 
-        buttonText: "Explore",
+        badge:
+            "FEATURED",
 
-        link: "#learning-modules",
+        buttonText:
+            "Explore",
 
-        active: true
+        link:
+            "#learning-modules",
+
+        active:
+            true
     },
 
 
@@ -57,19 +69,25 @@ const CAROUSEL_DATA = [
         id: "millionnaire",
         type: "book",
 
-        title: "Millionnaire",
-        subtitle:
-            "Discover ideas that can reshape the way you think about money, success and opportunity.",
+        title: "Secrets of the Millionaire Mind",
 
-        image: "assets/millionnaire.jpg",
+        category:
+            "Money • Mindset",
 
-        badge: "FEATURED",
+        image:
+            "assets/millionnaire.jpg",
 
-        buttonText: "Explore",
+        badge:
+            "FEATURED",
 
-        link: "#learning-modules",
+        buttonText:
+            "Explore",
 
-        active: true
+        link:
+            "#learning-modules",
+
+        active:
+            true
     },
 
 
@@ -77,19 +95,26 @@ const CAROUSEL_DATA = [
         id: "start",
         type: "book",
 
-        title: "Start",
-        subtitle:
-            "Turn ideas into action and take the first step toward meaningful growth.",
+        title:
+            "Start Something That Matters",
 
-        image: "assets/start.jpg",
+        category:
+            "Purpose • Entrepreneurship",
 
-        badge: "FEATURED",
+        image:
+            "assets/start.jpg",
 
-        buttonText: "Explore",
+        badge:
+            "FEATURED",
 
-        link: "#learning-modules",
+        buttonText:
+            "Explore",
 
-        active: true
+        link:
+            "#learning-modules",
+
+        active:
+            true
     },
 
 
@@ -97,19 +122,26 @@ const CAROUSEL_DATA = [
         id: "startup",
         type: "book",
 
-        title: "Startup",
-        subtitle:
-            "Explore practical ideas for entrepreneurship, innovation and building businesses.",
+        title:
+            "The $100 Startup",
 
-        image: "assets/startup.jpg",
+        category:
+            "Startup • Business",
 
-        badge: "FEATURED",
+        image:
+            "assets/startup.jpg",
 
-        buttonText: "Explore",
+        badge:
+            "FEATURED",
 
-        link: "#learning-modules",
+        buttonText:
+            "Explore",
 
-        active: true
+        link:
+            "#learning-modules",
+
+        active:
+            true
     }
 
 ];
