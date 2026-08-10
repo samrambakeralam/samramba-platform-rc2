@@ -20,6 +20,7 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carousel.css">
     <link rel="stylesheet" href="css/modal.css">
 
     <!-- Lucide Icons -->
@@ -291,6 +292,94 @@
 
 </section>
 
+<!-- =========================================
+     RC2.3 — FEATURED CAROUSEL
+========================================= -->
+
+<section
+    class="rc2-carousel-section"
+    id="featured-carousel"
+>
+
+    <div class="rc2-carousel-container">
+
+
+        <!-- Carousel Header -->
+
+        <div class="rc2-carousel-header">
+
+            <div class="rc2-carousel-heading">
+
+                <span class="rc2-carousel-eyebrow">
+                    FEATURED FOR YOU
+                </span>
+
+                <h2>
+                    Ideas Worth Exploring
+                </h2>
+
+                <p>
+                    Discover powerful ideas, practical knowledge
+                    and inspiration from our learning collection.
+                </p>
+
+            </div>
+
+
+            <!-- Desktop Controls -->
+
+            <div class="rc2-carousel-controls">
+
+                <button
+                    class="rc2-carousel-control"
+                    id="rc2CarouselPrev"
+                    type="button"
+                    aria-label="Previous"
+                >
+
+                    <i data-lucide="arrow-left"></i>
+
+                </button>
+
+
+                <button
+                    class="rc2-carousel-control"
+                    id="rc2CarouselNext"
+                    type="button"
+                    aria-label="Next"
+                >
+
+                    <i data-lucide="arrow-right"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Carousel -->
+
+        <div
+            class="rc2-carousel"
+            id="rc2Carousel"
+        >
+
+            <div
+                class="rc2-carousel-track"
+            >
+                <!--
+                    Cards are generated dynamically
+                    by carousel.js
+                -->
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
 
 <!-- WHY SK LEARNING MODULES -->
 <section class="why-bundle">
@@ -1547,6 +1636,7 @@
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script src="js/app.js"></script>
+<script src="js/carousel.js"></script>
 
 </body>
 </html>
