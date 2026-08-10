@@ -299,7 +299,7 @@
 }
 
 /* =========================================
-   BLURRED COVER BACKGROUND
+   DYNAMIC COVER BACKGROUND
 ========================================= */
 
 .rc2-carousel-image-wrap::before {
@@ -308,8 +308,7 @@
 
     position: absolute;
 
-    inset:
-        -25px;
+    inset: -30px;
 
     background-image:
         var(--rc2-carousel-bg);
@@ -321,20 +320,24 @@
         center;
 
     filter:
-        blur(22px);
+        blur(24px);
 
     transform:
         scale(1.12);
 
     opacity:
-        .55;
+        .72;
 
     z-index:
-        -1;
+        0;
 }
 
 
 .rc2-carousel-image {
+
+    position: relative;
+
+    z-index: 1;
 
     width: 100%;
     height: 100%;
@@ -345,7 +348,6 @@
 
     transition:
         transform .35s ease;
-
 }
 
 
@@ -366,6 +368,8 @@
 
     position: absolute;
 
+    z-index: 2;
+    
     top: 12px;
     left: 12px;
 
