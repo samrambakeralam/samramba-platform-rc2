@@ -246,7 +246,9 @@ function renderCarousel(
                     </h3>
 
                     <p>
-                        ${item.subtitle}
+                        <p>
+    ${item.category}
+</p>
                     </p>
 
                     <a
