@@ -168,7 +168,9 @@ function initialiseCarousel() {
 
 
     const track =
-        carousel.querySelector(".rc2-carousel-track");
+        carousel.querySelector(
+            ".rc2-carousel-track"
+        );
 
     if (!track) {
 
@@ -191,6 +193,105 @@ function initialiseCarousel() {
         track,
         items
     );
+
+
+    /* =========================================
+       DESKTOP CAROUSEL CONTROLS
+    ========================================= */
+
+    const previousButton =
+        document.getElementById(
+            "rc2CarouselPrev"
+        );
+
+    const nextButton =
+        document.getElementById(
+            "rc2CarouselNext"
+        );
+
+
+    if (previousButton) {
+
+        previousButton.addEventListener(
+            "click",
+            () => {
+
+                const card =
+                    track.querySelector(
+                        ".rc2-carousel-card"
+                    );
+
+                if (!card) {
+                    return;
+                }
+
+
+                const gap =
+                    parseFloat(
+                        getComputedStyle(track).gap
+                    ) || 0;
+
+
+                const scrollAmount =
+                    card.offsetWidth + gap;
+
+
+                track.scrollBy({
+
+                    left:
+                        -scrollAmount,
+
+                    behavior:
+                        "smooth"
+
+                });
+
+            }
+        );
+
+    }
+
+
+    if (nextButton) {
+
+        nextButton.addEventListener(
+            "click",
+            () => {
+
+                const card =
+                    track.querySelector(
+                        ".rc2-carousel-card"
+                    );
+
+                if (!card) {
+                    return;
+                }
+
+
+                const gap =
+                    parseFloat(
+                        getComputedStyle(track).gap
+                    ) || 0;
+
+
+                const scrollAmount =
+                    card.offsetWidth + gap;
+
+
+                track.scrollBy({
+
+                    left:
+                        scrollAmount,
+
+                    behavior:
+                        "smooth"
+
+                });
+
+            }
+        );
+
+    }
 
 }
 
