@@ -299,37 +299,30 @@
 }
 
 /* =========================================
-   DYNAMIC COVER BACKGROUND
+   DYNAMIC COVER THEME BACKGROUND
 ========================================= */
 
-.rc2-carousel-image-wrap::before {
+.rc2-carousel-image-wrap {
 
-    content: "";
+    position: relative;
 
-    position: absolute;
+    width: 100%;
 
-    inset: -30px;
+    aspect-ratio: 3 / 4;
 
-    background-image:
-        var(--rc2-carousel-bg);
+    overflow: hidden;
 
-    background-size:
-        cover;
+    background:
+        var(--rc2-carousel-theme);
 
-    background-position:
-        center;
+    border-radius:
+        18px 18px 0 0;
 
-    filter:
-        blur(24px);
+    display: flex;
 
-    transform:
-        scale(1.12);
+    align-items: center;
 
-    opacity:
-        .72;
-
-    z-index:
-        0;
+    justify-content: center;
 }
 
 
@@ -345,9 +338,6 @@
     display: block;
 
     object-fit: contain;
-
-    transition:
-        transform .35s ease;
 }
 
 
@@ -356,7 +346,6 @@
 
     transform:
         scale(1.03);
-
 }
 
 
@@ -369,7 +358,7 @@
     position: absolute;
 
     z-index: 2;
-    
+
     top: 12px;
     left: 12px;
 
