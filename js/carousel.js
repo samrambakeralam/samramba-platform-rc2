@@ -324,20 +324,23 @@ function renderCarousel(
 
             card.innerHTML = `
 
-                <div class="rc2-carousel-image-wrap">
+                <div
+    class="rc2-carousel-image-wrap"
+    style="--rc2-carousel-bg: url('${item.image}')"
+>
 
-                    <img
-                        src="${item.image}"
-                        alt="${item.title}"
-                        class="rc2-carousel-image"
-                        loading="lazy"
-                    >
+    <img
+        src="${item.image}"
+        alt="${item.title}"
+        class="rc2-carousel-image"
+        loading="lazy"
+    >
 
-                    <span class="rc2-carousel-badge">
-                        ${item.badge}
-                    </span>
+    <span class="rc2-carousel-badge">
+        ${item.badge}
+    </span>
 
-                </div>
+</div>
 
 
                 <div class="rc2-carousel-content">

@@ -290,11 +290,47 @@
     aspect-ratio:
         3 / 4;
 
+    overflow: hidden;
+
     background:
         #E2E8F0;
 
-    overflow: hidden;
+    isolation: isolate;
+}
 
+/* =========================================
+   BLURRED COVER BACKGROUND
+========================================= */
+
+.rc2-carousel-image-wrap::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset:
+        -25px;
+
+    background-image:
+        var(--rc2-carousel-bg);
+
+    background-size:
+        cover;
+
+    background-position:
+        center;
+
+    filter:
+        blur(22px);
+
+    transform:
+        scale(1.12);
+
+    opacity:
+        .55;
+
+    z-index:
+        -1;
 }
 
 
