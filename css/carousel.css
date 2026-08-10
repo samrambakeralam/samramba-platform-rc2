@@ -288,7 +288,7 @@
     width: 100%;
 
     aspect-ratio:
-        3 / 4;
+        2 / 3;
 
     background:
         #E2E8F0;
@@ -559,10 +559,10 @@
     .rc2-carousel-card {
 
         flex:
-            0 0 76vw;
+            0 0 72vw;
 
         max-width:
-            300px;
+            290px;
 
         border-radius:
             18px;
