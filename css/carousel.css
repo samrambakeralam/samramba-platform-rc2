@@ -264,6 +264,23 @@
 
 }
 
+/* =========================================
+   DESKTOP CARD HOVER POLISH
+========================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .rc2-carousel-card:hover {
+
+        transform:
+            translateY(-4px);
+
+        box-shadow:
+            0 14px 30px rgba(0, 0, 0, .12);
+
+    }
+
+}
 
 .rc2-carousel-card:hover {
 
@@ -339,6 +356,11 @@
 
     object-fit: cover;
 
+    opacity:
+        0;
+
+    animation:
+        rc2ImageFadeIn .45s ease forwards;
 }
 
 /* =========================================
@@ -668,6 +690,28 @@
 
         font-size:
             13px;
+
+    }
+
+}
+
+/* =========================================
+   CAROUSEL IMAGE FADE-IN
+========================================= */
+
+@keyframes rc2ImageFadeIn {
+
+    from {
+
+        opacity:
+            0;
+
+    }
+
+    to {
+
+        opacity:
+            1;
 
     }
 
