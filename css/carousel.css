@@ -340,6 +340,40 @@
     object-fit: contain;
 }
 
+/* =========================================
+   CAROUSEL IMAGE MODES
+========================================= */
+
+/* Portrait book covers */
+
+.rc2-image-contain .rc2-carousel-image {
+
+    object-fit: contain;
+
+}
+
+
+/* Original image treatment */
+
+.rc2-image-original .rc2-carousel-image {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+/* =========================================
+   ORIGINAL IMAGE MODE
+========================================= */
+
+.rc2-image-original {
+
+    background:
+        #E2E8F0;
+
+}
 
 .rc2-carousel-card:hover
 .rc2-carousel-image {

@@ -25,8 +25,8 @@ const CAROUSEL_DATA = [
         image:
             "assets/fastlane.jpg",
 
-        themeColor:
-            "#FF0000",
+        imageMode: "contain",
+        themeColor: "#252A52",
 
         badge:
             "FEATURED",
@@ -54,8 +54,7 @@ const CAROUSEL_DATA = [
         image:
             "assets/hack.jpg",
 
-        themeColor:
-            "#F4B400",
+        imageMode: "original",
 
         badge:
             "FEATURED",
@@ -83,8 +82,8 @@ const CAROUSEL_DATA = [
         image:
             "assets/millionnaire.jpg",
 
-        themeColor:
-            "#F3D6DD",
+        imageMode: "contain",
+        themeColor: "#F3D6DD",
 
         badge:
             "FEATURED",
@@ -113,8 +112,8 @@ const CAROUSEL_DATA = [
         image:
             "assets/start.jpg",
 
-        themeColor:
-            "#B9DCEB",
+        imageMode: "contain",
+        themeColor: "#B9DCEB",
 
         badge:
             "FEATURED",
@@ -143,8 +142,8 @@ const CAROUSEL_DATA = [
         image:
             "assets/startup.jpg",
 
-        themeColor:
-            "#E9C8C4",
+        imageMode: "contain",
+        themeColor: "#E9C8C4",
 
         badge:
             "FEATURED",
@@ -340,8 +339,8 @@ function renderCarousel(
             card.innerHTML = `
 
                 <div
-    class="rc2-carousel-image-wrap"
-    style="--rc2-carousel-theme: ${item.themeColor}"
+    class="rc2-carousel-image-wrap rc2-image-${item.imageMode || "contain"}"
+    style="${item.themeColor ? `--rc2-carousel-theme: ${item.themeColor}` : ""}"
 >
 
     <img
