@@ -25,9 +25,6 @@ const CAROUSEL_DATA = [
         image:
             "assets/fastlane.jpg",
 
-        imageMode: "contain",
-        themeColor: "#252A52",
-
         badge:
             "FEATURED",
 
@@ -53,37 +50,6 @@ const CAROUSEL_DATA = [
 
         image:
             "assets/hack.jpg",
-
-        imageMode: "original",
-
-        badge:
-            "FEATURED",
-
-        buttonText:
-            "Explore",
-
-        link:
-            "#learning-modules",
-
-        active:
-            true
-    },
-
-
-    {
-        id: "millionnaire",
-        type: "book",
-
-        title: "Secrets of the Millionaire Mind",
-
-        category:
-            "Money • Mindset",
-
-        image:
-            "assets/millionnaire.jpg",
-
-        imageMode: "contain",
-        themeColor: "#F3D6DD",
 
         badge:
             "FEATURED",
@@ -112,9 +78,6 @@ const CAROUSEL_DATA = [
         image:
             "assets/start.jpg",
 
-        imageMode: "contain",
-        themeColor: "#B9DCEB",
-
         badge:
             "FEATURED",
 
@@ -142,8 +105,32 @@ const CAROUSEL_DATA = [
         image:
             "assets/startup.jpg",
 
-        imageMode: "contain",
-        themeColor: "#E9C8C4",
+        badge:
+            "FEATURED",
+
+        buttonText:
+            "Explore",
+
+        link:
+            "#learning-modules",
+
+        active:
+            true
+    },
+
+
+    {
+        id: "millionnaire",
+        type: "book",
+
+        title:
+            "Secrets of the Millionaire Mind",
+
+        category:
+            "Money • Mindset",
+
+        image:
+            "assets/millionnaire.jpg",
 
         badge:
             "FEATURED",
@@ -338,10 +325,7 @@ function renderCarousel(
 
             card.innerHTML = `
 
-                <div
-    class="rc2-carousel-image-wrap rc2-image-${item.imageMode || "contain"}"
-    style="${item.themeColor ? `--rc2-carousel-theme: ${item.themeColor}` : ""}"
->
+            <div class="rc2-carousel-image-wrap">
 
     <img
         src="${item.image}"
