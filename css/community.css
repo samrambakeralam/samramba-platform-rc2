@@ -479,6 +479,137 @@
 
 }
 
+/* =========================================
+   COMMUNITY CAROUSEL VISIBILITY
+========================================= */
+
+.rc2-community-card-hidden {
+
+    display:
+        none;
+
+}
+
+/* =========================================
+   COMMUNITY CAROUSEL CONTROLS
+========================================= */
+
+.rc2-community-carousel {
+
+    position:
+        relative;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        100%;
+
+}
+
+
+.rc2-community-arrow {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        44px;
+
+    height:
+        44px;
+
+    flex:
+        0 0 44px;
+
+    border:
+        1px solid #DCE5E1;
+
+    border-radius:
+        50%;
+
+    background:
+        #FFFFFF;
+
+    color:
+        #17804B;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 8px 20px rgba(15, 23, 42, .08);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+
+}
+
+
+.rc2-community-arrow:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        #F1F8F4;
+
+    box-shadow:
+        0 12px 25px rgba(15, 23, 42, .12);
+
+}
+
+
+.rc2-community-arrow svg {
+
+    width:
+        19px;
+
+    height:
+        19px;
+
+}
+
+
+.rc2-community-prev {
+
+    margin-right:
+        18px;
+
+}
+
+
+.rc2-community-next {
+
+    margin-left:
+        18px;
+
+}
+
+
+.rc2-community-grid {
+
+    flex:
+        1;
+
+    max-width:
+        850px;
+
+}
 
 /* =========================================
    EMPTY STATE
@@ -771,6 +902,32 @@
 ========================================= */
 
 @media (max-width: 768px) {
+    
+    .rc2-community-carousel {
+
+    display:
+        block;
+
+}
+
+
+.rc2-community-arrow {
+
+    display:
+        none;
+
+}
+
+
+.rc2-community-grid {
+
+    width:
+        100%;
+
+    max-width:
+        none;
+
+}
 
     .rc2-community-hero {
 

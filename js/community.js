@@ -50,7 +50,7 @@ const COMMUNITY_DATA = [
 ];
 
 /* =========================================
-   COMMUNITY ENGINE
+   COMMUNITY CAROUSEL ENGINE
 ========================================= */
 
 document.addEventListener(
@@ -76,10 +76,12 @@ document.addEventListener(
 
         let currentFilter = "all";
 
+        let currentIndex = 0;
+
 
         /* =========================================
-           GET ACTIVE COMMUNITY ITEMS
-        ========================================= */
+           GET FILTERED ITEMS
+        ========================================== */
 
         function getFilteredItems() {
 
@@ -103,8 +105,8 @@ document.addEventListener(
 
 
         /* =========================================
-           RENDER COMMUNITY CARDS
-        ========================================= */
+           RENDER
+        ========================================== */
 
         function renderCommunity() {
 
@@ -122,7 +124,6 @@ document.addEventListener(
                 }
 
                 return;
-
             }
 
 
@@ -131,8 +132,15 @@ document.addEventListener(
             }
 
 
+            /* Keep index valid after filtering */
+
+            if (currentIndex >= items.length) {
+                currentIndex = 0;
+            }
+
+
             items.forEach(
-                function (item) {
+                function (item, index) {
 
                     const card =
                         document.createElement("article");
@@ -140,6 +148,19 @@ document.addEventListener(
 
                     card.className =
                         "rc2-community-card";
+
+
+                    /*
+                        Only the active card is visible.
+                    */
+
+                    if (index !== currentIndex) {
+
+                        card.classList.add(
+                            "rc2-community-card-hidden"
+                        );
+
+                    }
 
 
                     card.innerHTML = `
@@ -195,8 +216,62 @@ document.addEventListener(
 
 
         /* =========================================
-           FILTER BUTTONS
-        ========================================= */
+           SHOW NEXT
+        ========================================== */
+
+        function showNext() {
+
+            const items =
+                getFilteredItems();
+
+
+            if (items.length <= 1) {
+                return;
+            }
+
+
+            currentIndex++;
+
+            if (currentIndex >= items.length) {
+                currentIndex = 0;
+            }
+
+
+            renderCommunity();
+
+        }
+
+
+        /* =========================================
+           SHOW PREVIOUS
+        ========================================== */
+
+        function showPrevious() {
+
+            const items =
+                getFilteredItems();
+
+
+            if (items.length <= 1) {
+                return;
+            }
+
+
+            currentIndex--;
+
+            if (currentIndex < 0) {
+                currentIndex = items.length - 1;
+            }
+
+
+            renderCommunity();
+
+        }
+
+
+        /* =========================================
+           FILTERS
+        ========================================== */
 
         filters.forEach(
             function (filterButton) {
@@ -207,6 +282,9 @@ document.addEventListener(
 
                         currentFilter =
                             this.dataset.communityFilter;
+
+
+                        currentIndex = 0;
 
 
                         filters.forEach(
@@ -235,8 +313,110 @@ document.addEventListener(
 
 
         /* =========================================
+           ARROWS
+        ========================================== */
+
+        const previousButton =
+            document.getElementById(
+                "rc2CommunityPrev"
+            );
+
+
+        const nextButton =
+            document.getElementById(
+                "rc2CommunityNext"
+            );
+
+
+        if (previousButton) {
+
+            previousButton.addEventListener(
+                "click",
+                showPrevious
+            );
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.addEventListener(
+                "click",
+                showNext
+            );
+
+        }
+
+
+        /* =========================================
+           MOBILE SWIPE
+        ========================================== */
+
+        let touchStartX = 0;
+
+        let touchEndX = 0;
+
+
+        grid.addEventListener(
+            "touchstart",
+            function (event) {
+
+                touchStartX =
+                    event.changedTouches[0].screenX;
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        grid.addEventListener(
+            "touchend",
+            function (event) {
+
+                touchEndX =
+                    event.changedTouches[0].screenX;
+
+
+                const distance =
+                    touchEndX - touchStartX;
+
+
+                const minimumSwipe =
+                    50;
+
+
+                if (
+                    Math.abs(distance) <
+                    minimumSwipe
+                ) {
+
+                    return;
+
+                }
+
+
+                if (distance < 0) {
+
+                    showNext();
+
+                } else {
+
+                    showPrevious();
+
+                }
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        /* =========================================
            INITIAL RENDER
-        ========================================= */
+        ========================================== */
 
         renderCommunity();
 
