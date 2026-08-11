@@ -26,7 +26,7 @@ const CAROUSEL_DATA = [
             "assets/fastlane.jpg",
 
         themeColor:
-            "#252A52",
+            "#FF0000",
 
         badge:
             "FEATURED",
@@ -341,7 +341,7 @@ function renderCarousel(
 
                 <div
     class="rc2-carousel-image-wrap"
-    style="--rc2-carousel-bg: url('${item.image}')"
+    style="--rc2-carousel-theme: ${item.themeColor}"
 >
 
     <img
