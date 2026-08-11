@@ -313,39 +313,75 @@ document.addEventListener(
 
 
         /* =========================================
-           ARROWS
-        ========================================== */
+   ARROWS
+========================================= */
 
-        const previousButton =
-            document.getElementById(
-                "rc2CommunityPrev"
-            );
-
-
-        const nextButton =
-            document.getElementById(
-                "rc2CommunityNext"
-            );
+const previousButton =
+    document.getElementById(
+        "rc2CommunityPrev"
+    );
 
 
-        if (previousButton) {
-
-            previousButton.addEventListener(
-                "click",
-                showPrevious
-            );
-
-        }
+const nextButton =
+    document.getElementById(
+        "rc2CommunityNext"
+    );
 
 
-        if (nextButton) {
+/* =========================================
+   UPDATE ARROW VISIBILITY
+========================================= */
 
-            nextButton.addEventListener(
-                "click",
-                showNext
-            );
+function updateArrowVisibility() {
 
-        }
+    const items =
+        getFilteredItems();
+
+
+    const showArrows =
+        items.length > 1;
+
+
+    if (previousButton) {
+
+        previousButton.style.display =
+            showArrows ? "flex" : "none";
+
+    }
+
+
+    if (nextButton) {
+
+        nextButton.style.display =
+            showArrows ? "flex" : "none";
+
+    }
+
+}
+
+
+/* =========================================
+   ARROW EVENTS
+========================================= */
+
+if (previousButton) {
+
+    previousButton.addEventListener(
+        "click",
+        showPrevious
+    );
+
+}
+
+
+if (nextButton) {
+
+    nextButton.addEventListener(
+        "click",
+        showNext
+    );
+
+}
 
 
         /* =========================================
