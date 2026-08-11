@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Community | SAMRAMBA KERALAM 2030
+    </title>
+
+    <meta
+        name="description"
+        content="Explore the people, institutions, connections and events shaping the SAMRAMBA KERALAM 2030 community."
+    >
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Main Site CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+
+    <!-- Community CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/community.css"
+    >
+
+
+    <!-- Lucide Icons -->
+
+    <script
+        src="https://unpkg.com/lucide@latest"
+    ></script>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     COMMUNITY HEADER
+========================================= -->
+
+<header class="rc2-header">
+
+    <div class="rc2-header-inner">
+
+
+        <!-- Logo -->
+
+        <a
+            href="index.html"
+            class="rc2-logo-link"
+        >
+
+            <img
+                src="assets/logo.png"
+                alt="SAMRAMBA KERALAM 2030"
+                class="rc2-logo"
+            >
+
+        </a>
+
+
+        <!-- Desktop Navigation -->
+
+        <nav class="rc2-desktop-nav">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#learning-modules">
+                Explore
+            </a>
+
+            <a
+                href="community.html"
+                class="active"
+            >
+                Community
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#pricing">
+                Pricing
+            </a>
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
+        </nav>
+
+
+        <!-- Desktop CTA -->
+
+        <button
+            class="rc2-header-cta"
+            id="rc2HeaderCTA"
+            type="button"
+        >
+            Get Access
+        </button>
+
+
+        <!-- Mobile Menu Button -->
+
+        <button
+            class="rc2-menu-button"
+            id="rc2MenuButton"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+        >
+
+            <i data-lucide="menu"></i>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     MOBILE MENU
+========================================= -->
+
+<div
+    class="rc2-mobile-menu"
+    id="rc2MobileMenu"
+>
+
+
+    <div class="rc2-mobile-menu-top">
+
+        <span>
+            SAMRAMBA
+        </span>
+
+
+        <button
+            id="rc2MenuClose"
+            type="button"
+            aria-label="Close menu"
+        >
+
+            <i data-lucide="x"></i>
+
+        </button>
+
+    </div>
+
+
+    <nav class="rc2-mobile-nav">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="index.html#learning-modules">
+            Explore
+        </a>
+
+        <a
+            href="community.html"
+            class="active"
+        >
+            Community
+        </a>
+
+        <a href="index.html#about">
+            About
+        </a>
+
+        <a href="index.html#pricing">
+            Pricing
+        </a>
+
+        <a href="index.html#contact">
+            Contact
+        </a>
+
+
+        <button
+            id="rc2MobileCTA"
+            type="button"
+        >
+            Get Access — ₹499
+        </button>
+
+    </nav>
+
+</div>
+
+
+<!-- =========================================
+     COMMUNITY HERO
+========================================= -->
+
+<main>
+
+
+<section class="rc2-community-hero">
+
+    <div class="rc2-community-hero-inner">
+
+
+        <span class="rc2-community-eyebrow">
+            OUR COMMUNITY
+        </span>
+
+
+        <h1>
+
+            Real People.
+            <span>Real Connections.</span>
+
+        </h1>
+
+
+        <p>
+
+            Discover the people, institutions and communities
+            connecting with SAMRAMBA KERALAM 2030.
+
+        </p>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     COMMUNITY EXPLORER
+========================================= -->
+
+<section
+    class="rc2-community-explorer"
+    id="communityExplorer"
+>
+
+    <div class="rc2-community-inner">
+
+
+        <!-- Category Navigation -->
+
+        <div
+            class="rc2-community-filters"
+            role="tablist"
+            aria-label="Community categories"
+        >
+
+            <button
+                class="rc2-community-filter active"
+                data-community-filter="all"
+                type="button"
+            >
+                All
+            </button>
+
+
+            <button
+                class="rc2-community-filter"
+                data-community-filter="institutional"
+                type="button"
+            >
+                Institutions
+            </button>
+
+
+            <button
+                class="rc2-community-filter"
+                data-community-filter="endorsement"
+                type="button"
+            >
+                Connections
+            </button>
+
+
+            <button
+                class="rc2-community-filter"
+                data-community-filter="event"
+                type="button"
+            >
+                Events
+            </button>
+
+        </div>
+
+
+        <!-- Dynamic Community Gallery -->
+
+        <div
+            class="rc2-community-grid"
+            id="rc2CommunityGrid"
+        >
+
+            <!-- Cards generated by community.js -->
+
+        </div>
+
+
+        <!-- Empty State -->
+
+        <div
+            class="rc2-community-empty"
+            id="rc2CommunityEmpty"
+            hidden
+        >
+
+            <i data-lucide="images"></i>
+
+            <h2>
+                More Community Stories Coming Soon
+            </h2>
+
+            <p>
+                We're continuing to document the people,
+                institutions and events connected with
+                SAMRAMBA KERALAM 2030.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     COMMUNITY CLOSING
+========================================= -->
+
+<section class="rc2-community-closing">
+
+    <div class="rc2-community-closing-inner">
+
+        <span class="rc2-community-eyebrow">
+            THE JOURNEY CONTINUES
+        </span>
+
+
+        <h2>
+            Building connections today.
+            <span>Creating opportunities for tomorrow.</span>
+        </h2>
+
+
+        <p>
+            SAMRAMBA KERALAM 2030 is growing through
+            conversations, partnerships, learning and
+            meaningful community engagement.
+        </p>
+
+
+        <a
+            href="index.html"
+            class="rc2-community-back"
+        >
+
+            <i data-lucide="arrow-left"></i>
+
+            Back to SAMRAMBA KERALAM 2030
+
+        </a>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================
+     COMMUNITY FOOTER
+========================================= -->
+
+<footer class="rc2-community-footer">
+
+    <p>
+        © 2026 SAMRAMBA KERALAM 2030.
+        All rights reserved.
+    </p>
+
+</footer>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script src="js/community.js"></script>
+
+
+<script>
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+
+            if (typeof lucide !== "undefined") {
+
+                lucide.createIcons();
+
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>

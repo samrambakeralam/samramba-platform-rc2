@@ -1,0 +1,942 @@
+/* =========================================
+   SAMRAMBA COMMUNITY PAGE
+   RC2 VISUAL SYSTEM
+========================================= */
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.rc2-community-hero,
+.rc2-community-explorer,
+.rc2-community-closing {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+}
+
+
+.rc2-community-hero {
+
+    padding:
+        110px 20px 70px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #F7FBF9 0%,
+            #EEF7F2 50%,
+            #F8FAFC 100%
+        );
+
+}
+
+
+.rc2-community-hero-inner,
+.rc2-community-inner,
+.rc2-community-closing-inner {
+
+    width: 100%;
+
+    max-width: 1180px;
+
+    margin:
+        0 auto;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.rc2-community-hero-inner {
+
+    text-align: center;
+
+}
+
+
+.rc2-community-eyebrow {
+
+    display: inline-block;
+
+    margin-bottom: 14px;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing:
+        .12em;
+
+    text-transform:
+        uppercase;
+
+    color:
+        #17804B;
+
+}
+
+
+.rc2-community-hero h1 {
+
+    margin:
+        0 auto;
+
+    max-width:
+        850px;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size:
+        clamp(2.2rem, 5vw, 4rem);
+
+    line-height:
+        1.08;
+
+    letter-spacing:
+        -.03em;
+
+    color:
+        #102A22;
+
+}
+
+
+.rc2-community-hero h1 span {
+
+    display:
+        inline;
+
+    color:
+        #17804B;
+
+}
+
+
+.rc2-community-hero p {
+
+    max-width:
+        680px;
+
+    margin:
+        22px auto 0;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:
+        1.05rem;
+
+    line-height:
+        1.7;
+
+    color:
+        #64748B;
+
+}
+
+
+/* =========================================
+   EXPLORER
+========================================= */
+
+.rc2-community-explorer {
+
+    padding:
+        70px 20px 90px;
+
+    background:
+        #FFFFFF;
+
+}
+
+
+/* =========================================
+   FILTERS
+========================================= */
+
+.rc2-community-filters {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        10px;
+
+    margin-bottom:
+        42px;
+
+}
+
+
+.rc2-community-filter {
+
+    appearance:
+        none;
+
+    border:
+        1px solid #DCE5E1;
+
+    background:
+        #FFFFFF;
+
+    color:
+        #52635C;
+
+    padding:
+        10px 18px;
+
+    border-radius:
+        999px;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:
+        .88rem;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+
+}
+
+
+.rc2-community-filter:hover {
+
+    transform:
+        translateY(-1px);
+
+    border-color:
+        #AFCDBD;
+
+}
+
+
+.rc2-community-filter.active {
+
+    background:
+        #17804B;
+
+    color:
+        #FFFFFF;
+
+    border-color:
+        #17804B;
+
+}
+
+
+/* =========================================
+   COMMUNITY GRID
+========================================= */
+
+.rc2-community-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        28px;
+
+}
+
+
+/* =========================================
+   COMMUNITY CARD
+========================================= */
+
+.rc2-community-card {
+
+    overflow:
+        hidden;
+
+    background:
+        #FFFFFF;
+
+    border:
+        1px solid #E5ECE8;
+
+    border-radius:
+        22px;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, .07);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    .rc2-community-card:hover {
+
+        transform:
+            translateY(-5px);
+
+        box-shadow:
+            0 18px 40px rgba(15, 23, 42, .12);
+
+    }
+
+}
+
+
+/* =========================================
+   PHOTO
+========================================= */
+
+.rc2-community-image-wrap {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    aspect-ratio:
+        16 / 10;
+
+    overflow:
+        hidden;
+
+    background:
+        #F1F5F3;
+
+}
+
+
+.rc2-community-image {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        block;
+
+    object-fit:
+        cover;
+
+    transition:
+        transform .45s ease;
+
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    .rc2-community-card:hover
+    .rc2-community-image {
+
+        transform:
+            scale(1.025);
+
+    }
+
+}
+
+
+/* =========================================
+   BADGE
+========================================= */
+
+.rc2-community-card-badge {
+
+    position:
+        absolute;
+
+    top:
+        16px;
+
+    left:
+        16px;
+
+    padding:
+        7px 11px;
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(16, 42, 34, .88);
+
+    color:
+        #FFFFFF;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:
+        .68rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        .06em;
+
+    text-transform:
+        uppercase;
+
+    backdrop-filter:
+        blur(8px);
+
+}
+
+
+/* =========================================
+   CARD CONTENT
+========================================= */
+
+.rc2-community-card-content {
+
+    padding:
+        22px 22px 24px;
+
+}
+
+
+.rc2-community-card-content h3 {
+
+    margin:
+        0 0 9px;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size:
+        1.15rem;
+
+    line-height:
+        1.35;
+
+    color:
+        #102A22;
+
+}
+
+
+.rc2-community-card-content p {
+
+    margin:
+        0;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:
+        .9rem;
+
+    line-height:
+        1.65;
+
+    color:
+        #64748B;
+
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.rc2-community-empty {
+
+    text-align:
+        center;
+
+    max-width:
+        560px;
+
+    margin:
+        50px auto 0;
+
+    padding:
+        55px 25px;
+
+    border:
+        1px dashed #CBD8D2;
+
+    border-radius:
+        22px;
+
+}
+
+
+.rc2-community-empty[hidden] {
+
+    display:
+        none;
+
+}
+
+
+.rc2-community-empty svg {
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    margin-bottom:
+        15px;
+
+    color:
+        #17804B;
+
+}
+
+
+.rc2-community-empty h2 {
+
+    margin:
+        0 0 10px;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size:
+        1.3rem;
+
+    color:
+        #102A22;
+
+}
+
+
+.rc2-community-empty p {
+
+    margin:
+        0;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:
+        .9rem;
+
+    line-height:
+        1.6;
+
+    color:
+        #64748B;
+
+}
+
+
+/* =========================================
+   CLOSING SECTION
+========================================= */
+
+.rc2-community-closing {
+
+    padding:
+        90px 20px;
+
+    background:
+        #102A22;
+
+}
+
+
+.rc2-community-closing-inner {
+
+    text-align:
+        center;
+
+}
+
+
+.rc2-community-closing
+.rc2-community-eyebrow {
+
+    color:
+        #7DE0A8;
+
+}
+
+
+.rc2-community-closing h2 {
+
+    max-width:
+        800px;
+
+    margin:
+        0 auto;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size:
+        clamp(1.8rem, 4vw, 3rem);
+
+    line-height:
+        1.2;
+
+    color:
+        #FFFFFF;
+
+}
+
+
+.rc2-community-closing h2 span {
+
+    display:
+        block;
+
+    color:
+        #7DE0A8;
+
+}
+
+
+.rc2-community-closing p {
+
+    max-width:
+        650px;
+
+    margin:
+        20px auto 30px;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:
+        .98rem;
+
+    line-height:
+        1.7;
+
+    color:
+        #CBD5D1;
+
+}
+
+
+.rc2-community-back {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        8px;
+
+    padding:
+        12px 18px;
+
+    border:
+        1px solid rgba(255,255,255,.18);
+
+    border-radius:
+        999px;
+
+    color:
+        #FFFFFF;
+
+    text-decoration:
+        none;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:
+        .88rem;
+
+    font-weight:
+        600;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease;
+
+}
+
+
+.rc2-community-back:hover {
+
+    background:
+        rgba(255,255,255,.08);
+
+    border-color:
+        rgba(255,255,255,.3);
+
+}
+
+
+.rc2-community-back svg {
+
+    width:
+        17px;
+
+    height:
+        17px;
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.rc2-community-footer {
+
+    padding:
+        22px 20px;
+
+    text-align:
+        center;
+
+    background:
+        #0B211A;
+
+}
+
+
+.rc2-community-footer p {
+
+    margin:
+        0;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:
+        .78rem;
+
+    color:
+        #94A8A0;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .rc2-community-hero {
+
+        padding:
+            90px 18px 55px;
+
+    }
+
+
+    .rc2-community-hero h1 {
+
+        font-size:
+            2.15rem;
+
+    }
+
+
+    .rc2-community-hero p {
+
+        font-size:
+            .94rem;
+
+    }
+
+
+    .rc2-community-explorer {
+
+        padding:
+            45px 14px 65px;
+
+    }
+
+
+    .rc2-community-filters {
+
+        justify-content:
+            flex-start;
+
+        flex-wrap:
+            nowrap;
+
+        overflow-x:
+            auto;
+
+        padding:
+            2px 2px 8px;
+
+        margin-bottom:
+            30px;
+
+        scrollbar-width:
+            none;
+
+    }
+
+
+    .rc2-community-filters::-webkit-scrollbar {
+
+        display:
+            none;
+
+    }
+
+
+    .rc2-community-filter {
+
+        flex:
+            0 0 auto;
+
+        white-space:
+            nowrap;
+
+    }
+
+
+    .rc2-community-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            20px;
+
+    }
+
+
+    .rc2-community-card {
+
+        border-radius:
+            18px;
+
+    }
+
+
+    .rc2-community-image-wrap {
+
+        aspect-ratio:
+            4 / 3;
+
+    }
+
+
+    .rc2-community-card-content {
+
+        padding:
+            18px 18px 20px;
+
+    }
+
+
+    .rc2-community-closing {
+
+        padding:
+            65px 18px;
+
+    }
+
+
+    .rc2-community-closing h2 {
+
+        font-size:
+            1.75rem;
+
+    }
+
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 420px) {
+
+    .rc2-community-hero {
+
+        padding-top:
+            78px;
+
+    }
+
+
+    .rc2-community-hero h1 {
+
+        font-size:
+            1.9rem;
+
+    }
+
+
+    .rc2-community-eyebrow {
+
+        font-size:
+            10px;
+
+    }
+
+
+    .rc2-community-filter {
+
+        padding:
+            9px 15px;
+
+        font-size:
+            .82rem;
+
+    }
+
+}
