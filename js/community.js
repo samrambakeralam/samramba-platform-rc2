@@ -212,6 +212,8 @@ document.addEventListener(
 
             }
 
+            updateArrowVisibility();
+
         }
 
 
