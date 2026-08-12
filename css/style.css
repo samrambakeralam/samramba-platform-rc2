@@ -1799,42 +1799,56 @@ transform:translateY(0px);
    VISION • MISSION • PROMISE
 ===================================================== */
 
-.mission-values{
+.mission-values {
 
-    display:grid;
+    grid-column:
+        1 / -1;
 
-    grid-template-columns:repeat(3,1fr);
+    display:
+        grid;
 
-    gap:28px;
+    grid-template-columns:
+        repeat(3, 1fr);
 
-    margin-top:60px;
+    gap:
+        28px;
+
+    margin-top:
+        20px;
 
 }
 
-.value-card{
+.value-card {
 
-    background:linear-gradient(
-        180deg,
-        #FFFFFF 0%,
-        #F8FFFB 100%
-    );
+    background:
+        linear-gradient(
+            180deg,
+            #FFFFFF 0%,
+            #F8FFFB 100%
+        );
 
-    border:1px solid #E5E7EB;
+    border:
+        1px solid #E5E7EB;
 
-    border-top:4px solid #16A34A;
+    border-top:
+        4px solid #16A34A;
 
-    border-radius:22px;
+    border-radius:
+        22px;
 
-    padding:36px 30px;
+    padding:
+        32px 28px;
 
-    text-align:center;
+    text-align:
+        center;
 
-    box-shadow:0 10px 30px rgba(15,23,42,.06);
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.06);
 
     transition:
-        transform .35s ease,
-        box-shadow .35s ease,
-        border-color .35s ease;
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
 
 }
 
