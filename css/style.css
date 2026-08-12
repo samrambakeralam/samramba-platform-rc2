@@ -567,97 +567,209 @@ transform:translateY(0px);
 
 
 /* =====================================================
-   MOBILE
+   MOBILE — COMPACT 2-COLUMN UI
 ===================================================== */
 
 @media (max-width: 768px) {
 
     .why-bundle {
-        padding: 75px 20px;
+
+        padding:
+            60px 18px 65px;
+
     }
+
 
     .why-bundle .container {
 
-        display: block;
+        display:
+            block;
 
-        width: 100%;
+        width:
+            100%;
 
-        max-width: 100%;
+        max-width:
+            100%;
 
-        margin: 0;
+        margin:
+            0;
+
     }
 
 
-    /* Introduction */
+    /* ---------------------------------------------
+       INTRODUCTION
+    --------------------------------------------- */
 
     .why-bundle .section-title {
 
-        width: 100%;
+        width:
+            100%;
 
-        max-width: 100%;
+        max-width:
+            100%;
 
-        margin-bottom: 42px;
+        margin:
+            0 0 30px;
 
-        text-align: left;
+        text-align:
+            left;
+
     }
+
 
     .why-bundle .section-title h2 {
 
-        font-size: 36px;
+        font-size:
+            32px;
 
-        line-height: 1.15;
+        line-height:
+            1.15;
 
-        margin-bottom: 20px;
+        margin:
+            0 0 14px;
+
     }
+
 
     .why-bundle .section-title p {
 
-        font-size: 17px;
+        font-size:
+            15px;
 
-        line-height: 1.75;
+        line-height:
+            1.65;
+
+        margin:
+            0;
+
     }
 
 
-    /* Feature cards */
+    /* ---------------------------------------------
+       COMPACT FEATURE GRID
+    --------------------------------------------- */
 
     .features-grid {
 
-        width: 100%;
+        width:
+            100%;
 
-        display: grid;
+        display:
+            grid;
 
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
 
-        gap: 20px;
+        gap:
+            14px;
 
-        min-width: 0;
+        min-width:
+            0;
+
     }
 
+
+    /* ---------------------------------------------
+       COMPACT FEATURE CARD
+    --------------------------------------------- */
 
     .feature-card {
 
-        width: 100%;
+        width:
+            100%;
 
-        min-width: 0;
+        min-width:
+            0;
 
-        min-height: auto;
+        min-height:
+            0;
 
-        padding: 28px 24px;
+        height:
+            185px;
+
+        box-sizing:
+            border-box;
+
+        padding:
+            20px 14px;
+
+        border-radius:
+            16px;
+
+        justify-content:
+            flex-start;
+
     }
 
+
+    /* ---------------------------------------------
+       ICON
+    --------------------------------------------- */
+
+    .feature-icon {
+
+        width:
+            46px;
+
+        height:
+            46px;
+
+        min-width:
+            46px;
+
+        margin:
+            0 auto 12px;
+
+        border-radius:
+            14px;
+
+    }
+
+
+    .feature-icon svg {
+
+        width:
+            23px;
+
+        height:
+            23px;
+
+    }
+
+
+    /* ---------------------------------------------
+       TITLE
+    --------------------------------------------- */
 
     .feature-card h3 {
 
-        font-size: 22px;
+        font-size:
+            17px;
+
+        line-height:
+            1.25;
+
+        margin:
+            0 0 8px;
 
     }
 
 
+    /* ---------------------------------------------
+       DESCRIPTION
+    --------------------------------------------- */
+
     .feature-card p {
 
-        font-size: 15px;
+        font-size:
+            12.5px;
 
-        line-height: 1.65;
+        line-height:
+            1.45;
+
+        margin:
+            0;
 
     }
 
@@ -673,25 +785,110 @@ transform:translateY(0px);
     .why-bundle {
 
         padding:
-            65px 18px;
+            55px 16px 60px;
+
     }
+
+
+    .why-bundle .section-title {
+
+        margin-bottom:
+            26px;
+
+    }
+
 
     .why-bundle .section-title h2 {
 
         font-size:
-            32px;
+            30px;
+
     }
+
 
     .why-bundle .section-title p {
 
         font-size:
-            16px;
+            14.5px;
+
+        line-height:
+            1.6;
+
     }
+
+
+    .features-grid {
+
+        gap:
+            12px;
+
+    }
+
 
     .feature-card {
 
+        height:
+            175px;
+
         padding:
-            26px 20px;
+            18px 12px;
+
+        border-radius:
+            15px;
+
+    }
+
+
+    .feature-icon {
+
+        width:
+            42px;
+
+        height:
+            42px;
+
+        min-width:
+            42px;
+
+        margin-bottom:
+            10px;
+
+        border-radius:
+            13px;
+
+    }
+
+
+    .feature-icon svg {
+
+        width:
+            21px;
+
+        height:
+            21px;
+
+    }
+
+
+    .feature-card h3 {
+
+        font-size:
+            16px;
+
+        margin-bottom:
+            6px;
+
+    }
+
+
+    .feature-card p {
+
+        font-size:
+            11.5px;
+
+        line-height:
+            1.4;
+
     }
 
 }
