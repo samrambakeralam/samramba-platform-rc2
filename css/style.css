@@ -2302,7 +2302,11 @@ transform:translateY(0px);
 
 .module-card h3{
 
-    font-size:32px;
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size:20px;
 
     color:#0B1F3A;
 
