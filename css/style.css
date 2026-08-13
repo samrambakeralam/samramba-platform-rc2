@@ -6165,11 +6165,11 @@ section {
 @media (max-width:900px){
 
     .learning-journey{
-        padding-bottom:20px !important;
+        padding-bottom:40px !important;
     }
 
     .featured-modules{
-        padding-top:20px !important;
+        padding-top:40px !important;
     }
 
 }
