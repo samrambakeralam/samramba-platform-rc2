@@ -1753,23 +1753,194 @@ transform:translateY(0px);
 
 }
 
+/* ==========================================
+   FEATURED MODULES — CAROUSEL TRACK
+========================================== */
+
 .featured-grid{
 
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
+    display:flex;
 
     gap:30px;
 
     margin-top:60px;
 
+    overflow-x:auto;
+
+    overflow-y:hidden;
+
+    scroll-behavior:smooth;
+
+    scroll-snap-type:x mandatory;
+
+    padding:10px 4px 20px;
+
+    scrollbar-width:none;
+
 }
 
-@media(max-width:992px){
+.featured-grid::-webkit-scrollbar{
 
-    .featured-grid{
+    display:none;
 
-        grid-template-columns:1fr;
+}
+
+/* ==========================================
+   FEATURED MODULES — CAROUSEL WRAPPER
+========================================== */
+
+.featured-carousel{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    width:100%;
+
+}
+
+
+/* ==========================================
+   CAROUSEL ARROWS
+========================================== */
+
+.featured-carousel-arrow{
+
+    width:46px;
+
+    height:46px;
+
+    min-width:46px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#FFFFFF;
+
+    color:#0B1F3A;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 8px 24px rgba(15,23,42,.10);
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        color .25s ease,
+        box-shadow .25s ease;
+
+    z-index:5;
+
+}
+
+
+.featured-carousel-arrow svg{
+
+    width:22px;
+
+    height:22px;
+
+}
+
+
+.featured-carousel-arrow:hover{
+
+    transform:translateY(-2px);
+
+    background:#16A34A;
+
+    color:#FFFFFF;
+
+    box-shadow:
+        0 12px 28px rgba(22,163,74,.20);
+
+}
+
+
+/* ==========================================
+   TRACK
+========================================== */
+
+.featured-carousel .featured-grid{
+
+    flex:1;
+
+    min-width:0;
+
+    margin-top:0;
+
+}
+
+/* ==========================================
+   MOBILE CAROUSEL
+========================================== */
+
+@media(max-width:768px){
+
+    .featured-carousel{
+
+        gap:0;
+
+    }
+
+
+    .featured-carousel-arrow{
+
+        position:absolute;
+
+        top:50%;
+
+        transform:translateY(-50%);
+
+        width:42px;
+
+        height:42px;
+
+        min-width:42px;
+
+        z-index:10;
+
+    }
+
+
+    .featured-carousel-arrow:hover{
+
+        transform:translateY(-50%);
+
+    }
+
+
+    .featured-carousel-prev{
+
+        left:8px;
+
+    }
+
+
+    .featured-carousel-next{
+
+        right:8px;
+
+    }
+
+
+    .featured-carousel .featured-grid{
+
+        padding-left:4px;
+
+        padding-right:4px;
 
     }
 
@@ -1788,13 +1959,17 @@ transform:translateY(0px);
 
     border-radius:24px;
 
-    padding:32px;
+    padding:28px;
 
     display:flex;
 
     flex-direction:column;
 
-    min-height:690px;
+    min-height:520px;
+
+    flex:0 0 calc((100% - 60px) / 3);
+
+    scroll-snap-align:start;
 
     box-shadow:0 12px 35px rgba(15,23,42,.06);
 
