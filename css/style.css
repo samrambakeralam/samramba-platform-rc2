@@ -999,15 +999,24 @@ transform:translateY(0px);
 
 .topics-left h2 {
 
-    font-size: 42px;
+    font-family:
+        "Poppins",
+        sans-serif;
 
-    font-weight: 800;
+    font-size:
+        42px;
 
-    color: #0B1F3A;
+    font-weight:
+        700;
 
-    line-height: 1.2;
+    color:
+        #0B1F3A;
 
-    margin-bottom: 20px;
+    line-height:
+        1.2;
+
+    margin-bottom:
+        20px;
 
 }
 
