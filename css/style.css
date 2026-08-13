@@ -1451,7 +1451,7 @@ transform:translateY(0px);
 ========================================== */
 
 .learning-journey{
-    padding:75px 8%;
+    padding:75px 8% 45px;
     background:#F8FAFC;
 }
 
@@ -1747,7 +1747,7 @@ transform:translateY(0px);
 
 .featured-modules{
 
-    padding:110px 8%;
+    padding:70px 8% 110px;
 
     background:#F8FAFC;
 
