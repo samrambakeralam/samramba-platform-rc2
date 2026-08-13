@@ -1148,24 +1148,36 @@ transform:translateY(0px);
 
 .topic-card h3 {
 
-    min-height: auto;
+    font-family:
+        "Poppins",
+        sans-serif;
 
-    display: flex;
+    min-height:
+        auto;
 
-    align-items: center;
+    display:
+        flex;
 
-    justify-content: center;
+    align-items:
+        center;
 
-    font-size: 19px;
+    justify-content:
+        center;
 
-    line-height: 1.35;
+    font-size:
+        19px;
 
-    font-weight: 700;
+    line-height:
+        1.35;
 
-    color: #0B1F3A;
+    font-weight:
+        700;
 
-    margin: 0;
+    color:
+        #0B1F3A;
 
+    margin:
+        0;
 }
 
 
@@ -1331,6 +1343,10 @@ transform:translateY(0px);
 
     .topic-card h3 {
 
+    font-family:
+        "Poppins",
+        sans-serif;
+
     font-size:
         13px;
 
@@ -1411,6 +1427,10 @@ transform:translateY(0px);
 
 
     .topic-card h3 {
+
+        font-family:
+        "Poppins",
+        sans-serif;
 
         font-size:
             12px;
