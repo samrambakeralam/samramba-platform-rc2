@@ -1944,6 +1944,122 @@ transform:translateY(0px);
 
     }
 
+    /* ==========================================
+   FEATURED MODULES — MOBILE CARDS
+========================================== */
+
+.featured-modules{
+    padding:
+        75px 18px 70px;
+}
+
+.featured-grid{
+    gap:
+        16px;
+
+    padding:
+        8px 4px 18px;
+}
+
+.module-card{
+
+    flex:
+        0 0 88%;
+
+    min-height:
+        auto;
+
+    padding:
+        22px;
+
+    border-radius:
+        20px;
+}
+
+.module-cover{
+
+    height:
+        125px;
+
+    padding:
+        18px;
+
+    margin-bottom:
+        20px;
+
+    border-radius:
+        16px;
+}
+
+.module-cover-text h4{
+
+    font-size:
+        18px;
+
+}
+
+.module-cover .preview-badge{
+
+    padding:
+        6px 10px;
+
+    font-size:
+        10px;
+
+}
+
+.module-card h3{
+
+    font-size:
+        24px;
+
+    line-height:
+        1.25;
+
+    margin-bottom:
+        12px;
+
+}
+
+.module-card p{
+
+    font-size:
+        15px;
+
+    line-height:
+        1.65;
+
+    margin-bottom:
+        20px;
+
+}
+
+.module-meta{
+
+    gap:
+        12px;
+
+    margin-bottom:
+        18px;
+
+    font-size:
+        13px;
+
+}
+
+.module-button{
+
+    padding:
+        14px;
+
+    font-size:
+        15px;
+
+    border-radius:
+        12px;
+
+}
+
 }
 
 
