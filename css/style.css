@@ -5927,3 +5927,100 @@ section {
     overflow: visible;
 
 }
+
+/* ==========================================
+   VERY SMALL PHONES
+   Compact Featured Module Cards
+========================================== */
+
+@media (max-width:360px){
+
+    .featured-grid{
+        gap:12px;
+        padding-left:4px;
+        padding-right:4px;
+    }
+
+    .featured-grid .module-card{
+
+        flex:0 0 88%;
+
+        padding:16px;
+
+        border-radius:18px;
+
+    }
+
+    .featured-grid .module-cover{
+
+        height:105px;
+
+        padding:14px;
+
+        margin-bottom:16px;
+
+        border-radius:14px;
+
+    }
+
+    .featured-grid .module-cover-text h4{
+
+        font-size:15px;
+
+    }
+
+    .featured-grid .module-cover .module-number{
+
+        font-size:9px;
+
+    }
+
+    .featured-grid .module-cover .preview-badge{
+
+        padding:5px 8px;
+
+        font-size:9px;
+
+    }
+
+    .featured-grid .module-card h3{
+
+        font-size:22px;
+
+        line-height:1.2;
+
+        margin-bottom:8px;
+
+    }
+
+    .featured-grid .module-card p{
+
+        font-size:13px;
+
+        line-height:1.5;
+
+        margin-bottom:14px;
+
+    }
+
+    .featured-grid .module-meta{
+
+        gap:8px;
+
+        margin-bottom:12px;
+
+        font-size:12px;
+
+    }
+
+    .featured-grid .module-button{
+
+        padding:12px;
+
+        font-size:14px;
+
+        border-radius:11px;
+
+    }
+
+}
