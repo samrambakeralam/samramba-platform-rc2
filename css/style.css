@@ -6156,3 +6156,20 @@ section {
     }
 
 }
+
+/* ==========================================
+   LEARNING JOURNEY → FEATURED MODULES
+   MOBILE GAP — FINAL TEST
+========================================== */
+
+@media (max-width:900px){
+
+    .learning-journey{
+        padding-bottom:20px !important;
+    }
+
+    .featured-modules{
+        padding-top:20px !important;
+    }
+
+}
