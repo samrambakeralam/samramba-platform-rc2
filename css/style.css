@@ -1914,7 +1914,93 @@ transform:translateY(0px);
         padding-right:4px;
 
     }
-    
+
+    /* ==========================================
+   FEATURED MODULES — MOBILE TYPOGRAPHY
+========================================== */
+
+.module-cover-text h4 {
+
+    font-size:
+        17px;
+
+    line-height:
+        1.25;
+
+}
+
+
+.module-cover .module-number {
+
+    font-size:
+        10px;
+
+}
+
+
+.module-cover .preview-badge {
+
+    padding:
+        5px 9px;
+
+    font-size:
+        9px;
+
+}
+
+
+.module-card h3 {
+
+    font-size:
+        23px;
+
+    line-height:
+        1.25;
+
+    margin-bottom:
+        10px;
+
+}
+
+
+.module-card p {
+
+    font-size:
+        14px;
+
+    line-height:
+        1.6;
+
+    margin-bottom:
+        18px;
+
+}
+
+
+.module-meta {
+
+    gap:
+        10px;
+
+    margin-bottom:
+        16px;
+
+    font-size:
+        12px;
+
+}
+
+
+.module-button {
+
+    padding:
+        13px;
+
+    font-size:
+        14px;
+
+}
+
     /* ==========================================
    FEATURED MODULES — MOBILE CARDS
 ========================================== */
