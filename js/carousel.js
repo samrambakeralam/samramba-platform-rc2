@@ -149,6 +149,91 @@ const CAROUSEL_DATA = [
 
 
 /* =========================================================
+   FEATURED LEARNING MODULE DATA
+========================================================= */
+
+const FEATURED_MODULE_DATA = [
+
+    {
+        id: "startup-fundamentals",
+
+        number: "MODULE 01",
+
+        category: "Entrepreneurship",
+
+        title: "Startup Fundamentals",
+
+        description:
+            "Build a strong foundation in entrepreneurship by learning idea validation, product development, branding, sales, finance, and business growth.",
+
+        pages: "7 Pages",
+
+        readTime: "15–20 min read",
+
+        badge: "FREE PREVIEW",
+
+        buttonText: "Read Preview",
+
+        link: "#",
+
+        active: true
+    },
+
+
+    {
+        id: "viral-marketing",
+
+        number: "MODULE 02",
+
+        category: "Marketing Strategy",
+
+        title: "Viral Marketing",
+
+        description:
+            "Learn why ideas, products, and messages spread naturally, and discover practical principles for creating memorable and shareable marketing.",
+
+        pages: "9 Pages",
+
+        readTime: "20–25 min read",
+
+        badge: "PREVIEW EDITION",
+
+        buttonText: "Read Preview",
+
+        link: "#",
+
+        active: true
+    },
+
+
+    {
+        id: "psychology-selling",
+
+        number: "MODULE 03",
+
+        category: "Sales Mastery",
+
+        title: "Psychology of Selling",
+
+        description:
+            "Understand customer behaviour, communication, negotiation, and relationship building to become more confident in real-world selling situations.",
+
+        pages: "7 Pages",
+
+        readTime: "15–20 min read",
+
+        badge: "PREVIEW EDITION",
+
+        buttonText: "Read Preview",
+
+        link: "#",
+
+        active: true
+    }
+
+];
+
+/* =========================================================
    CAROUSEL INITIALISATION
 ========================================================= */
 
@@ -390,6 +475,117 @@ function renderCarousel(
 
 
 /* =========================================================
+   FEATURED MODULES — DYNAMIC RENDERER
+========================================================= */
+
+function renderFeaturedModules() {
+
+    const track =
+        document.getElementById(
+            "featuredModulesTrack"
+        );
+
+    if (!track) {
+
+        console.warn(
+            "Featured Modules track not found."
+        );
+
+        return;
+
+    }
+
+    const items =
+        FEATURED_MODULE_DATA.filter(
+            item => item.active
+        );
+
+    track.innerHTML = "";
+
+    items.forEach(
+        (item, index) => {
+
+            const card =
+                document.createElement("article");
+
+            card.className =
+                "module-card";
+
+            card.dataset.index =
+                index;
+
+            card.innerHTML = `
+
+                <div class="module-cover">
+
+                    <div class="module-cover-content">
+
+                        <div class="module-cover-text">
+
+                            <span class="module-number">
+                                ${item.number}
+                            </span>
+
+                            <h4>
+                                ${item.category}
+                            </h4>
+
+                        </div>
+
+                        <span class="preview-badge">
+                            ${item.badge}
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    ${item.title}
+                </h3>
+
+
+                <p>
+                    ${item.description}
+                </p>
+
+
+                <div class="module-footer">
+
+                    <div class="module-meta">
+
+                        <span>
+                            📄 ${item.pages}
+                        </span>
+
+                        <span>
+                            ⏱ ${item.readTime}
+                        </span>
+
+                    </div>
+
+
+                    <a
+                        href="${item.link}"
+                        class="module-button"
+                    >
+                        📖 ${item.buttonText}
+                    </a>
+
+                </div>
+
+            `;
+
+            track.appendChild(card);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
    START CAROUSEL
 ========================================================= */
 
@@ -398,6 +594,8 @@ document.addEventListener(
     () => {
 
         initialiseCarousel();
+
+        renderFeaturedModules();
 
     }
 );
