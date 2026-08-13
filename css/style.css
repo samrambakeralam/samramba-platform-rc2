@@ -1625,6 +1625,10 @@ transform:translateY(0px);
         padding:50px 22px 65px;
     }
 
+    .featured-modules{
+        padding:35px 22px 70px;
+    }
+
     .journey-content{
         flex-direction:column;
         gap:28px;
