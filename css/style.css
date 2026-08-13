@@ -1767,7 +1767,11 @@ transform:translateY(0px);
 
     gap:30px;
 
-    margin-top:60px;
+    width:100%;
+
+    max-width:1200px;
+
+    margin:60px auto 0;
 
     overflow-x:auto;
 
@@ -2005,15 +2009,15 @@ transform:translateY(0px);
 
     border:1px solid #E5E7EB;
 
-    border-radius:24px;
+    border-radius:20px;
 
-    padding:28px;
+    padding:24px;
 
     display:flex;
 
     flex-direction:column;
 
-    min-height:520px;
+    min-height:440px;
 
     flex:0 0 calc((100% - 60px) / 3);
 
@@ -2047,13 +2051,13 @@ transform:translateY(0px);
 
     position:relative;
 
-    height:150px;
+    height:130px;
 
     border-radius:18px;
 
     overflow:hidden;
 
-    margin-bottom:28px;
+    margin-bottom:20px;
 
     padding:20px;
 
