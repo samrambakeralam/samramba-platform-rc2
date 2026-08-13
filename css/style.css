@@ -5928,9 +5928,10 @@ section {
 
 }
 
+}
+
 /* ==========================================
-   VERY SMALL PHONES
-   COMPACT FEATURED MODULE CARDS
+   SMALL PHONES — COMPACT FEATURED MODULES
 ========================================== */
 
 @media (max-width:360px){
@@ -5941,19 +5942,21 @@ section {
         padding-right:2px;
     }
 
+
     .featured-grid .module-card{
 
         flex:0 0 86%;
 
-        min-height:0;
+        min-height:0 !important;
 
-        height:auto;
+        height:auto !important;
 
         padding:14px;
 
         border-radius:16px;
 
     }
+
 
     .featured-grid .module-cover{
 
@@ -5967,23 +5970,38 @@ section {
 
     }
 
+
     .featured-grid .module-cover-text{
+
         gap:5px;
+
     }
+
 
     .featured-grid .module-cover-text h4{
+
         font-size:15px;
+
         line-height:1.2;
+
     }
+
 
     .featured-grid .module-cover .module-number{
+
         font-size:9px;
+
     }
 
+
     .featured-grid .module-cover .preview-badge{
+
         padding:4px 7px;
+
         font-size:8px;
+
     }
+
 
     .featured-grid .module-card h3{
 
@@ -5995,6 +6013,7 @@ section {
 
     }
 
+
     .featured-grid .module-card p{
 
         font-size:13px;
@@ -6005,11 +6024,13 @@ section {
 
     }
 
+
     .featured-grid .module-footer{
 
-        margin-top:10px;
+        margin-top:8px !important;
 
     }
+
 
     .featured-grid .module-meta{
 
@@ -6020,6 +6041,7 @@ section {
         font-size:11px;
 
     }
+
 
     .featured-grid .module-button{
 
@@ -6030,102 +6052,5 @@ section {
         border-radius:10px;
 
     }
-
-}
-
-/* ==========================================
-   SMALL PHONE — FINAL CARD COMPACT FIX
-========================================== */
-
-@media (max-width:360px){
-
-    .featured-grid .module-card{
-
-        flex:0 0 86%;
-
-        min-height:0;
-
-        height:auto;
-
-        padding:14px;
-
-    }
-
-
-    .featured-grid .module-cover{
-
-        height:95px;
-
-        margin-bottom:14px;
-
-        padding:12px;
-
-    }
-
-
-    .featured-grid .module-card h3{
-
-        font-size:22px;
-
-        line-height:1.15;
-
-        margin-bottom:8px;
-
-    }
-
-
-    .featured-grid .module-card p{
-
-        font-size:13px;
-
-        line-height:1.45;
-
-        margin-bottom:12px;
-
-    }
-
-
-    /* IMPORTANT:
-       Remove automatic vertical stretching
-    */
-
-    .featured-grid .module-footer{
-
-        margin-top:10px;
-
-    }
-
-
-    .featured-grid .module-meta{
-
-        gap:7px;
-
-        margin-bottom:10px;
-
-        font-size:11px;
-
-    }
-
-
-    .featured-grid .module-button{
-
-        padding:11px;
-
-        font-size:14px;
-
-    }
-
-    .featured-grid .module-card{
-        display:flex;
-        flex-direction:column;
-        min-height:0 !important;
-        height:auto !important;
-    }
-
-    .featured-grid .module-footer{
-        margin-top:8px !important;
-    }
-
-}
 
 }
