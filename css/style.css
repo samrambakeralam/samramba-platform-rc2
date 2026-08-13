@@ -5930,64 +5930,66 @@ section {
 
 /* ==========================================
    VERY SMALL PHONES
-   Compact Featured Module Cards
+   COMPACT FEATURED MODULE CARDS
 ========================================== */
 
 @media (max-width:360px){
 
     .featured-grid{
-        gap:12px;
-        padding-left:4px;
-        padding-right:4px;
+        gap:10px;
+        padding-left:2px;
+        padding-right:2px;
     }
 
     .featured-grid .module-card{
 
-        flex:0 0 88%;
+        flex:0 0 86%;
 
-        padding:16px;
+        min-height:0;
 
-        border-radius:18px;
+        height:auto;
+
+        padding:14px;
+
+        border-radius:16px;
 
     }
 
     .featured-grid .module-cover{
 
-        height:105px;
+        height:95px;
 
-        padding:14px;
+        padding:12px;
 
-        margin-bottom:16px;
+        margin-bottom:14px;
 
-        border-radius:14px;
+        border-radius:13px;
 
+    }
+
+    .featured-grid .module-cover-text{
+        gap:5px;
     }
 
     .featured-grid .module-cover-text h4{
-
         font-size:15px;
-
+        line-height:1.2;
     }
 
     .featured-grid .module-cover .module-number{
-
         font-size:9px;
-
     }
 
     .featured-grid .module-cover .preview-badge{
-
-        padding:5px 8px;
-
-        font-size:9px;
-
+        padding:4px 7px;
+        font-size:8px;
     }
 
     .featured-grid .module-card h3{
 
         font-size:22px;
 
-        line-height:1.2;
+        line-height:1.15;
 
         margin-bottom:8px;
 
@@ -5997,30 +5999,36 @@ section {
 
         font-size:13px;
 
-        line-height:1.5;
+        line-height:1.45;
 
-        margin-bottom:14px;
+        margin-bottom:12px;
+
+    }
+
+    .featured-grid .module-footer{
+
+        margin-top:10px;
 
     }
 
     .featured-grid .module-meta{
 
-        gap:8px;
+        gap:7px;
 
-        margin-bottom:12px;
+        margin-bottom:10px;
 
-        font-size:12px;
+        font-size:11px;
 
     }
 
     .featured-grid .module-button{
 
-        padding:12px;
+        padding:11px;
 
         font-size:14px;
 
-        border-radius:11px;
+        border-radius:10px;
 
     }
-
+    
 }
