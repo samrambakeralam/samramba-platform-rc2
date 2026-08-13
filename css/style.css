@@ -6115,4 +6115,17 @@ section {
 
     }
 
+    .featured-grid .module-card{
+        display:flex;
+        flex-direction:column;
+        min-height:0 !important;
+        height:auto !important;
+    }
+
+    .featured-grid .module-footer{
+        margin-top:8px !important;
+    }
+
+}
+
 }
