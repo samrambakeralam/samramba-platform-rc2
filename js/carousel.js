@@ -586,6 +586,104 @@ function renderFeaturedModules() {
 
 
 /* =========================================================
+   FEATURED MODULES — CAROUSEL CONTROLS
+========================================================= */
+
+function initialiseFeaturedModulesCarousel() {
+
+    const track =
+        document.getElementById(
+            "featuredModulesTrack"
+        );
+
+    const previousButton =
+        document.getElementById(
+            "featuredModulesPrev"
+        );
+
+    const nextButton =
+        document.getElementById(
+            "featuredModulesNext"
+        );
+
+
+    if (
+        !track ||
+        !previousButton ||
+        !nextButton
+    ) {
+
+        console.warn(
+            "Featured Modules carousel controls not found."
+        );
+
+        return;
+
+    }
+
+
+    const getScrollAmount = () => {
+
+        const card =
+            track.querySelector(
+                ".module-card"
+            );
+
+        if (!card) {
+            return 0;
+        }
+
+
+        const gap =
+            parseFloat(
+                getComputedStyle(track).gap
+            ) || 0;
+
+
+        return card.offsetWidth + gap;
+
+    };
+
+
+    previousButton.addEventListener(
+        "click",
+        () => {
+
+            track.scrollBy({
+
+                left:
+                    -getScrollAmount(),
+
+                behavior:
+                    "smooth"
+
+            });
+
+        }
+    );
+
+
+    nextButton.addEventListener(
+        "click",
+        () => {
+
+            track.scrollBy({
+
+                left:
+                    getScrollAmount(),
+
+                behavior:
+                    "smooth"
+
+            });
+
+        }
+    );
+
+}
+
+
+/* =========================================================
    START CAROUSEL
 ========================================================= */
 
@@ -596,6 +694,8 @@ document.addEventListener(
         initialiseCarousel();
 
         renderFeaturedModules();
+
+        initialiseFeaturedModulesCarousel();
 
     }
 );
