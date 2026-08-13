@@ -1824,7 +1824,7 @@ transform:translateY(0px);
 
     color:#0B1F3A;
 
-    display:none;
+    display:flex;
 
     align-items:center;
 
@@ -1887,6 +1887,10 @@ transform:translateY(0px);
    MOBILE CAROUSEL
 ========================================== */
 
+/* ==========================================
+   MOBILE CAROUSEL
+========================================== */
+
 @media(max-width:768px){
 
     .featured-carousel{
@@ -1898,40 +1902,7 @@ transform:translateY(0px);
 
     .featured-carousel-arrow{
 
-        position:absolute;
-
-        top:50%;
-
-        transform:translateY(-50%);
-
-        width:42px;
-
-        height:42px;
-
-        min-width:42px;
-
-        z-index:10;
-
-    }
-
-
-    .featured-carousel-arrow:hover{
-
-        transform:translateY(-50%);
-
-    }
-
-
-    .featured-carousel-prev{
-
-        left:8px;
-
-    }
-
-
-    .featured-carousel-next{
-
-        right:8px;
+        display:none;
 
     }
 
@@ -1943,7 +1914,7 @@ transform:translateY(0px);
         padding-right:4px;
 
     }
-
+    
     /* ==========================================
    FEATURED MODULES — MOBILE CARDS
 ========================================== */
