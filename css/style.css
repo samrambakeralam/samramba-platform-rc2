@@ -499,6 +499,10 @@ transform:translateY(0px);
 ===================================================== */
 
 .feature-card h3 {
+    font-family:
+        "Poppins",
+        sans-serif;
+
     font-size: 22px;
     font-weight: 700;
 
