@@ -6159,10 +6159,24 @@ section {
 
 /* ==========================================
    LEARNING JOURNEY → FEATURED MODULES
-   MOBILE GAP — FINAL TEST
+   MOBILE GAP — FINAL
 ========================================== */
 
 @media (max-width:900px){
+
+    .learning-journey{
+        padding-bottom:40px !important;
+    }
+
+    .featured-modules{
+        padding-top:40px !important;
+    }
+
+}
+
+/* Ensure normal mobile phones also use the same spacing */
+
+@media (max-width:768px){
 
     .learning-journey{
         padding-bottom:40px !important;
