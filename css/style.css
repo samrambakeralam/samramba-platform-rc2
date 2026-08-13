@@ -1945,13 +1945,13 @@ transform:translateY(0px);
 
 }
 
-.module-card{
+.featured-grid .module-card{
 
     flex:
         0 0 88%;
 
     min-height:
-        auto;
+        0;
 
     height:
         auto;
@@ -1967,7 +1967,7 @@ transform:translateY(0px);
 
 }
 
-.module-footer{
+.featured-grid .module-footer{
 
     margin-top:
         20px;
