@@ -6306,3 +6306,63 @@ section {
     margin-top:20px !important;
 
 }
+
+/* ==========================================
+   LEARNING TRACKS — MOBILE COMPACT CARDS
+========================================== */
+
+@media(max-width:768px){
+
+    .track-card{
+
+        padding:16px 16px;
+
+        min-height:auto;
+
+        border-radius:20px;
+
+    }
+
+    .track-card i{
+
+        width:52px;
+
+        height:52px;
+
+        margin-bottom:10px;
+
+        border-radius:15px;
+
+    }
+
+    .track-card svg{
+
+        width:28px;
+
+        height:28px;
+
+    }
+
+    .track-card h3{
+
+        font-size:19px;
+
+        line-height:1.25;
+
+        margin-bottom:8px;
+
+        min-height:0;
+
+    }
+
+    .track-card p{
+
+        font-size:15px;
+
+        line-height:1.5;
+
+        margin:0;
+
+    }
+
+}
