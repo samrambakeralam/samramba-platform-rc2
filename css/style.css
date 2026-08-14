@@ -1954,7 +1954,7 @@ transform:translateY(0px);
 
 .featured-footer p{
 
-    font-size:14px;
+    font-size:13px;
 
     line-height:1.6;
 
@@ -6446,5 +6446,13 @@ section {
     line-height:1.5;
 
 }
+
+.featured-footer{
+
+        font-size:12px;
+
+        line-height:1.5;
+
+    }
 
 }
