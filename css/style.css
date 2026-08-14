@@ -6376,3 +6376,19 @@ section {
     }
 
 }
+
+/* ==========================================
+   LEARNING TRACKS — SMALL PHONE TITLES
+========================================== */
+
+@media(max-width:480px){
+
+    .track-card h3{
+
+        font-size:17px;
+
+        line-height:1.25;
+
+    }
+
+}
