@@ -1751,7 +1751,7 @@ transform:translateY(0px);
 
 .featured-modules{
 
-    padding:70px 8% 110px;
+    padding:70px 8% 45px;
 
     background:#F8FAFC;
 
@@ -2445,7 +2445,7 @@ transform:translateY(0px);
 
     max-width:900px;
 
-    margin:70px auto 0;
+    margin:45px auto 0;
 
     text-align:center;
 
@@ -2562,7 +2562,7 @@ transform:translateY(0px);
 
 .learning-tracks{
 
-    padding:65px 8% 65px;
+    padding:40px 8% 40px;
 
     background:#FFFFFF;
 
