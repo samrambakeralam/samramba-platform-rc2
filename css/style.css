@@ -6199,24 +6199,3 @@ section {
     }
 
 }
-
-/* ==========================================
-   VERY SMALL PHONES — MODULE TITLE
-========================================== */
-
-@media (max-width:360px){
-
-    .featured-grid .module-card h3{
-
-        font-size:
-            21px;
-
-        line-height:
-            1.2;
-
-        margin-bottom:
-            10px;
-
-    }
-
-}
