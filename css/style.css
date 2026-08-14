@@ -1932,6 +1932,18 @@ transform:translateY(0px);
     }
 
     /* ==========================================
+   FEATURED FOOTER — MOBILE
+========================================== */
+
+.featured-footer p{
+
+    font-size:16px;
+
+    line-height:1.6;
+
+}
+
+    /* ==========================================
    FEATURED MODULES — MOBILE CARDS
 ========================================== */
 
