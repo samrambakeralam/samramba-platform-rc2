@@ -1943,6 +1943,16 @@ transform:translateY(0px);
 
 }
 
+/* ==========================================
+   FEATURED FOOTER — MOBILE SPACING
+========================================== */
+
+.featured-footer{
+
+    margin-top:40px;
+
+}
+
     /* ==========================================
    FEATURED MODULES — MOBILE CARDS
 ========================================== */
