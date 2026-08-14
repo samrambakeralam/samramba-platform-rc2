@@ -2668,11 +2668,11 @@ transform:translateY(0px);
 
     border-radius:22px;
 
-    padding:34px 28px;
+    padding:12px 10px;
 
     text-align:center;
 
-    min-height:270px;
+    min-height:50px;
 
     display:flex;
 
@@ -2708,9 +2708,9 @@ transform:translateY(0px);
 
 .track-card i{
 
-    width:74px;
+    width:64px;
 
-    height:74px;
+    height:64px;
 
     display:flex;
 
@@ -2722,15 +2722,15 @@ transform:translateY(0px);
 
     border-radius:18px;
 
-    margin-bottom:26px;
+    margin-bottom:20px;
 
 }
 
 .track-card svg{
 
-    width:38px;
+    width:34px;
 
-    height:38px;
+    height:34px;
 
     stroke:#16A34A;
 
@@ -2745,7 +2745,11 @@ transform:translateY(0px);
 
 .track-card h3{
 
-    font-size:22px;
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size:20px;
 
     font-weight:700;
 
