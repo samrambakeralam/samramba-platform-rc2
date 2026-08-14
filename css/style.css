@@ -1469,6 +1469,12 @@ transform:translateY(0px);
     padding-top:20px;
 }
 
+.journey-left .section-badge{
+
+    margin-bottom:10px;
+
+}
+
 .journey-right{
     flex:1.8;
 }
@@ -1489,7 +1495,7 @@ transform:translateY(0px);
 
     color:#0B1F3A;
 
-    margin:20px 0;
+    margin:10px 0;
 }
 
 .journey-left p{
@@ -1562,11 +1568,11 @@ transform:translateY(0px);
 .step-content{
     flex:1;
 
-    min-height:110px;
+    min-height:100px;
 
     background:#ffffff;
 
-    padding:24px 28px;
+    padding:18px 22px;
 
     border-radius:20px;
 
@@ -1596,18 +1602,18 @@ transform:translateY(0px);
         "Poppins",
         sans-serif;
 
-    font-size:24px;
+    font-size:21px;
 
     color:#0B1F3A;
 
-    margin-bottom:14px;
+    margin-bottom:12px;
 
     font-weight:700;
 }
 
 .step-content p{
 
-    font-size:16px;
+    font-size:15px;
 
     line-height:1.8;
 
