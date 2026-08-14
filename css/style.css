@@ -6407,4 +6407,26 @@ section {
 
     }
 
+    /* ==========================================
+       LEARNING JOURNEY — SMALL PHONE
+    ========================================== */
+
+    .step-content h3{
+
+        font-size:18px;
+
+        line-height:1.25;
+
+        margin-bottom:8px;
+
+    }
+
+    .step-content p{
+
+        font-size:13px;
+
+        line-height:1.5;
+
+    }
+
 }
