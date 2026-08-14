@@ -6199,3 +6199,21 @@ section {
     }
 
 }
+
+/* ==========================================
+   VERY SMALL PHONES — MODULE COVER TITLES
+========================================== */
+
+@media (max-width:360px){
+
+    .featured-grid .module-cover-text h4{
+
+        font-size:
+            14px;
+
+        line-height:
+            1.2;
+
+    }
+
+}
