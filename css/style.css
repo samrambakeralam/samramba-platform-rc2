@@ -2890,6 +2890,10 @@ transform:translateY(0px);
 
 .mission-section h2{
 
+    font-family:
+        "Poppins",
+        sans-serif;
+
     font-size:44px;
 
     font-weight:800;
