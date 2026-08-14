@@ -1758,6 +1758,17 @@ transform:translateY(0px);
 }
 
 /* ==========================================
+   SECTION INTRO DESCRIPTIONS
+========================================== */
+
+.featured-modules .section-title-center p,
+.learning-tracks .section-title-center p{
+
+    color:#64748B;
+
+}
+
+/* ==========================================
    FEATURED MODULES — SECTION HEADING
 ========================================== */
 
@@ -2568,6 +2579,22 @@ transform:translateY(0px);
 
 }
 
+/* ==========================================
+   LEARNING TRACKS — HEADING SPACING
+========================================== */
+
+.learning-tracks .section-title-center h2{
+
+    margin-bottom:10px;
+
+}
+
+.featured-modules .section-title-center h2{
+
+    margin-bottom:10px;
+
+}
+
 .learning-tracks-grid{
 
     display:grid;
@@ -2611,6 +2638,20 @@ transform:translateY(0px);
         gap:22px;
 
     }
+
+}
+
+/* ==========================================
+   LEARNING TRACKS — SECTION TYPOGRAPHY
+========================================== */
+
+.learning-tracks .section-title-center h2{
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-weight:700;
 
 }
 
@@ -6249,5 +6290,15 @@ section {
             1.2;
 
     }
+
+}
+
+/* ==========================================
+   FEATURED MODULES — DESCRIPTION TO CARDS
+========================================== */
+
+.featured-modules .featured-carousel .featured-grid{
+
+    margin-top:20px !important;
 
 }
