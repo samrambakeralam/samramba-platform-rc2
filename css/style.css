@@ -6435,4 +6435,16 @@ section {
 
     }
 
+    /* ==========================================
+   FEATURED MODULES — SMALL PHONE
+========================================== */
+
+.module-card p{
+
+    font-size:13px;
+
+    line-height:1.5;
+
+}
+
 }
