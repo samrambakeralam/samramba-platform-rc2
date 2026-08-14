@@ -2633,9 +2633,9 @@ transform:translateY(0px);
 
     .learning-tracks-grid{
 
-        grid-template-columns:1fr;
+        grid-template-columns:repeat(2,1fr);
 
-        gap:22px;
+        gap:16px;
 
     }
 
