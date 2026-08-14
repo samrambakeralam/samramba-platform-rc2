@@ -1758,6 +1758,18 @@ transform:translateY(0px);
 }
 
 /* ==========================================
+   FEATURED MODULES — SECTION HEADING
+========================================== */
+
+.featured-modules .section-title-center h2{
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+}
+
+/* ==========================================
    FEATURED MODULES — CAROUSEL TRACK
 ========================================== */
 
@@ -2243,7 +2255,7 @@ transform:translateY(0px);
 
     color:#FFFFFF;
 
-    font-size:20px;
+    font-size:16px;
 
     font-weight:700;
 
@@ -2259,11 +2271,11 @@ transform:translateY(0px);
 
     color:#FFFFFF;
 
-    padding:8px 14px;
+    padding:7px 11px;
 
     border-radius:999px;
 
-    font-size:12px;
+    font-size:8px;
 
     font-weight:600;
 
