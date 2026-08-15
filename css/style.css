@@ -3422,6 +3422,11 @@ transform:translateY(0px);
 
 .mission-values .value-card.mvc-center{
 
+    left:50% !important;
+
+    margin-left:0 !important;
+    margin-right:0 !important;
+
     transform:
         translateX(-50%)
         scale(1.05);
