@@ -656,29 +656,75 @@ function initialiseMissionValuesCarousel() {
 
     function updateCards() {
 
-        cards.forEach(
-            (card, index) => {
+    cards.forEach(
+        (card, index) => {
 
-                card.classList.remove(
-                    "mvc-left",
-                    "mvc-center",
-                    "mvc-right"
-                );
+            const position =
+                positions[index];
 
-                card.classList.add(
-                    "mvc-" + positions[index]
-                );
+            card.classList.remove(
+                "mvc-left",
+                "mvc-center",
+                "mvc-right"
+            );
 
-                console.log(
-    card.querySelector("h3")?.textContent.trim(),
-    positions[index],
-    card.className
-);
+            card.classList.add(
+                "mvc-" + position
+            );
+
+
+            /* ------------------------------------------
+               APPLY POSITION DIRECTLY
+            ------------------------------------------ */
+
+            if (position === "left") {
+
+                card.style.transform =
+                    "translateX(-88%) scale(.92)";
+
+                card.style.opacity =
+                    ".65";
+
+                card.style.zIndex =
+                    "1";
 
             }
-        );
 
-    }
+
+            else if (position === "center") {
+
+                card.style.transform =
+                    "translateX(-50%) scale(1.05)";
+
+                card.style.opacity =
+                    "1";
+
+                card.style.zIndex =
+                    "3";
+
+                card.style.boxShadow =
+                    "0 20px 50px rgba(15,23,42,.14)";
+
+            }
+
+
+            else if (position === "right") {
+
+                card.style.transform =
+                    "translateX(-12%) scale(.92)";
+
+                card.style.opacity =
+                    ".65";
+
+                card.style.zIndex =
+                    "1";
+
+            }
+
+        }
+    );
+
+}
 
 
     /* -----------------------------------------------------
