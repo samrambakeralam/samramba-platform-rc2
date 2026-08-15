@@ -3303,50 +3303,6 @@ transform:translateY(0px);
 
     }
 
-    /* ==========================================
-   VISION • MISSION • PROMISE — MOBILE CAROUSEL
-========================================== */
-
-.mission-values{
-
-    display:flex;
-
-    overflow-x:auto;
-
-    gap:16px;
-
-    padding:20px 8px 30px;
-
-    scroll-snap-type:x mandatory;
-
-    scroll-behavior:smooth;
-
-    -webkit-overflow-scrolling:touch;
-
-}
-
-.mission-values .value-card{
-
-    flex:0 0 82%;
-
-    scroll-snap-align:center;
-
-    margin:0;
-
-}
-
-.mission-values::-webkit-scrollbar{
-
-    display:none;
-
-}
-
-.mission-values{
-
-    scrollbar-width:none;
-
-}
-
     .value-card{
 
         padding:30px 24px;

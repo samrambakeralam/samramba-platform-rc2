@@ -593,6 +593,10 @@ function initialiseMissionValuesCarousel() {
     const carousel =
         document.querySelector(".mission-values");
 
+        /* Prevent native horizontal scrolling */
+
+        carousel.scrollLeft = 0;
+
     if (!carousel) {
 
         console.warn(
@@ -655,6 +659,8 @@ function initialiseMissionValuesCarousel() {
     ----------------------------------------------------- */
 
     function updateCards() {
+
+    carousel.scrollLeft = 0;
 
     cards.forEach(
         (card, index) => {
