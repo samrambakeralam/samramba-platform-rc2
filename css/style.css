@@ -359,15 +359,17 @@ transform:translateY(0px);
 
 .why-bundle .section-title h2 {
     font-family: "Poppins", sans-serif;
-    font-size: 42px;
+    font-size: 36px;
     font-weight: 700;
+    letter-spacing:
+        -0.675px;
     color: #0B1F3A;
     margin: 0 0 20px;
-    line-height: 1.2;
+    line-height: 1.15;
 }
 
 .why-bundle .section-title p {
-    font-size: 15px;
+    font-size: 16px;
     color: #475569;
 
     line-height: 1.8;
@@ -503,7 +505,7 @@ transform:translateY(0px);
         "Poppins",
         sans-serif;
 
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
 
     color: #0B1F3A;
@@ -564,7 +566,7 @@ transform:translateY(0px);
             sans-serif;
 
         font-size:
-            30px;
+            27px;
 
         font-weight:
             700;
@@ -1008,7 +1010,7 @@ transform:translateY(0px);
         sans-serif;
 
     font-size:
-        42px;
+        36px;
 
     font-weight:
         700;
@@ -1031,7 +1033,7 @@ transform:translateY(0px);
 
 .topics-left p {
 
-    font-size: 18px;
+    font-size: 16px;
 
     line-height: 1.8;
 
@@ -1487,7 +1489,7 @@ transform:translateY(0px);
         "Poppins",
         sans-serif;
 
-    font-size:42px;
+    font-size:36px;
 
     font-weight:700;
 
@@ -1499,7 +1501,7 @@ transform:translateY(0px);
 }
 
 .journey-left p{
-    font-size:18px;
+    font-size:16px;
     line-height:1.8;
     color:#475569;
 }
@@ -1767,7 +1769,6 @@ transform:translateY(0px);
    SECTION INTRO DESCRIPTIONS
 ========================================== */
 
-.featured-modules .section-title-center p,
 .learning-tracks .section-title-center p{
 
     color:#64748B;
@@ -1780,9 +1781,36 @@ transform:translateY(0px);
 
 .featured-modules .section-title-center h2{
 
+    font-size: 34px;
+
+    font-weight: 700;
+
+    line-height:
+        1.2;
+
     font-family:
         "Poppins",
         sans-serif;
+
+}
+
+.featured-modules .section-title-center p{
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:
+        16px;
+
+    font-weight:
+        400;
+
+    line-height:
+        1.7;
+
+    color:
+        #64748B;
 
 }
 
