@@ -3379,11 +3379,11 @@ transform:translateY(0px);
 
     top:20px;
 
-    left:50%;
+    left:50% !important;
 
     width:78%;
 
-    margin:0;
+    margin:0 !important;
 
     transform:
         translateX(-50%)
@@ -3405,9 +3405,11 @@ transform:translateY(0px);
 
 .mission-values .value-card.mvc-left{
 
+    left:50% !important;
+
     transform:
         translateX(-88%)
-        scale(.92);
+        scale(.92) !important;
 
     opacity:.65;
 
@@ -3424,12 +3426,9 @@ transform:translateY(0px);
 
     left:50% !important;
 
-    margin-left:0 !important;
-    margin-right:0 !important;
-
     transform:
         translateX(-50%)
-        scale(1.05);
+        scale(1.05) !important;
 
     opacity:1;
 
@@ -3447,15 +3446,15 @@ transform:translateY(0px);
 
 .mission-values .value-card.mvc-right{
 
+    left:50% !important;
+
     transform:
         translateX(-12%)
-        scale(.92);
+        scale(.92) !important;
 
     opacity:.65;
 
     z-index:1;
-
-}
 
 }
 
