@@ -676,63 +676,37 @@ function initialiseMissionValuesCarousel() {
 
 
     /* -----------------------------------------------------
-       ROTATE LEFT
-       
-       Vision → left
-       Mission → center
-       Promise → right
-    ----------------------------------------------------- */
+   ROTATE LEFT
+----------------------------------------------------- */
 
-    function rotateLeft() {
+function rotateLeft() {
 
-        positions =
-            positions.map(
-                position => {
+    positions = [
+        positions[2],
+        positions[0],
+        positions[1]
+    ];
 
-                    if (position === "left")
-                        return "right";
+    updateCards();
 
-                    if (position === "center")
-                        return "left";
-
-                    return "center";
-
-                }
-            );
-
-        updateCards();
-
-    }
+}
 
 
-    /* -----------------------------------------------------
-       ROTATE RIGHT
-       
-       Vision → right
-       Promise → center
-       Mission → left
-    ----------------------------------------------------- */
+/* -----------------------------------------------------
+   ROTATE RIGHT
+----------------------------------------------------- */
 
-    function rotateRight() {
+function rotateRight() {
 
-        positions =
-            positions.map(
-                position => {
+    positions = [
+        positions[1],
+        positions[2],
+        positions[0]
+    ];
 
-                    if (position === "right")
-                        return "left";
+    updateCards();
 
-                    if (position === "center")
-                        return "right";
-
-                    return "center";
-
-                }
-            );
-
-        updateCards();
-
-    }
+}
 
 
     /* -----------------------------------------------------
