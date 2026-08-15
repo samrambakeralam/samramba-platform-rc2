@@ -800,7 +800,7 @@ function rotateRight() {
                 endX - startX;
 
 
-            if (Math.abs(distance) < 50) {
+            if (Math.abs(distance) < 35) {
 
                 return;
 
