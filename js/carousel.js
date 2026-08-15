@@ -889,7 +889,10 @@ document.addEventListener(
 
         initialiseFeaturedModulesCarousel();
 
-        initialiseMissionValuesCarousel();
+        setTimeout(
+    initialiseMissionValuesCarousel,
+    100
+);
 
     }
 );
