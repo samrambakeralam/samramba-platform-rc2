@@ -3326,6 +3326,12 @@ transform:translateY(0px);
 
     overflow:hidden;
 
+    touch-action: pan-y;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
 }
 
 
