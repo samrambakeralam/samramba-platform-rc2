@@ -3348,9 +3348,9 @@ transform:translateY(0px);
     opacity:.65;
 
     transition:
-        transform .45s ease,
-        opacity .45s ease,
-        box-shadow .45s ease;
+    transform .55s cubic-bezier(.22,.61,.36,1),
+    opacity .55s ease,
+    box-shadow .55s ease;
 
 }
 
