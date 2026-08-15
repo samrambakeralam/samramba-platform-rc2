@@ -584,6 +584,218 @@ function renderFeaturedModules() {
 
 }
 
+/* =========================================================
+   VISION • MISSION • PROMISE — MOBILE COVER FLOW
+========================================================= */
+
+function initialiseMissionValuesCarousel() {
+
+    const carousel =
+        document.querySelector(".mission-values");
+
+    if (!carousel) {
+
+        console.warn(
+            "Mission Values carousel not found."
+        );
+
+        return;
+
+    }
+
+    const cards =
+        Array.from(
+            carousel.querySelectorAll(".value-card")
+        );
+
+    if (cards.length !== 3) {
+
+        console.warn(
+            "Mission Values carousel requires exactly 3 cards."
+        );
+
+        return;
+
+    }
+
+
+    /* -----------------------------------------------------
+       MOBILE CHECK
+    ----------------------------------------------------- */
+
+    const isMobile =
+        window.matchMedia(
+            "(max-width: 768px)"
+        ).matches;
+
+    if (!isMobile) {
+
+        return;
+
+    }
+
+
+    /* -----------------------------------------------------
+       CARD POSITIONS
+       
+       left   = Promise
+       center = Vision
+       right  = Mission
+    ----------------------------------------------------- */
+
+    let positions = [
+        "center",
+        "right",
+        "left"
+    ];
+
+
+    /* -----------------------------------------------------
+       APPLY POSITIONS
+    ----------------------------------------------------- */
+
+    function updateCards() {
+
+        cards.forEach(
+            (card, index) => {
+
+                card.classList.remove(
+                    "mvc-left",
+                    "mvc-center",
+                    "mvc-right"
+                );
+
+                card.classList.add(
+                    "mvc-" + positions[index]
+                );
+
+            }
+        );
+
+    }
+
+
+    /* -----------------------------------------------------
+       ROTATE LEFT
+       
+       Vision → left
+       Mission → center
+       Promise → right
+    ----------------------------------------------------- */
+
+    function rotateLeft() {
+
+        positions =
+            positions.map(
+                position => {
+
+                    if (position === "left")
+                        return "right";
+
+                    if (position === "center")
+                        return "left";
+
+                    return "center";
+
+                }
+            );
+
+        updateCards();
+
+    }
+
+
+    /* -----------------------------------------------------
+       ROTATE RIGHT
+       
+       Vision → right
+       Promise → center
+       Mission → left
+    ----------------------------------------------------- */
+
+    function rotateRight() {
+
+        positions =
+            positions.map(
+                position => {
+
+                    if (position === "right")
+                        return "left";
+
+                    if (position === "center")
+                        return "right";
+
+                    return "center";
+
+                }
+            );
+
+        updateCards();
+
+    }
+
+
+    /* -----------------------------------------------------
+       TOUCH / SWIPE
+    ----------------------------------------------------- */
+
+    let startX = 0;
+    let endX = 0;
+
+
+    carousel.addEventListener(
+        "touchstart",
+        event => {
+
+            startX =
+                event.touches[0].clientX;
+
+        },
+        { passive:true }
+    );
+
+
+    carousel.addEventListener(
+        "touchend",
+        event => {
+
+            endX =
+                event.changedTouches[0].clientX;
+
+            const distance =
+                endX - startX;
+
+
+            if (Math.abs(distance) < 50) {
+
+                return;
+
+            }
+
+
+            if (distance < 0) {
+
+                rotateLeft();
+
+            } else {
+
+                rotateRight();
+
+            }
+
+        },
+        { passive:true }
+    );
+
+
+    /* -----------------------------------------------------
+       INITIAL STATE
+    ----------------------------------------------------- */
+
+    updateCards();
+
+}
+
 
 /* =========================================================
    FEATURED MODULES — CAROUSEL CONTROLS
@@ -696,6 +908,8 @@ document.addEventListener(
         renderFeaturedModules();
 
         initialiseFeaturedModulesCarousel();
+
+        initialiseMissionValuesCarousel();
 
     }
 );
