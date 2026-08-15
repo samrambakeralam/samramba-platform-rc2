@@ -685,8 +685,9 @@ function initialiseMissionValuesCarousel() {
 
             if (position === "left") {
 
+                // LEFT
                 card.style.transform =
-                "translateX(-88%) scale(.92) rotateY(8deg)";
+                "translateX(-78%) scale(.92) rotateY(8deg)";
 
                 card.style.opacity =
                     ".65";
@@ -716,8 +717,9 @@ function initialiseMissionValuesCarousel() {
 
             else if (position === "right") {
 
+                // RIGHT
                 card.style.transform =
-                "translateX(-12%) scale(.92) rotateY(-8deg)";
+                "translateX(-22%) scale(.92) rotateY(-8deg)";
 
                 card.style.opacity =
                     ".65";
