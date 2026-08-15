@@ -879,20 +879,38 @@ function initialiseFeaturedModulesCarousel() {
    START CAROUSEL
 ========================================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
+/* =========================================================
+   START CAROUSELS
+========================================================= */
 
-        initialiseCarousel();
+function startAllCarousels() {
 
-        renderFeaturedModules();
+    initialiseCarousel();
 
-        initialiseFeaturedModulesCarousel();
+    renderFeaturedModules();
 
-        setTimeout(
-    initialiseMissionValuesCarousel,
-    100
-);
+    initialiseFeaturedModulesCarousel();
 
-    }
-);
+    initialiseMissionValuesCarousel();
+
+}
+
+
+/* ---------------------------------------------------------
+   START WHEN DOM IS READY
+--------------------------------------------------------- */
+
+if (
+    document.readyState === "loading"
+) {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        startAllCarousels
+    );
+
+} else {
+
+    startAllCarousels();
+
+}
