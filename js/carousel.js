@@ -669,6 +669,12 @@ function initialiseMissionValuesCarousel() {
                     "mvc-" + positions[index]
                 );
 
+                console.log(
+    card.querySelector("h3")?.textContent.trim(),
+    positions[index],
+    card.className
+);
+
             }
         );
 
