@@ -1,0 +1,241 @@
+/* ==========================================
+   FAQ SECTION
+========================================== */
+
+.faq-section{
+
+    padding:120px 0;
+
+    background:#FFFFFF;
+
+}
+
+.faq-section .section-header{
+
+    max-width:760px;
+
+    margin:0 auto;
+
+    text-align:center;
+
+}
+
+.faq-section .section-header h2{
+
+    margin-bottom:20px;
+
+}
+
+.faq-section .section-header p{
+
+    max-width:650px;
+
+    margin:0 auto;
+
+    line-height:1.8;
+
+    color:#64748B;
+
+}
+
+
+/* ==========================================
+   FAQ CONTAINER
+========================================== */
+
+.faq-container{
+
+    max-width:900px;
+
+    margin:70px auto 0;
+
+}
+
+
+/* ==========================================
+   FAQ ITEM
+========================================== */
+
+.faq-item{
+
+    background:#FFFFFF;
+
+    border:1px solid #E5E7EB;
+
+    border-radius:18px;
+
+    margin-bottom:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(15,23,42,.05);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+
+}
+
+.faq-item:hover{
+
+    transform:translateY(-3px);
+
+    border-color:#16A34A;
+
+    box-shadow:0 18px 40px rgba(15,23,42,.08);
+
+}
+
+
+/* ==========================================
+   QUESTION
+========================================== */
+
+.faq-item summary{
+
+    padding:24px 28px;
+
+    cursor:pointer;
+
+    list-style:none;
+
+    font-size:1.08rem;
+
+    font-weight:700;
+
+    color:#0B1F3A;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    transition:.3s;
+
+}
+
+.faq-item summary:hover{
+
+    color:#16A34A;
+
+}
+
+.faq-item summary::-webkit-details-marker{
+
+    display:none;
+
+}
+
+
+/* ==========================================
+   PLUS / MINUS
+========================================== */
+
+.faq-item summary::after{
+
+    content:"+";
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#ECFDF5;
+
+    color:#16A34A;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    flex-shrink:0;
+
+    transition:all .3s ease;
+
+}
+
+.faq-item[open] summary::after{
+
+    content:"−";
+
+    background:#16A34A;
+
+    color:#FFFFFF;
+
+}
+
+
+/* ==========================================
+   ANSWER
+========================================== */
+
+.faq-item p{
+
+    padding:0 28px 26px;
+
+    color:#64748B;
+
+    font-size:16px;
+
+    line-height:1.9;
+
+}
+
+
+/* ==========================================
+   OPEN STATE
+========================================== */
+
+.faq-item[open]{
+
+    border-color:#16A34A;
+
+    box-shadow:0 18px 40px rgba(22,163,74,.10);
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+    .faq-section{
+
+        padding:90px 0;
+
+    }
+
+    .faq-container{
+
+        margin-top:50px;
+
+    }
+
+    .faq-item summary{
+
+        padding:20px;
+
+        font-size:1rem;
+
+    }
+
+    .faq-item p{
+
+        padding:0 20px 22px;
+
+        font-size:15px;
+
+    }
+
+}
