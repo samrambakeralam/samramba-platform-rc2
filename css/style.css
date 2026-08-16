@@ -3975,10 +3975,10 @@ transform:translateY(0px);
 
 /* ==========================================
    PRICING CARD — SMALL PHONE POLISH
-   Only for very small mobile screens
+   Only for small mobile screens
 ========================================== */
 
-@media (max-width:380px){
+@media (max-width:480px){
 
     .pricing-card{
 
@@ -4078,25 +4078,45 @@ transform:translateY(0px);
 
         margin-top:6px;
 
+        margin-bottom:0;
+
         font-size:.68rem;
 
     }
 
+
+    /* ==========================================
+       TRUST GRID — SMALL PHONE
+       Keep 2 × 2 arrangement
+    ========================================== */
+
     .pricing-card .trust-grid{
 
         display:grid;
+
         grid-template-columns:repeat(2, minmax(0, 1fr));
-        gap:5px;
+
+        gap:6px;
+
         margin-top:8px;
+
     }
+
 
     .pricing-card .trust-item{
 
         gap:4px;
+
         padding:5px 6px;
+
         border-radius:7px;
+
         width:100%;
+
+        min-width:0;
+
         box-sizing:border-box;
+
     }
 
 
@@ -4114,6 +4134,8 @@ transform:translateY(0px);
     .trust-item span{
 
         font-size:.61rem;
+
+        line-height:1.15;
 
     }
 
