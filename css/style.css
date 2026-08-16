@@ -4809,28 +4809,44 @@ transform:translateY(0px);
 
 
     .footer-bottom p{
+
         font-size:.75rem;
 
         line-height:1.5;
     }
 
     .footer-column:last-child{
+        
         grid-column:1 / -1;
+
+        display:grid;
+
+        grid-template-columns:1.5fr .8fr 1.2fr;
+
+        column-gap:14px;
+
         text-align:center;
+
+        align-items:start;
+
     }
 
     .footer-column:last-child p{
-        display:inline-block;
-        vertical-align:top;
 
-        width:30%;
+        display:block;
 
-        margin:0 1%;
+        margin:0;
 
         font-size:.82rem;
+
         line-height:1.55;
     }
 
+    .footer-column:last-child h4{
+
+        grid-column:1 / -1;
+
+    }
 
 }
 
