@@ -4394,6 +4394,72 @@ transform:translateY(0px);
 }
 
 /* ==========================================
+   FINAL CTA — SMALL PHONE POLISH
+   Only affects screens 480px and below
+========================================== */
+
+@media (max-width:480px){
+
+    .final-cta{
+        padding:48px 20px;
+    }
+
+
+    .final-cta-eyebrow{
+        margin-bottom:12px;
+
+        font-size:.68rem;
+
+        letter-spacing:1.4px;
+    }
+
+
+    .final-cta h2{
+        font-size:2rem;
+
+        line-height:1.08;
+
+        letter-spacing:-.8px;
+
+        max-width:360px;
+
+        margin:0 auto;
+    }
+
+
+    .final-cta p{
+        max-width:360px;
+
+        margin:24px auto 22px;
+
+        font-size:.95rem;
+
+        line-height:1.6;
+    }
+
+
+    #finalCTAButton{
+        width:100%;
+
+        max-width:340px;
+
+        padding:15px 22px;
+
+        font-size:.98rem;
+
+        border-radius:13px;
+    }
+
+
+    .final-cta-note{
+        margin-top:12px;
+
+        font-size:.7rem;
+    }
+
+}
+
+/* ==========================================
    SUPPORT SECTION
 ========================================== */
 
