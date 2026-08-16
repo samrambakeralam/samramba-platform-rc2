@@ -4548,97 +4548,272 @@ transform:translateY(0px);
    FOOTER
 ========================================== */
 
-.site-footer{
+.site-footer {
 
-    background:#0f172a;
+    background: #0f172a;
 
-    color:#fff;
+    color: #ffffff;
 
-    padding:70px 0 0;
+    padding: 52px 0 0;
+
+}
+
+
+/* ==========================================
+   FOOTER GRID
+========================================== */
+
+.footer-grid {
+
+    display: grid;
+
+    grid-template-columns: 2.1fr 1fr 1.1fr 1fr;
+
+    gap: 55px;
+
+    align-items: start;
 
 }
 
-.footer-grid{
 
-    display:grid;
-
-    grid-template-columns:2fr 1fr 1fr 1fr;
-
-    gap:60px;
-
-    align-items:flex-start;
-
-}
+/* ==========================================
+   FOOTER HEADINGS
+========================================== */
 
 .footer-column h3,
-.footer-column h4{
+.footer-column h4 {
 
-    margin-bottom:20px;
+    font-family: 'Poppins', sans-serif;
 
-}
+    margin: 0 0 18px;
 
-.footer-column p{
-
-    color:#cbd5e1;
-
-    line-height:1.8;
+    color: #ffffff;
 
 }
 
-.footer-column ul{
+.footer-column h3 {
 
-    list-style:none;
+    font-size: 1.15rem;
 
-    padding:0;
+    font-weight: 700;
 
-}
-
-.footer-column li{
-
-    margin-bottom:12px;
+    letter-spacing: .2px;
 
 }
 
-.footer-column a{
+.footer-column h4 {
 
-    color:#cbd5e1;
+    font-size: 1rem;
 
-    text-decoration:none;
-
-    transition:.3s;
+    font-weight: 700;
 
 }
 
-.footer-column a:hover{
 
-    color:#22C55E;
+/* ==========================================
+   FOOTER TEXT
+========================================== */
+
+.footer-column p {
+
+    max-width: 390px;
+
+    margin: 0 0 18px;
+
+    color: #cbd5e1;
+
+    font-size: .9rem;
+
+    line-height: 1.75;
 
 }
 
-.footer-bottom{
 
-    margin-top:50px;
+/* ==========================================
+   FOOTER LINKS
+========================================== */
 
-    border-top:1px solid rgba(255,255,255,.1);
+.footer-column ul {
 
-    text-align:center;
+    list-style: none;
 
-    padding:25px 0;
+    padding: 0;
 
-    color:#94a3b8;
+    margin: 0;
 
 }
 
-@media(max-width:768px){
+.footer-column li {
+
+    margin-bottom: 10px;
+
+}
+
+.footer-column a {
+
+    color: #cbd5e1;
+
+    font-size: .9rem;
+
+    text-decoration: none;
+
+    transition:
+        color .25s ease,
+        transform .25s ease;
+
+    display: inline-block;
+
+}
+
+.footer-column a:hover {
+
+    color: #22C55E;
+
+    transform: translateX(3px);
+
+}
+
+
+/* ==========================================
+   CONTACT
+========================================== */
+
+.footer-column strong {
+
+    color: #ffffff;
+
+    font-weight: 600;
+
+}
+
+
+/* ==========================================
+   FOOTER BOTTOM
+========================================== */
+
+.footer-bottom {
+
+    margin-top: 36px;
+
+    border-top: 1px solid rgba(255, 255, 255, .10);
+
+    text-align: center;
+
+    padding: 18px 20px;
+
+    color: #94a3b8;
+
+}
+
+.footer-bottom p {
+
+    margin: 0;
+
+    font-size: .78rem;
+
+    line-height: 1.5;
+
+}
+
+.footer-bottom strong {
+
+    color: #cbd5e1;
+
+    font-weight: 600;
+
+}
+
+
+/* ==========================================
+   FOOTER — NORMAL PHONE
+========================================== */
+
+@media (max-width:768px){
+
+    .site-footer{
+        padding-top:48px;
+    }
 
     .footer-grid{
-
         grid-template-columns:1fr;
-
-        gap:40px;
-
+        gap:28px;
         text-align:center;
+    }
 
+    .footer-column h3,
+    .footer-column h4{
+        margin-bottom:14px;
+    }
+
+    .footer-column p{
+        max-width:100%;
+        margin-bottom:14px;
+        font-size:.88rem;
+        line-height:1.65;
+    }
+
+    .footer-column li{
+        margin-bottom:8px;
+    }
+
+    .footer-column a{
+        font-size:.9rem;
+    }
+
+    .footer-bottom{
+        margin-top:32px;
+        padding:18px 20px;
+    }
+
+    .footer-bottom p{
+        font-size:.75rem;
+        line-height:1.5;
+    }
+
+}
+
+
+/* ==========================================
+   FOOTER — SMALL PHONE
+========================================== */
+
+@media (max-width:480px){
+
+    .site-footer{
+        padding-top:40px;
+    }
+
+    .footer-grid{
+        gap:22px;
+    }
+
+    .footer-column h3,
+    .footer-column h4{
+        margin-bottom:12px;
+    }
+
+    .footer-column p{
+        margin-bottom:10px;
+        font-size:.84rem;
+        line-height:1.55;
+    }
+
+    .footer-column li{
+        margin-bottom:7px;
+    }
+
+    .footer-column a{
+        font-size:.86rem;
+    }
+
+    .footer-bottom{
+        margin-top:26px;
+        padding:16px 15px;
+    }
+
+    .footer-bottom p{
+        font-size:.7rem;
+        line-height:1.45;
     }
 
 }
