@@ -4408,7 +4408,7 @@ transform:translateY(0px);
     .final-cta-eyebrow{
         margin-bottom:9px;
 
-        font-size:.65rem;
+        font-size:0.62rem;
 
         letter-spacing:1.3px;
     }
@@ -4435,7 +4435,7 @@ transform:translateY(0px);
 
         margin:18px auto 18px;
 
-        font-size:.9rem;
+        font-size: 0.88rem;
 
         line-height:1.5;
     }
@@ -4444,20 +4444,20 @@ transform:translateY(0px);
     #finalCTAButton{
         width:100%;
 
-        max-width:330px;
+        max-width:300px;
 
-        padding:13px 20px;
+        padding:11px 18px;
 
-        font-size:.95rem;
+        font-size:.9rem;
 
-        border-radius:12px;
+        border-radius:11px;
     }
 
 
     .final-cta-note{
         margin-top:9px;
 
-        font-size:.68rem;
+         font-size:0.65rem;
     }
 
 }
