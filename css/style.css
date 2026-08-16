@@ -4394,67 +4394,70 @@ transform:translateY(0px);
 }
 
 /* ==========================================
-   FINAL CTA — SMALL PHONE POLISH
-   Only affects screens 480px and below
+   FINAL CTA — SMALL PHONE
+   Compact two-line version
 ========================================== */
 
 @media (max-width:480px){
 
     .final-cta{
-        padding:48px 20px;
+        padding:38px 18px;
     }
 
 
     .final-cta-eyebrow{
-        margin-bottom:12px;
+        margin-bottom:9px;
 
-        font-size:.68rem;
+        font-size:.65rem;
 
-        letter-spacing:1.4px;
+        letter-spacing:1.3px;
     }
 
 
     .final-cta h2{
-        font-size:2rem;
+        margin:0 auto;
+
+        width:100%;
+        max-width:none;
+
+        font-size:1.75rem;
 
         line-height:1.08;
 
-        letter-spacing:-.8px;
+        letter-spacing:-.7px;
 
-        max-width:360px;
-
-        margin:0 auto;
+        white-space:normal;
     }
 
 
     .final-cta p{
-        max-width:360px;
+        max-width:340px;
 
-        margin:24px auto 22px;
+        margin:18px auto 18px;
 
-        font-size:.95rem;
+        font-size:.9rem;
 
-        line-height:1.6;
+        line-height:1.5;
     }
 
 
     #finalCTAButton{
         width:100%;
 
-        max-width:340px;
+        max-width:330px;
 
-        padding:15px 22px;
+        padding:13px 20px;
 
-        font-size:.98rem;
+        font-size:.95rem;
 
-        border-radius:13px;
+        border-radius:12px;
     }
 
 
     .final-cta-note{
-        margin-top:12px;
+        margin-top:9px;
 
-        font-size:.7rem;
+        font-size:.68rem;
     }
 
 }
