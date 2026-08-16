@@ -5,17 +5,27 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Contact Us | SAMRAMBA KERALAM 2030</title>
 
-    <meta name="description"
-        content="Contact SAMRAMBA KERALAM 2030 for assistance with purchases, payments, product access, and technical support.">
+    <meta
+        name="description"
+        content="Contact SAMRAMBA KERALAM 2030 for assistance with purchases, payments, product access, and technical support."
+    >
 
 
-    <!-- Google Fonts -->
+    <!-- ==========================================
+         GOOGLE FONTS
+    ========================================== -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
     <link
         rel="preconnect"
@@ -29,27 +39,42 @@
     >
 
 
-    <!-- Main CSS -->
+    <!-- ==========================================
+         MAIN CSS
+    ========================================== -->
 
-    <link rel="stylesheet" href="css/style.css">
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
 
 
-    <!-- Lucide Icons -->
+    <!-- ==========================================
+         LUCIDE ICONS
+    ========================================== -->
 
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script
+        src="https://unpkg.com/lucide@latest"
+    ></script>
 
 
-    <!-- Contact Page CSS -->
+    <!-- ==========================================
+         CONTACT PAGE CSS
+    ========================================== -->
 
     <style>
 
+        /* ==========================================
+           CONTACT CONTAINER — DESKTOP
+        ========================================== */
+
         .contact-container{
 
-            max-width:900px;
+            max-width:1100px;
 
-            margin:120px auto 60px;
+            margin:80px auto 60px;
 
-            padding:40px;
+            padding:45px;
 
             background:#ffffff;
 
@@ -60,6 +85,10 @@
         }
 
 
+        /* ==========================================
+           CONTACT HEADING
+        ========================================== */
+
         .contact-container h1{
 
             color:#0B2E6D;
@@ -69,18 +98,43 @@
         }
 
 
-        .contact-container p{
+        .contact-container > p{
 
             line-height:1.8;
 
             color:#444;
 
+            margin-bottom:0;
+
         }
 
 
-        .contact-card{
+        /* ==========================================
+           DESKTOP CONTENT GRID
+        ========================================== */
+
+        .contact-content-grid{
+
+            display:grid;
+
+            grid-template-columns:1fr 1fr;
+
+            gap:30px;
 
             margin-top:35px;
+
+            align-items:stretch;
+
+        }
+
+
+        /* ==========================================
+           CUSTOMER SUPPORT CARD
+        ========================================== */
+
+        .contact-card{
+
+            margin-top:0;
 
             padding:30px;
 
@@ -89,6 +143,8 @@
             border-left:5px solid #16A34A;
 
             border-radius:8px;
+
+            box-sizing:border-box;
 
         }
 
@@ -109,6 +165,13 @@
         }
 
 
+        .contact-item:last-child{
+
+            margin-bottom:0;
+
+        }
+
+
         .contact-label{
 
             font-weight:bold;
@@ -118,17 +181,23 @@
         }
 
 
+        /* ==========================================
+           RESPONSE BOX
+        ========================================== */
+
         .response-box{
 
-            margin-top:40px;
+            margin-top:0;
 
-            padding:25px;
+            padding:30px;
 
             background:#EEF7FF;
 
             border-radius:8px;
 
             border-left:5px solid #0B2E6D;
+
+            box-sizing:border-box;
 
         }
 
@@ -142,9 +211,29 @@
         }
 
 
+        .response-box ul{
+
+            line-height:1.8;
+
+        }
+
+
+        .response-box p{
+
+            line-height:1.8;
+
+            color:#444;
+
+        }
+
+
+        /* ==========================================
+           FOOTER NOTE
+        ========================================== */
+
         .footer-note{
 
-            margin-top:40px;
+            margin-top:35px;
 
             font-size:14px;
 
@@ -156,10 +245,11 @@
 
 
         /* ==========================================
-           CONTACT PAGE — MOBILE
+           CONTACT PAGE — NORMAL PHONE
+           481px – 768px
         ========================================== */
 
-        @media(max-width:768px){
+        @media (min-width:481px) and (max-width:768px){
 
             .contact-container{
 
@@ -169,16 +259,57 @@
 
             }
 
+
+            .contact-content-grid{
+
+                grid-template-columns:1fr;
+
+                gap:24px;
+
+                margin-top:30px;
+
+            }
+
         }
 
 
-        @media(max-width:480px){
+        /* ==========================================
+           CONTACT PAGE — SMALL PHONE
+           480px AND BELOW
+        ========================================== */
+
+        @media (max-width:480px){
 
             .contact-container{
 
                 margin:90px 12px 30px;
 
                 padding:24px 18px;
+
+            }
+
+
+            .contact-content-grid{
+
+                grid-template-columns:1fr;
+
+                gap:20px;
+
+                margin-top:25px;
+
+            }
+
+
+            .contact-card{
+
+                padding:24px;
+
+            }
+
+
+            .response-box{
+
+                padding:22px;
 
             }
 
@@ -283,6 +414,7 @@
 
 </header>
 
+
 <!-- =====================================================
      MOBILE MENU
 ===================================================== -->
@@ -299,12 +431,15 @@
             SAMRAMBA
         </span>
 
+
         <button
             id="rc2MenuClose"
             type="button"
             aria-label="Close menu"
         >
+
             <i data-lucide="x"></i>
+
         </button>
 
     </div>
@@ -340,6 +475,7 @@
             Contact
         </a>
 
+
         <button
             id="rc2MobileCTA"
             type="button"
@@ -359,7 +495,9 @@
 <div class="contact-container">
 
 
-    <h1>Contact Us</h1>
+    <h1>
+        Contact Us
+    </h1>
 
 
     <p>
@@ -372,65 +510,128 @@
     </p>
 
 
-    <div class="contact-card">
+    <!-- ==========================================
+         DESKTOP TWO-COLUMN CONTENT
+    ========================================== -->
+
+    <div class="contact-content-grid">
 
 
-        <h2>Customer Support</h2>
+        <!-- ==========================================
+             CUSTOMER SUPPORT
+        ========================================== -->
+
+        <div class="contact-card">
 
 
-        <div class="contact-item">
+            <h2>
+                Customer Support
+            </h2>
 
-            <div class="contact-label">
-                Email
+
+            <div class="contact-item">
+
+                <div class="contact-label">
+                    Email
+                </div>
+
+                samrambakerala@gmail.com
+
             </div>
 
-            samrambakerala@gmail.com
+
+            <div class="contact-item">
+
+                <div class="contact-label">
+                    Business Name
+                </div>
+
+                SAMRAMBA KERALAM 2030
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <div class="contact-label">
+                    Service
+                </div>
+
+                Digital Educational Products &
+                Entrepreneurship Learning Resources
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <div class="contact-label">
+                    Operating Hours
+                </div>
+
+                Monday – Saturday<br>
+
+                9:00 AM – 6:00 PM (IST)
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <div class="contact-label">
+                    Location
+                </div>
+
+                Kerala, India
+
+            </div>
+
 
         </div>
 
 
-        <div class="contact-item">
+        <!-- ==========================================
+             SUPPORT RESPONSE INFORMATION
+        ========================================== -->
 
-            <div class="contact-label">
-                Business Name
-            </div>
-
-            SAMRAMBA KERALAM 2030
-
-        </div>
+        <div class="response-box">
 
 
-        <div class="contact-item">
-
-            <div class="contact-label">
-                Service
-            </div>
-
-            Digital Educational Products & Entrepreneurship Learning Resources
-
-        </div>
+            <h3>
+                When contacting support, please include:
+            </h3>
 
 
-        <div class="contact-item">
+            <ul>
 
-            <div class="contact-label">
-                Operating Hours
-            </div>
+                <li>
+                    Your Customer ID
+                    (Example: SK-2026-00001)
+                </li>
 
-            Monday – Saturday<br>
+                <li>
+                    Your registered email address
+                </li>
 
-            9:00 AM – 6:00 PM (IST)
+                <li>
+                    Your Payment ID
+                    (if payment was completed)
+                </li>
 
-        </div>
+                <li>
+                    A brief description of your issue
+                </li>
+
+            </ul>
 
 
-        <div class="contact-item">
+            <p>
 
-            <div class="contact-label">
-                Location
-            </div>
+                Providing these details helps us resolve your request
+                more quickly.
 
-            Kerala, India
+            </p>
+
 
         </div>
 
@@ -438,45 +639,9 @@
     </div>
 
 
-    <div class="response-box">
-
-
-        <h3>
-            When contacting support, please include:
-        </h3>
-
-
-        <ul>
-
-            <li>
-                Your Customer ID (Example: SK-2026-00001)
-            </li>
-
-            <li>
-                Your registered email address
-            </li>
-
-            <li>
-                Your Payment ID (if payment was completed)
-            </li>
-
-            <li>
-                A brief description of your issue
-            </li>
-
-        </ul>
-
-
-        <p>
-
-            Providing these details helps us resolve your request
-            more quickly.
-
-        </p>
-
-
-    </div>
-
+    <!-- ==========================================
+         RESPONSE TIME
+    ========================================== -->
 
     <div class="footer-note">
 
@@ -490,164 +655,13 @@
 
 
 <!-- =====================================================
-     RC2 HEADER + MOBILE MENU
-     SECONDARY PAGE NAVIGATION
+     RC2 / MAIN JAVASCRIPT
+     app.js handles the shared header,
+     mobile menu and CTA behavior.
 ===================================================== -->
 
 <script src="js/app.js"></script>
 
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    /* ==========================================
-       LUCIDE ICONS
-    ========================================== */
-
-    if (window.lucide) {
-
-        lucide.createIcons();
-
-    }
-
-
-    /* ==========================================
-       RC2 MOBILE MENU
-    ========================================== */
-
-    const menu =
-        document.getElementById("rc2MobileMenu");
-
-    const openButton =
-        document.getElementById("rc2MenuButton");
-
-    const closeButton =
-        document.getElementById("rc2MenuClose");
-
-
-    if (!menu || !openButton || !closeButton) {
-
-        console.warn("RC2 mobile menu elements not found.");
-
-        return;
-
-    }
-
-
-    function openMenu() {
-
-        menu.classList.add("active");
-
-        menu.setAttribute(
-            "aria-hidden",
-            "false"
-        );
-
-        openButton.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
-        document.body.style.overflow = "hidden";
-
-    }
-
-
-    function closeMenu() {
-
-        menu.classList.remove("active");
-
-        menu.setAttribute(
-            "aria-hidden",
-            "true"
-        );
-
-        openButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        document.body.style.overflow = "";
-
-    }
-
-
-    openButton.addEventListener(
-        "click",
-        openMenu
-    );
-
-
-    closeButton.addEventListener(
-        "click",
-        closeMenu
-    );
-
-
-    /* Close after navigation */
-
-    menu
-        .querySelectorAll("a")
-        .forEach(function (link) {
-
-            link.addEventListener(
-                "click",
-                closeMenu
-            );
-
-        });
-
-
-    /* ==========================================
-       HEADER GET ACCESS
-    ========================================== */
-
-    const headerCTA =
-        document.getElementById("rc2HeaderCTA");
-
-
-    if (headerCTA) {
-
-        headerCTA.addEventListener(
-            "click",
-            function () {
-
-                window.location.href =
-                    "index.html#pricing";
-
-            }
-        );
-
-    }
-
-
-    /* ==========================================
-       MOBILE GET ACCESS
-    ========================================== */
-
-    const mobileCTA =
-        document.getElementById("rc2MobileCTA");
-
-
-    if (mobileCTA) {
-
-        mobileCTA.addEventListener(
-            "click",
-            function () {
-
-                closeMenu();
-
-                window.location.href =
-                    "index.html#pricing";
-
-            }
-        );
-
-    }
-
-});
-
-</script>
 
 </body>
 
