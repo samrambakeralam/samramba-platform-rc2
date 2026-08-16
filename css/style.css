@@ -4082,24 +4082,21 @@ transform:translateY(0px);
 
     }
 
+    .pricing-card .trust-grid{
 
-    .trust-grid{
-
+        display:grid;
+        grid-template-columns:repeat(2, minmax(0, 1fr));
         gap:5px;
-
         margin-top:8px;
-
     }
 
-
-    .trust-item{
+    .pricing-card .trust-item{
 
         gap:4px;
-
         padding:4px 4%;
-
         border-radius:7px;
-
+        width:100%;
+        box-sizing:border-box;
     }
 
 
