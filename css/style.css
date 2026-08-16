@@ -3971,59 +3971,255 @@ transform:translateY(0px);
 
 
 /* ==========================================
-   FINAL CTA
+   FINAL CTA — PREMIUM VERSION
 ========================================== */
 
-.final-cta{
-    padding:100px 20px;
-    background:linear-gradient(135deg,#0f172a,#1e3a8a);
-    color:#fff;
-    text-align:center;
+.final-cta {
+    position: relative;
+    padding: 88px 20px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 18% 50%, rgba(59, 130, 246, 0.22), transparent 38%),
+        radial-gradient(circle at 82% 50%, rgba(34, 197, 94, 0.16), transparent 34%),
+        linear-gradient(135deg, #0b1230 0%, #111d5c 48%, #172c9b 100%);
+    color: #fff;
 }
 
-.final-cta h2{
-    font-size:2.4rem;
-    margin-bottom:20px;
+/* Subtle background glow */
+.final-cta::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    top: -220px;
+    left: -120px;
+    border-radius: 50%;
+    background: rgba(99, 102, 241, 0.12);
+    filter: blur(80px);
+    pointer-events: none;
 }
 
-.final-cta p{
-    max-width:700px;
-    margin:0 auto 40px;
-    line-height:1.9;
-    font-size:1.1rem;
-    opacity:.9;
+/* Subtle green glow */
+.final-cta::after {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    bottom: -220px;
+    right: -100px;
+    border-radius: 50%;
+    background: rgba(34, 197, 94, 0.10);
+    filter: blur(80px);
+    pointer-events: none;
 }
 
-#finalCTAButton{
 
-    background:linear-gradient(135deg,#22C55E,#16A34A);
+/* Main layout */
 
-    color:#fff;
-
-    border:none;
-
-    padding:18px 46px;
-
-    font-size:1.15rem;
-
-    font-weight:700;
-
-    border-radius:14px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-    box-shadow:0 12px 30px rgba(22,163,74,.35);
-
+.final-cta .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-#finalCTAButton:hover{
+.final-cta-content {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    align-items: center;
+    gap: 70px;
+}
 
-    transform:translateY(-4px);
 
-    box-shadow:0 18px 40px rgba(22,163,74,.40);
+/* Left side */
 
+.final-cta-text {
+    text-align: left;
+}
+
+.final-cta-eyebrow {
+    display: inline-block;
+    margin-bottom: 18px;
+
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: #4ade80;
+}
+
+.final-cta h2 {
+    margin: 0;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2.4rem, 4vw, 4rem);
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+
+    color: #ffffff;
+}
+
+
+/* Right side */
+
+.final-cta-action {
+    text-align: left;
+}
+
+.final-cta p {
+    max-width: 540px;
+    margin: 0 0 28px;
+
+    font-size: 1.08rem;
+    line-height: 1.75;
+
+    color: rgba(255, 255, 255, 0.82);
+}
+
+
+/* CTA Button */
+
+#finalCTAButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-width: 220px;
+
+    padding: 17px 30px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: linear-gradient(
+        135deg,
+        #22C55E,
+        #16A34A
+    );
+
+    color: #ffffff;
+
+    font-size: 1.05rem;
+    font-weight: 800;
+
+    letter-spacing: 0.2px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 30px rgba(22, 163, 74, 0.32);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.3s ease;
+}
+
+#finalCTAButton span {
+    font-size: 1.25rem;
+    line-height: 1;
+
+    transition: transform 0.3s ease;
+}
+
+#finalCTAButton:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 18px 40px rgba(22, 163, 74, 0.42);
+
+    filter: brightness(1.05);
+}
+
+#finalCTAButton:hover span {
+    transform: translateX(4px);
+}
+
+#finalCTAButton:active {
+    transform: translateY(-1px);
+}
+
+
+/* Small reassurance line */
+
+.final-cta-note {
+    margin-top: 16px;
+
+    font-size: 0.78rem;
+    font-weight: 500;
+
+    color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* ==========================================
+   FINAL CTA — TABLET
+========================================== */
+
+@media (max-width: 850px) {
+
+    .final-cta {
+        padding: 75px 20px;
+    }
+
+    .final-cta-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .final-cta-text,
+    .final-cta-action {
+        text-align: center;
+    }
+
+    .final-cta p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+/* ==========================================
+   FINAL CTA — MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+
+    .final-cta {
+        padding: 65px 20px;
+    }
+
+    .final-cta-eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 14px;
+    }
+
+    .final-cta h2 {
+        font-size: 2.25rem;
+        line-height: 1.12;
+        letter-spacing: -0.8px;
+    }
+
+    .final-cta p {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 25px;
+    }
+
+    #finalCTAButton {
+        width: 100%;
+        max-width: 320px;
+        padding: 17px 24px;
+        font-size: 1rem;
+    }
+
+    .final-cta-note {
+        font-size: 0.72rem;
+    }
 }
 
 /* ==========================================
