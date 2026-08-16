@@ -4814,6 +4814,24 @@ transform:translateY(0px);
         line-height:1.5;
     }
 
+    .footer-column:last-child{
+        grid-column:1 / -1;
+        text-align:center;
+    }
+
+    .footer-column:last-child p{
+        display:inline-block;
+        vertical-align:top;
+
+        width:30%;
+
+        margin:0 1%;
+
+        font-size:.82rem;
+        line-height:1.55;
+    }
+
+
 }
 
 
