@@ -3974,6 +3974,12 @@ transform:translateY(0px);
 
 @media (max-width:480px){
 
+    .pricing-section{
+
+         padding-top:45px;
+
+    }
+
     .pricing-card{
 
         max-width:calc(100% - 12px);
