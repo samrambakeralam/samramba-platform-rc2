@@ -4725,7 +4725,8 @@ transform:translateY(0px);
 
 
 /* ==========================================
-   FOOTER — NORMAL PHONE
+   FOOTER — MOBILE
+   Horizontal 2-column layout
 ========================================== */
 
 @media (max-width:768px){
@@ -4735,38 +4736,81 @@ transform:translateY(0px);
     }
 
     .footer-grid{
-        grid-template-columns:1fr;
-        gap:28px;
+        display:grid;
+
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+
+        gap:28px 24px;
+
+        text-align:left;
+    }
+
+
+    /* Brand spans full width */
+
+    .footer-column:first-child{
+        grid-column:1 / -1;
+
         text-align:center;
     }
+
 
     .footer-column h3,
     .footer-column h4{
         margin-bottom:14px;
     }
 
+
+    .footer-column h3{
+        font-size:1.1rem;
+    }
+
+
+    .footer-column h4{
+        font-size:.95rem;
+    }
+
+
     .footer-column p{
         max-width:100%;
-        margin-bottom:14px;
+
+        margin-bottom:12px;
+
         font-size:.88rem;
-        line-height:1.65;
+
+        line-height:1.6;
     }
+
 
     .footer-column li{
         margin-bottom:8px;
     }
 
+
     .footer-column a{
-        font-size:.9rem;
+        font-size:.88rem;
     }
+
+
+    /* Contact spans full width */
+
+    .footer-column:last-child{
+        grid-column:1 / -1;
+
+        text-align:center;
+    }
+
 
     .footer-bottom{
         margin-top:32px;
+
         padding:18px 20px;
     }
 
+
     .footer-bottom p{
         font-size:.75rem;
+
         line-height:1.5;
     }
 
@@ -4783,36 +4827,53 @@ transform:translateY(0px);
         padding-top:40px;
     }
 
+
     .footer-grid{
-        gap:22px;
+        gap:22px 16px;
     }
 
-    .footer-column h3,
-    .footer-column h4{
-        margin-bottom:12px;
+
+    .footer-column h3{
+        font-size:1rem;
     }
+
+
+    .footer-column h4{
+        font-size:.9rem;
+
+        margin-bottom:11px;
+    }
+
 
     .footer-column p{
-        margin-bottom:10px;
-        font-size:.84rem;
+        margin-bottom:9px;
+
+        font-size:.82rem;
+
         line-height:1.55;
     }
 
+
     .footer-column li{
-        margin-bottom:7px;
+        margin-bottom:6px;
     }
 
+
     .footer-column a{
-        font-size:.86rem;
+        font-size:.84rem;
     }
+
 
     .footer-bottom{
         margin-top:26px;
+
         padding:16px 15px;
     }
 
+
     .footer-bottom p{
-        font-size:.7rem;
+        font-size:.68rem;
+
         line-height:1.45;
     }
 
