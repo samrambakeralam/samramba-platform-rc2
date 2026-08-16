@@ -3706,8 +3706,12 @@ transform:translateY(0px);
 
     margin-top:6px;
 
+    font-family:'Poppins', sans-serif;
+
     font-size:1.4rem;
-    
+
+    font-weight:700;
+
     line-height:1.25;
 }
 
@@ -3969,6 +3973,152 @@ transform:translateY(0px);
 
 }
 
+/* ==========================================
+   PRICING CARD — SMALL PHONE POLISH
+   Only for very small mobile screens
+========================================== */
+
+@media (max-width:380px){
+
+    .pricing-card{
+
+        max-width:calc(100% - 12px);
+
+        padding:22px 22px;
+
+        border-radius:18px;
+
+    }
+
+
+    .pricing-badge{
+
+        top:-14px;
+
+        padding:6px 18px;
+
+        font-size:.72rem;
+
+    }
+
+
+    .pricing-card h3{
+
+        margin-top:4px;
+
+        font-size:1.3rem;
+
+        line-height:1.22;
+
+    }
+
+
+    .price{
+
+        margin:11px 0 4px;
+
+    }
+
+
+    .currency{
+
+        font-size:1.75rem;
+
+    }
+
+
+    .amount{
+
+        font-size:3.8rem;
+
+    }
+
+
+    .price-note{
+
+        font-size:.82rem;
+
+        margin-bottom:13px;
+
+    }
+
+
+    .pricing-features{
+
+        margin-bottom:12px;
+
+    }
+
+
+    .pricing-features li{
+
+        padding:5px 0;
+
+        font-size:12.5px;
+
+        line-height:1.2;
+
+    }
+
+
+    #pricingButton{
+
+        padding:13px;
+
+        font-size:.95rem;
+
+        border-radius:11px;
+
+    }
+
+
+    .secure-payment{
+
+        margin-top:8px;
+
+        font-size:.68rem;
+
+    }
+
+
+    .trust-grid{
+
+        gap:5px;
+
+        margin-top:10px;
+
+    }
+
+
+    .trust-item{
+
+        gap:4px;
+
+        padding:5px 6px;
+
+        border-radius:7px;
+
+    }
+
+
+    .trust-icon{
+
+        width:22px;
+
+        height:22px;
+
+        font-size:10px;
+
+    }
+
+
+    .trust-item span{
+
+        font-size:.61rem;
+
+    }
+
+}
 
 /* ==========================================
    FINAL CTA — PREMIUM VERSION
