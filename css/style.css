@@ -5536,6 +5536,7 @@ section {
 .rc2-header {
 
     position: sticky;
+
     top: 0;
 
     width: 100%;
@@ -5549,6 +5550,36 @@ section {
         1px solid rgba(226,232,240,.8);
 
     z-index: 5000;
+
+    transition:
+        transform .35s ease,
+        background .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+
+}
+
+/* ==========================================
+   RC2 — DYNAMIC HEADER STATES
+========================================== */
+
+.rc2-header.is-scrolled {
+
+    background: rgba(255,255,255,.90);
+
+    border-bottom:
+        1px solid rgba(226,232,240,.95);
+
+    box-shadow:
+        0 8px 28px rgba(15,23,42,.08);
+
+}
+
+
+.rc2-header.is-hidden {
+
+    transform:
+        translateY(-100%);
 
 }
 
@@ -5569,6 +5600,22 @@ section {
     align-items: center;
 
     gap: 30px;
+
+    transition:
+        min-height .35s ease;
+
+}
+
+.rc2-header.is-scrolled .rc2-header-inner {
+
+    min-height: 60px;
+
+}
+
+
+.rc2-header.is-scrolled .rc2-logo {
+
+    height: 46px;
 
 }
 
@@ -5631,6 +5678,62 @@ section {
 
 }
 
+/* ==========================================
+   RC2 — ACTIVE NAVIGATION
+========================================== */
+
+.rc2-desktop-nav a {
+
+    position: relative;
+
+}
+
+
+.rc2-desktop-nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: -8px;
+
+    height: 2px;
+
+    border-radius: 999px;
+
+    background:
+        var(--rc2-green);
+
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        center;
+
+    transition:
+        transform .25s ease;
+
+}
+
+
+.rc2-desktop-nav a.active {
+
+    color:
+        var(--rc2-green);
+
+}
+
+
+.rc2-desktop-nav a.active::after {
+
+    transform:
+        scaleX(1);
+
+}
+
 
 .rc2-header-cta {
 
@@ -5657,6 +5760,30 @@ section {
     cursor: pointer;
 
     white-space: nowrap;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+}
+
+.rc2-header-cta:hover {
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 8px 18px rgba(22,163,74,.20);
+
+}
+
+
+.rc2-header.is-scrolled .rc2-header-cta {
+
+    min-height: 40px;
+
+    padding-left: 17px;
+    padding-right: 17px;
 
 }
 

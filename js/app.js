@@ -39,7 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initialiseMobileMenu();
 
-initialiseRC2Navigation();
+    initialiseRC2Navigation();
+    initialiseDynamicHeader();
 
     console.log("SAMRAMBA KERALAM 2030 Loaded");
 
@@ -704,5 +705,286 @@ function initialiseRC2Navigation() {
         );
 
     }
+
+}
+
+// =======================================
+// SAMRAMBA RC2
+// DYNAMIC HEADER
+// =======================================
+
+function initialiseDynamicHeader() {
+
+    const header =
+        document.querySelector(".rc2-header");
+
+    if (!header) {
+        return;
+    }
+
+
+    /* ---------------------------------------
+       SCROLL BEHAVIOUR
+    --------------------------------------- */
+
+    let lastScrollY = window.scrollY;
+
+    let ticking = false;
+
+
+    function updateHeader() {
+
+        const currentScrollY =
+            window.scrollY;
+
+
+        /* Compact header */
+
+        if (currentScrollY > 20) {
+
+            header.classList.add("is-scrolled");
+
+        } else {
+
+            header.classList.remove("is-scrolled");
+
+        }
+
+
+        /* Hide when scrolling down */
+
+        if (
+            currentScrollY > lastScrollY &&
+            currentScrollY > 100
+        ) {
+
+            header.classList.add("is-hidden");
+
+        }
+
+
+        /* Show when scrolling up */
+
+        if (currentScrollY < lastScrollY) {
+
+            header.classList.remove("is-hidden");
+
+        }
+
+
+        /* Always show at top */
+
+        if (currentScrollY <= 20) {
+
+            header.classList.remove("is-hidden");
+
+        }
+
+
+        lastScrollY =
+            Math.max(currentScrollY, 0);
+
+        ticking = false;
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        function () {
+
+            if (!ticking) {
+
+                window.requestAnimationFrame(
+                    updateHeader
+                );
+
+                ticking = true;
+
+            }
+
+        },
+        { passive: true }
+    );
+
+
+    /* ---------------------------------------
+       SMOOTH INTERNAL NAVIGATION
+    --------------------------------------- */
+
+    document
+        .querySelectorAll(
+            '.rc2-desktop-nav a[href^="#"],' +
+            '.rc2-mobile-nav a[href^="#"]'
+        )
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                function (event) {
+
+                    const targetID =
+                        this.getAttribute("href");
+
+                    if (
+                        !targetID ||
+                        targetID === "#"
+                    ) {
+                        return;
+                    }
+
+
+                    const target =
+                        document.querySelector(
+                            targetID
+                        );
+
+                    if (!target) {
+                        return;
+                    }
+
+
+                    event.preventDefault();
+
+
+                    const headerHeight =
+                        header.offsetHeight;
+
+
+                    const targetPosition =
+                        target.getBoundingClientRect().top +
+                        window.scrollY -
+                        headerHeight -
+                        12;
+
+
+                    window.scrollTo({
+
+                        top: targetPosition,
+
+                        behavior: "smooth"
+
+                    });
+
+                }
+            );
+
+        });
+
+
+    /* ---------------------------------------
+       ACTIVE SECTION DETECTION
+    --------------------------------------- */
+
+    const navigationLinks =
+        document.querySelectorAll(
+            '.rc2-desktop-nav a[href^="#"]'
+        );
+
+
+    const sections = [];
+
+
+    navigationLinks.forEach(link => {
+
+        const targetID =
+            link.getAttribute("href");
+
+        if (
+            !targetID ||
+            targetID === "#"
+        ) {
+            return;
+        }
+
+
+        const section =
+            document.querySelector(
+                targetID
+            );
+
+
+        if (section) {
+
+            sections.push({
+
+                section: section,
+
+                link: link
+
+            });
+
+        }
+
+    });
+
+
+    if (!sections.length) {
+        return;
+    }
+
+
+    const sectionObserver =
+        new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+
+                    navigationLinks.forEach(link => {
+
+                        link.classList.remove(
+                            "active"
+                        );
+
+                    });
+
+
+                    const matching =
+                        sections.find(
+                            item =>
+                                item.section ===
+                                entry.target
+                        );
+
+
+                    if (matching) {
+
+                        matching.link.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                });
+
+            },
+
+            {
+
+                root: null,
+
+                rootMargin:
+                    "-25% 0px -55% 0px",
+
+                threshold: 0
+
+            }
+
+        );
+
+
+    sections.forEach(item => {
+
+        sectionObserver.observe(
+            item.section
+        );
+
+    });
 
 }
