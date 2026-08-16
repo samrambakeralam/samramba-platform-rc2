@@ -4725,218 +4725,45 @@ transform:translateY(0px);
 
 
 /* ==========================================
-   FOOTER — MOBILE
-   Horizontal 2-column layout
+   FOOTER — NORMAL PHONE
+   max-width:768px
 ========================================== */
 
 @media (max-width:768px){
 
     .site-footer{
-        padding-top:48px;
+
+        padding-top:40px;
+
     }
 
+
+    /* ==========================================
+       FOOTER GRID
+    ========================================== */
+
     .footer-grid{
+
         display:grid;
 
         grid-template-columns:repeat(2, minmax(0, 1fr));
 
-        gap:28px 24px;
-
-        text-align:left;
-    }
-
-
-    /* Brand spans full width */
-
-    .footer-column:first-child{
-        grid-column:1 / -1;
-
-        text-align:center;
-    }
-
-
-    .footer-column h3,
-    .footer-column h4{
-        margin-bottom:14px;
-    }
-
-
-    .footer-column h3{
-        font-size:1.1rem;
-    }
-
-
-    .footer-column h4{
-        font-size:.95rem;
-    }
-
-
-    .footer-column p{
-        max-width:100%;
-
-        margin-bottom:12px;
-
-        font-size:.88rem;
-
-        line-height:1.6;
-    }
-
-
-    .footer-column li{
-        margin-bottom:8px;
-    }
-
-
-    .footer-column a{
-        font-size:.88rem;
-    }
-
-
-    /* Contact spans full width */
-
-    .footer-column:last-child{
-        grid-column:1 / -1;
-
-        text-align:center;
-    }
-
-
-    .footer-bottom{
-        margin-top:32px;
-
-        padding:18px 20px;
-    }
-
-
-    .footer-bottom p{
-
-        font-size:.75rem;
-
-        line-height:1.5;
-    }
-
-    .footer-column:last-child{
-        
-        grid-column:1 / -1;
-
-        display:block;
-
-        text-align:center;
-
-    }
-
-    .footer-column:last-child p{
-
-        margin:0;
-
-        font-size:.82rem;
-
-        line-height:1.55;
-    }
-
-    .footer-column:last-child h4{
-
-        margin-bottom:10px;
-
-    }
-
-    /* ==========================================
-   HIDE SUPPORT HOURS — MOBILE
-========================================== */
-
-    .footer-support-hours{
-        display:none;
-    }
-
-}
-
-
-/* ==========================================
-   FOOTER — SMALL PHONE
-========================================== */
-
-@media (max-width:480px){
-
-    .site-footer{
-        padding-top:40px;
-    }
-
-
-    .footer-grid{
-        gap:22px 16px;
-    }
-
-
-    .footer-column h3{
-        font-size:1rem;
-    }
-
-
-    .footer-column h4{
-        font-size:.9rem;
-
-        margin-bottom:11px;
-    }
-
-
-    .footer-column p{
-        margin-bottom:9px;
-
-        font-size:.82rem;
-
-        line-height:1.55;
-    }
-
-
-    .footer-column li{
-        margin-bottom:6px;
-    }
-
-
-    .footer-column a{
-        font-size:.84rem;
-    }
-
-
-    .footer-bottom{
-        margin-top:26px;
-
-        padding:16px 15px;
-    }
-
-
-    .footer-bottom p{
-        font-size:.68rem;
-
-        line-height:1.45;
-    }
-
-}
-
-/* ==========================================
-   FOOTER — NORMAL PHONE POLISH
-   481px – 768px
-========================================== */
-
-@media (min-width:481px) and (max-width:768px){
-
-    .site-footer{
-
-        padding-top:40px;
-
-    }
-
-
-    .footer-grid{
-
         gap:18px 24px;
 
+        text-align:left;
+
     }
 
 
-    /* Brand */
+    /* ==========================================
+       BRAND — FULL WIDTH
+    ========================================== */
 
     .footer-column:first-child{
+
+        grid-column:1 / -1;
+
+        text-align:center;
 
         margin-bottom:2px;
 
@@ -4946,9 +4773,13 @@ transform:translateY(0px);
 
         margin-bottom:11px;
 
+        font-size:1.1rem;
+
     }
 
     .footer-column:first-child p{
+
+        max-width:100%;
 
         margin-bottom:4px;
 
@@ -4959,13 +4790,44 @@ transform:translateY(0px);
     }
 
 
-    /* Quick Links + Legal */
+    /* ==========================================
+       FOOTER HEADINGS
+    ========================================== */
 
+    .footer-column h3,
     .footer-column h4{
 
         margin-bottom:10px;
 
     }
+
+    .footer-column h4{
+
+        font-size:.95rem;
+
+    }
+
+
+    /* ==========================================
+       FOOTER TEXT
+    ========================================== */
+
+    .footer-column p{
+
+        max-width:100%;
+
+        margin-bottom:9px;
+
+        font-size:.86rem;
+
+        line-height:1.55;
+
+    }
+
+
+    /* ==========================================
+       FOOTER LINKS
+    ========================================== */
 
     .footer-column li{
 
@@ -4980,7 +4842,9 @@ transform:translateY(0px);
     }
 
 
-    /* Contact */
+    /* ==========================================
+       CONTACT — FULL WIDTH
+    ========================================== */
 
     .footer-column:last-child{
 
@@ -5019,7 +4883,20 @@ transform:translateY(0px);
     }
 
 
-    /* Copyright */
+    /* ==========================================
+       SUPPORT HOURS — HIDDEN ON MOBILE
+    ========================================== */
+
+    .footer-support-hours{
+
+        display:none;
+
+    }
+
+
+    /* ==========================================
+       FOOTER BOTTOM
+    ========================================== */
 
     .footer-bottom{
 
@@ -5034,6 +4911,143 @@ transform:translateY(0px);
         font-size:.72rem;
 
         line-height:1.4;
+
+    }
+
+}
+
+
+/* ==========================================
+   FOOTER — SMALL PHONE
+   max-width:480px
+========================================== */
+
+@media (max-width:480px){
+
+    .site-footer{
+
+        padding-top:40px;
+
+    }
+
+
+    /* ==========================================
+       FOOTER GRID
+    ========================================== */
+
+    .footer-grid{
+
+        gap:22px 16px;
+
+    }
+
+
+    /* ==========================================
+       BRAND
+    ========================================== */
+
+    .footer-column:first-child h3{
+
+        font-size:1rem;
+
+    }
+
+
+    .footer-column:first-child p{
+
+        font-size:.82rem;
+
+        line-height:1.55;
+
+    }
+
+
+    /* ==========================================
+       FOOTER HEADINGS
+    ========================================== */
+
+    .footer-column h4{
+
+        font-size:.9rem;
+
+        margin-bottom:11px;
+
+    }
+
+
+    /* ==========================================
+       FOOTER LINKS
+    ========================================== */
+
+    .footer-column li{
+
+        margin-bottom:6px;
+
+    }
+
+    .footer-column a{
+
+        font-size:.84rem;
+
+    }
+
+
+    /* ==========================================
+       CONTACT — CENTERED
+    ========================================== */
+
+    .footer-column:last-child{
+
+        display:block;
+
+        grid-column:1 / -1;
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+    .footer-column:last-child h4{
+
+        text-align:center;
+
+        margin-bottom:10px;
+
+    }
+
+    .footer-column:last-child p{
+
+        width:100%;
+
+        margin:0;
+
+        text-align:center;
+
+        font-size:.82rem;
+
+        line-height:1.5;
+
+    }
+
+
+    /* ==========================================
+       FOOTER BOTTOM
+    ========================================== */
+
+    .footer-bottom{
+
+        margin-top:26px;
+
+        padding:16px 15px;
+
+    }
+
+    .footer-bottom p{
+
+        font-size:.68rem;
+
+        line-height:1.45;
 
     }
 
