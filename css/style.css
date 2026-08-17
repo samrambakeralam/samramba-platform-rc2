@@ -6518,13 +6518,6 @@ section {
     }
 
 
-    .rc2-hero-product {
-
-        min-height: 310px;
-
-    }
-
-
     .rc2-product-image {
 
         width:
@@ -6936,15 +6929,6 @@ section {
             0 18px 28px
             rgba(15, 23, 42, 0.14)
         );
-}
-
-
-/* Keep the badge visible */
-
-.rc2-hero-product {
-
-    overflow: visible;
-
 }
 
 }
@@ -7943,51 +7927,343 @@ a {
 
 /* =========================================================
    MOBILE — PRIMARY EXPERIENCE
+   EXHIBITION-FIRST HERO
 ========================================================= */
 
 @media (max-width: 767px) {
 
+    /* -----------------------------------------
+       HERO FOUNDATION
+    ----------------------------------------- */
+
     .rc2-hero {
+
         padding:
-            24px 0 42px;
+            22px 0 44px;
+
     }
+
 
     .rc2-hero-inner {
+
         width:
-            calc(100% - 28px);
+            calc(100% - 24px);
+
+        display:
+            grid;
+
+        grid-template-columns:
+            1fr;
+
+        grid-template-areas:
+
+            "badge"
+            "title"
+            "description"
+            "product"
+            "values"
+            "actions"
+            "trust";
 
         gap:
-            20px;
+            0;
+
     }
+
+
+    /*
+       Let the individual hero elements participate
+       directly in the mobile composition.
+    */
 
     .rc2-hero-content {
-        text-align:
-            left;
+
+        display:
+            contents;
+
     }
 
-    .rc2-hero h1 {
-        margin-top:
-            14px;
+
+    /* -----------------------------------------
+       INTRODUCTION
+    ----------------------------------------- */
+
+    .rc2-hero-badge {
+
+        grid-area:
+            badge;
+
+        justify-self:
+            start;
+
+        margin:
+            0 0 12px;
 
         font-size:
-            clamp(30px, 8.5vw, 36px);
+            10px;
+
+        padding:
+            6px 10px;
+
+    }
+
+
+    .rc2-hero h1 {
+
+        grid-area:
+            title;
+
+        margin:
+            0 0 12px;
+
+        font-size:
+            clamp(
+                30px,
+                8.5vw,
+                36px
+            );
 
         line-height:
-            1.08;
+            1.07;
 
         letter-spacing:
             -.035em;
+
     }
+
 
     .rc2-hero-description {
+
+        grid-area:
+            description;
+
+        max-width:
+            100%;
+
+        margin:
+            0 0 14px;
+
         font-size:
-            15px;
+            14.5px;
 
         line-height:
-            1.58;
+            1.52;
+
     }
 
+
+    /* -----------------------------------------
+       EXHIBITION PRODUCT
+    ----------------------------------------- */
+
+    .rc2-hero-product {
+
+        grid-area:
+            product;
+
+        width:
+            100%;
+
+        min-height:
+            455px;
+
+        margin:
+            0 0 17px;
+
+        overflow:
+            visible;
+
+    }
+
+
+    .rc2-unboxing-stage {
+
+        width:
+            100%;
+
+        min-height:
+            455px;
+
+        border-radius:
+            24px;
+
+    }
+
+
+    /* -----------------------------------------
+       SPOTLIGHT
+    ----------------------------------------- */
+
+    .rc2-unboxing-spotlight {
+
+        top:
+            -82px;
+
+        width:
+            360px;
+
+        height:
+            360px;
+
+    }
+
+
+    /* -----------------------------------------
+       PRODUCT — MORE VISIBLE
+    ----------------------------------------- */
+
+    .rc2-unboxing-product {
+
+        width:
+            min(
+                94%,
+                390px
+            );
+
+        transform:
+            translate3d(
+                0,
+                -8px,
+                0
+            );
+
+    }
+
+
+    .rc2-product-image {
+
+        width:
+            100%;
+
+        max-height:
+            405px;
+
+        border-radius:
+            0;
+
+        filter:
+            drop-shadow(
+                0 25px 32px
+                rgba(0,0,0,.40)
+            );
+
+    }
+
+
+    /* -----------------------------------------
+       CLOTH — LESS DOMINANT
+    ----------------------------------------- */
+
+    .rc2-cloth-left {
+
+        left:
+            -15%;
+
+        bottom:
+            27px;
+
+        width:
+            46%;
+
+        height:
+            62%;
+
+        transform:
+            rotate(6deg);
+
+    }
+
+
+    .rc2-cloth-right {
+
+        right:
+            -15%;
+
+        bottom:
+            27px;
+
+        width:
+            46%;
+
+        height:
+            62%;
+
+        transform:
+            rotate(-6deg);
+
+    }
+
+
+    .rc2-cloth-front {
+
+        bottom:
+            24px;
+
+        width:
+            86%;
+
+        height:
+            20%;
+
+    }
+
+
+    /* -----------------------------------------
+       PRODUCT SHADOW
+    ----------------------------------------- */
+
+    .rc2-unboxing-shadow {
+
+        bottom:
+            53px;
+
+        width:
+            72%;
+
+        height:
+            40px;
+
+        filter:
+            blur(19px);
+
+    }
+
+
+    /* -----------------------------------------
+       SCROLL TO UNVEIL
+    ----------------------------------------- */
+
+    .rc2-unboxing-hint {
+
+        bottom:
+            8px;
+
+        font-size:
+            9.5px;
+
+        letter-spacing:
+            .045em;
+
+    }
+
+
+    .rc2-unboxing-arrow {
+
+        font-size:
+            20px;
+
+    }
+
+
+    /* -----------------------------------------
+       VALUE POINTS
+    ----------------------------------------- */
+
     .rc2-value-points {
+
+        grid-area:
+            values;
+
         display:
             grid;
 
@@ -7996,9 +8272,15 @@ a {
 
         gap:
             8px;
+
+        margin:
+            0 0 17px;
+
     }
 
+
     .rc2-value-points div {
+
         min-height:
             42px;
 
@@ -8007,14 +8289,30 @@ a {
 
         font-size:
             11px;
+
+        box-sizing:
+            border-box;
+
     }
+
 
     .rc2-value-points div:last-child {
+
         grid-column:
             1 / -1;
+
     }
 
+
+    /* -----------------------------------------
+       CTA
+    ----------------------------------------- */
+
     .rc2-hero-actions {
+
+        grid-area:
+            actions;
+
         display:
             grid;
 
@@ -8024,14 +8322,23 @@ a {
         gap:
             9px;
 
-        margin-top:
-            21px;
+        margin:
+            0 0 14px;
+
     }
+
 
     .rc2-primary-cta,
     .rc2-secondary-cta {
+
         width:
-            min(100%, 340px);
+            min(
+                100%,
+                340px
+            );
+
+        min-height:
+            51px;
 
         margin-left:
             auto;
@@ -8042,11 +8349,35 @@ a {
         justify-content:
             center;
 
-        min-height:
-            51px;
+        box-sizing:
+            border-box;
+
     }
 
+
+    .rc2-primary-cta {
+
+        min-height:
+            54px;
+
+        border-radius:
+            14px;
+
+        font-size:
+            17px;
+
+    }
+
+
+    /* -----------------------------------------
+       TRUST
+    ----------------------------------------- */
+
     .rc2-trust-line {
+
+        grid-area:
+            trust;
+
         display:
             grid;
 
@@ -8056,160 +8387,30 @@ a {
         gap:
             8px;
 
-        margin-top:
-            14px;
+        margin:
+            0;
 
         font-size:
             10px;
+
     }
+
 
     .rc2-trust-line span {
+
         justify-content:
             flex-start;
+
     }
 
 
     /* -----------------------------------------
-       EXHIBITION STAGE
-    ----------------------------------------- */
-
-    .rc2-hero-product {
-        width:
-            100%;
-
-        min-height:
-            455px;
-
-        margin-top:
-            4px;
-
-        overflow:
-            visible;
-    }
-
-    .rc2-unboxing-stage {
-        width:
-            100%;
-
-        min-height:
-            455px;
-
-        border-radius:
-            24px;
-    }
-
-    .rc2-unboxing-spotlight {
-        top:
-            -92px;
-
-        width:
-            370px;
-
-        height:
-            370px;
-    }
-
-    .rc2-unboxing-shadow {
-        bottom:
-            56px;
-
-        width:
-            76%;
-
-        height:
-            43px;
-
-        filter:
-            blur(20px);
-    }
-
-    .rc2-unboxing-product {
-        width:
-            min(94%, 390px);
-
-        transform:
-            translate3d(0, -4px, 0);
-    }
-
-    .rc2-product-image {
-        width:
-            100%;
-
-        max-height:
-            410px;
-
-        border-radius:
-            0;
-
-        filter:
-            drop-shadow(
-                0 26px 32px rgba(0, 0, 0, .42)
-            );
-    }
-
-
-    /* -----------------------------------------
-       CLOTH
-    ----------------------------------------- */
-
-    .rc2-cloth-left {
-        left:
-            -12%;
-
-        bottom:
-            28px;
-
-        width:
-            53%;
-
-        height:
-            68%;
-    }
-
-    .rc2-cloth-right {
-        right:
-            -12%;
-
-        bottom:
-            28px;
-
-        width:
-            53%;
-
-        height:
-            68%;
-    }
-
-    .rc2-cloth-front {
-        bottom:
-            25px;
-
-        width:
-            92%;
-
-        height:
-            24%;
-    }
-
-
-    /* -----------------------------------------
-       REVEAL HINT
-    ----------------------------------------- */
-
-    .rc2-unboxing-hint {
-        bottom:
-            9px;
-
-        font-size:
-            9.5px;
-    }
-
-
-    /* -----------------------------------------
-       MOBILE MENU — PRESERVE WORKING BEHAVIOR
+       MOBILE MENU
+       PRESERVE CURRENT WORKING BEHAVIOR
     ----------------------------------------- */
 
     .rc2-mobile-menu {
+
         width:
             100vw;
 
@@ -8221,14 +8422,20 @@ a {
 
         box-sizing:
             border-box;
+
     }
+
 
     .rc2-mobile-menu-top {
+
         min-height:
             62px;
+
     }
 
+
     .rc2-mobile-nav a {
+
         min-height:
             52px;
 
@@ -8237,7 +8444,9 @@ a {
 
         align-items:
             center;
+
     }
+
 }
 
 
