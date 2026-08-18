@@ -8573,11 +8573,8 @@ a {
 }
 
 /* =========================================================
-   SAMRAMBA RC2 — PREMIUM FABRIC UNVEILING
-   ---------------------------------------------------------
-   Heavy premium exhibition cloth.
-   JavaScript controls movement.
-   CSS controls fabric appearance.
+   SAMRAMBA RC2
+   REAL VELVET FABRIC UNVEILING
 ========================================================= */
 
 .rc2-unboxing-cloth {
@@ -8590,19 +8587,13 @@ a {
 
     pointer-events: none;
 
-    overflow: hidden;
+    overflow: visible;
 
-    will-change: opacity;
-
-    filter:
-        drop-shadow(
-            0 18px 25px rgba(0,0,0,.16)
-        );
 }
 
 
 /* =========================================================
-   COMMON FABRIC
+   COMMON REAL FABRIC ASSETS
 ========================================================= */
 
 .rc2-cloth-left,
@@ -8611,259 +8602,98 @@ a {
 
     position: absolute;
 
+    display: block;
+
     pointer-events: none;
 
-    overflow: hidden;
+    user-select: none;
+
+    -webkit-user-drag: none;
+
+    max-width: none;
+
+    height: auto;
 
     will-change:
         transform,
-        clip-path,
         opacity;
 
-    backface-visibility: hidden;
+    transform-style:
+        preserve-3d;
 
-    -webkit-backface-visibility: hidden;
+    backface-visibility:
+        hidden;
+
+    -webkit-backface-visibility:
+        hidden;
 }
 
 
 /* =========================================================
-   LEFT FABRIC
+   LEFT CURTAIN
 ========================================================= */
 
 .rc2-cloth-left {
 
-    left: -9%;
+    left: -7%;
 
-    bottom: 27px;
+    top: 2%;
 
-    width: 57%;
+    width: 58%;
 
-    height: 70%;
-
-    border-radius:
-        52% 28% 18% 6%;
+    z-index: 6;
 
     transform-origin:
-        100% 50%;
+        100% 45%;
 
-    background:
-
-        linear-gradient(
-            104deg,
-
-            #061321 0%,
-
-            #0b2238 18%,
-
-            #173a56 31%,
-
-            #0b2238 44%,
-
-            #07192c 55%,
-
-            #183c59 69%,
-
-            #07182a 82%,
-
-            #020b15 100%
+    filter:
+        drop-shadow(
+            10px 18px 22px
+            rgba(0,0,0,.30)
         );
-
-    clip-path:
-
-        polygon(
-            0 0,
-            78% 0,
-            88% 7%,
-            82% 18%,
-            74% 28%,
-            80% 39%,
-            73% 51%,
-            82% 63%,
-            76% 74%,
-            88% 86%,
-            100% 100%,
-            0 100%
-        );
-
-    box-shadow:
-
-        14px 15px 34px
-        rgba(0,0,0,.36);
 }
 
 
 /* =========================================================
-   RIGHT FABRIC
+   RIGHT CURTAIN
 ========================================================= */
 
 .rc2-cloth-right {
 
-    right: -9%;
+    right: -7%;
 
-    bottom: 27px;
+    top: 2%;
 
-    width: 57%;
+    width: 58%;
 
-    height: 70%;
-
-    border-radius:
-        28% 52% 6% 18%;
+    z-index: 6;
 
     transform-origin:
-        0% 50%;
-
-    background:
-
-        linear-gradient(
-            256deg,
-
-            #061321 0%,
-
-            #0b2238 18%,
-
-            #173a56 31%,
-
-            #0b2238 44%,
-
-            #07192c 55%,
-
-            #183c59 69%,
-
-            #07182a 82%,
-
-            #020b15 100%
-        );
-
-    clip-path:
-
-        polygon(
-            22% 0,
-            100% 0,
-            100% 100%,
-            0 100%,
-            12% 86%,
-            24% 74%,
-            18% 63%,
-            27% 51%,
-            20% 39%,
-            26% 28%,
-            18% 18%,
-            12% 7%
-        );
-
-    box-shadow:
-
-        -14px 15px 34px
-        rgba(0,0,0,.36);
-}
-
-
-/* =========================================================
-   FABRIC FOLD HIGHLIGHTS
-========================================================= */
-
-.rc2-cloth-left::before,
-.rc2-cloth-right::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset:
-        -8% -4%;
-
-    background:
-
-        repeating-linear-gradient(
-            102deg,
-
-            transparent 0 28px,
-
-            rgba(255,255,255,.025) 31px,
-
-            rgba(255,255,255,.095) 37px,
-
-            rgba(255,255,255,.025) 45px,
-
-            transparent 53px
-        );
-
-    opacity: .68;
-
-    mix-blend-mode:
-        screen;
-
-    pointer-events:
-        none;
-}
-
-
-/* =========================================================
-   INNER FABRIC FOLDS
-========================================================= */
-
-.rc2-cloth-left::after,
-.rc2-cloth-right::after {
-
-    content: "";
-
-    position: absolute;
-
-    top: -5%;
-
-    bottom: -5%;
-
-    width: 38%;
-
-    border-radius: 50%;
-
-    background:
-
-        linear-gradient(
-            90deg,
-
-            transparent,
-
-            rgba(255,255,255,.075),
-
-            transparent
-        );
+        0% 45%;
 
     filter:
-        blur(8px);
-
-    opacity: .8;
-
-    pointer-events:
-        none;
-}
-
-
-.rc2-cloth-left::after {
-
-    right: 13%;
-}
-
-
-.rc2-cloth-right::after {
-
-    left: 13%;
+        drop-shadow(
+            -10px 18px 22px
+            rgba(0,0,0,.30)
+        );
 }
 
 
 /* =========================================================
-   FRONT FALLING DRAPE
+   FRONT VELVET DRAPE — CORRECTED POSITION
 ========================================================= */
 
-.rc2-cloth-front {
+..rc2-cloth-front {
 
     left: 50%;
 
-    bottom: 19px;
+    bottom: 12%;
 
-    width: 91%;
+    width: 88%;
 
-    height: 27%;
+    height: auto;
+
+    z-index: 7;
 
     transform:
         translateX(-50%);
@@ -8871,180 +8701,77 @@ a {
     transform-origin:
         50% 0%;
 
-    border-radius:
-        46% 46% 14px 14px;
+    pointer-events: none;
 
-    background:
+    display: block;
 
-        linear-gradient(
-            180deg,
-
-            #183a55 0%,
-
-            #0e2a42 20%,
-
-            #071a2d 48%,
-
-            #0b2339 69%,
-
-            #03101d 100%
-        );
-
-    clip-path:
-
-        polygon(
-            0 18%,
-            9% 8%,
-            18% 14%,
-            28% 6%,
-            39% 16%,
-            50% 8%,
-            61% 17%,
-            72% 7%,
-            83% 15%,
-            92% 8%,
-            100% 18%,
-            100% 100%,
-            0 100%
-        );
-
-    box-shadow:
-
-        0 -10px 28px
-        rgba(0,0,0,.24);
-}
-
-
-/* =========================================================
-   FRONT FABRIC FOLDS
-========================================================= */
-
-.rc2-cloth-front::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-
-        repeating-linear-gradient(
-            90deg,
-
-            transparent 0 28px,
-
-            rgba(255,255,255,.025) 35px,
-
-            rgba(255,255,255,.075) 42px,
-
-            rgba(0,0,0,.13) 54px,
-
-            transparent 65px
-        );
-
-    opacity: .62;
-
-    pointer-events:
-        none;
-}
-
-
-/* =========================================================
-   FRONT FABRIC EDGE HIGHLIGHT
-========================================================= */
-
-.rc2-cloth-front::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 5%;
-
-    right: 5%;
-
-    top: 8%;
-
-    height: 16px;
-
-    border-radius: 50%;
-
-    background:
-
-        linear-gradient(
-            180deg,
-            rgba(255,255,255,.11),
-            transparent
-        );
+    max-width: none;
 
     filter:
-        blur(2px);
+        drop-shadow(
+            0 16px 22px
+            rgba(0,0,0,.30)
+        );
 
-    pointer-events:
-        none;
+    will-change:
+        transform,
+        opacity;
 }
 
 
 /* =========================================================
-   DESKTOP
-========================================================= */
-
-@media (min-width: 768px) {
-
-    .rc2-cloth-left,
-    .rc2-cloth-right {
-
-        width: 59%;
-
-        height: 73%;
-    }
-
-    .rc2-cloth-front {
-
-        width: 91%;
-
-        height: 28%;
-    }
-}
-
-
-/* =========================================================
-   MOBILE — PRIMARY FABRIC EXPERIENCE
+   MOBILE — PRIMARY EXPERIENCE
 ========================================================= */
 
 @media (max-width: 767px) {
 
+    .rc2-unboxing-cloth {
+
+        overflow:
+            visible;
+
+    }
+
+
     .rc2-cloth-left {
 
-        left: -11%;
+    left: -14%;
 
-        bottom: 25px;
+    top: 3%;
 
-        width: 59%;
+    width: 67%;
 
-        height: 66%;
-    }
+    z-index: 6;
+
+}
+
 
     .rc2-cloth-right {
 
-        right: -11%;
+    right: -14%;
 
-        bottom: 25px;
+    top: 3%;
 
-        width: 59%;
+    width: 67%;
 
-        height: 66%;
-    }
+    z-index: 6;
+
+}
+
 
     .rc2-cloth-front {
 
-        bottom: 22px;
+    left: 50%;
 
-        width: 92%;
+    bottom: 4%;
 
-        height: 24%;
-    }
+    width: 94%;
+
+    z-index: 7;
+
+    transform:
+        translateX(-50%);
+
 }
 
 
@@ -9054,29 +8781,31 @@ a {
 
 @media (max-width: 420px) {
 
-    .rc2-cloth-left,
-    .rc2-cloth-right {
+    .rc2-cloth-left {
 
-        bottom: 24px;
+    left: -17%;
 
-        width: 61%;
-
-        height: 65%;
-    }
-
-    .rc2-cloth-front {
-
-        bottom: 21px;
-
-        width: 93%;
-
-        height: 23%;
-    }
+    width: 70%;
 }
 
-    .rc2-unboxing-shadow {
-        bottom:50px;
-    }
+
+.rc2-cloth-right {
+
+    right: -17%;
+
+    width: 70%;
+}
+
+
+.rc2-cloth-front {
+
+    bottom: 4%;
+
+    width: 97%;
+}
+
+}
+
 
 /* ---------------------------------------------------------
    TOUCH DEVICES — remove hover lift that can feel sticky

@@ -990,26 +990,23 @@ function initialiseDynamicHeader() {
 
 }
 
-// =======================================
+// =========================================================
 // SAMRAMBA RC2
-// 3D UNBOXING REVEAL — FABRIC MOTION
-// =======================================
+// PREMIUM FABRIC REVEAL — DESKTOP MOTION
+// =========================================================
 
 function initialiseUnboxingReveal() {
 
     const stage =
         document.getElementById("rc2UnboxingStage");
 
-    const cloth =
-        document.getElementById("rc2UnboxingCloth");
-
-    const leftCloth =
+    const left =
         document.querySelector(".rc2-cloth-left");
 
-    const rightCloth =
+    const right =
         document.querySelector(".rc2-cloth-right");
 
-    const frontCloth =
+    const front =
         document.querySelector(".rc2-cloth-front");
 
     const hint =
@@ -1018,313 +1015,245 @@ function initialiseUnboxingReveal() {
     const product =
         document.querySelector(".rc2-unboxing-product");
 
-    const spotlight =
-        document.querySelector(".rc2-unboxing-spotlight");
-
-
-    /* ---------------------------------------
-       SAFETY CHECK
-    --------------------------------------- */
 
     if (
         !stage ||
-        !cloth ||
-        !leftCloth ||
-        !rightCloth ||
-        !frontCloth
+        !left ||
+        !right ||
+        !front
     ) {
         return;
     }
 
 
-    /* ---------------------------------------
-       STATE
-    --------------------------------------- */
+    let current = 0;
+    let target = 0;
 
-    let revealProgress = 0;
-
-    let targetProgress = 0;
-
-    let animationFrame = null;
+    let raf = null;
 
 
-    /* ---------------------------------------
-       CONFIGURATION
-    --------------------------------------- */
-
-    const REVEAL_DISTANCE = 700;
-
-    const SIDE_DISTANCE = 165;
-
-    const FRONT_DISTANCE = 155;
-
-
-    /* ---------------------------------------
+    /* =====================================================
        HELPERS
-    --------------------------------------- */
+    ===================================================== */
 
-    function clamp(value, min, max) {
+    function clamp(value) {
 
-        return Math.min(
-            Math.max(value, min),
-            max
+        return Math.max(
+            0,
+            Math.min(1, value)
         );
 
     }
 
 
-    function easeOutCubic(value) {
+    function easeOutCubic(t) {
 
         return 1 -
             Math.pow(
-                1 - value,
+                1 - t,
                 3
             );
 
     }
 
 
-    function easeInOut(value) {
+    function easeInOut(t) {
 
-        return value < 0.5
+        return t < .5
 
-            ? 2 * value * value
+            ? 2 * t * t
 
             : 1 -
               Math.pow(
-                  -2 * value + 2,
+                  -2 * t + 2,
                   2
               ) / 2;
 
     }
 
 
-    /*
-       Convert a global reveal value into
-       a smaller animation window.
-    */
-
-    function segment(
-        progress,
+    function section(
+        value,
         start,
         end
     ) {
 
         return clamp(
-            (progress - start) /
-            (end - start),
-            0,
-            1
+            (value - start) /
+            (end - start)
         );
 
     }
 
 
-    /* ---------------------------------------
-       VISUAL UPDATE
-    --------------------------------------- */
+    /* =====================================================
+       UPDATE
+    ===================================================== */
 
-    function updateReveal(progress) {
+    function update(progress) {
 
-        /*
-           =====================================
-           SIDE FABRIC
-           =====================================
+
+        /* =================================================
+           1. SIDE CURTAINS
            
-           The side fabric begins peeling
-           before the front drape falls.
-        */
+           They open first.
+        ================================================= */
 
-        const sideProgress =
+        const curtain =
             easeInOut(
-                segment(
+                section(
                     progress,
-                    0.08,
-                    0.78
+                    .04,
+                    .70
                 )
             );
 
 
-        const sideDistance =
-            SIDE_DISTANCE *
-            sideProgress;
+        const sideX =
+            210 * curtain;
 
 
-        /*
-           LEFT
-        */
+        const sideRotate =
+            9 * curtain;
 
-        leftCloth.style.transform =
+
+        const sideLift =
+            -8 * curtain;
+
+
+        left.style.transform =
             `
             translate3d(
-                ${-sideDistance}px,
-                ${-7 * sideProgress}px,
+                ${-sideX}px,
+                ${sideLift}px,
                 0
             )
             rotate(
-                ${7 * sideProgress}deg
+                ${sideRotate}deg
             )
             scaleX(
-                ${1 - (0.08 * sideProgress)}
+                ${1 - (.045 * curtain)}
             )
             `;
 
 
-        /*
-           RIGHT
-        */
-
-        rightCloth.style.transform =
+        right.style.transform =
             `
             translate3d(
-                ${sideDistance}px,
-                ${-7 * sideProgress}px,
+                ${sideX}px,
+                ${sideLift}px,
                 0
             )
             rotate(
-                ${-7 * sideProgress}deg
+                ${-sideRotate}deg
             )
             scaleX(
-                ${1 - (0.08 * sideProgress)}
+                ${1 - (.045 * curtain)}
             )
             `;
 
 
-        /*
-           =====================================
-           FRONT DRAPE
-           =====================================
+        /* =================================================
+           2. FRONT DRAPE
            
-           The front fabric waits briefly,
-           then falls.
-        */
+           It waits until the curtains have
+           substantially opened.
+
+           Then it falls downward.
+        ================================================= */
 
         const frontProgress =
-            easeInOut(
-                segment(
-                    progress,
-                    0.38,
-                    0.92
-                )
-            );
+    easeInOut(
+        section(
+            progress,
+            .34,
+            .82
+        )
+    );
+
+const dropY =
+    175 *
+    frontProgress;
 
 
-        const frontDistance =
-            FRONT_DISTANCE *
+        const frontRotate =
+            3.5 *
             frontProgress;
 
 
-        frontCloth.style.transform =
+        const frontScale =
+            1 -
+            (.08 * frontProgress);
+
+
+        front.style.transform =
             `
             translate3d(
-                0,
-                ${frontDistance}px,
+                -50%,
+                ${dropY}px,
                 0
             )
             rotate(
-                ${1.8 * frontProgress}deg
+                ${frontRotate}deg
             )
             scaleY(
-                ${1 - (0.10 * frontProgress)}
+                ${frontScale}
             )
             `;
 
 
-        /*
-           =====================================
-           PRODUCT
-           =====================================
+        /* =================================================
+           3. PRODUCT
            
-           Very subtle forward emphasis.
-        */
+           Very subtle cinematic emphasis.
+        ================================================= */
 
         if (product) {
 
-            const productProgress =
+            const reveal =
                 easeOutCubic(
-                    segment(
+                    section(
                         progress,
-                        0.15,
-                        0.85
+                        .22,
+                        .88
                     )
                 );
-
-
-            const scale =
-                1 +
-                (0.025 * productProgress);
-
-
-            const lift =
-                -8 -
-                (4 * productProgress);
 
 
             product.style.transform =
                 `
                 translate3d(
                     0,
-                    ${lift}px,
+                    ${-5 - (6 * reveal)}px,
                     0
                 )
-                scale(${scale})
-                `;
-
-        }
-
-
-        /*
-           =====================================
-           SPOTLIGHT
-           =====================================
-        */
-
-        if (spotlight) {
-
-            const lightProgress =
-                easeOutCubic(progress);
-
-
-            spotlight.style.opacity =
-                String(
-                    0.78 +
-                    (0.22 * lightProgress)
-                );
-
-
-            spotlight.style.transform =
-                `
                 scale(
-                    ${1 +
-                    (0.10 * lightProgress)}
+                    ${1 + (.022 * reveal)}
                 )
                 `;
 
         }
 
 
-        /*
-           =====================================
-           REVEAL HINT
-           =====================================
-        */
+        /* =================================================
+           4. SCROLL HINT
+        ================================================= */
 
         if (hint) {
 
-            const hintProgress =
+            const fade =
                 easeInOut(
-                    segment(
+                    section(
                         progress,
-                        0.02,
-                        0.42
+                        .02,
+                        .30
                     )
                 );
 
 
             hint.style.opacity =
                 String(
-                    1 -
-                    hintProgress
+                    1 - fade
                 );
 
 
@@ -1332,7 +1261,7 @@ function initialiseUnboxingReveal() {
                 `
                 translate3d(
                     0,
-                    ${10 * hintProgress}px,
+                    ${12 * fade}px,
                     0
                 )
                 `;
@@ -1342,100 +1271,89 @@ function initialiseUnboxingReveal() {
     }
 
 
-    /* ---------------------------------------
+    /* =====================================================
        SMOOTH ANIMATION
-    --------------------------------------- */
+    ===================================================== */
 
     function animate() {
 
-        revealProgress +=
+        current +=
             (
-                targetProgress -
-                revealProgress
-            ) * 0.085;
+                target -
+                current
+            ) * .075;
 
 
         if (
             Math.abs(
-                targetProgress -
-                revealProgress
-            ) < 0.001
+                target -
+                current
+            ) < .001
         ) {
 
-            revealProgress =
-                targetProgress;
+            current =
+                target;
 
         }
 
 
-        updateReveal(
-            revealProgress
-        );
+        update(current);
 
 
         if (
             Math.abs(
-                targetProgress -
-                revealProgress
-            ) > 0.001
+                target -
+                current
+            ) > .001
         ) {
 
-            animationFrame =
+            raf =
                 requestAnimationFrame(
                     animate
                 );
 
         } else {
 
-            animationFrame =
-                null;
+            raf = null;
 
         }
 
     }
 
 
-    /* ---------------------------------------
-       CALCULATE SCROLL PROGRESS
-    --------------------------------------- */
+    /* =====================================================
+       SCROLL PROGRESS
+    ===================================================== */
 
-    function calculateReveal() {
+    function calculate() {
 
         const rect =
             stage.getBoundingClientRect();
 
 
-        /*
-           Progress is based on how far the
-           exhibition stage has travelled
-           through the viewport.
-        */
-
-        const viewportHeight =
+        const viewport =
             window.innerHeight;
 
 
-        const travelled =
-            viewportHeight -
+        const travel =
+            viewport -
             rect.top;
 
 
-        targetProgress =
+        /*
+           Longer reveal distance gives
+           the cloth a slower, heavier feel.
+        */
+
+        target =
             clamp(
-                travelled /
-                REVEAL_DISTANCE,
-                0,
-                1
+                travel / 820
             );
 
 
-        /*
-           Start animation loop only when needed.
-        */
+        if (!raf) {
 
-        if (!animationFrame) {
-
-            animationFrame =
+            raf =
                 requestAnimationFrame(
                     animate
                 );
@@ -1445,59 +1363,47 @@ function initialiseUnboxingReveal() {
     }
 
 
-    /* ---------------------------------------
-       SCROLL
-    --------------------------------------- */
-
     window.addEventListener(
         "scroll",
-        calculateReveal,
+        calculate,
         {
             passive: true
         }
     );
 
-
-    /* ---------------------------------------
-       RESIZE
-    --------------------------------------- */
 
     window.addEventListener(
         "resize",
-        calculateReveal,
+        calculate,
         {
             passive: true
         }
     );
 
 
-    /* ---------------------------------------
+    /* =====================================================
        REDUCED MOTION
-    --------------------------------------- */
+    ===================================================== */
 
-    const reducedMotion =
+    if (
         window.matchMedia(
             "(prefers-reduced-motion: reduce)"
-        );
+        ).matches
+    ) {
 
+        current = 1;
 
-    if (reducedMotion.matches) {
+        target = 1;
 
-        revealProgress = 1;
-
-        targetProgress = 1;
-
-        updateReveal(1);
+        update(1);
 
         return;
 
     }
 
 
-    /* ---------------------------------------
-       INITIAL STATE
-    --------------------------------------- */
+    update(0);
 
-    updateReveal(0);
+    calculate();
 
 }
