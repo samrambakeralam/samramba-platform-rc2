@@ -8563,3 +8563,679 @@ a {
             auto !important;
     }
 }
+
+
+/* =========================================================
+   SAMRAMBA KERALAM 2030
+   RC2 — FINAL MASTER HERO / MOBILE POLISH
+   ---------------------------------------------------------
+   This final layer intentionally overrides earlier RC2
+   experiments so the stylesheet can remain backward-safe.
+   Product image is preserved exactly as supplied.
+   ========================================================= */
+
+:root {
+    --rc2-stage-top: #dbeafe;
+    --rc2-stage-mid: #b9d5ea;
+    --rc2-stage-bottom: #6f91ad;
+    --rc2-stage-floor: rgba(255,255,255,.22);
+    --rc2-fabric-1: #061321;
+    --rc2-fabric-2: #0b2238;
+    --rc2-fabric-3: #173a56;
+    --rc2-fabric-shadow: rgba(0,0,0,.36);
+    --rc2-transition: cubic-bezier(.22,.61,.36,1);
+}
+
+/* ---------------------------------------------------------
+   HERO — clean, premium foundation
+--------------------------------------------------------- */
+
+.rc2-hero {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 78% 18%, rgba(22,163,74,.045), transparent 27%),
+        linear-gradient(180deg,#fff 0%,#f8fafc 100%);
+}
+
+.rc2-hero-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.rc2-hero-product {
+    position: relative;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    isolation: isolate;
+    overflow: visible;
+}
+
+/* ---------------------------------------------------------
+   EXHIBITION STAGE
+--------------------------------------------------------- */
+
+.rc2-unboxing-stage {
+    position: relative;
+    width: min(100%,560px);
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 30px;
+
+    /* Light premium gallery environment — not gloomy */
+    background:
+        radial-gradient(
+            ellipse at 50% 7%,
+            rgba(255,255,255,.74) 0%,
+            rgba(255,255,255,.34) 22%,
+            rgba(255,255,255,0) 47%
+        ),
+        linear-gradient(
+            180deg,
+            var(--rc2-stage-top) 0%,
+            var(--rc2-stage-mid) 55%,
+            var(--rc2-stage-bottom) 100%
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.65),
+        inset 0 -55px 80px rgba(23,58,86,.16),
+        0 28px 70px rgba(15,23,42,.13);
+}
+
+.rc2-unboxing-stage::before {
+    content:"";
+    position:absolute;
+    left:8%;
+    right:8%;
+    bottom:34px;
+    height:115px;
+    border-radius:50%;
+    background:radial-gradient(ellipse,rgba(255,255,255,.18),transparent 70%);
+    filter:blur(8px);
+    pointer-events:none;
+    z-index:1;
+}
+
+.rc2-unboxing-stage::after {
+    content:"";
+    position:absolute;
+    left:6%;
+    right:6%;
+    bottom:24px;
+    height:1px;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);
+    pointer-events:none;
+    z-index:2;
+}
+
+/* ---------------------------------------------------------
+   SINGLE MINIMAL SPOTLIGHT
+--------------------------------------------------------- */
+
+.rc2-unboxing-spotlight {
+    position:absolute;
+    top:-112px;
+    left:50%;
+    width:470px;
+    height:470px;
+    transform:translateX(-50%);
+    border-radius:50%;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255,255,255,.72) 0%,
+            rgba(235,247,255,.42) 25%,
+            rgba(220,240,255,.14) 48%,
+            transparent 72%
+        );
+    filter:blur(2px);
+    pointer-events:none;
+    z-index:2;
+}
+
+/* ---------------------------------------------------------
+   PRODUCT — retain original contrast
+--------------------------------------------------------- */
+
+.rc2-unboxing-product {
+    position:relative;
+    width:min(92%,500px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:4;
+    transform:translate3d(0,-8px,0);
+    transform-origin:center bottom;
+    will-change:transform;
+}
+
+.rc2-product-image {
+    display:block;
+    width:100%;
+    max-width:500px;
+    max-height:520px;
+    object-fit:contain;
+    border-radius:0 !important;
+    filter:drop-shadow(0 28px 38px rgba(15,23,42,.34));
+    user-select:none;
+    -webkit-user-drag:none;
+    will-change:transform,filter;
+}
+
+/* Old circular badge stays disabled */
+.rc2-product-badge { display:none !important; }
+
+/* ---------------------------------------------------------
+   PRODUCT GROUND SHADOW
+--------------------------------------------------------- */
+
+.rc2-unboxing-shadow {
+    position:absolute;
+    left:50%;
+    bottom:64px;
+    width:68%;
+    height:48px;
+    transform:translateX(-50%);
+    border-radius:50%;
+    background:rgba(19,42,60,.38);
+    filter:blur(22px);
+    pointer-events:none;
+    z-index:3;
+}
+
+/* =========================================================
+   FABRIC UNVEILING — REAL DRAPE LANGUAGE
+   ---------------------------------------------------------
+   The three DOM pieces remain, but their visual treatment is
+   now one continuous piece of dark premium fabric.
+   JavaScript controls the movement; CSS controls the fabric.
+   ========================================================= */
+
+.rc2-unboxing-cloth {
+    position:absolute;
+    inset:0;
+    z-index:5;
+    pointer-events:none;
+    overflow:hidden;
+    will-change:opacity;
+    filter:drop-shadow(0 18px 25px rgba(0,0,0,.16));
+}
+
+.rc2-cloth-left,
+.rc2-cloth-right,
+.rc2-cloth-front {
+    position:absolute;
+    pointer-events:none;
+    overflow:hidden;
+    will-change:transform,clip-path,opacity;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+}
+
+/* ---------------------------------------------------------
+   LEFT FABRIC — pulled toward the left
+--------------------------------------------------------- */
+
+.rc2-cloth-left {
+    left:-9%;
+    bottom:27px;
+    width:57%;
+    height:70%;
+    border-radius:52% 28% 18% 6%;
+    background:
+        linear-gradient(104deg,
+            var(--rc2-fabric-1) 0%,
+            var(--rc2-fabric-2) 18%,
+            var(--rc2-fabric-3) 31%,
+            var(--rc2-fabric-2) 44%,
+            #07192c 55%,
+            #183c59 69%,
+            #07182a 82%,
+            #020b15 100%);
+    clip-path:polygon(
+        0 0,
+        78% 0,
+        88% 7%,
+        82% 18%,
+        74% 28%,
+        80% 39%,
+        73% 51%,
+        82% 63%,
+        76% 74%,
+        88% 86%,
+        100% 100%,
+        0 100%
+    );
+    box-shadow:14px 15px 34px var(--rc2-fabric-shadow);
+}
+
+/* ---------------------------------------------------------
+   RIGHT FABRIC — pulled toward the right
+--------------------------------------------------------- */
+
+.rc2-cloth-right {
+    right:-9%;
+    bottom:27px;
+    width:57%;
+    height:70%;
+    border-radius:28% 52% 6% 18%;
+    background:
+        linear-gradient(256deg,
+            var(--rc2-fabric-1) 0%,
+            var(--rc2-fabric-2) 18%,
+            var(--rc2-fabric-3) 31%,
+            var(--rc2-fabric-2) 44%,
+            #07192c 55%,
+            #183c59 69%,
+            #07182a 82%,
+            #020b15 100%);
+    clip-path:polygon(
+        22% 0,
+        100% 0,
+        100% 100%,
+        0 100%,
+        12% 86%,
+        24% 74%,
+        18% 63%,
+        27% 51%,
+        20% 39%,
+        26% 28%,
+        18% 18%,
+        12% 7%
+    );
+    box-shadow:-14px 15px 34px var(--rc2-fabric-shadow);
+}
+
+/* ---------------------------------------------------------
+   FABRIC FOLD HIGHLIGHTS
+--------------------------------------------------------- */
+
+.rc2-cloth-left::before,
+.rc2-cloth-right::before {
+    content:"";
+    position:absolute;
+    inset:-8% -4%;
+    background:
+        repeating-linear-gradient(
+            102deg,
+            transparent 0 28px,
+            rgba(255,255,255,.025) 31px,
+            rgba(255,255,255,.095) 37px,
+            rgba(255,255,255,.025) 45px,
+            transparent 53px
+        );
+    opacity:.68;
+    mix-blend-mode:screen;
+    pointer-events:none;
+}
+
+.rc2-cloth-left::after,
+.rc2-cloth-right::after {
+    content:"";
+    position:absolute;
+    top:-5%;
+    bottom:-5%;
+    width:38%;
+    border-radius:50%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.075),transparent);
+    filter:blur(8px);
+    opacity:.8;
+    pointer-events:none;
+}
+
+.rc2-cloth-left::after { right:13%; }
+.rc2-cloth-right::after { left:13%; }
+
+/* ---------------------------------------------------------
+   FRONT FALLING DRAPE
+--------------------------------------------------------- */
+
+.rc2-cloth-front {
+    left:50%;
+    bottom:19px;
+    width:91%;
+    height:27%;
+    transform:translateX(-50%);
+    border-radius:46% 46% 14px 14px;
+    background:
+        linear-gradient(180deg,
+            #183a55 0%,
+            #0e2a42 20%,
+            #071a2d 48%,
+            #0b2339 69%,
+            #03101d 100%);
+    clip-path:polygon(
+        0 18%,
+        9% 8%,
+        18% 14%,
+        28% 6%,
+        39% 16%,
+        50% 8%,
+        61% 17%,
+        72% 7%,
+        83% 15%,
+        92% 8%,
+        100% 18%,
+        100% 100%,
+        0 100%
+    );
+    box-shadow:0 -10px 28px rgba(0,0,0,.24);
+}
+
+.rc2-cloth-front::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 28px,
+            rgba(255,255,255,.025) 35px,
+            rgba(255,255,255,.075) 42px,
+            rgba(0,0,0,.13) 54px,
+            transparent 65px
+        );
+    opacity:.62;
+    pointer-events:none;
+}
+
+.rc2-cloth-front::after {
+    content:"";
+    position:absolute;
+    left:5%;
+    right:5%;
+    top:8%;
+    height:16px;
+    border-radius:50%;
+    background:linear-gradient(180deg,rgba(255,255,255,.11),transparent);
+    filter:blur(2px);
+    pointer-events:none;
+}
+
+/* ---------------------------------------------------------
+   REVEAL HINT
+--------------------------------------------------------- */
+
+.rc2-unboxing-hint {
+    z-index:8;
+    color:rgba(255,255,255,.88);
+    text-shadow:0 1px 8px rgba(0,0,0,.28);
+}
+
+/* =========================================================
+   MOBILE — PRIMARY EXPERIENCE
+   ---------------------------------------------------------
+   Product remains the visual centerpiece on phones.
+   ========================================================= */
+
+@media (max-width:767px) {
+
+    .rc2-hero {
+        padding:20px 0 40px;
+    }
+
+    .rc2-hero-inner {
+        width:calc(100% - 24px);
+        grid-template-columns:1fr;
+        grid-template-areas:
+            "badge"
+            "title"
+            "description"
+            "product"
+            "values"
+            "actions"
+            "trust";
+        gap:0;
+    }
+
+    .rc2-hero-content {
+        display:contents;
+    }
+
+    .rc2-hero-badge {
+        grid-area:badge;
+        justify-self:start;
+        margin:0 0 11px;
+        padding:6px 10px;
+        font-size:10px;
+    }
+
+    .rc2-hero h1 {
+        grid-area:title;
+        margin:0 0 11px;
+        font-size:clamp(30px,8.5vw,36px);
+        line-height:1.07;
+        letter-spacing:-.035em;
+    }
+
+    .rc2-hero-description {
+        grid-area:description;
+        max-width:100%;
+        margin:0 0 12px;
+        font-size:14.5px;
+        line-height:1.52;
+    }
+
+    .rc2-hero-product {
+        grid-area:product;
+        width:100%;
+        min-height:455px;
+        margin:0 0 16px;
+    }
+
+    .rc2-unboxing-stage {
+        width:100%;
+        min-height:455px;
+        border-radius:24px;
+    }
+
+    .rc2-unboxing-spotlight {
+        top:-84px;
+        width:365px;
+        height:365px;
+    }
+
+    .rc2-unboxing-product {
+        width:min(94%,390px);
+        transform:translate3d(0,-7px,0);
+    }
+
+    .rc2-product-image {
+        width:100%;
+        max-height:405px;
+        border-radius:0 !important;
+        filter:drop-shadow(0 25px 32px rgba(0,0,0,.38));
+    }
+
+    /* Fabric starts closer to the product on mobile so the
+       initial frame clearly reads as a covered object. */
+    .rc2-cloth-left {
+        left:-11%;
+        bottom:25px;
+        width:59%;
+        height:66%;
+    }
+
+    .rc2-cloth-right {
+        right:-11%;
+        bottom:25px;
+        width:59%;
+        height:66%;
+    }
+
+    .rc2-cloth-front {
+        bottom:22px;
+        width:92%;
+        height:24%;
+    }
+
+    .rc2-unboxing-shadow {
+        bottom:52px;
+        width:74%;
+        height:40px;
+        filter:blur(19px);
+    }
+
+    .rc2-unboxing-hint {
+        bottom:8px;
+        font-size:9.5px;
+    }
+
+    .rc2-unboxing-arrow {
+        font-size:20px;
+    }
+
+    .rc2-value-points {
+        grid-area:values;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:8px;
+        margin:0 0 16px;
+    }
+
+    .rc2-value-points div {
+        min-height:42px;
+        padding:8px 9px;
+        font-size:11px;
+        box-sizing:border-box;
+    }
+
+    .rc2-value-points div:last-child {
+        grid-column:1 / -1;
+    }
+
+    .rc2-hero-actions {
+        grid-area:actions;
+        display:grid;
+        grid-template-columns:1fr;
+        gap:9px;
+        margin:0 0 13px;
+    }
+
+    .rc2-primary-cta,
+    .rc2-secondary-cta {
+        width:min(100%,340px);
+        min-height:53px;
+        margin-left:auto;
+        margin-right:auto;
+        justify-content:center;
+        box-sizing:border-box;
+    }
+
+    .rc2-primary-cta {
+        font-size:17px;
+        border-radius:14px;
+    }
+
+    .rc2-trust-line {
+        grid-area:trust;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:8px;
+        margin:0;
+        font-size:10px;
+    }
+
+    .rc2-trust-line span {
+        justify-content:flex-start;
+    }
+}
+
+/* ---------------------------------------------------------
+   SMALL PHONES — iPhone SE / narrow Android
+--------------------------------------------------------- */
+
+@media (max-width:420px) {
+
+    .rc2-hero {
+        padding-top:18px;
+    }
+
+    .rc2-hero-inner {
+        width:calc(100% - 22px);
+    }
+
+    .rc2-hero h1 {
+        font-size:clamp(28px,8.7vw,33px);
+    }
+
+    .rc2-hero-description {
+        font-size:14px;
+        line-height:1.55;
+    }
+
+    .rc2-hero-product {
+        min-height:420px;
+    }
+
+    .rc2-unboxing-stage {
+        min-height:420px;
+        border-radius:22px;
+    }
+
+    .rc2-unboxing-spotlight {
+        top:-76px;
+        width:330px;
+        height:330px;
+    }
+
+    .rc2-unboxing-product {
+        width:min(94%,350px);
+    }
+
+    .rc2-product-image {
+        max-height:375px;
+    }
+
+    .rc2-cloth-left,
+    .rc2-cloth-right {
+        bottom:24px;
+        width:61%;
+        height:65%;
+    }
+
+    .rc2-cloth-front {
+        bottom:21px;
+        height:23%;
+    }
+
+    .rc2-unboxing-shadow {
+        bottom:50px;
+    }
+}
+
+/* ---------------------------------------------------------
+   TOUCH DEVICES — remove hover lift that can feel sticky
+--------------------------------------------------------- */
+
+@media (hover:none) and (pointer:coarse) {
+    .rc2-primary-cta:hover,
+    .rc2-secondary-cta:hover,
+    .rc2-hero-badge:hover {
+        transform:none;
+        box-shadow:none;
+    }
+}
+
+/* ---------------------------------------------------------
+   REDUCED MOTION
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion:reduce) {
+    .rc2-cloth-left,
+    .rc2-cloth-right,
+    .rc2-cloth-front,
+    .rc2-unboxing-product,
+    .rc2-unboxing-hint,
+    .rc2-unboxing-arrow {
+        transition:none !important;
+        animation:none !important;
+    }
+}
