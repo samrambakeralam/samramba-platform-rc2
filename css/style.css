@@ -8635,16 +8635,16 @@ a {
 
 .rc2-cloth-left {
 
-    left: -7%;
+    left: -10%;
 
-    top: 2%;
+    top: -5%;
 
-    width: 58%;
+    width: 68%;
 
     z-index: 6;
 
     transform-origin:
-        100% 45%;
+        100% 8%;
 
     filter:
         drop-shadow(
@@ -8660,16 +8660,16 @@ a {
 
 .rc2-cloth-right {
 
-    right: -7%;
+    right: -10%;
 
-    top: 2%;
+    top: -5%;
 
-    width: 58%;
+    width: 68%;
 
     z-index: 6;
 
     transform-origin:
-        0% 45%;
+        0% 8%;
 
     filter:
         drop-shadow(
