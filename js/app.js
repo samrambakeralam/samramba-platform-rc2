@@ -992,7 +992,7 @@ function initialiseDynamicHeader() {
 
 // =========================================================
 // SAMRAMBA RC2
-// PREMIUM FABRIC REVEAL — DESKTOP MOTION
+// PREMIUM FABRIC REVEAL — DESKTOP FINAL MOTION
 // =========================================================
 
 function initialiseUnboxingReveal() {
@@ -1016,11 +1016,14 @@ function initialiseUnboxingReveal() {
         document.querySelector(".rc2-unboxing-product");
 
 
+    /* =====================================================
+       REQUIRED ELEMENTS
+    ===================================================== */
+
     if (
         !stage ||
         !left ||
-        !right ||
-        !front
+        !right
     ) {
         return;
     }
@@ -1059,7 +1062,7 @@ function initialiseUnboxingReveal() {
 
     function easeInOut(t) {
 
-        return t < .5
+        return t < 0.5
 
             ? 2 * t * t
 
@@ -1087,125 +1090,139 @@ function initialiseUnboxingReveal() {
 
 
     /* =====================================================
-       UPDATE
+       UPDATE REVEAL
     ===================================================== */
 
     function update(progress) {
 
 
         /* =================================================
-           1. SIDE CURTAINS
-           
-           They open first.
+           1. LEFT + RIGHT VELVET
+
+           The curtains remain gathered at the top,
+           then pull naturally outward.
         ================================================= */
 
         const curtain =
-            easeInOut(
-                section(
-                    progress,
-                    .04,
-                    .70
-                )
-            );
+    easeInOut(
+        section(
+            progress,
+            0.08,
+            0.82
+        )
+    );
 
 
-        const sideX =
-            210 * curtain;
+const sideX =
+    250 * curtain;
 
 
-        const sideRotate =
-            9 * curtain;
+const sideY =
+    -10 * curtain;
 
 
-        const sideLift =
-            -8 * curtain;
+const sideRotate =
+    7 * curtain;
 
+
+        /*
+           LEFT
+        */
 
         left.style.transform =
-            `
-            translate3d(
-                ${-sideX}px,
-                ${sideLift}px,
-                0
-            )
-            rotate(
-                ${sideRotate}deg
-            )
-            scaleX(
-                ${1 - (.045 * curtain)}
-            )
-            `;
+    `
+    translate3d(
+        ${-sideX}px,
+        ${sideY}px,
+        0
+    )
+    rotate(
+        ${sideRotate}deg
+    )
+    scaleX(
+        ${1 - (.035 * curtain)}
+    )
+    `;
 
+
+        /*
+           RIGHT
+        */
 
         right.style.transform =
-            `
-            translate3d(
-                ${sideX}px,
-                ${sideLift}px,
-                0
-            )
-            rotate(
-                ${-sideRotate}deg
-            )
-            scaleX(
-                ${1 - (.045 * curtain)}
-            )
-            `;
+    `
+    translate3d(
+        ${sideX}px,
+        ${sideY}px,
+        0
+    )
+    rotate(
+        ${-sideRotate}deg
+    )
+    scaleX(
+        ${1 - (.035 * curtain)}
+    )
+    `;
 
 
         /* =================================================
            2. FRONT DRAPE
-           
-           It waits until the curtains have
-           substantially opened.
 
-           Then it falls downward.
+           Optional.
+
+           If the front asset exists, it falls away
+           after the side curtains have opened.
         ================================================= */
 
-        const frontProgress =
-    easeInOut(
-        section(
-            progress,
-            .34,
-            .82
-        )
-    );
+        if (front) {
 
-const dropY =
-    175 *
-    frontProgress;
+            const frontProgress =
+                easeInOut(
+                    section(
+                        progress,
+                        0.48,
+                        0.82
+                    )
+                );
 
 
-        const frontRotate =
-            3.5 *
-            frontProgress;
+            const dropY =
+                300 *
+                frontProgress;
 
 
-        const frontScale =
-            1 -
-            (.08 * frontProgress);
+            const frontRotate =
+                2.5 *
+                frontProgress;
 
 
-        front.style.transform =
-            `
-            translate3d(
-                -50%,
-                ${dropY}px,
-                0
-            )
-            rotate(
-                ${frontRotate}deg
-            )
-            scaleY(
-                ${frontScale}
-            )
-            `;
+            const frontScale =
+                1 -
+                (.06 * frontProgress);
+
+
+            front.style.transform =
+                `
+                translate3d(
+                    -50%,
+                    ${dropY}px,
+                    0
+                )
+                rotate(
+                    ${frontRotate}deg
+                )
+                scaleY(
+                    ${frontScale}
+                )
+                `;
+
+        }
 
 
         /* =================================================
            3. PRODUCT
-           
-           Very subtle cinematic emphasis.
+
+           Very subtle forward emphasis.
         ================================================= */
 
         if (product) {
@@ -1214,8 +1231,8 @@ const dropY =
                 easeOutCubic(
                     section(
                         progress,
-                        .22,
-                        .88
+                        0.18,
+                        0.78
                     )
                 );
 
@@ -1224,11 +1241,11 @@ const dropY =
                 `
                 translate3d(
                     0,
-                    ${-5 - (6 * reveal)}px,
+                    ${-4 - (5 * reveal)}px,
                     0
                 )
                 scale(
-                    ${1 + (.022 * reveal)}
+                    ${1 + (.018 * reveal)}
                 )
                 `;
 
@@ -1245,8 +1262,8 @@ const dropY =
                 easeInOut(
                     section(
                         progress,
-                        .02,
-                        .30
+                        0.00,
+                        0.20
                     )
                 );
 
@@ -1261,7 +1278,7 @@ const dropY =
                 `
                 translate3d(
                     0,
-                    ${12 * fade}px,
+                    ${10 * fade}px,
                     0
                 )
                 `;
@@ -1281,14 +1298,14 @@ const dropY =
             (
                 target -
                 current
-            ) * .075;
+            ) * 0.09;
 
 
         if (
             Math.abs(
                 target -
                 current
-            ) < .001
+            ) < 0.001
         ) {
 
             current =
@@ -1304,7 +1321,7 @@ const dropY =
             Math.abs(
                 target -
                 current
-            ) > .001
+            ) > 0.001
         ) {
 
             raf =
@@ -1322,46 +1339,91 @@ const dropY =
 
 
     /* =====================================================
-       SCROLL PROGRESS
+       CALCULATE SCROLL PROGRESS
+
+       IMPORTANT:
+
+       The reveal now starts when the stage
+       approaches the viewport instead of
+       simply using:
+
+           (viewport - rect.top) / 820
+
+       This gives us a predictable cinematic
+       reveal distance.
     ===================================================== */
 
-    function calculate() {
+    /* =====================================================
+   SCROLL PROGRESS — HARD INITIAL LOCK
+===================================================== */
 
-        const rect =
-            stage.getBoundingClientRect();
+function calculate() {
+
+    const rect =
+        stage.getBoundingClientRect();
+
+    const viewport =
+        window.innerHeight;
 
 
-        const viewport =
-            window.innerHeight;
+    /*
+       HARD LOCK AT THE TOP
 
+       When the page is freshly loaded,
+       the curtains must remain completely closed.
+    */
 
-        const travel =
-            viewport -
-            rect.top;
+    if (window.scrollY <= 2) {
+
+        target = 0;
+
+    } else {
+
+        /*
+           Reveal begins when the stage reaches
+           approximately 72% of the viewport.
+        */
+
+        const startPoint =
+            viewport * 0.72;
 
 
         /*
-           Longer reveal distance gives
-           the cloth a slower, heavier feel.
+           Distance over which the curtains
+           perform the complete reveal.
         */
+
+        const revealDistance =
+            720;
+
 
         target =
             clamp(
-                travel / 820
+                (
+                    startPoint -
+                    rect.top
+                ) /
+                revealDistance
             );
-
-
-        if (!raf) {
-
-            raf =
-                requestAnimationFrame(
-                    animate
-                );
-
-        }
 
     }
 
+
+    if (!raf) {
+
+        raf =
+            requestAnimationFrame(
+                animate
+            );
+
+    }
+
+}
+
+
+    /* =====================================================
+       EVENTS
+    ===================================================== */
 
     window.addEventListener(
         "scroll",
@@ -1402,8 +1464,13 @@ const dropY =
     }
 
 
-    update(0);
+    /* =====================================================
+       INITIAL STATE
+    ===================================================== */
 
-    calculate();
+update(0);
+
+target = 0;
+current = 0;
 
 }

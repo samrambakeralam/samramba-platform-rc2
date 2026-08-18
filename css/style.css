@@ -8453,11 +8453,12 @@ a {
     /* Light premium gallery environment — not gloomy */
     background:
         radial-gradient(
-            ellipse at 50% 7%,
-            rgba(255,255,255,.74) 0%,
-            rgba(255,255,255,.34) 22%,
-            rgba(255,255,255,0) 47%
-        ),
+            circle at 50% 18%,
+            rgba(255,255,255,.16) 0%,
+            rgba(255,255,255,.06) 18%,
+            rgba(7,25,45,.96) 55%,
+            rgba(3,12,24,1) 100%
+        )
         linear-gradient(
             180deg,
             var(--rc2-stage-top) 0%,
@@ -8637,7 +8638,7 @@ a {
 
     left: -10%;
 
-    top: -5%;
+    top: 2%;
 
     width: 68%;
 
@@ -8662,7 +8663,7 @@ a {
 
     right: -10%;
 
-    top: -5%;
+    top: 2%;
 
     width: 68%;
 
@@ -8673,7 +8674,7 @@ a {
 
     filter:
         drop-shadow(
-            -10px 18px 22px
+            10px 18px 22px
             rgba(0,0,0,.30)
         );
 }
@@ -8683,7 +8684,7 @@ a {
    FRONT VELVET DRAPE — CORRECTED POSITION
 ========================================================= */
 
-..rc2-cloth-front {
+.rc2-cloth-front {
 
     left: 50%;
 
