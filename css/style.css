@@ -7721,126 +7721,6 @@ a {
     display: none !important;
 }
 
-
-/* =========================================================
-   CLOTH — INITIAL COVER
-========================================================= */
-
-.rc2-unboxing-cloth {
-    position: absolute;
-    inset: 0;
-
-    z-index: 5;
-
-    pointer-events: none;
-
-    will-change:
-        opacity,
-        transform;
-}
-
-
-/* Left fold */
-
-.rc2-cloth-left {
-    position: absolute;
-
-    left: -9%;
-    bottom: 34px;
-
-    width: 49%;
-    height: 70%;
-
-    background:
-        linear-gradient(
-            112deg,
-            #020914 0%,
-            #07182b 43%,
-            #16334e 72%,
-            #07182b 100%
-        );
-
-    border-radius:
-        58% 24% 12% 0;
-
-    transform:
-        rotate(7deg);
-
-    box-shadow:
-        14px 12px 34px rgba(0, 0, 0, .34);
-
-    will-change:
-        transform;
-}
-
-
-/* Right fold */
-
-.rc2-cloth-right {
-    position: absolute;
-
-    right: -9%;
-    bottom: 34px;
-
-    width: 49%;
-    height: 70%;
-
-    background:
-        linear-gradient(
-            248deg,
-            #020914 0%,
-            #07182b 43%,
-            #16334e 72%,
-            #07182b 100%
-        );
-
-    border-radius:
-        24% 58% 0 12%;
-
-    transform:
-        rotate(-7deg);
-
-    box-shadow:
-        -14px 12px 34px rgba(0, 0, 0, .34);
-
-    will-change:
-        transform;
-}
-
-
-/* Front fold */
-
-.rc2-cloth-front {
-    position: absolute;
-
-    left: 50%;
-    bottom: 30px;
-
-    width: 88%;
-    height: 26%;
-
-    transform:
-        translateX(-50%);
-
-    background:
-        linear-gradient(
-            180deg,
-            #16334e 0%,
-            #07182b 48%,
-            #020914 100%
-        );
-
-    border-radius:
-        52% 52% 14px 14px;
-
-    box-shadow:
-        0 -12px 28px rgba(0, 0, 0, .22);
-
-    will-change:
-        transform;
-}
-
-
 /* =========================================================
    SCROLL REVEAL HINT
 ========================================================= */
@@ -8146,64 +8026,6 @@ a {
                 0 25px 32px
                 rgba(0,0,0,.40)
             );
-
-    }
-
-
-    /* -----------------------------------------
-       CLOTH — LESS DOMINANT
-    ----------------------------------------- */
-
-    .rc2-cloth-left {
-
-        left:
-            -15%;
-
-        bottom:
-            27px;
-
-        width:
-            46%;
-
-        height:
-            62%;
-
-        transform:
-            rotate(6deg);
-
-    }
-
-
-    .rc2-cloth-right {
-
-        right:
-            -15%;
-
-        bottom:
-            27px;
-
-        width:
-            46%;
-
-        height:
-            62%;
-
-        transform:
-            rotate(-6deg);
-
-    }
-
-
-    .rc2-cloth-front {
-
-        bottom:
-            24px;
-
-        width:
-            86%;
-
-        height:
-            20%;
 
     }
 
@@ -8751,465 +8573,510 @@ a {
 }
 
 /* =========================================================
-   FABRIC UNVEILING — REAL DRAPE LANGUAGE
+   SAMRAMBA RC2 — PREMIUM FABRIC UNVEILING
    ---------------------------------------------------------
-   The three DOM pieces remain, but their visual treatment is
-   now one continuous piece of dark premium fabric.
-   JavaScript controls the movement; CSS controls the fabric.
-   ========================================================= */
+   Heavy premium exhibition cloth.
+   JavaScript controls movement.
+   CSS controls fabric appearance.
+========================================================= */
 
 .rc2-unboxing-cloth {
-    position:absolute;
-    inset:0;
-    z-index:5;
-    pointer-events:none;
-    overflow:hidden;
-    will-change:opacity;
-    filter:drop-shadow(0 18px 25px rgba(0,0,0,.16));
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    will-change: opacity;
+
+    filter:
+        drop-shadow(
+            0 18px 25px rgba(0,0,0,.16)
+        );
 }
+
+
+/* =========================================================
+   COMMON FABRIC
+========================================================= */
 
 .rc2-cloth-left,
 .rc2-cloth-right,
 .rc2-cloth-front {
-    position:absolute;
-    pointer-events:none;
-    overflow:hidden;
-    will-change:transform,clip-path,opacity;
-    backface-visibility:hidden;
-    -webkit-backface-visibility:hidden;
+
+    position: absolute;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    will-change:
+        transform,
+        clip-path,
+        opacity;
+
+    backface-visibility: hidden;
+
+    -webkit-backface-visibility: hidden;
 }
 
-/* ---------------------------------------------------------
-   LEFT FABRIC — pulled toward the left
---------------------------------------------------------- */
+
+/* =========================================================
+   LEFT FABRIC
+========================================================= */
 
 .rc2-cloth-left {
-    left:-9%;
-    bottom:27px;
-    width:57%;
-    height:70%;
-    border-radius:52% 28% 18% 6%;
+
+    left: -9%;
+
+    bottom: 27px;
+
+    width: 57%;
+
+    height: 70%;
+
+    border-radius:
+        52% 28% 18% 6%;
+
+    transform-origin:
+        100% 50%;
+
     background:
-        linear-gradient(104deg,
-            var(--rc2-fabric-1) 0%,
-            var(--rc2-fabric-2) 18%,
-            var(--rc2-fabric-3) 31%,
-            var(--rc2-fabric-2) 44%,
+
+        linear-gradient(
+            104deg,
+
+            #061321 0%,
+
+            #0b2238 18%,
+
+            #173a56 31%,
+
+            #0b2238 44%,
+
             #07192c 55%,
+
             #183c59 69%,
+
             #07182a 82%,
-            #020b15 100%);
-    clip-path:polygon(
-        0 0,
-        78% 0,
-        88% 7%,
-        82% 18%,
-        74% 28%,
-        80% 39%,
-        73% 51%,
-        82% 63%,
-        76% 74%,
-        88% 86%,
-        100% 100%,
-        0 100%
-    );
-    box-shadow:14px 15px 34px var(--rc2-fabric-shadow);
+
+            #020b15 100%
+        );
+
+    clip-path:
+
+        polygon(
+            0 0,
+            78% 0,
+            88% 7%,
+            82% 18%,
+            74% 28%,
+            80% 39%,
+            73% 51%,
+            82% 63%,
+            76% 74%,
+            88% 86%,
+            100% 100%,
+            0 100%
+        );
+
+    box-shadow:
+
+        14px 15px 34px
+        rgba(0,0,0,.36);
 }
 
-/* ---------------------------------------------------------
-   RIGHT FABRIC — pulled toward the right
---------------------------------------------------------- */
+
+/* =========================================================
+   RIGHT FABRIC
+========================================================= */
 
 .rc2-cloth-right {
-    right:-9%;
-    bottom:27px;
-    width:57%;
-    height:70%;
-    border-radius:28% 52% 6% 18%;
+
+    right: -9%;
+
+    bottom: 27px;
+
+    width: 57%;
+
+    height: 70%;
+
+    border-radius:
+        28% 52% 6% 18%;
+
+    transform-origin:
+        0% 50%;
+
     background:
-        linear-gradient(256deg,
-            var(--rc2-fabric-1) 0%,
-            var(--rc2-fabric-2) 18%,
-            var(--rc2-fabric-3) 31%,
-            var(--rc2-fabric-2) 44%,
+
+        linear-gradient(
+            256deg,
+
+            #061321 0%,
+
+            #0b2238 18%,
+
+            #173a56 31%,
+
+            #0b2238 44%,
+
             #07192c 55%,
+
             #183c59 69%,
+
             #07182a 82%,
-            #020b15 100%);
-    clip-path:polygon(
-        22% 0,
-        100% 0,
-        100% 100%,
-        0 100%,
-        12% 86%,
-        24% 74%,
-        18% 63%,
-        27% 51%,
-        20% 39%,
-        26% 28%,
-        18% 18%,
-        12% 7%
-    );
-    box-shadow:-14px 15px 34px var(--rc2-fabric-shadow);
+
+            #020b15 100%
+        );
+
+    clip-path:
+
+        polygon(
+            22% 0,
+            100% 0,
+            100% 100%,
+            0 100%,
+            12% 86%,
+            24% 74%,
+            18% 63%,
+            27% 51%,
+            20% 39%,
+            26% 28%,
+            18% 18%,
+            12% 7%
+        );
+
+    box-shadow:
+
+        -14px 15px 34px
+        rgba(0,0,0,.36);
 }
 
-/* ---------------------------------------------------------
+
+/* =========================================================
    FABRIC FOLD HIGHLIGHTS
---------------------------------------------------------- */
+========================================================= */
 
 .rc2-cloth-left::before,
 .rc2-cloth-right::before {
-    content:"";
-    position:absolute;
-    inset:-8% -4%;
+
+    content: "";
+
+    position: absolute;
+
+    inset:
+        -8% -4%;
+
     background:
+
         repeating-linear-gradient(
             102deg,
+
             transparent 0 28px,
+
             rgba(255,255,255,.025) 31px,
+
             rgba(255,255,255,.095) 37px,
+
             rgba(255,255,255,.025) 45px,
+
             transparent 53px
         );
-    opacity:.68;
-    mix-blend-mode:screen;
-    pointer-events:none;
+
+    opacity: .68;
+
+    mix-blend-mode:
+        screen;
+
+    pointer-events:
+        none;
 }
+
+
+/* =========================================================
+   INNER FABRIC FOLDS
+========================================================= */
 
 .rc2-cloth-left::after,
 .rc2-cloth-right::after {
-    content:"";
-    position:absolute;
-    top:-5%;
-    bottom:-5%;
-    width:38%;
-    border-radius:50%;
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,.075),transparent);
-    filter:blur(8px);
-    opacity:.8;
-    pointer-events:none;
-}
 
-.rc2-cloth-left::after { right:13%; }
-.rc2-cloth-right::after { left:13%; }
+    content: "";
 
-/* ---------------------------------------------------------
-   FRONT FALLING DRAPE
---------------------------------------------------------- */
+    position: absolute;
 
-.rc2-cloth-front {
-    left:50%;
-    bottom:19px;
-    width:91%;
-    height:27%;
-    transform:translateX(-50%);
-    border-radius:46% 46% 14px 14px;
+    top: -5%;
+
+    bottom: -5%;
+
+    width: 38%;
+
+    border-radius: 50%;
+
     background:
-        linear-gradient(180deg,
-            #183a55 0%,
-            #0e2a42 20%,
-            #071a2d 48%,
-            #0b2339 69%,
-            #03101d 100%);
-    clip-path:polygon(
-        0 18%,
-        9% 8%,
-        18% 14%,
-        28% 6%,
-        39% 16%,
-        50% 8%,
-        61% 17%,
-        72% 7%,
-        83% 15%,
-        92% 8%,
-        100% 18%,
-        100% 100%,
-        0 100%
-    );
-    box-shadow:0 -10px 28px rgba(0,0,0,.24);
-}
 
-.rc2-cloth-front::before {
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-        repeating-linear-gradient(
+        linear-gradient(
             90deg,
-            transparent 0 28px,
-            rgba(255,255,255,.025) 35px,
-            rgba(255,255,255,.075) 42px,
-            rgba(0,0,0,.13) 54px,
-            transparent 65px
+
+            transparent,
+
+            rgba(255,255,255,.075),
+
+            transparent
         );
-    opacity:.62;
-    pointer-events:none;
+
+    filter:
+        blur(8px);
+
+    opacity: .8;
+
+    pointer-events:
+        none;
 }
 
-.rc2-cloth-front::after {
-    content:"";
-    position:absolute;
-    left:5%;
-    right:5%;
-    top:8%;
-    height:16px;
-    border-radius:50%;
-    background:linear-gradient(180deg,rgba(255,255,255,.11),transparent);
-    filter:blur(2px);
-    pointer-events:none;
+
+.rc2-cloth-left::after {
+
+    right: 13%;
 }
 
-/* ---------------------------------------------------------
-   REVEAL HINT
---------------------------------------------------------- */
 
-.rc2-unboxing-hint {
-    z-index:8;
-    color:rgba(255,255,255,.88);
-    text-shadow:0 1px 8px rgba(0,0,0,.28);
+.rc2-cloth-right::after {
+
+    left: 13%;
 }
+
 
 /* =========================================================
-   MOBILE — PRIMARY EXPERIENCE
-   ---------------------------------------------------------
-   Product remains the visual centerpiece on phones.
-   ========================================================= */
+   FRONT FALLING DRAPE
+========================================================= */
 
-@media (max-width:767px) {
+.rc2-cloth-front {
 
-    .rc2-hero {
-        padding:20px 0 40px;
-    }
+    left: 50%;
 
-    .rc2-hero-inner {
-        width:calc(100% - 24px);
-        grid-template-columns:1fr;
-        grid-template-areas:
-            "badge"
-            "title"
-            "description"
-            "product"
-            "values"
-            "actions"
-            "trust";
-        gap:0;
-    }
+    bottom: 19px;
 
-    .rc2-hero-content {
-        display:contents;
-    }
+    width: 91%;
 
-    .rc2-hero-badge {
-        grid-area:badge;
-        justify-self:start;
-        margin:0 0 11px;
-        padding:6px 10px;
-        font-size:10px;
-    }
+    height: 27%;
 
-    .rc2-hero h1 {
-        grid-area:title;
-        margin:0 0 11px;
-        font-size:clamp(30px,8.5vw,36px);
-        line-height:1.07;
-        letter-spacing:-.035em;
-    }
+    transform:
+        translateX(-50%);
 
-    .rc2-hero-description {
-        grid-area:description;
-        max-width:100%;
-        margin:0 0 12px;
-        font-size:14.5px;
-        line-height:1.52;
-    }
+    transform-origin:
+        50% 0%;
 
-    .rc2-hero-product {
-        grid-area:product;
-        width:100%;
-        min-height:455px;
-        margin:0 0 16px;
-    }
+    border-radius:
+        46% 46% 14px 14px;
 
-    .rc2-unboxing-stage {
-        width:100%;
-        min-height:455px;
-        border-radius:24px;
-    }
+    background:
 
-    .rc2-unboxing-spotlight {
-        top:-84px;
-        width:365px;
-        height:365px;
-    }
+        linear-gradient(
+            180deg,
 
-    .rc2-unboxing-product {
-        width:min(94%,390px);
-        transform:translate3d(0,-7px,0);
-    }
+            #183a55 0%,
 
-    .rc2-product-image {
-        width:100%;
-        max-height:405px;
-        border-radius:0 !important;
-        filter:drop-shadow(0 25px 32px rgba(0,0,0,.38));
-    }
+            #0e2a42 20%,
 
-    /* Fabric starts closer to the product on mobile so the
-       initial frame clearly reads as a covered object. */
-    .rc2-cloth-left {
-        left:-11%;
-        bottom:25px;
-        width:59%;
-        height:66%;
-    }
+            #071a2d 48%,
 
-    .rc2-cloth-right {
-        right:-11%;
-        bottom:25px;
-        width:59%;
-        height:66%;
-    }
+            #0b2339 69%,
 
-    .rc2-cloth-front {
-        bottom:22px;
-        width:92%;
-        height:24%;
-    }
+            #03101d 100%
+        );
 
-    .rc2-unboxing-shadow {
-        bottom:52px;
-        width:74%;
-        height:40px;
-        filter:blur(19px);
-    }
+    clip-path:
 
-    .rc2-unboxing-hint {
-        bottom:8px;
-        font-size:9.5px;
-    }
+        polygon(
+            0 18%,
+            9% 8%,
+            18% 14%,
+            28% 6%,
+            39% 16%,
+            50% 8%,
+            61% 17%,
+            72% 7%,
+            83% 15%,
+            92% 8%,
+            100% 18%,
+            100% 100%,
+            0 100%
+        );
 
-    .rc2-unboxing-arrow {
-        font-size:20px;
-    }
+    box-shadow:
 
-    .rc2-value-points {
-        grid-area:values;
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:8px;
-        margin:0 0 16px;
-    }
-
-    .rc2-value-points div {
-        min-height:42px;
-        padding:8px 9px;
-        font-size:11px;
-        box-sizing:border-box;
-    }
-
-    .rc2-value-points div:last-child {
-        grid-column:1 / -1;
-    }
-
-    .rc2-hero-actions {
-        grid-area:actions;
-        display:grid;
-        grid-template-columns:1fr;
-        gap:9px;
-        margin:0 0 13px;
-    }
-
-    .rc2-primary-cta,
-    .rc2-secondary-cta {
-        width:min(100%,340px);
-        min-height:53px;
-        margin-left:auto;
-        margin-right:auto;
-        justify-content:center;
-        box-sizing:border-box;
-    }
-
-    .rc2-primary-cta {
-        font-size:17px;
-        border-radius:14px;
-    }
-
-    .rc2-trust-line {
-        grid-area:trust;
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:8px;
-        margin:0;
-        font-size:10px;
-    }
-
-    .rc2-trust-line span {
-        justify-content:flex-start;
-    }
+        0 -10px 28px
+        rgba(0,0,0,.24);
 }
 
-/* ---------------------------------------------------------
-   SMALL PHONES — iPhone SE / narrow Android
---------------------------------------------------------- */
 
-@media (max-width:420px) {
+/* =========================================================
+   FRONT FABRIC FOLDS
+========================================================= */
 
-    .rc2-hero {
-        padding-top:18px;
-    }
+.rc2-cloth-front::before {
 
-    .rc2-hero-inner {
-        width:calc(100% - 22px);
-    }
+    content: "";
 
-    .rc2-hero h1 {
-        font-size:clamp(28px,8.7vw,33px);
-    }
+    position: absolute;
 
-    .rc2-hero-description {
-        font-size:14px;
-        line-height:1.55;
-    }
+    inset: 0;
 
-    .rc2-hero-product {
-        min-height:420px;
-    }
+    background:
 
-    .rc2-unboxing-stage {
-        min-height:420px;
-        border-radius:22px;
-    }
+        repeating-linear-gradient(
+            90deg,
 
-    .rc2-unboxing-spotlight {
-        top:-76px;
-        width:330px;
-        height:330px;
-    }
+            transparent 0 28px,
 
-    .rc2-unboxing-product {
-        width:min(94%,350px);
-    }
+            rgba(255,255,255,.025) 35px,
 
-    .rc2-product-image {
-        max-height:375px;
-    }
+            rgba(255,255,255,.075) 42px,
+
+            rgba(0,0,0,.13) 54px,
+
+            transparent 65px
+        );
+
+    opacity: .62;
+
+    pointer-events:
+        none;
+}
+
+
+/* =========================================================
+   FRONT FABRIC EDGE HIGHLIGHT
+========================================================= */
+
+.rc2-cloth-front::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 5%;
+
+    right: 5%;
+
+    top: 8%;
+
+    height: 16px;
+
+    border-radius: 50%;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.11),
+            transparent
+        );
+
+    filter:
+        blur(2px);
+
+    pointer-events:
+        none;
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 768px) {
 
     .rc2-cloth-left,
     .rc2-cloth-right {
-        bottom:24px;
-        width:61%;
-        height:65%;
+
+        width: 59%;
+
+        height: 73%;
     }
 
     .rc2-cloth-front {
-        bottom:21px;
-        height:23%;
+
+        width: 91%;
+
+        height: 28%;
     }
+}
+
+
+/* =========================================================
+   MOBILE — PRIMARY FABRIC EXPERIENCE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .rc2-cloth-left {
+
+        left: -11%;
+
+        bottom: 25px;
+
+        width: 59%;
+
+        height: 66%;
+    }
+
+    .rc2-cloth-right {
+
+        right: -11%;
+
+        bottom: 25px;
+
+        width: 59%;
+
+        height: 66%;
+    }
+
+    .rc2-cloth-front {
+
+        bottom: 22px;
+
+        width: 92%;
+
+        height: 24%;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .rc2-cloth-left,
+    .rc2-cloth-right {
+
+        bottom: 24px;
+
+        width: 61%;
+
+        height: 65%;
+    }
+
+    .rc2-cloth-front {
+
+        bottom: 21px;
+
+        width: 93%;
+
+        height: 23%;
+    }
+}
 
     .rc2-unboxing-shadow {
         bottom:50px;
     }
-}
 
 /* ---------------------------------------------------------
    TOUCH DEVICES — remove hover lift that can feel sticky
