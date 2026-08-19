@@ -7560,18 +7560,19 @@ a {
 
     border-radius: 30px;
 
-    background:
+        background:
         radial-gradient(
-            ellipse at 50% 9%,
-            rgba(255, 255, 255, .16) 0%,
-            rgba(255, 255, 255, .055) 22%,
-            transparent 43%
+            ellipse 48% 38% at 50% 10%,
+            rgba(255, 255, 255, .20) 0%,
+            rgba(220, 235, 255, .09) 28%,
+            rgba(7, 24, 45, .35) 52%,
+            transparent 76%
         ),
         linear-gradient(
             180deg,
-            var(--rc2-stage-top) 0%,
-            var(--rc2-stage-mid) 52%,
-            var(--rc2-stage-bottom) 100%
+            #07182d 0%,
+            #061525 55%,
+            #030c18 100%
         );
 
     box-shadow:
@@ -7583,14 +7584,58 @@ a {
 }
 
 
-/* Subtle stage floor */
+/* =========================================================
+   PODIUM — PREMIUM LAUNCH STAGE
+========================================================= */
 
-.rc2-unboxing-stage::after {
+.rc2-unboxing-stage::before {
+
     content: "";
 
     position: absolute;
+
+    left: 50%;
+    bottom: 18px;
+
+    width: 88%;
+    height: 150px;
+
+    transform:
+        translateX(-50%);
+
+    background-image:
+        url("SAMRAMBA_RC2_Podium.png");
+
+    background-repeat:
+        no-repeat;
+
+    background-position:
+        center bottom;
+
+    background-size:
+        contain;
+
+    pointer-events:
+        none;
+
+    z-index:
+        3;
+}
+
+
+/* =========================================================
+   SUBTLE STAGE FLOOR LINE
+========================================================= */
+
+.rc2-unboxing-stage::after {
+
+    content: "";
+
+    position: absolute;
+
     left: 5%;
     right: 5%;
+
     bottom: 25px;
 
     height: 1px;
@@ -7603,8 +7648,11 @@ a {
             transparent
         );
 
-    pointer-events: none;
-    z-index: 1;
+    pointer-events:
+        none;
+
+    z-index:
+        2;
 }
 
 
@@ -8435,144 +8483,6 @@ a {
     overflow: visible;
 }
 
-/* ---------------------------------------------------------
-   EXHIBITION STAGE
---------------------------------------------------------- */
-
-.rc2-unboxing-stage {
-    position: relative;
-    width: min(100%,560px);
-    min-height: 560px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    isolation: isolate;
-    border-radius: 30px;
-
-    /* Light premium gallery environment — not gloomy */
-    background:
-        radial-gradient(
-            circle at 50% 18%,
-            rgba(255,255,255,.16) 0%,
-            rgba(255,255,255,.06) 18%,
-            rgba(7,25,45,.96) 55%,
-            rgba(3,12,24,1) 100%
-        )
-        linear-gradient(
-            180deg,
-            var(--rc2-stage-top) 0%,
-            var(--rc2-stage-mid) 55%,
-            var(--rc2-stage-bottom) 100%
-        );
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.65),
-        inset 0 -55px 80px rgba(23,58,86,.16),
-        0 28px 70px rgba(15,23,42,.13);
-}
-
-.rc2-unboxing-stage::before {
-    content:"";
-    position:absolute;
-    left:8%;
-    right:8%;
-    bottom:34px;
-    height:115px;
-    border-radius:50%;
-    background:radial-gradient(ellipse,rgba(255,255,255,.18),transparent 70%);
-    filter:blur(8px);
-    pointer-events:none;
-    z-index:1;
-}
-
-.rc2-unboxing-stage::after {
-    content:"";
-    position:absolute;
-    left:6%;
-    right:6%;
-    bottom:24px;
-    height:1px;
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);
-    pointer-events:none;
-    z-index:2;
-}
-
-/* ---------------------------------------------------------
-   SINGLE MINIMAL SPOTLIGHT
---------------------------------------------------------- */
-
-.rc2-unboxing-spotlight {
-    position:absolute;
-    top:-112px;
-    left:50%;
-    width:470px;
-    height:470px;
-    transform:translateX(-50%);
-    border-radius:50%;
-    background:
-        radial-gradient(
-            ellipse at center,
-            rgba(255,255,255,.72) 0%,
-            rgba(235,247,255,.42) 25%,
-            rgba(220,240,255,.14) 48%,
-            transparent 72%
-        );
-    filter:blur(2px);
-    pointer-events:none;
-    z-index:2;
-}
-
-/* ---------------------------------------------------------
-   PRODUCT — retain original contrast
---------------------------------------------------------- */
-
-.rc2-unboxing-product {
-    position:relative;
-    width:min(92%,500px);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:4;
-    transform:translate3d(0,-8px,0);
-    transform-origin:center bottom;
-    will-change:transform;
-}
-
-.rc2-product-image {
-    display:block;
-    width:100%;
-    max-width:500px;
-    max-height:520px;
-    object-fit:contain;
-    border-radius:0 !important;
-    filter:drop-shadow(0 28px 38px rgba(15,23,42,.34));
-    user-select:none;
-    -webkit-user-drag:none;
-    will-change:transform,filter;
-}
-
-/* Old circular badge stays disabled */
-.rc2-product-badge { display:none !important; }
-
-/* ---------------------------------------------------------
-   PRODUCT GROUND SHADOW
---------------------------------------------------------- */
-
-.rc2-unboxing-shadow {
-    position:absolute;
-    left:50%;
-    bottom:64px;
-    width:68%;
-    height:48px;
-    transform:translateX(-50%);
-    border-radius:50%;
-    background:rgba(19,42,60,.38);
-    filter:blur(22px);
-    pointer-events:none;
-    z-index:3;
-}
-
 /* =========================================================
    SAMRAMBA RC2
    REAL VELVET FABRIC UNVEILING
@@ -8727,52 +8637,30 @@ a {
 @media (max-width: 767px) {
 
     .rc2-unboxing-cloth {
-
-        overflow:
-            visible;
-
+        overflow: visible;
     }
 
-
     .rc2-cloth-left {
-
-    left: -14%;
-
-    top: 3%;
-
-    width: 67%;
-
-    z-index: 6;
-
-}
-
+        left: -14%;
+        top: 3%;
+        width: 67%;
+        z-index: 6;
+    }
 
     .rc2-cloth-right {
-
-    right: -14%;
-
-    top: 3%;
-
-    width: 67%;
-
-    z-index: 6;
-
-}
-
+        right: -14%;
+        top: 3%;
+        width: 67%;
+        z-index: 6;
+    }
 
     .rc2-cloth-front {
-
-    left: 50%;
-
-    bottom: 4%;
-
-    width: 94%;
-
-    z-index: 7;
-
-    transform:
-        translateX(-50%);
-
+        left: 50%;
+        bottom: 4%;
+        width: 94%;
+        z-index: 7;
+        transform: translateX(-50%);
+    }
 }
 
 
@@ -8783,28 +8671,19 @@ a {
 @media (max-width: 420px) {
 
     .rc2-cloth-left {
+        left: -17%;
+        width: 70%;
+    }
 
-    left: -17%;
+    .rc2-cloth-right {
+        right: -17%;
+        width: 70%;
+    }
 
-    width: 70%;
-}
-
-
-.rc2-cloth-right {
-
-    right: -17%;
-
-    width: 70%;
-}
-
-
-.rc2-cloth-front {
-
-    bottom: 4%;
-
-    width: 97%;
-}
-
+    .rc2-cloth-front {
+        bottom: 4%;
+        width: 97%;
+    }
 }
 
 
