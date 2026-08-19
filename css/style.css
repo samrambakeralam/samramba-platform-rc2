@@ -7719,35 +7719,24 @@ a {
 ========================================================= */
 
 .rc2-unboxing-podium {
+    position: absolute !important;
 
-    position: absolute;
+    left: 50% !important;
+    bottom: 20px !important;
 
-    left: 50%;
-    bottom: 18px;
+    width: 90% !important;
+    max-width: 520px !important;
+    height: auto !important;
 
-    width: 92%;
-    max-width: 520px;
+    transform: translateX(-50%) !important;
 
-    height: auto;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 
-    transform:
-        translateX(-50%);
-
-    display: block;
+    z-index: 999 !important;
 
     pointer-events: none;
-    user-select: none;
-    -webkit-user-drag: none;
-
-    object-fit: contain;
-
-    z-index: 3;
-
-    filter:
-        drop-shadow(
-            0 12px 18px
-            rgba(0, 0, 0, .35)
-        );
 }
 
 /* =========================================================
@@ -8779,4 +8768,59 @@ a {
         transition:none !important;
         animation:none !important;
     }
+}
+
+/* =========================================================
+   SAMRAMBA RC2 — PODIUM / DISPLAY PLATFORM
+========================================================= */
+
+.rc2-unboxing-podium {
+    position: absolute;
+
+    left: 50%;
+    bottom: 18px;
+
+    width: 92%;
+    max-width: 520px;
+
+    height: auto;
+
+    transform: translateX(-50%);
+
+    display: block;
+
+    object-fit: contain;
+
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+
+    z-index: 3;
+
+    filter:
+        drop-shadow(
+            0 14px 20px rgba(0,0,0,.38)
+        );
+}
+
+
+/* Mobile */
+@media (max-width: 767px) {
+
+    .rc2-unboxing-podium {
+        width: 94%;
+        bottom: 14px;
+    }
+
+}
+
+
+/* Small phones */
+@media (max-width: 420px) {
+
+    .rc2-unboxing-podium {
+        width: 96%;
+        bottom: 12px;
+    }
+
 }
