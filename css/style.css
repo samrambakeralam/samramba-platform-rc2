@@ -7714,6 +7714,41 @@ a {
     z-index: 3;
 }
 
+/* =========================================================
+   SAMRAMBA RC2 — PODIUM
+========================================================= */
+
+.rc2-unboxing-podium {
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 18px;
+
+    width: 92%;
+    max-width: 520px;
+
+    height: auto;
+
+    transform:
+        translateX(-50%);
+
+    display: block;
+
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+
+    object-fit: contain;
+
+    z-index: 3;
+
+    filter:
+        drop-shadow(
+            0 12px 18px
+            rgba(0, 0, 0, .35)
+        );
+}
 
 /* =========================================================
    PRODUCT
@@ -8502,6 +8537,36 @@ a {
 
 }
 
+/* =========================================================
+   OVERHEAD VELVET CURTAIN CORD
+========================================================= */
+
+.rc2-unboxing-cloth::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 7%;
+    right: 7%;
+
+    top: 3.5%;
+
+    height: 34px;
+
+    border-bottom:
+        7px solid #07182d;
+
+    border-radius:
+        0 0 50% 50%;
+
+    box-shadow:
+        0 8px 12px rgba(0,0,0,.32);
+
+    pointer-events: none;
+
+    z-index: 7;
+}
 
 /* =========================================================
    COMMON REAL FABRIC ASSETS
@@ -8548,7 +8613,7 @@ a {
 
     left: -10%;
 
-    top: 2%;
+    top: 1%;
 
     width: 68%;
 
@@ -8573,7 +8638,7 @@ a {
 
     right: -10%;
 
-    top: 2%;
+    top: 1%;
 
     width: 68%;
 

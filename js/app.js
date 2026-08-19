@@ -1000,6 +1000,36 @@ function initialiseUnboxingReveal() {
     const stage =
         document.getElementById("rc2UnboxingStage");
 
+        /* =====================================================
+   PODIUM — DYNAMIC STAGE ELEMENT
+===================================================== */
+
+let podium =
+    stage.querySelector(".rc2-unboxing-podium");
+
+if (!podium) {
+
+    podium =
+        document.createElement("img");
+
+    podium.className =
+        "rc2-unboxing-podium";
+
+    podium.src =
+        "SAMRAMBA_RC2_Podium.png";
+
+    podium.alt = "";
+
+    podium.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    stage.appendChild(
+        podium
+    );
+}
+
     const left =
         document.querySelector(".rc2-cloth-left");
 
