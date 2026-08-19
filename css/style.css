@@ -7722,7 +7722,7 @@ a {
     position: absolute;
 
     left: 50%;
-    bottom: 42px;
+    bottom: 78px;
 
     width: 92%;
     max-width: 520px;
@@ -8535,34 +8535,131 @@ a {
 }
 
 /* =========================================================
-   OVERHEAD VELVET CURTAIN CORD
+   TRIPLE-HEADED NAVY VELVET OVERHEAD CURTAIN
 ========================================================= */
 
-.rc2-unboxing-cloth::before {
+.rc2-velvet-valance {
+
+    position: absolute;
+
+    left: 6%;
+    right: 6%;
+
+    top: -1%;
+
+    height: 125px;
+
+    z-index: 7;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   INDIVIDUAL VELVET SWAGS
+========================================================= */
+
+.rc2-valance-panel {
+
+    position: absolute;
+
+    top: 0;
+
+    height: 112px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #14284a 0%,
+            #0d1d38 35%,
+            #08162d 68%,
+            #050f21 100%
+        );
+
+    box-shadow:
+        inset 0 3px 5px rgba(255,255,255,.045),
+        inset 0 -10px 15px rgba(0,0,0,.30),
+        0 8px 14px rgba(0,0,0,.30);
+
+}
+
+
+/* =========================================================
+   LEFT SWAG
+========================================================= */
+
+.rc2-valance-left {
+
+    left: 0;
+
+    width: 36%;
+
+    border-radius:
+        0 0 52% 52% / 0 0 72% 72%;
+
+}
+
+
+/* =========================================================
+   CENTER SWAG
+========================================================= */
+
+.rc2-valance-center {
+
+    left: 32%;
+
+    width: 36%;
+
+    border-radius:
+        0 0 52% 52% / 0 0 72% 72%;
+
+}
+
+
+/* =========================================================
+   RIGHT SWAG
+========================================================= */
+
+.rc2-valance-right {
+
+    right: 0;
+
+    width: 36%;
+
+    border-radius:
+        0 0 52% 52% / 0 0 72% 72%;
+
+}
+
+
+/* =========================================================
+   VELVET FOLDING
+========================================================= */
+
+.rc2-valance-panel::after {
 
     content: "";
 
     position: absolute;
 
-    left: 7%;
-    right: 7%;
-
-    top: 3.5%;
-
-    height: 34px;
-
-    border-bottom:
-        7px solid #07182d;
+    inset: 0;
 
     border-radius:
-        0 0 50% 50%;
+        inherit;
 
-    box-shadow:
-        0 8px 12px rgba(0,0,0,.32);
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255,255,255,.035) 5%,
+            transparent 10%,
+            rgba(0,0,0,.13) 15%,
+            transparent 21%
+        );
 
-    pointer-events: none;
+    opacity: .8;
 
-    z-index: 7;
 }
 
 /* =========================================================
