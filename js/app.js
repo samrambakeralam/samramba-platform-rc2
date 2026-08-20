@@ -1030,12 +1030,6 @@ if (!podium) {
     );
 }
 
-    const left =
-        document.querySelector(".rc2-cloth-left");
-
-    const right =
-        document.querySelector(".rc2-cloth-right");
-
     const front =
         document.querySelector(".rc2-cloth-front");
 
@@ -1117,82 +1111,6 @@ if (!podium) {
         );
 
     }
-
-
-    /* =====================================================
-       UPDATE REVEAL
-    ===================================================== */
-
-    function update(progress) {
-
-
-        /* =================================================
-           1. LEFT + RIGHT VELVET
-
-           The curtains remain gathered at the top,
-           then pull naturally outward.
-        ================================================= */
-
-        const curtain =
-    easeInOut(
-        section(
-            progress,
-            0.08,
-            0.82
-        )
-    );
-
-
-const sideX =
-    250 * curtain;
-
-
-const sideY =
-    -10 * curtain;
-
-
-const sideRotate =
-    7 * curtain;
-
-
-        /*
-           LEFT
-        */
-
-        left.style.transform =
-    `
-    translate3d(
-        ${-sideX}px,
-        ${sideY}px,
-        0
-    )
-    rotate(
-        ${sideRotate}deg
-    )
-    scaleX(
-        ${1 - (.035 * curtain)}
-    )
-    `;
-
-
-        /*
-           RIGHT
-        */
-
-        right.style.transform =
-    `
-    translate3d(
-        ${sideX}px,
-        ${sideY}px,
-        0
-    )
-    rotate(
-        ${-sideRotate}deg
-    )
-    scaleX(
-        ${1 - (.035 * curtain)}
-    )
-    `;
 
 
         /* =================================================
