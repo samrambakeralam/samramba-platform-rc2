@@ -7722,7 +7722,7 @@ a {
     position: absolute;
 
     left: 50%;
-    bottom: 78px;
+    bottom: 40px;
 
     width: 92%;
     max-width: 520px;
@@ -7762,8 +7762,10 @@ a {
 
     z-index: 4;
 
+    /* Product lowered slightly onto the podium */
     transform:
-        translate3d(0, -8px, 0);
+        translate3d(0, 28px, 0);
+
     transform-origin: center bottom;
 
     will-change:
@@ -8586,50 +8588,112 @@ a {
 
 
 /* =========================================================
-   LEFT SWAG
+   FOUR-HEADED NAVY VELVET OVERHEAD CURTAIN
 ========================================================= */
 
-.rc2-valance-left {
+.rc2-velvet-valance {
+    position: absolute;
 
+    left: -2%;
+    right: -2%;
+    top: -1%;
+
+    height: 145px;
+
+    z-index: 7;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   FOUR VELVET SWAGS
+========================================================= */
+
+.rc2-valance-panel {
+    position: absolute;
+
+    top: 0;
+
+    height: 120px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #071a35 0%,
+            #06152d 30%,
+            #061329 60%,
+            #030d20 100%
+        );
+
+    box-shadow:
+        inset 0 3px 6px rgba(255,255,255,.045),
+        inset 0 -12px 18px rgba(0,0,0,.34),
+        0 8px 16px rgba(0,0,0,.34);
+}
+
+
+/* =========================================================
+   FOUR OVERLAPPING HEADS
+========================================================= */
+
+.rc2-valance-1 {
     left: 0;
-
-    width: 36%;
-
-    border-radius:
-        0 0 52% 52% / 0 0 72% 72%;
-
+    width: 27%;
 }
 
-
-/* =========================================================
-   CENTER SWAG
-========================================================= */
-
-.rc2-valance-center {
-
-    left: 32%;
-
-    width: 36%;
-
-    border-radius:
-        0 0 52% 52% / 0 0 72% 72%;
-
+.rc2-valance-2 {
+    left: 24%;
+    width: 27%;
 }
 
+.rc2-valance-3 {
+    left: 49%;
+    width: 27%;
+}
 
-/* =========================================================
-   RIGHT SWAG
-========================================================= */
-
-.rc2-valance-right {
-
+.rc2-valance-4 {
     right: 0;
+    width: 27%;
+}
 
-    width: 36%;
 
+/* =========================================================
+   DEEP CURVED SWAG
+========================================================= */
+
+.rc2-valance-panel {
     border-radius:
-        0 0 52% 52% / 0 0 72% 72%;
+        0 0 50% 50% / 0 0 72% 72%;
+}
 
+
+/* =========================================================
+   VELVET FOLDS
+========================================================= */
+
+.rc2-valance-panel::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(40,75,145,.12) 4%,
+            transparent 9%,
+            rgba(0,0,0,.18) 14%,
+            transparent 20%
+        );
+
+    opacity: .9;
+
+    pointer-events: none;
 }
 
 

@@ -1268,16 +1268,16 @@ const sideRotate =
 
 
             product.style.transform =
-                `
-                translate3d(
-                    0,
-                    ${-4 - (5 * reveal)}px,
-                    0
-                )
-                scale(
-                    ${1 + (.018 * reveal)}
-                )
-                `;
+    `
+    translate3d(
+        0,
+        ${35 - (6 * reveal)}px,
+        0
+    )
+    scale(
+        ${1 + (.022 * reveal)}
+    )
+    `;
 
         }
 
