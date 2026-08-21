@@ -5824,7 +5824,7 @@ section {
         );
 
     padding:
-        70px 0 80px;
+        70px 0 35px;
 
 }
 
@@ -5942,7 +5942,7 @@ section {
     color:
         var(--rc2-text-soft);
 
-    font-size: 17px;
+    font-size: 15px;
 
     line-height: 1.65;
 
@@ -5957,7 +5957,7 @@ section {
 
     gap: 10px;
 
-    margin-top: 25px;
+    margin-top: 14px;
 
 }
 
@@ -5970,8 +5970,7 @@ section {
 
     gap: 7px;
 
-    padding:
-        9px 12px;
+    padding: 8px 11px;
 
     background:
         white;
@@ -5980,12 +5979,12 @@ section {
         1px solid var(--rc2-border);
 
     border-radius:
-        10px;
+        9px;
 
     color:
         var(--rc2-text);
 
-    font-size: 13px;
+    font-size: 12px;
 
     font-weight: 600;
 
@@ -6013,22 +6012,26 @@ section {
 
     gap: 12px;
 
-    margin-top: 28px;
+    margin-top: 16px;
 
 }
 
 
 .rc2-primary-cta {
-
-    min-height: 50px;
-
+    font-family: Arial, sans-serif;
+    height: 50px;
+    width: 230px;
+    min-height: 40px;
     padding:
-        0 22px;
+        0 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     border: none;
-
     border-radius:
-        13px;
+        10px;
 
     background:
         linear-gradient(
@@ -6039,22 +6042,26 @@ section {
 
     color: white;
 
-    font-size: 15px;
+    font-size: 6px;
 
-    font-weight: 800;
+    font-weight: 400;
+
+    line-height: 1;
+
+    white-space: nowrap;
 
     cursor: pointer;
 
     box-shadow:
-        0 10px 24px
-        rgba(22,163,74,.22);
+        0 8px 20px
+        rgba(22,163,74,.20);
 
 }
 
 
 .rc2-secondary-cta {
 
-    min-height: 50px;
+    min-height: 45px;
 
     padding:
         0 17px;
@@ -6079,7 +6086,7 @@ section {
 
     text-decoration: none;
 
-    font-size: 14px;
+    font-size: 13px;
 
     font-weight: 700;
 
@@ -6102,12 +6109,12 @@ section {
 
     gap: 15px;
 
-    margin-top: 20px;
+    margin-top: 14px;
 
     color:
         var(--rc2-text-muted);
 
-    font-size: 12px;
+    font-size: 11px;
 
 }
 
@@ -6142,13 +6149,23 @@ section {
 
     position: relative;
 
-    min-height: 500px;
+    min-height: 400px;
 
     display: flex;
 
     align-items: center;
 
     justify-content: center;
+
+}
+
+/* =========================================================
+   RC2.3 — FEATURED CAROUSEL POSITION
+========================================================= */
+
+#featured-carousel {
+
+    margin-top: -60px;
 
 }
 
@@ -7536,7 +7553,7 @@ a {
 
 .rc2-hero-product {
     position: relative;
-    min-height: 560px;
+    min-height: 400px;
 
     display: flex;
     align-items: center;
@@ -7544,7 +7561,10 @@ a {
 
     isolation: isolate;
 
-    transform: translateY(-45px);
+    overflow: visible;
+
+    transform: translateY(-40px);
+
 }
 
 .rc2-unboxing-stage {
@@ -7560,11 +7580,9 @@ a {
     overflow: hidden;
     isolation: isolate;
 
-    transform: translateY(-35px);
-
     border-radius: 30px;
 
-        background:
+    background:
         radial-gradient(
             ellipse 48% 38% at 50% 10%,
             rgba(255, 255, 255, .20) 0%,
@@ -7584,7 +7602,7 @@ a {
         inset 0 -45px 70px rgba(0, 0, 0, .24),
         0 30px 70px rgba(15, 23, 42, .16);
 
-    transform: translateZ(0);
+    transform: translate3d(0, -35px, 0);
 }
 
 
@@ -8509,6 +8527,42 @@ a {
 .rc2-hero-inner {
     position: relative;
     z-index: 1;
+}
+
+/* ---------------------------------------------------------
+   HERO INTRO — slight upward adjustment
+--------------------------------------------------------- */
+
+.rc2-hero-intro {
+    grid-column: 1;
+    grid-row: 1;
+    transform: translateY(-30px);
+}
+
+.rc2-hero-product {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+}
+
+.rc2-value-points {
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 14px;
+    transform: translateY(-70px);
+}
+
+.rc2-hero-actions {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 16px;
+    transform: translateY(-110px);
+}
+
+.rc2-trust-line {
+    grid-column: 1;
+    grid-row: 4;
+    margin-top: 14px;
+    transform: translateY(-160px);
 }
 
 .rc2-hero-product {
