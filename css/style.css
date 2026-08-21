@@ -7543,6 +7543,8 @@ a {
     justify-content: center;
 
     isolation: isolate;
+
+    transform: translateY(-40px);
 }
 
 .rc2-unboxing-stage {
@@ -7557,6 +7559,8 @@ a {
 
     overflow: hidden;
     isolation: isolate;
+
+    transform: translateY(-35px);
 
     border-radius: 30px;
 
@@ -7775,8 +7779,8 @@ a {
 .rc2-product-image {
     display: block;
 
-    width: 100%;
-    max-width: 500px;
+    width: 96%;
+    max-width: 480px;
     max-height: 520px;
 
     object-fit: contain;
@@ -8509,7 +8513,7 @@ a {
 
 .rc2-hero-product {
     position: relative;
-    min-height: 560px;
+    min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8533,27 +8537,6 @@ a {
     pointer-events: none;
 
     overflow: visible;
-
-}
-
-/* =========================================================
-   TRIPLE-HEADED NAVY VELVET OVERHEAD CURTAIN
-========================================================= */
-
-.rc2-velvet-valance {
-
-    position: absolute;
-
-    left: 6%;
-    right: 6%;
-
-    top: -1%;
-
-    height: 125px;
-
-    z-index: 7;
-
-    pointer-events: none;
 
 }
 
@@ -8586,7 +8569,6 @@ a {
 
 }
 
-
 /* =========================================================
    FOUR-HEADED NAVY VELVET OVERHEAD CURTAIN
 ========================================================= */
@@ -8594,9 +8576,10 @@ a {
 .rc2-velvet-valance {
     position: absolute;
 
+    top: -20px;
+
     left: -2%;
     right: -2%;
-    top: -1%;
 
     height: 145px;
 
