@@ -8835,6 +8835,17 @@ a {
         z-index: 7;
         transform: translateX(-50%);
     }
+
+    /* -----------------------------------------
+       MOBILE HERO PRODUCT — FINAL OVERRIDE
+    ----------------------------------------- */
+
+    .rc2-hero-product {
+        grid-column: 1;
+        grid-row: auto;
+        grid-area: product;
+    }
+
 }
 
 
