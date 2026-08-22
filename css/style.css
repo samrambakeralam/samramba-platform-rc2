@@ -7951,20 +7951,6 @@ a {
 
 }
 
-
-    /*
-       Let the individual hero elements participate
-       directly in the mobile composition.
-    */
-
-    .rc2-hero-content {
-
-        display:
-            contents;
-
-    }
-
-
     /* -----------------------------------------
        INTRODUCTION
     ----------------------------------------- */
