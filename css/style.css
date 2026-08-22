@@ -7970,30 +7970,31 @@ a {
        INTRODUCTION
     ----------------------------------------- */
 
+    .rc2-hero-intro {
+
+    grid-area:
+        intro;
+
+}
+
     .rc2-hero-badge {
 
-        grid-area:
-            badge;
+    justify-self:
+        start;
 
-        justify-self:
-            start;
+    margin:
+        0 0 12px;
 
-        margin:
-            0 0 12px;
+    font-size:
+        10px;
 
-        font-size:
-            10px;
+    padding:
+        6px 10px;
 
-        padding:
-            6px 10px;
-
-    }
+}
 
 
     .rc2-hero h1 {
-
-        grid-area:
-            title;
 
         margin:
             0 0 12px;
@@ -8015,9 +8016,6 @@ a {
 
 
     .rc2-hero-description {
-
-        grid-area:
-            description;
 
         max-width:
             100%;
