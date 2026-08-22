@@ -7930,29 +7930,27 @@ a {
 
     .rc2-hero-inner {
 
-        width:
-            calc(100% - 24px);
+    width:
+        calc(100% - 24px);
 
-        display:
-            grid;
+    display:
+        grid;
 
-        grid-template-columns:
-            1fr;
+    grid-template-columns:
+        1fr;
 
-        grid-template-areas:
+    grid-template-areas:
 
-            "badge"
-            "title"
-            "description"
-            "product"
-            "values"
-            "actions"
-            "trust";
+        "intro"
+        "product"
+        "values"
+        "actions"
+        "trust";
 
-        gap:
-            0;
+    gap:
+        0;
 
-    }
+}
 
 
     /*
