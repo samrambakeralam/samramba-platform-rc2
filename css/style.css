@@ -8530,39 +8530,73 @@ a {
 }
 
 /* ---------------------------------------------------------
-   HERO INTRO — slight upward adjustment
+   HERO POSITIONING — DESKTOP
 --------------------------------------------------------- */
 
-.rc2-hero-intro {
-    grid-column: 1;
-    grid-row: 1;
-    transform: translateY(-30px);
-}
+@media (min-width: 768px) {
 
-.rc2-hero-product {
-    grid-column: 2;
-    grid-row: 1 / span 4;
-}
+    .rc2-hero-intro {
 
-.rc2-value-points {
-    grid-column: 1;
-    grid-row: 2;
-    margin-top: 14px;
-    transform: translateY(-70px);
-}
+        grid-column: 1;
 
-.rc2-hero-actions {
-    grid-column: 1;
-    grid-row: 3;
-    margin-top: 16px;
-    transform: translateY(-110px);
-}
+        grid-row: 1;
 
-.rc2-trust-line {
-    grid-column: 1;
-    grid-row: 4;
-    margin-top: 14px;
-    transform: translateY(-160px);
+        transform:
+            translateY(-30px);
+
+    }
+
+
+    .rc2-hero-product {
+
+        grid-column: 2;
+
+        grid-row: 1 / span 4;
+
+    }
+
+
+    .rc2-value-points {
+
+        grid-column: 1;
+
+        grid-row: 2;
+
+        margin-top: 14px;
+
+        transform:
+            translateY(-70px);
+
+    }
+
+
+    .rc2-hero-actions {
+
+        grid-column: 1;
+
+        grid-row: 3;
+
+        margin-top: 16px;
+
+        transform:
+            translateY(-110px);
+
+    }
+
+
+    .rc2-trust-line {
+
+        grid-column: 1;
+
+        grid-row: 4;
+
+        margin-top: 14px;
+
+        transform:
+            translateY(-160px);
+
+    }
+
 }
 
 .rc2-hero-product {
