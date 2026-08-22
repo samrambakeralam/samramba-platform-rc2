@@ -8050,6 +8050,19 @@ a {
     transform: translate3d(0, 0, 0) !important;
 }
 
+/* -----------------------------------------
+   MOBILE OVERHEAD CURTAIN
+----------------------------------------- */
+
+.rc2-velvet-valance {
+
+    top:
+        -35px;
+
+    height:
+        120px;
+
+}
 
     /* -----------------------------------------
        SPOTLIGHT
@@ -8084,7 +8097,7 @@ a {
         transform:
             translate3d(
                 0,
-                -8px,
+                10px,
                 0
             );
 
