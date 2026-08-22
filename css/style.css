@@ -7952,23 +7952,24 @@ a {
 }
 
     /* -----------------------------------------
-       INTRODUCTION
-    ----------------------------------------- */
+   INTRODUCTION
+----------------------------------------- */
 
-    .rc2-hero-intro {
+.rc2-hero-intro {
 
     grid-area:
         intro;
 
 }
 
-    .rc2-hero-badge {
+
+.rc2-hero-badge {
 
     justify-self:
         start;
 
     margin:
-        0 0 12px;
+        0 0 4px;
 
     font-size:
         10px;
@@ -7979,42 +7980,42 @@ a {
 }
 
 
-    .rc2-hero h1 {
+.rc2-hero h1 {
 
-        margin:
-            0 0 12px;
+    margin:
+        14px 0 16px;
 
-        font-size:
-            clamp(
-                30px,
-                8.5vw,
-                36px
-            );
+    font-size:
+        clamp(
+            30px,
+            8.5vw,
+            36px
+        );
 
-        line-height:
-            1.07;
+    line-height:
+        1.07;
 
-        letter-spacing:
-            -.035em;
+    letter-spacing:
+        -.035em;
 
-    }
+}
 
 
-    .rc2-hero-description {
+.rc2-hero-description {
 
-        max-width:
-            100%;
+    max-width:
+        100%;
 
-        margin:
-            0 0 14px;
+    margin:
+        0 0 8px;
 
-        font-size:
-            14.5px;
+    font-size:
+        14.5px;
 
-        line-height:
-            1.52;
+    line-height:
+        1.52;
 
-    }
+}
 
 
     /* -----------------------------------------
