@@ -8937,3 +8937,186 @@ a {
     }
 
 }
+
+/* =========================================================
+   FINAL MOBILE HERO STRUCTURE FIX
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    /* HERO CONTAINER */
+    .rc2-hero-inner {
+        width: calc(100% - 24px) !important;
+
+        display: grid !important;
+
+        grid-template-columns: 1fr !important;
+
+        grid-template-areas:
+            "intro"
+            "product"
+            "values"
+            "actions"
+            "trust" !important;
+
+        gap: 0 !important;
+
+        text-align: center !important;
+    }
+
+
+    /* -----------------------------------------
+       INTRO = BADGE + HEADING + DESCRIPTION
+       ----------------------------------------- */
+
+    .rc2-hero-intro {
+        grid-area: intro !important;
+
+        grid-column: 1 !important;
+        grid-row: auto !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        display: block !important;
+
+        margin: 0 !important;
+
+        transform: none !important;
+
+        position: relative !important;
+        z-index: 20 !important;
+    }
+
+
+    /* BADGE */
+
+    .rc2-hero-intro .rc2-hero-badge {
+        display: inline-flex !important;
+
+        margin: 0 0 12px !important;
+
+        justify-self: center !important;
+    }
+
+
+    /* HEADING */
+
+    .rc2-hero-intro h1 {
+        display: block !important;
+
+        width: 100% !important;
+
+        margin: 0 0 12px !important;
+
+        font-size: clamp(
+            30px,
+            8.5vw,
+            36px
+        ) !important;
+
+        line-height: 1.07 !important;
+
+        text-align: center !important;
+    }
+
+
+    /* DESCRIPTION — FORCE VISIBLE */
+
+    .rc2-hero-intro .rc2-hero-description {
+        display: block !important;
+
+        visibility: visible !important;
+
+        opacity: 1 !important;
+
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        height: auto !important;
+
+        max-height: none !important;
+
+        overflow: visible !important;
+
+        margin: 0 auto 16px !important;
+
+        padding: 0 !important;
+
+        color: #475569 !important;
+
+        font-size: 14.5px !important;
+
+        line-height: 1.52 !important;
+
+        text-align: center !important;
+
+        position: relative !important;
+
+        z-index: 30 !important;
+    }
+
+
+    /* -----------------------------------------
+       PRODUCT
+       ----------------------------------------- */
+
+    .rc2-hero-product {
+        grid-area: product !important;
+
+        grid-column: 1 !important;
+        grid-row: auto !important;
+
+        width: 100% !important;
+
+        margin: 0 0 17px !important;
+
+        transform: none !important;
+    }
+
+
+    /* -----------------------------------------
+       VALUE POINTS
+       ----------------------------------------- */
+
+    .rc2-value-points {
+        grid-area: values !important;
+
+        grid-column: 1 !important;
+        grid-row: auto !important;
+
+        transform: none !important;
+
+        margin-top: 0 !important;
+    }
+
+
+    /* -----------------------------------------
+       ACTIONS
+       ----------------------------------------- */
+
+    .rc2-hero-actions {
+        grid-area: actions !important;
+
+        grid-column: 1 !important;
+        grid-row: auto !important;
+
+        transform: none !important;
+    }
+
+
+    /* -----------------------------------------
+       TRUST
+       ----------------------------------------- */
+
+    .rc2-trust-line {
+        grid-area: trust !important;
+
+        grid-column: 1 !important;
+        grid-row: auto !important;
+
+        transform: none !important;
+    }
+
+}
