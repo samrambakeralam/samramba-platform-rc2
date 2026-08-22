@@ -7940,12 +7940,11 @@ a {
         1fr;
 
     grid-template-areas:
-
-        "intro"
-        "product"
-        "values"
-        "actions"
-        "trust";
+    "intro"
+    "product"
+    "values"
+    "actions"
+    "trust";
 
     gap:
         0;
