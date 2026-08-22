@@ -8057,10 +8057,18 @@ a {
 .rc2-velvet-valance {
 
     top:
-        -35px;
+        -40px;
 
     height:
-        120px;
+        105px;
+
+}
+
+
+.rc2-velvet-valance .rc2-valance-panel {
+
+    height:
+        105px;
 
 }
 
