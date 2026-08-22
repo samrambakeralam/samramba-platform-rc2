@@ -8158,52 +8158,84 @@ a {
 
 
     /* -----------------------------------------
-       VALUE POINTS
-    ----------------------------------------- */
+   VALUE POINTS — SINGLE HORIZONTAL ROW
+----------------------------------------- */
 
-    .rc2-value-points {
+.rc2-value-points {
 
-        grid-area:
-            values;
+    grid-area:
+        values;
 
-        display:
-            grid;
+    display:
+        grid;
 
-        grid-template-columns:
-            1fr 1fr;
+    grid-template-columns:
+        repeat(3, 1fr);
 
-        gap:
-            8px;
+    gap:
+        6px;
 
-        margin:
-            0 0 17px;
+    margin:
+        0 0 17px;
 
-    }
-
-
-    .rc2-value-points div {
-
-        min-height:
-            42px;
-
-        padding:
-            8px 9px;
-
-        font-size:
-            11px;
-
-        box-sizing:
-            border-box;
-
-    }
+}
 
 
-    .rc2-value-points div:last-child {
+.rc2-value-points div {
 
-        grid-column:
-            1 / -1;
+    min-height:
+        40px;
 
-    }
+    padding:
+        7px 5px;
+
+    box-sizing:
+        border-box;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        4px;
+
+    white-space:
+        nowrap;
+
+    font-size:
+        9px;
+
+    font-weight:
+        600;
+
+}
+
+
+.rc2-value-points svg {
+
+    width:
+        14px;
+
+    height:
+        14px;
+
+    flex:
+        0 0 auto;
+
+}
+
+
+.rc2-value-points div:last-child {
+
+    grid-column:
+        auto;
+
+}
 
 
     /* -----------------------------------------
