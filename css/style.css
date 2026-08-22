@@ -8239,7 +8239,7 @@ a {
 
 
     /* -----------------------------------------
-   CTA — SINGLE HORIZONTAL ROW
+   CTA — COMPACT HORIZONTAL ROW
 ----------------------------------------- */
 
 .rc2-hero-actions {
@@ -8254,10 +8254,10 @@ a {
         1fr 1fr;
 
     gap:
-        8px;
+        7px;
 
     margin:
-        0 0 14px;
+        0 0 12px;
 
 }
 
@@ -8271,14 +8271,17 @@ a {
     min-width:
         0;
 
+    height:
+        46px;
+
     min-height:
-        48px;
+        46px;
 
     margin:
         0;
 
     padding:
-        0 8px;
+        0 7px;
 
     box-sizing:
         border-box;
@@ -8295,34 +8298,37 @@ a {
     white-space:
         nowrap;
 
+    border-radius:
+        11px;
+
 }
 
 
-/* PRIMARY CTA */
+/* PRIMARY */
 
 .rc2-primary-cta {
 
     font-size:
         13px;
 
-    border-radius:
-        12px;
+    font-weight:
+        700;
 
 }
 
 
-/* SECONDARY CTA */
+/* SECONDARY */
 
 .rc2-secondary-cta {
 
     font-size:
-        12px;
+        11.5px;
 
-    border-radius:
-        12px;
+    font-weight:
+        700;
 
     gap:
-        5px;
+        4px;
 
 }
 
@@ -8330,10 +8336,10 @@ a {
 .rc2-secondary-cta svg {
 
     width:
-        15px;
+        14px;
 
     height:
-        15px;
+        14px;
 
     flex:
         0 0 auto;
@@ -8342,38 +8348,70 @@ a {
 
 
     /* -----------------------------------------
-       TRUST
-    ----------------------------------------- */
+   TRUST — SINGLE HORIZONTAL ROW
+----------------------------------------- */
 
-    .rc2-trust-line {
+.rc2-trust-line {
 
-        grid-area:
-            trust;
+    grid-area:
+        trust;
 
-        display:
-            grid;
+    display:
+        grid;
 
-        grid-template-columns:
-            1fr 1fr;
+    grid-template-columns:
+        repeat(3, 1fr);
 
-        gap:
-            8px;
+    gap:
+        4px;
 
-        margin:
-            0;
+    margin:
+        0;
 
-        font-size:
-            10px;
+    font-size:
+        9px;
 
-    }
+    line-height:
+        1;
+
+}
 
 
-    .rc2-trust-line span {
+.rc2-trust-line span {
 
-        justify-content:
-            flex-start;
+    display:
+        inline-flex;
 
-    }
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        3px;
+
+    min-width:
+        0;
+
+    white-space:
+        nowrap;
+
+}
+
+
+.rc2-trust-line svg {
+
+    width:
+        13px;
+
+    height:
+        13px;
+
+    flex:
+        0 0 auto;
+
+}
 
 
     /* -----------------------------------------
