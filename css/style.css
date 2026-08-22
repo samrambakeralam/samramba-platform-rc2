@@ -8018,41 +8018,36 @@ a {
 
 
     /* -----------------------------------------
-       EXHIBITION PRODUCT
-    ----------------------------------------- */
+   EXHIBITION PRODUCT
+   ----------------------------------------- */
 
-    .rc2-hero-product {
+.rc2-hero-product {
+    grid-area: product !important;
 
-        grid-area:
-            product;
+    grid-column: 1 !important;
+    grid-row: auto !important;
 
-        width:
-            100%;
+    width: 100% !important;
 
-        min-height:
-            455px;
+    min-height: 455px !important;
 
-        margin:
-            0 0 17px;
+    margin: 0 0 17px !important;
 
-        overflow:
-            visible;
+    overflow: visible !important;
 
-    }
+    transform: none !important;
+}
 
 
-    .rc2-unboxing-stage {
+.rc2-unboxing-stage {
+    width: 100% !important;
 
-        width:
-            100%;
+    min-height: 455px !important;
 
-        min-height:
-            455px;
+    border-radius: 24px;
 
-        border-radius:
-            24px;
-
-    }
+    transform: translate3d(0, 0, 0) !important;
+}
 
 
     /* -----------------------------------------
