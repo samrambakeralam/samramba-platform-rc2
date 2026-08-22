@@ -8239,68 +8239,106 @@ a {
 
 
     /* -----------------------------------------
-       CTA
-    ----------------------------------------- */
+   CTA — SINGLE HORIZONTAL ROW
+----------------------------------------- */
 
-    .rc2-hero-actions {
+.rc2-hero-actions {
 
-        grid-area:
-            actions;
+    grid-area:
+        actions;
 
-        display:
-            grid;
+    display:
+        grid;
 
-        grid-template-columns:
-            1fr;
+    grid-template-columns:
+        1fr 1fr;
 
-        gap:
-            9px;
+    gap:
+        8px;
 
-        margin:
-            0 0 14px;
+    margin:
+        0 0 14px;
 
-    }
-
-
-    .rc2-primary-cta,
-    .rc2-secondary-cta {
-
-        width:
-            min(
-                100%,
-                340px
-            );
-
-        min-height:
-            51px;
-
-        margin-left:
-            auto;
-
-        margin-right:
-            auto;
-
-        justify-content:
-            center;
-
-        box-sizing:
-            border-box;
-
-    }
+}
 
 
-    .rc2-primary-cta {
+.rc2-primary-cta,
+.rc2-secondary-cta {
 
-        min-height:
-            54px;
+    width:
+        100%;
 
-        border-radius:
-            14px;
+    min-width:
+        0;
 
-        font-size:
-            17px;
+    min-height:
+        48px;
 
-    }
+    margin:
+        0;
+
+    padding:
+        0 8px;
+
+    box-sizing:
+        border-box;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    white-space:
+        nowrap;
+
+}
+
+
+/* PRIMARY CTA */
+
+.rc2-primary-cta {
+
+    font-size:
+        13px;
+
+    border-radius:
+        12px;
+
+}
+
+
+/* SECONDARY CTA */
+
+.rc2-secondary-cta {
+
+    font-size:
+        12px;
+
+    border-radius:
+        12px;
+
+    gap:
+        5px;
+
+}
+
+
+.rc2-secondary-cta svg {
+
+    width:
+        15px;
+
+    height:
+        15px;
+
+    flex:
+        0 0 auto;
+
+}
 
 
     /* -----------------------------------------
