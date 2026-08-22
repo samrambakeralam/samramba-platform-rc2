@@ -8370,31 +8370,31 @@ a {
 
 
     /* -----------------------------------------
-   TRUST — SINGLE HORIZONTAL ROW
+   TRUST LINE — MOBILE / SINGLE ROW
 ----------------------------------------- */
 
 .rc2-trust-line {
 
-    grid-area:
-        trust;
-
     display:
-        grid;
+        flex;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    align-items:
+        center;
+
+    justify-content:
+        flex-start;
+
+    flex-wrap:
+        nowrap;
 
     gap:
-        4px;
+        12px;
 
-    margin:
-        0;
+    margin-top:
+        12px;
 
     font-size:
-        9px;
-
-    line-height:
-        1;
+        10px;
 
 }
 
@@ -8407,14 +8407,8 @@ a {
     align-items:
         center;
 
-    justify-content:
-        center;
-
     gap:
-        3px;
-
-    min-width:
-        0;
+        4px;
 
     white-space:
         nowrap;
@@ -8425,10 +8419,10 @@ a {
 .rc2-trust-line svg {
 
     width:
-        13px;
+        14px;
 
     height:
-        13px;
+        14px;
 
     flex:
         0 0 auto;
