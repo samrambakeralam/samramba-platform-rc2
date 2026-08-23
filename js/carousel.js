@@ -235,7 +235,7 @@ const FEATURED_MODULE_DATA = [
 
 /* =========================================================
    CAROUSEL INITIALISATION
-   INFINITE CIRCULAR CAROUSEL
+   RC2.3 — INFINITE HORIZONTAL CAROUSEL
 ========================================================= */
 
 function initialiseCarousel() {
@@ -245,13 +245,10 @@ function initialiseCarousel() {
 
 
     if (!carousel) {
-
         console.warn(
             "RC2 Carousel container not found."
         );
-
         return;
-
     }
 
 
@@ -262,13 +259,10 @@ function initialiseCarousel() {
 
 
     if (!track) {
-
         console.warn(
             "RC2 Carousel track not found."
         );
-
         return;
-
     }
 
 
@@ -284,7 +278,7 @@ function initialiseCarousel() {
 
 
     /* =====================================================
-       RENDER ORIGINAL CARDS
+       RENDER
     ===================================================== */
 
     renderCarousel(
@@ -293,24 +287,11 @@ function initialiseCarousel() {
     );
 
 
-    const cards =
-        Array.from(
-            track.querySelectorAll(
-                ".rc2-carousel-card"
-            )
-        );
-
-
-    if (!cards.length) {
-        return;
-    }
-
-
     /* =====================================================
-       CARD MOVEMENT
+       CARD STEP
     ===================================================== */
 
-    function getScrollAmount() {
+    function getStep() {
 
         const card =
             track.querySelector(
@@ -330,7 +311,7 @@ function initialiseCarousel() {
 
 
         return (
-            card.offsetWidth +
+            card.getBoundingClientRect().width +
             gap
         );
 
@@ -338,51 +319,52 @@ function initialiseCarousel() {
 
 
     /* =====================================================
-       PREVENT RAPID DOUBLE MOVEMENT
+       INFINITE ROTATION STATE
     ===================================================== */
 
-    let isMoving = false;
+    let moving = false;
+
+    let pointerStartX = 0;
+
+    let pointerStartScroll = 0;
+
+    let dragging = false;
 
 
     /* =====================================================
-       MOVE NEXT
+       NEXT
 
-       Fastlane
-       →
-       Card 2
-       →
-       Card 3
-       →
-       ...
-       →
-       Secrets
-       →
-       Fastlane
-===================================================== */
+       1. Smoothly move one card.
+       2. After movement finishes, move the
+          first DOM card to the end.
+       3. Compensate by exactly one card step.
+
+       A → B → C → D → E → A
+    ===================================================== */
 
     function moveNext() {
 
-        if (isMoving) {
+        if (moving) {
             return;
         }
 
 
-        const amount =
-            getScrollAmount();
+        const step =
+            getStep();
 
 
-        if (!amount) {
+        if (!step) {
             return;
         }
 
 
-        isMoving = true;
+        moving = true;
 
 
-        track.scrollBy({
+        track.scrollTo({
 
             left:
-                amount,
+                track.scrollLeft + step,
 
             behavior:
                 "smooth"
@@ -390,134 +372,119 @@ function initialiseCarousel() {
         });
 
 
-        /*
-           Wait for the visual movement
-           to finish, then move the first
-           DOM card to the end.
-
-           The visible sequence remains
-           identical, so there is no
-           jump to the opposite side.
-        */
-
         window.setTimeout(() => {
 
-            const firstCard =
+            const first =
                 track.firstElementChild;
 
 
-            if (firstCard) {
+            if (first) {
+
+                const currentScroll =
+                    track.scrollLeft;
+
 
                 track.appendChild(
-                    firstCard
+                    first
                 );
 
 
-                track.scrollLeft -=
-                    amount;
+                track.scrollLeft =
+                    currentScroll - step;
 
             }
 
 
-            isMoving = false;
+            moving = false;
 
-        }, 500);
+        }, 450);
 
     }
 
 
     /* =====================================================
-       MOVE PREVIOUS
+       PREVIOUS
 
-       Fastlane
-       ←
-       Secrets
-       ←
-       Card 4
-       ←
-       ...
-===================================================== */
+       1. Put the last card before the first.
+       2. Compensate immediately.
+       3. Smoothly move one card backwards.
+
+       A ← E ← D ← C ← B ← A
+    ===================================================== */
 
     function movePrevious() {
 
-    if (isMoving) {
-        return;
-    }
+        if (moving) {
+            return;
+        }
 
 
-    const amount =
-        getScrollAmount();
+        const step =
+            getStep();
 
 
-    if (!amount) {
-        return;
-    }
+        if (!step) {
+            return;
+        }
 
 
-    isMoving = true;
+        moving = true;
 
 
-    /*
-       First create the previous card
-       without changing what the user
-       currently sees.
-    */
-
-    const lastCard =
-        track.lastElementChild;
+        const last =
+            track.lastElementChild;
 
 
-    if (lastCard) {
+        if (last) {
 
-        track.insertBefore(
-            lastCard,
-            track.firstElementChild
-        );
+            track.insertBefore(
+                last,
+                track.firstElementChild
+            );
+
+
+            /*
+               The newly inserted card is
+               before the current viewport.
+
+               Move the scroll position forward
+               by exactly one card so the
+               visible content does not jump.
+            */
+
+            track.scrollLeft += step;
+
+        }
 
 
         /*
-           Compensate immediately so the
-           visible position stays exactly
-           where it was.
+           Now perform exactly the same
+           smooth movement as NEXT,
+           but in reverse.
         */
 
-        track.scrollLeft +=
-            amount;
-
-    }
-
-
-    /*
-       Now use the SAME smooth movement
-       as moveNext(), but in reverse.
-    */
-
-    requestAnimationFrame(() => {
-
-        track.scrollBy({
+        track.scrollTo({
 
             left:
-                -amount,
+                track.scrollLeft - step,
 
             behavior:
                 "smooth"
 
         });
 
-    });
 
+        window.setTimeout(() => {
 
-    window.setTimeout(() => {
+            moving = false;
 
-        isMoving = false;
+        }, 450);
 
-    }, 500);
-
-}
+    }
 
 
     /* =====================================================
-       DESKTOP CONTROLS
+       DESKTOP ARROWS
     ===================================================== */
 
     const previousButton =
@@ -553,123 +520,163 @@ function initialiseCarousel() {
 
 
     /* =====================================================
-       MOBILE SWIPE
+       REAL FINGER / POINTER DRAG
+
+       The track itself follows the finger.
+       On release, we move one card in
+       the appropriate circular direction.
     ===================================================== */
 
-    let startX = 0;
-
-    let startY = 0;
-
-
-    carousel.addEventListener(
-        "touchstart",
+    track.addEventListener(
+        "pointerdown",
         event => {
 
             if (
-                !event.touches.length
+                event.pointerType === "mouse" &&
+                event.button !== 0
             ) {
                 return;
             }
 
 
-            startX =
-                event.touches[0].clientX;
+            if (moving) {
+                return;
+            }
 
 
-            startY =
-                event.touches[0].clientY;
+            dragging = true;
 
-        },
-        {
-            passive: true
+
+            pointerStartX =
+                event.clientX;
+
+
+            pointerStartScroll =
+                track.scrollLeft;
+
+
+            track.style.scrollBehavior =
+                "auto";
+
+
+            track.setPointerCapture(
+                event.pointerId
+            );
+
         }
     );
 
 
-    carousel.addEventListener(
-        "touchend",
+    track.addEventListener(
+        "pointermove",
         event => {
 
-            if (
-                !event.changedTouches.length
-            ) {
+            if (!dragging) {
                 return;
             }
 
 
-            const endX =
-                event.changedTouches[0].clientX;
+            const distance =
+                event.clientX -
+                pointerStartX;
 
 
-            const endY =
-                event.changedTouches[0].clientY;
+            track.scrollLeft =
+                pointerStartScroll -
+                distance;
 
-
-            const distanceX =
-                endX - startX;
-
-
-            const distanceY =
-                endY - startY;
-
-
-            /*
-               Ignore vertical scrolling.
-            */
-
-            if (
-                Math.abs(distanceY) >
-                Math.abs(distanceX)
-            ) {
-
-                return;
-
-            }
-
-
-            /*
-               Ignore tiny movements.
-            */
-
-            if (
-                Math.abs(distanceX) < 40
-            ) {
-
-                return;
-
-            }
-
-
-            /*
-               Swipe LEFT
-               → NEXT
-            */
-
-            if (
-                distanceX < 0
-            ) {
-
-                moveNext();
-
-            }
-
-
-            /*
-               Swipe RIGHT
-               → PREVIOUS
-            */
-
-            else {
-
-                movePrevious();
-
-            }
-
-        },
-        {
-            passive: true
         }
     );
+
+
+    function finishPointerDrag(
+        event
+    ) {
+
+        if (!dragging) {
+            return;
+        }
+
+
+        dragging = false;
+
+
+        track.style.scrollBehavior =
+            "smooth";
+
+
+        try {
+
+            track.releasePointerCapture(
+                event.pointerId
+            );
+
+        } catch (error) {
+            /* pointer already released */
+        }
+
+
+        const distance =
+            event.clientX -
+            pointerStartX;
+
+
+        /*
+           Small movement = leave it alone.
+        */
+
+        if (
+            Math.abs(distance) < 40
+        ) {
+            return;
+        }
+
+
+        /*
+           Drag LEFT
+           → NEXT
+        */
+
+        if (distance < 0) {
+
+            moveNext();
+
+        }
+
+
+        /*
+           Drag RIGHT
+           → PREVIOUS
+        */
+
+        else {
+
+            movePrevious();
+
+        }
+
+    }
+
+
+    track.addEventListener(
+        "pointerup",
+        finishPointerDrag
+    );
+
+
+    track.addEventListener(
+        "pointercancel",
+        finishPointerDrag
+    );
+
+
+    /* =====================================================
+       INITIAL POSITION
+
+       Fastlane remains the first card.
+    ===================================================== */
+
+    track.scrollLeft = 0;
 
 }
 
