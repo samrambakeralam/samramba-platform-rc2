@@ -641,8 +641,11 @@
 
     .rc2-carousel-heading p {
 
+         margin:
+        14px 0 0;
+
         font-size:
-            15px;
+            13px;
 
         line-height:
             1.5;
