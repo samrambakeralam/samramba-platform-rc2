@@ -236,6 +236,7 @@ const FEATURED_MODULE_DATA = [
 /* =========================================================
    CAROUSEL INITIALISATION
    INFINITE / CIRCULAR CAROUSEL
+   DESKTOP + MOBILE
 ========================================================= */
 
 function initialiseCarousel() {
@@ -306,72 +307,57 @@ function initialiseCarousel() {
     }
 
 
+    const total =
+        originalCards.length;
+
+
     /* =====================================================
-       CREATE CLONES
-       LAST → BEFORE FIRST
-       FIRST → AFTER LAST
+       CREATE THREE IDENTICAL SETS
+
+       [ CLONE SET ]
+       [ ORIGINAL SET ]
+       [ CLONE SET ]
     ===================================================== */
 
-    const firstClone =
-        originalCards[0].cloneNode(true);
+    const leftFragment =
+        document.createDocumentFragment();
 
 
-    const lastClone =
-        originalCards[
-            originalCards.length - 1
-        ].cloneNode(true);
+    const rightFragment =
+        document.createDocumentFragment();
 
 
-    firstClone.dataset.clone =
-        "first";
+    originalCards.forEach(card => {
+
+        leftFragment.appendChild(
+            card.cloneNode(true)
+        );
+
+    });
 
 
-    lastClone.dataset.clone =
-        "last";
+    originalCards.forEach(card => {
+
+        rightFragment.appendChild(
+            card.cloneNode(true)
+        );
+
+    });
 
 
     track.insertBefore(
-        lastClone,
+        leftFragment,
         track.firstChild
     );
 
 
     track.appendChild(
-        firstClone
+        rightFragment
     );
 
 
     /* =====================================================
-       ALL CARDS INCLUDING CLONES
-    ===================================================== */
-
-    const cards =
-        Array.from(
-            track.querySelectorAll(
-                ".rc2-carousel-card"
-            )
-        );
-
-
-    const total =
-        originalCards.length;
-
-
-    /*
-       Because one clone is now before
-       the first real card, the first
-       real card is at index 1.
-    */
-
-    let currentIndex = 0;
-
-
-    let isAnimating = false;
-
-
-    /* =====================================================
-       CARD STEP
-       CARD WIDTH + GAP
+       GET CARD STEP
     ===================================================== */
 
     function getCardStep() {
@@ -402,256 +388,169 @@ function initialiseCarousel() {
 
 
     /* =====================================================
-       MOVE TO CARD
+       GET COMPLETE SET WIDTH
     ===================================================== */
 
-    function moveToIndex(
-        index,
-        smooth = true
-    ) {
-
-        const step =
-            getCardStep();
-
-
-        if (!step) {
-            return;
-        }
-
-
-        track.scrollTo({
-
-            left:
-                step * (index + 1),
-
-            behavior:
-                smooth
-                    ? "smooth"
-                    : "auto"
-
-        });
-
-    }
-
-
-    /* =====================================================
-       INITIAL POSITION
-       FIRST REAL CARD
-    ===================================================== */
-
-    function setInitialPosition() {
-
-        const step =
-            getCardStep();
-
-
-        if (!step) {
-            return;
-        }
-
-
-        track.scrollTo({
-
-            left:
-                step,
-
-            behavior:
-                "auto"
-
-        });
-
-    }
-
-
-    /* =====================================================
-       COMPLETE LOOP
-    ===================================================== */
-
-    function finishLoop() {
-
-        if (!isAnimating) {
-            return;
-        }
-
-
-        /*
-           We moved to the cloned card
-           at either boundary.
-
-           Now silently reposition to
-           the corresponding real card.
-        */
-
-        const step =
-            getCardStep();
-
-
-        if (!step) {
-            isAnimating = false;
-            return;
-        }
-
-
-        if (
-            currentIndex >= total
-        ) {
-
-            currentIndex = 0;
-
-
-            track.scrollTo({
-
-                left:
-                    step,
-
-                behavior:
-                    "auto"
-
-            });
-
-        }
-
-
-        else if (
-            currentIndex < 0
-        ) {
-
-            currentIndex =
-                total - 1;
-
-
-            track.scrollTo({
-
-                left:
-                    step * total,
-
-                behavior:
-                    "auto"
-
-            });
-
-        }
-
-
-        isAnimating = false;
-
-    }
-
-
-    /* =====================================================
-       NEXT
-       LAST → FIRST
-    ===================================================== */
-
-    function nextCard() {
-
-        if (
-            isAnimating ||
-            total <= 1
-        ) {
-            return;
-        }
-
-
-        isAnimating = true;
-
-
-        currentIndex++;
-
-
-        /*
-           If we are moving beyond
-           the last real card, move
-           into the first clone.
-        */
-
-        if (
-            currentIndex >= total
-        ) {
-
-            moveToIndex(
-                total,
-                true
-            );
-
-        }
-
-        else {
-
-            moveToIndex(
-                currentIndex,
-                true
-            );
-
-        }
-
-
-        window.setTimeout(
-            finishLoop,
-            500
+    function getSetWidth() {
+
+        return (
+            getCardStep() *
+            total
         );
 
     }
 
 
     /* =====================================================
-       PREVIOUS
-       FIRST → LAST
+       START IN THE MIDDLE SET
     ===================================================== */
 
-    function previousCard() {
+    function positionAtMiddleSet() {
 
-        if (
-            isAnimating ||
-            total <= 1
-        ) {
+        const setWidth =
+            getSetWidth();
+
+
+        if (!setWidth) {
             return;
         }
 
 
-        isAnimating = true;
-
-
-        currentIndex--;
-
-
-        /*
-           If we move before the
-           first real card, move
-           into the last clone.
-        */
-
-        if (
-            currentIndex < 0
-        ) {
-
-            moveToIndex(
-                -1,
-                true
-            );
-
-        }
-
-        else {
-
-            moveToIndex(
-                currentIndex,
-                true
-            );
-
-        }
-
-
-        window.setTimeout(
-            finishLoop,
-            500
-        );
+        track.scrollLeft =
+            setWidth;
 
     }
 
 
+    requestAnimationFrame(() => {
+
+        positionAtMiddleSet();
+
+    });
+
+
     /* =====================================================
-       DESKTOP CONTROLS
+       INVISIBLE RECYCLING
+
+       IMPORTANT:
+
+       We do NOT wait until the clone
+       section ends.
+
+       We recycle while there is still
+       plenty of identical content on
+       both sides.
+
+       Because every set is identical,
+       subtracting/adding one complete
+       set produces the exact same view.
+    ===================================================== */
+
+    let recycling =
+        false;
+
+
+    function recycleIfNecessary() {
+
+        if (recycling) {
+            return;
+        }
+
+
+        const setWidth =
+            getSetWidth();
+
+
+        if (!setWidth) {
+            return;
+        }
+
+
+        const current =
+            track.scrollLeft;
+
+
+        /*
+           Move RIGHT
+
+           Once we are beyond the middle
+           of the middle/right boundary,
+           shift one complete set LEFT.
+
+           The visible cards are identical,
+           so the user sees no jump.
+        */
+
+        if (
+            current >=
+            setWidth * 1.5
+        ) {
+
+            recycling =
+                true;
+
+
+            track.scrollLeft =
+                current - setWidth;
+
+
+            requestAnimationFrame(() => {
+
+                recycling =
+                    false;
+
+            });
+
+
+            return;
+
+        }
+
+
+        /*
+           Move LEFT
+
+           Once we are below the middle
+           of the left/original boundary,
+           shift one complete set RIGHT.
+        */
+
+        if (
+            current <=
+            setWidth * 0.5
+        ) {
+
+            recycling =
+                true;
+
+
+            track.scrollLeft =
+                current + setWidth;
+
+
+            requestAnimationFrame(() => {
+
+                recycling =
+                    false;
+
+            });
+
+        }
+
+    }
+
+
+    track.addEventListener(
+        "scroll",
+        recycleIfNecessary,
+        {
+            passive: true
+        }
+    );
+
+
+    /* =====================================================
+       DESKTOP ARROWS
     ===================================================== */
 
     const previousButton =
@@ -666,11 +565,39 @@ function initialiseCarousel() {
         );
 
 
+    function getScrollAmount() {
+
+        return getCardStep();
+
+    }
+
+
     if (previousButton) {
 
         previousButton.addEventListener(
             "click",
-            previousCard
+            () => {
+
+                const amount =
+                    getScrollAmount();
+
+
+                if (!amount) {
+                    return;
+                }
+
+
+                track.scrollBy({
+
+                    left:
+                        -amount,
+
+                    behavior:
+                        "smooth"
+
+                });
+
+            }
         );
 
     }
@@ -680,7 +607,28 @@ function initialiseCarousel() {
 
         nextButton.addEventListener(
             "click",
-            nextCard
+            () => {
+
+                const amount =
+                    getScrollAmount();
+
+
+                if (!amount) {
+                    return;
+                }
+
+
+                track.scrollBy({
+
+                    left:
+                        amount,
+
+                    behavior:
+                        "smooth"
+
+                });
+
+            }
         );
 
     }
@@ -688,12 +636,21 @@ function initialiseCarousel() {
 
     /* =====================================================
        MOBILE SWIPE
+
+       Native horizontal scrolling is used.
+
+       Swipe LEFT  → NEXT
+       Swipe RIGHT → PREVIOUS
+
+       The same infinite track handles
+       both directions.
     ===================================================== */
 
-    let startX = 0;
+    let startX =
+        0;
 
-
-    let startY = 0;
+    let startY =
+        0;
 
 
     carousel.addEventListener(
@@ -749,13 +706,12 @@ function initialiseCarousel() {
 
 
             /*
-               Ignore mostly vertical
-               gestures.
+               Ignore vertical gestures.
             */
 
             if (
-                Math.abs(distanceX) <
-                Math.abs(distanceY)
+                Math.abs(distanceY) >
+                Math.abs(distanceX)
             ) {
 
                 return;
@@ -764,8 +720,7 @@ function initialiseCarousel() {
 
 
             /*
-               Ignore very small
-               movements.
+               Ignore tiny movements.
             */
 
             if (
@@ -777,28 +732,53 @@ function initialiseCarousel() {
             }
 
 
+            const amount =
+                getScrollAmount();
+
+
+            if (!amount) {
+                return;
+            }
+
+
             /*
-               Swipe LEFT
-               → NEXT
+               SWIPE LEFT
+               → NEXT CARD
             */
 
             if (
                 distanceX < 0
             ) {
 
-                nextCard();
+                track.scrollBy({
+
+                    left:
+                        amount,
+
+                    behavior:
+                        "smooth"
+
+                });
 
             }
 
 
             /*
-               Swipe RIGHT
-               → PREVIOUS
+               SWIPE RIGHT
+               → PREVIOUS CARD
             */
 
             else {
 
-                previousCard();
+                track.scrollBy({
+
+                    left:
+                        -amount,
+
+                    behavior:
+                        "smooth"
+
+                });
 
             }
 
@@ -807,17 +787,6 @@ function initialiseCarousel() {
             passive: true
         }
     );
-
-
-    /* =====================================================
-       INITIALISE
-    ===================================================== */
-
-    requestAnimationFrame(() => {
-
-        setInitialPosition();
-
-    });
 
 }
 
