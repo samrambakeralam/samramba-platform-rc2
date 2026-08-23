@@ -446,19 +446,21 @@
 
 /* =========================================================
    CONTENT
+   DESKTOP — COMPACT INFORMATION AREA
 ========================================================= */
 
 .rc2-carousel-content {
 
     padding:
-        18px;
+        9px 10px 10px;
 
 }
 
 
 .rc2-carousel-content h3 {
 
-    margin: 0;
+    margin:
+        0 0 7px;
 
     color:
         var(--rc2-navy);
@@ -467,9 +469,23 @@
         Poppins,
         sans-serif;
 
-    font-size: 18px;
+    font-size:
+        14px;
 
-    line-height: 1.25;
+    line-height:
+        1.15;
+
+    letter-spacing:
+        -.01em;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
 
 }
 
@@ -477,35 +493,42 @@
 .rc2-carousel-content p {
 
     margin:
-        8px 0 15px;
+        0 0 11px;
 
     color:
         var(--rc2-text-soft);
 
-    font-size: 13px;
+    font-size:
+        9.5px;
 
-    line-height: 1.5;
+    line-height:
+        1.25;
 
 }
 
 
 .rc2-carousel-button {
 
-    display: inline-flex;
+    display:
+        inline-flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    gap: 6px;
+    gap:
+        5px;
 
-    min-height: 40px;
+    min-height:
+        30px;
 
     padding:
-        0 13px;
+        0 10px;
 
     border-radius:
-        10px;
+        8px;
 
     background:
         #ECFDF5;
@@ -513,19 +536,25 @@
     color:
         var(--rc2-green-dark);
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    font-size: 13px;
+    font-size:
+        9.5px;
 
-    font-weight: 800;
+    font-weight:
+        800;
 
 }
 
 
 .rc2-carousel-button svg {
 
-    width: 15px;
-    height: 15px;
+    width:
+        13px;
+
+    height:
+        13px;
 
 }
 
