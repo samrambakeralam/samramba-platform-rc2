@@ -440,53 +440,59 @@ function initialiseCarousel() {
 
     function movePrevious() {
 
-        if (isMoving) {
-            return;
-        }
+    if (isMoving) {
+        return;
+    }
 
 
-        const amount =
-            getScrollAmount();
+    const amount =
+        getScrollAmount();
 
 
-        if (!amount) {
-            return;
-        }
+    if (!amount) {
+        return;
+    }
 
 
-        isMoving = true;
+    isMoving = true;
 
 
-        /*
-           Put the last card immediately
-           before the current sequence.
+    /*
+       First create the previous card
+       without changing what the user
+       currently sees.
+    */
 
-           We compensate scrollLeft first
-           so the visible cards do not jump.
-        */
-
-        const lastCard =
-            track.lastElementChild;
+    const lastCard =
+        track.lastElementChild;
 
 
-        if (lastCard) {
+    if (lastCard) {
 
-            track.insertBefore(
-                lastCard,
-                track.firstElementChild
-            );
-
-
-            track.scrollLeft +=
-                amount;
-
-        }
+        track.insertBefore(
+            lastCard,
+            track.firstElementChild
+        );
 
 
         /*
-           Now animate naturally toward
-           the previous card.
+           Compensate immediately so the
+           visible position stays exactly
+           where it was.
         */
+
+        track.scrollLeft +=
+            amount;
+
+    }
+
+
+    /*
+       Now use the SAME smooth movement
+       as moveNext(), but in reverse.
+    */
+
+    requestAnimationFrame(() => {
 
         track.scrollBy({
 
@@ -498,14 +504,16 @@ function initialiseCarousel() {
 
         });
 
+    });
 
-        window.setTimeout(() => {
 
-            isMoving = false;
+    window.setTimeout(() => {
 
-        }, 500);
+        isMoving = false;
 
-    }
+    }, 500);
+
+}
 
 
     /* =====================================================
