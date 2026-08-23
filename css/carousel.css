@@ -662,30 +662,192 @@
 
     .rc2-carousel-track {
 
-        gap:
-            12px;
+    position:
+        relative;
 
-        padding:
-            3px 2px 14px;
+    height:
+        500px;
 
-        scroll-padding-left:
-            2px;
+    min-height:
+        500px;
 
-    }
+    padding:
+        0;
+
+    overflow:
+        hidden;
+
+    display:
+        block;
+
+    perspective:
+        1200px;
+
+    transform-style:
+        preserve-3d;
+
+}
 
 
     .rc2-carousel-card {
 
-        flex:
-            0 0 72vw;
+    width:
+        72vw;
 
-        max-width:
-            290px;
+    max-width:
+        290px;
 
-        border-radius:
-            18px;
+    border-radius:
+        18px;
 
-    }
+}
+
+    /* =========================================================
+   RC2.3 — MOBILE 3D ROTATABLE CAROUSEL
+========================================================= */
+
+.rc2-carousel-track {
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    perspective:
+        1200px;
+
+    min-height:
+        500px;
+
+}
+
+
+.rc2-carousel-card {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    transform-origin:
+        center center;
+
+    transition:
+        transform .55s cubic-bezier(.22,.61,.36,1),
+        opacity .45s ease,
+        filter .45s ease,
+        z-index 0s;
+
+    will-change:
+        transform,
+        opacity;
+
+}
+
+
+/* =========================================================
+   CENTER CARD
+========================================================= */
+
+.rc2-carousel-card.rc2-carousel-center {
+
+    transform:
+        translate(-50%, -50%)
+        translateZ(0)
+        scale(1);
+
+    opacity:
+        1;
+
+    filter:
+        none;
+
+    z-index:
+        5;
+
+}
+
+
+/* =========================================================
+   RIGHT CARD
+========================================================= */
+
+.rc2-carousel-card.rc2-carousel-right {
+
+    transform:
+        translate(-50%, -50%)
+        translateX(48%)
+        translateZ(-100px)
+        rotateY(-12deg)
+        scale(.88);
+
+    opacity:
+        .72;
+
+    filter:
+        brightness(.92);
+
+    z-index:
+        3;
+
+}
+
+
+/* =========================================================
+   LEFT CARD
+========================================================= */
+
+.rc2-carousel-card.rc2-carousel-left {
+
+    transform:
+        translate(-50%, -50%)
+        translateX(-48%)
+        translateZ(-100px)
+        rotateY(12deg)
+        scale(.88);
+
+    opacity:
+        .72;
+
+    filter:
+        brightness(.92);
+
+    z-index:
+        3;
+
+}
+
+
+/* =========================================================
+   HIDDEN CARDS
+========================================================= */
+
+.rc2-carousel-card.rc2-carousel-hidden {
+
+    transform:
+        translate(-50%, -50%)
+        translateZ(-220px)
+        scale(.70);
+
+    opacity:
+        0;
+
+    pointer-events:
+        none;
+
+    z-index:
+        1;
+
+}
 
 
     .rc2-carousel-content {
