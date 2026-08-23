@@ -235,8 +235,7 @@ const FEATURED_MODULE_DATA = [
 
 /* =========================================================
    CAROUSEL INITIALISATION
-   INFINITE / CIRCULAR CAROUSEL
-   DESKTOP + MOBILE
+   INFINITE CIRCULAR CAROUSEL
 ========================================================= */
 
 function initialiseCarousel() {
@@ -294,7 +293,7 @@ function initialiseCarousel() {
     );
 
 
-    const originalCards =
+    const cards =
         Array.from(
             track.querySelectorAll(
                 ".rc2-carousel-card"
@@ -302,65 +301,16 @@ function initialiseCarousel() {
         );
 
 
-    if (!originalCards.length) {
+    if (!cards.length) {
         return;
     }
 
 
-    const total =
-        originalCards.length;
-
-
     /* =====================================================
-       CREATE THREE IDENTICAL SETS
-
-       [ CLONE SET ]
-       [ ORIGINAL SET ]
-       [ CLONE SET ]
+       CARD MOVEMENT
     ===================================================== */
 
-    const leftFragment =
-        document.createDocumentFragment();
-
-
-    const rightFragment =
-        document.createDocumentFragment();
-
-
-    originalCards.forEach(card => {
-
-        leftFragment.appendChild(
-            card.cloneNode(true)
-        );
-
-    });
-
-
-    originalCards.forEach(card => {
-
-        rightFragment.appendChild(
-            card.cloneNode(true)
-        );
-
-    });
-
-
-    track.insertBefore(
-        leftFragment,
-        track.firstChild
-    );
-
-
-    track.appendChild(
-        rightFragment
-    );
-
-
-    /* =====================================================
-       GET CARD STEP
-    ===================================================== */
-
-    function getCardStep() {
+    function getScrollAmount() {
 
         const card =
             track.querySelector(
@@ -388,169 +338,178 @@ function initialiseCarousel() {
 
 
     /* =====================================================
-       GET COMPLETE SET WIDTH
+       PREVENT RAPID DOUBLE MOVEMENT
     ===================================================== */
 
-    function getSetWidth() {
-
-        return (
-            getCardStep() *
-            total
-        );
-
-    }
+    let isMoving = false;
 
 
     /* =====================================================
-       START IN THE MIDDLE SET
-    ===================================================== */
+       MOVE NEXT
 
-    function positionAtMiddleSet() {
+       Fastlane
+       →
+       Card 2
+       →
+       Card 3
+       →
+       ...
+       →
+       Secrets
+       →
+       Fastlane
+===================================================== */
 
-        const setWidth =
-            getSetWidth();
+    function moveNext() {
 
-
-        if (!setWidth) {
+        if (isMoving) {
             return;
         }
 
 
-        track.scrollLeft =
-            setWidth;
-
-    }
+        const amount =
+            getScrollAmount();
 
 
-    requestAnimationFrame(() => {
-
-        positionAtMiddleSet();
-
-    });
-
-
-    /* =====================================================
-       INVISIBLE RECYCLING
-
-       IMPORTANT:
-
-       We do NOT wait until the clone
-       section ends.
-
-       We recycle while there is still
-       plenty of identical content on
-       both sides.
-
-       Because every set is identical,
-       subtracting/adding one complete
-       set produces the exact same view.
-    ===================================================== */
-
-    let recycling =
-        false;
-
-
-    function recycleIfNecessary() {
-
-        if (recycling) {
+        if (!amount) {
             return;
         }
 
 
-        const setWidth =
-            getSetWidth();
+        isMoving = true;
 
 
-        if (!setWidth) {
-            return;
-        }
+        track.scrollBy({
 
+            left:
+                amount,
 
-        const current =
-            track.scrollLeft;
+            behavior:
+                "smooth"
+
+        });
 
 
         /*
-           Move RIGHT
+           Wait for the visual movement
+           to finish, then move the first
+           DOM card to the end.
 
-           Once we are beyond the middle
-           of the middle/right boundary,
-           shift one complete set LEFT.
-
-           The visible cards are identical,
-           so the user sees no jump.
+           The visible sequence remains
+           identical, so there is no
+           jump to the opposite side.
         */
 
-        if (
-            current >=
-            setWidth * 1.5
-        ) {
+        window.setTimeout(() => {
 
-            recycling =
-                true;
+            const firstCard =
+                track.firstElementChild;
 
 
-            track.scrollLeft =
-                current - setWidth;
+            if (firstCard) {
+
+                track.appendChild(
+                    firstCard
+                );
 
 
-            requestAnimationFrame(() => {
+                track.scrollLeft -=
+                    amount;
 
-                recycling =
-                    false;
-
-            });
+            }
 
 
+            isMoving = false;
+
+        }, 500);
+
+    }
+
+
+    /* =====================================================
+       MOVE PREVIOUS
+
+       Fastlane
+       ←
+       Secrets
+       ←
+       Card 4
+       ←
+       ...
+===================================================== */
+
+    function movePrevious() {
+
+        if (isMoving) {
             return;
+        }
+
+
+        const amount =
+            getScrollAmount();
+
+
+        if (!amount) {
+            return;
+        }
+
+
+        isMoving = true;
+
+
+        /*
+           Put the last card immediately
+           before the current sequence.
+
+           We compensate scrollLeft first
+           so the visible cards do not jump.
+        */
+
+        const lastCard =
+            track.lastElementChild;
+
+
+        if (lastCard) {
+
+            track.insertBefore(
+                lastCard,
+                track.firstElementChild
+            );
+
+
+            track.scrollLeft +=
+                amount;
 
         }
 
 
         /*
-           Move LEFT
-
-           Once we are below the middle
-           of the left/original boundary,
-           shift one complete set RIGHT.
+           Now animate naturally toward
+           the previous card.
         */
 
-        if (
-            current <=
-            setWidth * 0.5
-        ) {
+        track.scrollBy({
 
-            recycling =
-                true;
+            left:
+                -amount,
 
+            behavior:
+                "smooth"
 
-            track.scrollLeft =
-                current + setWidth;
+        });
 
 
-            requestAnimationFrame(() => {
+        window.setTimeout(() => {
 
-                recycling =
-                    false;
+            isMoving = false;
 
-            });
-
-        }
+        }, 500);
 
     }
 
 
-    track.addEventListener(
-        "scroll",
-        recycleIfNecessary,
-        {
-            passive: true
-        }
-    );
-
-
     /* =====================================================
-       DESKTOP ARROWS
+       DESKTOP CONTROLS
     ===================================================== */
 
     const previousButton =
@@ -565,39 +524,11 @@ function initialiseCarousel() {
         );
 
 
-    function getScrollAmount() {
-
-        return getCardStep();
-
-    }
-
-
     if (previousButton) {
 
         previousButton.addEventListener(
             "click",
-            () => {
-
-                const amount =
-                    getScrollAmount();
-
-
-                if (!amount) {
-                    return;
-                }
-
-
-                track.scrollBy({
-
-                    left:
-                        -amount,
-
-                    behavior:
-                        "smooth"
-
-                });
-
-            }
+            movePrevious
         );
 
     }
@@ -607,28 +538,7 @@ function initialiseCarousel() {
 
         nextButton.addEventListener(
             "click",
-            () => {
-
-                const amount =
-                    getScrollAmount();
-
-
-                if (!amount) {
-                    return;
-                }
-
-
-                track.scrollBy({
-
-                    left:
-                        amount,
-
-                    behavior:
-                        "smooth"
-
-                });
-
-            }
+            moveNext
         );
 
     }
@@ -636,21 +546,11 @@ function initialiseCarousel() {
 
     /* =====================================================
        MOBILE SWIPE
-
-       Native horizontal scrolling is used.
-
-       Swipe LEFT  → NEXT
-       Swipe RIGHT → PREVIOUS
-
-       The same infinite track handles
-       both directions.
     ===================================================== */
 
-    let startX =
-        0;
+    let startX = 0;
 
-    let startY =
-        0;
+    let startY = 0;
 
 
     carousel.addEventListener(
@@ -706,7 +606,7 @@ function initialiseCarousel() {
 
 
             /*
-               Ignore vertical gestures.
+               Ignore vertical scrolling.
             */
 
             if (
@@ -732,53 +632,28 @@ function initialiseCarousel() {
             }
 
 
-            const amount =
-                getScrollAmount();
-
-
-            if (!amount) {
-                return;
-            }
-
-
             /*
-               SWIPE LEFT
-               → NEXT CARD
+               Swipe LEFT
+               → NEXT
             */
 
             if (
                 distanceX < 0
             ) {
 
-                track.scrollBy({
-
-                    left:
-                        amount,
-
-                    behavior:
-                        "smooth"
-
-                });
+                moveNext();
 
             }
 
 
             /*
-               SWIPE RIGHT
-               → PREVIOUS CARD
+               Swipe RIGHT
+               → PREVIOUS
             */
 
             else {
 
-                track.scrollBy({
-
-                    left:
-                        -amount,
-
-                    behavior:
-                        "smooth"
-
-                });
+                movePrevious();
 
             }
 
