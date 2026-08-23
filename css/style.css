@@ -6163,9 +6163,392 @@ section {
    RC2.3 — FEATURED CAROUSEL POSITION
 ========================================================= */
 
+/* =========================================================
+   RC2.3 — FEATURED CAROUSEL
+========================================================= */
+
 #featured-carousel {
 
-    margin-top: -60px;
+    margin-top:
+        -60px;
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+}
+
+
+.rc2-carousel-container {
+
+    width:
+        min(
+            calc(100% - 40px),
+            var(--rc2-container)
+        );
+
+    margin:
+        0 auto;
+
+}
+
+
+.rc2-carousel-header {
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        space-between;
+
+    gap:
+        30px;
+
+    margin-bottom:
+        28px;
+
+}
+
+
+.rc2-carousel-heading {
+
+    max-width:
+        650px;
+
+}
+
+
+.rc2-carousel-eyebrow {
+
+    display:
+        inline-block;
+
+    margin-bottom:
+        7px;
+
+    color:
+        var(--rc2-green);
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .08em;
+
+}
+
+
+.rc2-carousel-heading h2 {
+
+    margin:
+        0 0 8px;
+
+    color:
+        var(--rc2-navy);
+
+    font-family:
+        Poppins,
+        sans-serif;
+
+    font-size:
+        clamp(28px, 3vw, 38px);
+
+    line-height:
+        1.1;
+
+    letter-spacing:
+        -.025em;
+
+}
+
+
+.rc2-carousel-heading p {
+
+    margin:
+        0;
+
+    color:
+        var(--rc2-text-soft);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.55;
+
+}
+
+
+.rc2-carousel-controls {
+
+    display:
+        flex;
+
+    gap:
+        8px;
+
+    flex:
+        0 0 auto;
+
+}
+
+
+.rc2-carousel-control {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid var(--rc2-border);
+
+    border-radius:
+        50%;
+
+    background:
+        white;
+
+    color:
+        var(--rc2-navy);
+
+    cursor:
+        pointer;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+}
+
+
+.rc2-carousel-control:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 18px
+        rgba(15,23,42,.10);
+
+}
+
+
+.rc2-carousel {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    overflow:
+        hidden;
+
+}
+
+
+.rc2-carousel-track {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    display:
+        flex;
+
+    gap:
+        20px;
+
+}
+
+
+.rc2-carousel-card {
+
+    flex:
+        0 0 300px;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid var(--rc2-border);
+
+    border-radius:
+        18px;
+
+    background:
+        white;
+
+    box-shadow:
+        0 12px 30px
+        rgba(15,23,42,.08);
+
+}
+
+
+.rc2-carousel-image-wrap {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    height:
+        220px;
+
+}
+
+
+.rc2-carousel-image {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        block;
+
+    object-fit:
+        cover;
+
+}
+
+
+.rc2-carousel-badge {
+
+    position:
+        absolute;
+
+    top:
+        12px;
+
+    left:
+        12px;
+
+    padding:
+        5px 9px;
+
+    border-radius:
+        999px;
+
+    background:
+        var(--rc2-navy);
+
+    color:
+        white;
+
+    font-size:
+        9px;
+
+    font-weight:
+        700;
+
+}
+
+
+.rc2-carousel-content {
+
+    padding:
+        16px;
+
+}
+
+
+.rc2-carousel-content h3 {
+
+    margin:
+        0 0 6px;
+
+    color:
+        var(--rc2-navy);
+
+    font-family:
+        Poppins,
+        sans-serif;
+
+    font-size:
+        16px;
+
+    line-height:
+        1.25;
+
+}
+
+
+.rc2-carousel-content p {
+
+    margin:
+        0 0 14px;
+
+    color:
+        var(--rc2-text-soft);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.4;
+
+}
+
+
+.rc2-carousel-button {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        5px;
+
+    color:
+        var(--rc2-green);
+
+    text-decoration:
+        none;
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+}
+
+
+.rc2-carousel-button svg {
+
+    width:
+        14px;
+
+    height:
+        14px;
 
 }
 

@@ -281,9 +281,223 @@ function initialiseCarousel() {
     );
 
 
-    /* =========================================
+    /* =====================================================
+       MOBILE — 3D ROTATABLE CAROUSEL
+    ===================================================== */
+
+    const isMobile =
+        window.matchMedia(
+            "(max-width: 767px)"
+        ).matches;
+
+
+    if (isMobile) {
+
+        let currentIndex = 0;
+
+
+        const cards =
+            Array.from(
+                track.querySelectorAll(
+                    ".rc2-carousel-card"
+                )
+            );
+
+
+        if (!cards.length) {
+            return;
+        }
+
+
+        function updateMobileCarousel() {
+
+            const total =
+                cards.length;
+
+
+            cards.forEach(
+                (card, index) => {
+
+                    const relative =
+                        (
+                            index -
+                            currentIndex +
+                            total
+                        ) % total;
+
+
+                    card.classList.remove(
+                        "rc2-carousel-left",
+                        "rc2-carousel-center",
+                        "rc2-carousel-right",
+                        "rc2-carousel-hidden"
+                    );
+
+
+                    /* ---------------------------------
+                       CENTER
+                    --------------------------------- */
+
+                    if (relative === 0) {
+
+                        card.classList.add(
+                            "rc2-carousel-center"
+                        );
+
+                    }
+
+
+                    /* ---------------------------------
+                       RIGHT
+                    --------------------------------- */
+
+                    else if (
+                        relative === 1
+                    ) {
+
+                        card.classList.add(
+                            "rc2-carousel-right"
+                        );
+
+                    }
+
+
+                    /* ---------------------------------
+                       LEFT
+                    --------------------------------- */
+
+                    else if (
+                        relative ===
+                        total - 1
+                    ) {
+
+                        card.classList.add(
+                            "rc2-carousel-left"
+                        );
+
+                    }
+
+
+                    /* ---------------------------------
+                       HIDDEN
+                    --------------------------------- */
+
+                    else {
+
+                        card.classList.add(
+                            "rc2-carousel-hidden"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        function rotateLeft() {
+
+            currentIndex =
+                (
+                    currentIndex + 1
+                ) % cards.length;
+
+
+            updateMobileCarousel();
+
+        }
+
+
+        function rotateRight() {
+
+            currentIndex =
+                (
+                    currentIndex -
+                    1 +
+                    cards.length
+                ) % cards.length;
+
+
+            updateMobileCarousel();
+
+        }
+
+
+        /* =================================================
+           TOUCH / SWIPE
+        ================================================= */
+
+        let startX = 0;
+        let endX = 0;
+
+
+        carousel.addEventListener(
+            "touchstart",
+            event => {
+
+                startX =
+                    event.touches[0].clientX;
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        carousel.addEventListener(
+            "touchend",
+            event => {
+
+                endX =
+                    event.changedTouches[0].clientX;
+
+
+                const distance =
+                    endX - startX;
+
+
+                if (
+                    Math.abs(distance) < 40
+                ) {
+
+                    return;
+
+                }
+
+
+                if (distance < 0) {
+
+                    rotateLeft();
+
+                } else {
+
+                    rotateRight();
+
+                }
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        /* -----------------------------------------------
+           INITIAL MOBILE POSITION
+        ----------------------------------------------- */
+
+        updateMobileCarousel();
+
+        return;
+
+    }
+
+
+    /* =====================================================
        DESKTOP CAROUSEL CONTROLS
-    ========================================= */
+    ===================================================== */
 
     const previousButton =
         document.getElementById(
