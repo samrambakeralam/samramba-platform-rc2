@@ -235,12 +235,14 @@ const FEATURED_MODULE_DATA = [
 
 /* =========================================================
    CAROUSEL INITIALISATION
+   INFINITE / CIRCULAR CAROUSEL
 ========================================================= */
 
 function initialiseCarousel() {
 
     const carousel =
         document.getElementById("rc2Carousel");
+
 
     if (!carousel) {
 
@@ -257,6 +259,7 @@ function initialiseCarousel() {
         carousel.querySelector(
             ".rc2-carousel-track"
         );
+
 
     if (!track) {
 
@@ -275,234 +278,387 @@ function initialiseCarousel() {
         );
 
 
+    if (!items.length) {
+        return;
+    }
+
+
+    /* =====================================================
+       RENDER ORIGINAL CARDS
+    ===================================================== */
+
     renderCarousel(
         track,
         items
     );
 
 
+    const originalCards =
+        Array.from(
+            track.querySelectorAll(
+                ".rc2-carousel-card"
+            )
+        );
+
+
+    if (!originalCards.length) {
+        return;
+    }
+
+
     /* =====================================================
-       MOBILE — 3D ROTATABLE CAROUSEL
+       CREATE CLONES
+       LAST → BEFORE FIRST
+       FIRST → AFTER LAST
     ===================================================== */
 
-    const isMobile =
-        window.matchMedia(
-            "(max-width: 767px)"
-        ).matches;
+    const firstClone =
+        originalCards[0].cloneNode(true);
 
 
-    if (isMobile) {
-
-        let currentIndex = 0;
-
-
-        const cards =
-            Array.from(
-                track.querySelectorAll(
-                    ".rc2-carousel-card"
-                )
-            );
+    const lastClone =
+        originalCards[
+            originalCards.length - 1
+        ].cloneNode(true);
 
 
-        if (!cards.length) {
-            return;
-        }
+    firstClone.dataset.clone =
+        "first";
 
 
-        function updateMobileCarousel() {
-
-            const total =
-                cards.length;
+    lastClone.dataset.clone =
+        "last";
 
 
-            cards.forEach(
-                (card, index) => {
-
-                    const relative =
-                        (
-                            index -
-                            currentIndex +
-                            total
-                        ) % total;
+    track.insertBefore(
+        lastClone,
+        track.firstChild
+    );
 
 
-                    card.classList.remove(
-                        "rc2-carousel-left",
-                        "rc2-carousel-center",
-                        "rc2-carousel-right",
-                        "rc2-carousel-hidden"
-                    );
+    track.appendChild(
+        firstClone
+    );
 
 
-                    /* ---------------------------------
-                       CENTER
-                    --------------------------------- */
+    /* =====================================================
+       ALL CARDS INCLUDING CLONES
+    ===================================================== */
 
-                    if (relative === 0) {
-
-                        card.classList.add(
-                            "rc2-carousel-center"
-                        );
-
-                    }
-
-
-                    /* ---------------------------------
-                       RIGHT
-                    --------------------------------- */
-
-                    else if (
-                        relative === 1
-                    ) {
-
-                        card.classList.add(
-                            "rc2-carousel-right"
-                        );
-
-                    }
-
-
-                    /* ---------------------------------
-                       LEFT
-                    --------------------------------- */
-
-                    else if (
-                        relative ===
-                        total - 1
-                    ) {
-
-                        card.classList.add(
-                            "rc2-carousel-left"
-                        );
-
-                    }
-
-
-                    /* ---------------------------------
-                       HIDDEN
-                    --------------------------------- */
-
-                    else {
-
-                        card.classList.add(
-                            "rc2-carousel-hidden"
-                        );
-
-                    }
-
-                }
-            );
-
-        }
-
-
-        function rotateLeft() {
-
-            currentIndex =
-                (
-                    currentIndex + 1
-                ) % cards.length;
-
-
-            updateMobileCarousel();
-
-        }
-
-
-        function rotateRight() {
-
-            currentIndex =
-                (
-                    currentIndex -
-                    1 +
-                    cards.length
-                ) % cards.length;
-
-
-            updateMobileCarousel();
-
-        }
-
-
-        /* =================================================
-           TOUCH / SWIPE
-        ================================================= */
-
-        let startX = 0;
-        let endX = 0;
-
-
-        carousel.addEventListener(
-            "touchstart",
-            event => {
-
-                startX =
-                    event.touches[0].clientX;
-
-            },
-            {
-                passive: true
-            }
+    const cards =
+        Array.from(
+            track.querySelectorAll(
+                ".rc2-carousel-card"
+            )
         );
 
 
-        carousel.addEventListener(
-            "touchend",
-            event => {
-
-                endX =
-                    event.changedTouches[0].clientX;
+    const total =
+        originalCards.length;
 
 
-                const distance =
-                    endX - startX;
+    /*
+       Because one clone is now before
+       the first real card, the first
+       real card is at index 1.
+    */
+
+    let currentIndex = 0;
 
 
-                if (
-                    Math.abs(distance) < 40
-                ) {
-
-                    return;
-
-                }
+    let isAnimating = false;
 
 
-                if (distance < 0) {
+    /* =====================================================
+       CARD STEP
+       CARD WIDTH + GAP
+    ===================================================== */
 
-                    rotateLeft();
+    function getCardStep() {
 
-                } else {
+        const card =
+            track.querySelector(
+                ".rc2-carousel-card"
+            );
 
-                    rotateRight();
 
-                }
+        if (!card) {
+            return 0;
+        }
 
-            },
-            {
-                passive: true
-            }
+
+        const gap =
+            parseFloat(
+                getComputedStyle(track).gap
+            ) || 0;
+
+
+        return (
+            card.offsetWidth +
+            gap
         );
-
-
-        /* -----------------------------------------------
-           INITIAL MOBILE POSITION
-        ----------------------------------------------- */
-
-        updateMobileCarousel();
-
-        return;
 
     }
 
 
     /* =====================================================
-       DESKTOP CAROUSEL CONTROLS
+       MOVE TO CARD
+    ===================================================== */
+
+    function moveToIndex(
+        index,
+        smooth = true
+    ) {
+
+        const step =
+            getCardStep();
+
+
+        if (!step) {
+            return;
+        }
+
+
+        track.scrollTo({
+
+            left:
+                step * (index + 1),
+
+            behavior:
+                smooth
+                    ? "smooth"
+                    : "auto"
+
+        });
+
+    }
+
+
+    /* =====================================================
+       INITIAL POSITION
+       FIRST REAL CARD
+    ===================================================== */
+
+    function setInitialPosition() {
+
+        const step =
+            getCardStep();
+
+
+        if (!step) {
+            return;
+        }
+
+
+        track.scrollTo({
+
+            left:
+                step,
+
+            behavior:
+                "auto"
+
+        });
+
+    }
+
+
+    /* =====================================================
+       COMPLETE LOOP
+    ===================================================== */
+
+    function finishLoop() {
+
+        if (!isAnimating) {
+            return;
+        }
+
+
+        /*
+           We moved to the cloned card
+           at either boundary.
+
+           Now silently reposition to
+           the corresponding real card.
+        */
+
+        const step =
+            getCardStep();
+
+
+        if (!step) {
+            isAnimating = false;
+            return;
+        }
+
+
+        if (
+            currentIndex >= total
+        ) {
+
+            currentIndex = 0;
+
+
+            track.scrollTo({
+
+                left:
+                    step,
+
+                behavior:
+                    "auto"
+
+            });
+
+        }
+
+
+        else if (
+            currentIndex < 0
+        ) {
+
+            currentIndex =
+                total - 1;
+
+
+            track.scrollTo({
+
+                left:
+                    step * total,
+
+                behavior:
+                    "auto"
+
+            });
+
+        }
+
+
+        isAnimating = false;
+
+    }
+
+
+    /* =====================================================
+       NEXT
+       LAST → FIRST
+    ===================================================== */
+
+    function nextCard() {
+
+        if (
+            isAnimating ||
+            total <= 1
+        ) {
+            return;
+        }
+
+
+        isAnimating = true;
+
+
+        currentIndex++;
+
+
+        /*
+           If we are moving beyond
+           the last real card, move
+           into the first clone.
+        */
+
+        if (
+            currentIndex >= total
+        ) {
+
+            moveToIndex(
+                total,
+                true
+            );
+
+        }
+
+        else {
+
+            moveToIndex(
+                currentIndex,
+                true
+            );
+
+        }
+
+
+        window.setTimeout(
+            finishLoop,
+            500
+        );
+
+    }
+
+
+    /* =====================================================
+       PREVIOUS
+       FIRST → LAST
+    ===================================================== */
+
+    function previousCard() {
+
+        if (
+            isAnimating ||
+            total <= 1
+        ) {
+            return;
+        }
+
+
+        isAnimating = true;
+
+
+        currentIndex--;
+
+
+        /*
+           If we move before the
+           first real card, move
+           into the last clone.
+        */
+
+        if (
+            currentIndex < 0
+        ) {
+
+            moveToIndex(
+                -1,
+                true
+            );
+
+        }
+
+        else {
+
+            moveToIndex(
+                currentIndex,
+                true
+            );
+
+        }
+
+
+        window.setTimeout(
+            finishLoop,
+            500
+        );
+
+    }
+
+
+    /* =====================================================
+       DESKTOP CONTROLS
     ===================================================== */
 
     const previousButton =
         document.getElementById(
             "rc2CarouselPrev"
         );
+
 
     const nextButton =
         document.getElementById(
@@ -514,39 +670,7 @@ function initialiseCarousel() {
 
         previousButton.addEventListener(
             "click",
-            () => {
-
-                const card =
-                    track.querySelector(
-                        ".rc2-carousel-card"
-                    );
-
-                if (!card) {
-                    return;
-                }
-
-
-                const gap =
-                    parseFloat(
-                        getComputedStyle(track).gap
-                    ) || 0;
-
-
-                const scrollAmount =
-                    card.offsetWidth + gap;
-
-
-                track.scrollBy({
-
-                    left:
-                        -scrollAmount,
-
-                    behavior:
-                        "smooth"
-
-                });
-
-            }
+            previousCard
         );
 
     }
@@ -556,42 +680,144 @@ function initialiseCarousel() {
 
         nextButton.addEventListener(
             "click",
-            () => {
-
-                const card =
-                    track.querySelector(
-                        ".rc2-carousel-card"
-                    );
-
-                if (!card) {
-                    return;
-                }
-
-
-                const gap =
-                    parseFloat(
-                        getComputedStyle(track).gap
-                    ) || 0;
-
-
-                const scrollAmount =
-                    card.offsetWidth + gap;
-
-
-                track.scrollBy({
-
-                    left:
-                        scrollAmount,
-
-                    behavior:
-                        "smooth"
-
-                });
-
-            }
+            nextCard
         );
 
     }
+
+
+    /* =====================================================
+       MOBILE SWIPE
+    ===================================================== */
+
+    let startX = 0;
+
+
+    let startY = 0;
+
+
+    carousel.addEventListener(
+        "touchstart",
+        event => {
+
+            if (
+                !event.touches.length
+            ) {
+                return;
+            }
+
+
+            startX =
+                event.touches[0].clientX;
+
+
+            startY =
+                event.touches[0].clientY;
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    carousel.addEventListener(
+        "touchend",
+        event => {
+
+            if (
+                !event.changedTouches.length
+            ) {
+                return;
+            }
+
+
+            const endX =
+                event.changedTouches[0].clientX;
+
+
+            const endY =
+                event.changedTouches[0].clientY;
+
+
+            const distanceX =
+                endX - startX;
+
+
+            const distanceY =
+                endY - startY;
+
+
+            /*
+               Ignore mostly vertical
+               gestures.
+            */
+
+            if (
+                Math.abs(distanceX) <
+                Math.abs(distanceY)
+            ) {
+
+                return;
+
+            }
+
+
+            /*
+               Ignore very small
+               movements.
+            */
+
+            if (
+                Math.abs(distanceX) < 40
+            ) {
+
+                return;
+
+            }
+
+
+            /*
+               Swipe LEFT
+               → NEXT
+            */
+
+            if (
+                distanceX < 0
+            ) {
+
+                nextCard();
+
+            }
+
+
+            /*
+               Swipe RIGHT
+               → PREVIOUS
+            */
+
+            else {
+
+                previousCard();
+
+            }
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    /* =====================================================
+       INITIALISE
+    ===================================================== */
+
+    requestAnimationFrame(() => {
+
+        setInitialPosition();
+
+    });
 
 }
 

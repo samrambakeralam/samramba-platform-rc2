@@ -264,6 +264,72 @@
 
 }
 
+.rc2-carousel-card {
+    transition:
+        transform .45s ease,
+        opacity .45s ease;
+}
+
+/* =========================================================
+   RC2.3 — TWO-WAY HORIZONTAL ROTATION
+   DESKTOP + MOBILE
+========================================================= */
+
+.rc2-carousel-card.rc2-carousel-center {
+
+    opacity:
+        1;
+
+    transform:
+        translateX(0);
+
+    z-index:
+        3;
+
+}
+
+
+.rc2-carousel-card.rc2-carousel-left {
+
+    opacity:
+        0;
+
+    transform:
+        translateX(-100%);
+
+    z-index:
+        1;
+
+}
+
+
+.rc2-carousel-card.rc2-carousel-right {
+
+    opacity:
+        0;
+
+    transform:
+        translateX(100%);
+
+    z-index:
+        1;
+
+}
+
+
+.rc2-carousel-card.rc2-carousel-hidden {
+
+    opacity:
+        0;
+
+    transform:
+        translateX(0);
+
+    z-index:
+        0;
+
+}
+
 /* =========================================
    DESKTOP CARD HOVER POLISH
 ========================================= */
