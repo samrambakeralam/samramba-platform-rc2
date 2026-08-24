@@ -329,13 +329,13 @@ transform:translateY(0px);
 ===================================================== */
 
 .why-bundle {
-    padding: 25px 8%;
+    padding: 25px 8% 50px;
     background: #F8FAFC;
 }
 
 .why-bundle .container {
     width: 100%;
-    max-width: 1280px;
+    max-width: 1200px;
     margin: 0 auto;
 
     display: flex;
@@ -404,7 +404,7 @@ transform:translateY(0px);
 
     background: #FFFFFF;
 
-    padding: 30px 24px;
+    padding: 24px 20px;
 
     border-radius: 20px;
 
@@ -415,7 +415,7 @@ transform:translateY(0px);
     box-shadow:
         0 8px 24px rgba(15, 23, 42, .06);
 
-    min-height: 250px;
+    min-height: 210px;
 
     box-sizing: border-box;
 
@@ -547,7 +547,7 @@ transform:translateY(0px);
 @media (max-width: 1100px) {
 
     .why-bundle {
-        padding: 90px 6%;
+        padding: 50px 6%;
     }
 
     .why-bundle .container {
@@ -934,7 +934,7 @@ transform:translateY(0px);
 
 .topics-section {
 
-    padding: 100px 8%;
+    padding: 50px 8%;
 
     background: #FFFFFF;
 
@@ -1073,7 +1073,7 @@ transform:translateY(0px);
 
     text-align: center;
 
-    min-height: 185px;
+    min-height: 150px;
 
     display: flex;
 
@@ -1171,7 +1171,7 @@ transform:translateY(0px);
         center;
 
     font-size:
-        19px;
+        15px;
 
     line-height:
         1.35;
@@ -1286,7 +1286,7 @@ transform:translateY(0px);
 
     .topics-left h2 {
 
-        font-size: 32px;
+        font-size: 27px;
 
         line-height: 1.15;
 
@@ -1297,7 +1297,7 @@ transform:translateY(0px);
 
     .topics-left p {
 
-        font-size: 17px;
+        font-size: 15px;
 
         line-height: 1.7;
 
@@ -1358,7 +1358,7 @@ transform:translateY(0px);
         sans-serif;
 
     font-size:
-        13px;
+        14px;
 
     line-height:
         1.25;
@@ -1386,7 +1386,7 @@ transform:translateY(0px);
 
     .topics-left h2 {
 
-        font-size: 30px;
+        font-size: 25px;
 
     }
 
@@ -6164,17 +6164,16 @@ section {
 }
 
 /* =========================================================
-   RC2.3 — FEATURED CAROUSEL POSITION
-========================================================= */
-
-/* =========================================================
    RC2.3 — FEATURED CAROUSEL
 ========================================================= */
 
 #featured-carousel {
 
     margin-top:
-        -60px;
+        -70px;
+
+    margin-bottom:
+        0;
 
     position:
         relative;
