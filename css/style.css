@@ -1660,7 +1660,7 @@ transform:translateY(0px);
 
     padding:70px 8% 45px;
 
-    background:#F8FAFC;
+    background:#FFFFFF;
 
 }
 
@@ -9578,4 +9578,19 @@ a {
 
     }
 
+}
+
+.featured-modules .section-title-center h2{
+    font-size:27px;
+    font-weight:700;
+    line-height:1.2;
+    font-family:"Poppins", sans-serif;
+}
+
+.featured-modules .section-title-center p{
+    font-family:"Inter", sans-serif;
+    font-size:15px;
+    font-weight:400;
+    line-height:1.7;
+    color:#64748B;
 }
