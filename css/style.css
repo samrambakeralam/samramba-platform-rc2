@@ -3049,7 +3049,7 @@ transform:translateY(0px);
         "Poppins",
         sans-serif;
 
-    font-size:44px;
+    font-size:34px;
 
     font-weight:800;
 
@@ -3073,7 +3073,7 @@ transform:translateY(0px);
 
     margin:0 auto;
 
-    font-size:19px;
+    font-size:16px;
 
     line-height:1.9;
 
@@ -3157,7 +3157,7 @@ transform:translateY(0px);
 
 .mission-profile h3{
 
-    font-size:30px;
+    font-size:18px;
 
     color:#0B1F3A;
 
@@ -3169,7 +3169,7 @@ transform:translateY(0px);
 
 .profile-role{
 
-    font-size:17px;
+    font-size:15px;
 
     color:#64748B;
 
@@ -3190,7 +3190,7 @@ transform:translateY(0px);
 
 .mission-message{
 
-    font-size:18px;
+    font-size:16px;
 
     color:#475569;
 
@@ -3240,7 +3240,7 @@ transform:translateY(0px);
         0 10px 30px rgba(15,23,42,.05);
 
     font-size:
-        27px;
+        25px;
 
     line-height:
         1.5;
@@ -3357,19 +3357,23 @@ transform:translateY(0px);
 
 .value-card h3{
 
-    font-size:24px;
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size:18px;
 
     font-weight:700;
 
     color:#0B1F3A;
 
-    margin-bottom:16px;
+    margin-bottom:8px;
 
 }
 
 .value-card p{
 
-    font-size:16px;
+    font-size:15px;
 
     color:#64748B;
 
@@ -3587,7 +3591,7 @@ transform:translateY(0px);
 
 .pricing-section{
 
-    padding:120px 0;
+    padding:80px 0;
 
     background:#F8FAFC;
 
@@ -3634,7 +3638,7 @@ transform:translateY(0px);
 
     font-family:'Poppins', sans-serif;
 
-    font-size:clamp(2rem,3.2vw,2.7rem);
+     font-size:34px;
 
     line-height:1.18;
 
@@ -3982,7 +3986,7 @@ transform:translateY(0px);
 
     color:#64748B;
 
-    font-size:.72rem;
+    font-size:.60rem;
 
 }
 
