@@ -9571,8 +9571,11 @@ a {
 
 @media (max-width: 767px) {
 
-    .rc2-hero {
-        padding-bottom: 45px !important;
+    #featured-carousel {
+
+        margin-top:
+            -40px !important;
+
     }
 
 }
