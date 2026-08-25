@@ -505,7 +505,7 @@ transform:translateY(0px);
         "Poppins",
         sans-serif;
 
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 700;
 
     color: #0B1F3A;
@@ -1171,7 +1171,7 @@ transform:translateY(0px);
         center;
 
     font-size:
-        15px;
+        17px;
 
     line-height:
         1.35;
@@ -1578,7 +1578,7 @@ transform:translateY(0px);
 
     background:#ffffff;
 
-    padding:18px 22px;
+    padding:14px 22px;
 
     border-radius:20px;
 
@@ -1608,7 +1608,7 @@ transform:translateY(0px);
         "Poppins",
         sans-serif;
 
-    font-size:21px;
+    font-size:17px;
 
     color:#0B1F3A;
 
@@ -1686,10 +1686,10 @@ transform:translateY(0px);
        INTRO DESCRIPTION
     -------------------------------------- */
 
-    .journey-left p {
+    .journey-left p{
 
         font-size:
-            16px;
+            15px;
 
         line-height:
             1.6;
@@ -1704,10 +1704,10 @@ transform:translateY(0px);
        JOURNEY STEP TITLE
     -------------------------------------- */
 
-    .step-content h3 {
+    .step-content h3{
 
         font-size:
-            21px;
+            15px;
 
         line-height:
             1.25;
@@ -6392,7 +6392,7 @@ section {
         var(--rc2-text-soft);
 
     font-size:
-        15px;
+        16px;
 
     line-height:
         1.55;
