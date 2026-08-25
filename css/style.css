@@ -9580,6 +9580,19 @@ a {
 
 }
 
+/* ==========================================
+   NORMAL PHONE — FEATURED MODULES
+========================================== */
+
+@media (max-width: 767px) {
+
+    .featured-modules {
+
+        background:
+            #FFFFFF;
+
+    }
+
 .featured-modules .section-title-center h2{
     font-size:27px;
     font-weight:700;
@@ -9591,6 +9604,8 @@ a {
     font-family:"Inter", sans-serif;
     font-size:15px;
     font-weight:400;
-    line-height:1.7;
+    line-height:1.6;
     color:#64748B;
+}
+
 }
