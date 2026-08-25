@@ -180,7 +180,7 @@ nav a:hover{
             center;
 
         padding:
-            45px 18px 35px;
+            45px 18px 45px;
 
         gap:
             32px;
@@ -230,7 +230,7 @@ nav a:hover{
     .hero-description {
 
         font-size:
-            17px;
+            15px;
 
         line-height:
             1.55;
