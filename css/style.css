@@ -183,7 +183,7 @@ nav a:hover{
             45px 18px 35px;
 
         gap:
-            28px;
+            32px;
 
         min-height:
             auto;
@@ -222,12 +222,12 @@ nav a:hover{
             -0.8px;
 
         margin-bottom:
-            18px;
+            22px;
 
     }
 
 
-    .hero-description{
+    .hero-description {
 
         font-size:
             17px;
@@ -239,7 +239,7 @@ nav a:hover{
             100%;
 
         margin:
-            0 0 28px;
+            0 0 0;
 
     }
 
