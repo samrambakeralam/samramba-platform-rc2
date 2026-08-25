@@ -1010,7 +1010,7 @@ transform:translateY(0px);
         sans-serif;
 
     font-size:
-        36px;
+        32px;
 
     font-weight:
         700;
@@ -1465,14 +1465,14 @@ transform:translateY(0px);
 
 .journey-content{
     display:flex;
-    align-items:flex-start;
+    align-items:center;
     gap:70px;
 }
 
 .journey-left{
     flex:1;
     max-width:430px;
-    padding-top:20px;
+    padding-top:0px;
 }
 
 .journey-left .section-badge{
@@ -1493,7 +1493,7 @@ transform:translateY(0px);
         "Poppins",
         sans-serif;
 
-    font-size:36px;
+    font-size:32px;
 
     font-weight:700;
 
@@ -1609,7 +1609,7 @@ transform:translateY(0px);
         "Poppins",
         sans-serif;
 
-    font-size:17px;
+    font-size:18px;
 
     color:#0B1F3A;
 
@@ -1909,7 +1909,7 @@ transform:translateY(0px);
 
 .featured-modules .section-title-center h2{
 
-    font-size: 34px;
+    font-size: 32px;
 
     font-weight: 700;
 
@@ -2334,13 +2334,13 @@ transform:translateY(0px);
 
     position:relative;
 
-    height:130px;
+    height:110px;
 
     border-radius:18px;
 
     overflow:hidden;
 
-    margin-bottom:20px;
+    margin-bottom:15px;
 
     padding:20px;
 
@@ -2517,7 +2517,7 @@ transform:translateY(0px);
         "Poppins",
         sans-serif;
 
-    font-size:20px;
+    font-size:18px;
 
     color:#0B1F3A;
 
@@ -2531,7 +2531,7 @@ transform:translateY(0px);
 
     color:#64748B;
 
-    font-size:15px;
+    font-size:13px;
 
     line-height:1.8;
 
@@ -2562,7 +2562,7 @@ transform:translateY(0px);
 
     color:#64748B;
 
-    font-size:15px;
+    font-size:11px;
 
 }
 
@@ -2585,11 +2585,11 @@ transform:translateY(0px);
 
     color:#FFFFFF;
 
-    padding:17px;
+    padding:7px;
 
-    border-radius:14px;
+    border-radius:8px;
 
-    font-size:17px;
+    font-size:13px;
 
     font-weight:700;
 
@@ -2626,7 +2626,7 @@ transform:translateY(0px);
 
 .featured-footer p{
 
-    font-size:19px;
+    font-size:16px;
 
     line-height:1.8;
 
@@ -2745,12 +2745,6 @@ transform:translateY(0px);
    LEARNING TRACKS — HEADING SPACING
 ========================================== */
 
-.learning-tracks .section-title-center h2{
-
-    margin-bottom:10px;
-
-}
-
 .featured-modules .section-title-center h2{
 
     margin-bottom:10px;
@@ -2823,7 +2817,12 @@ transform:translateY(0px);
         "Poppins",
         sans-serif;
 
+        font-size:
+        32px;
+
     font-weight:700;
+
+    margin-bottom:10px;
 
 }
 
@@ -2921,7 +2920,7 @@ transform:translateY(0px);
         "Poppins",
         sans-serif;
 
-    font-size:20px;
+    font-size:18px;
 
     font-weight:700;
 
@@ -6374,6 +6373,8 @@ section {
 
 
 .rc2-carousel-heading h2 {
+
+    font-size: 32px;
 
     margin:
         0 0 8px;
