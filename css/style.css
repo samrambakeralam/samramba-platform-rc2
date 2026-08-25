@@ -2239,7 +2239,7 @@ transform:translateY(0px);
 
 .featured-footer p{
 
-    font-size:13px;
+    font-size:14px;
 
     line-height:1.6;
 
@@ -2251,7 +2251,7 @@ transform:translateY(0px);
 
 .featured-footer{
 
-    margin-top:35px;
+    margin-top:40px;
 
 }
 
@@ -2377,7 +2377,7 @@ transform:translateY(0px);
     .module-card p{
 
         font-size:
-            15px;
+            13px;
 
         line-height:
             1.6;
@@ -2396,7 +2396,7 @@ transform:translateY(0px);
             16px;
 
         font-size:
-            13px;
+            11px;
 
     }
 
@@ -2406,10 +2406,10 @@ transform:translateY(0px);
             14px;
 
         font-size:
-            15px;
+            13px;
 
         border-radius:
-            12px;
+            7px;
 
     }
 
