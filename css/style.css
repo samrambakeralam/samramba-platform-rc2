@@ -53,147 +53,6 @@ nav a:hover{
     color:#16A34A;
 }
 
-/* ==========================================
-   NORMAL PHONE — HERO
-========================================== */
-
-@media (max-width: 768px) {
-
-    .hero {
-
-        flex-direction:
-            column;
-
-        text-align:
-            center;
-
-        padding:
-            45px 18px 45px;
-
-        gap:
-            36px;
-
-        min-height:
-            auto;
-
-    }
-
-
-    .hero-left {
-
-        width:
-            100%;
-
-        max-width:
-            100%;
-
-    }
-
-
-    .hero-badge {
-
-        margin-bottom:
-            16px;
-
-    }
-
-
-    .hero-left h1 {
-
-        font-size:
-            40px;
-
-        line-height:
-            1.08;
-
-        letter-spacing:
-            -0.8px;
-
-        margin-bottom:
-            22px;
-
-    }
-
-
-    .hero-description {
-
-        font-size:
-            15px;
-
-        line-height:
-            1.55;
-
-        max-width:
-            100%;
-
-        margin:
-            0 0 0;
-
-    }
-
-
-    .hero-right{
-
-        width:
-            100%;
-
-        padding-top:
-            0;
-
-    }
-
-
-    .hero-right img {
-
-        width:
-            100%;
-
-        max-width:
-            100%;
-
-    }
-
-}
-
-@media(max-width:900px){
-
-    .hero-stats{
-
-    justify-content:center;
-
-    gap:20px;
-
-}
-
-.stat-item{
-
-    flex:0 0 45%;
-
-    text-align:center;
-
-}
-
-.hero{
-    flex-direction:column;
-    text-align:center;
-}
-
-.hero-left h1{
-    font-size:40px;
-}
-
-nav{
-    display:none;
-}
-
-.logo{
-    height:60px;
-}
-
-}
-
-
-
 @keyframes float{
 
 0%{
@@ -9694,6 +9553,14 @@ a {
         grid-row: auto !important;
 
         transform: none !important;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    .rc2-hero-intro {
+        margin-bottom: 28px !important;
     }
 
 }
