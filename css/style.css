@@ -9655,7 +9655,7 @@ a {
 .opportunities-hub{
 
     padding:
-        60px 8% 75px;
+        15px 8% 20px;
 
     background:
         #FFFFFF;
@@ -9857,7 +9857,7 @@ a {
    SLIDE
 ========================================================= */
 
-.hub-slide{
+.hub-slide {
 
     flex:
         0 0 100%;
@@ -9869,17 +9869,16 @@ a {
         100%;
 
     min-height:
-        126px;
+        260px;
 
     display:
         grid;
 
     grid-template-columns:
-        150px minmax(0,1fr);
+        170px minmax(0, 1fr);
 
     align-items:
         stretch;
-
 }
 
 
@@ -9890,10 +9889,10 @@ a {
 .hub-slide-image{
 
     width:
-        150px;
+        170px;
 
     min-height:
-        126px;
+        260px;
 
     display:
         flex;
