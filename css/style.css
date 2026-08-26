@@ -6732,26 +6732,6 @@ section {
 
 @media (max-width: 767px) {
 
-    .rc2-carousel-eyebrow {
-        font-size: 11px;
-        line-height: 1.2;
-    }
-
-    .rc2-carousel-heading h2 {
-        font-size: 22px;
-        line-height: 1.2;
-    }
-
-    .rc2-carousel-heading p {
-        font-size: 14px;
-        line-height: 1.55;
-    }
-
-    .rc2-carousel-content h3 {
-        font-size: 14px;
-        line-height: 1.3;
-    }
-
     .rc2-header-inner {
 
         width:
@@ -10698,3 +10678,32 @@ a {
     }
 
 }
+
+/* =========================================================
+   RC2.3 — FEATURED CAROUSEL
+   NORMAL PHONES
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .rc2-carousel-eyebrow {
+        font-size: 11px;
+        line-height: 1.2;
+    }
+
+    .rc2-carousel-heading h2 {
+        font-size: 22px;
+        line-height: 1.2;
+    }
+
+    .rc2-carousel-heading p {
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+    .rc2-carousel-content h3 {
+        font-size: 14px;
+        line-height: 1.3;
+    }
+
+    }
