@@ -1372,7 +1372,7 @@ const hubItems = [
             "#featured-modules",
 
         image:
-            "",
+            "assets/book1.png",
 
         imageFit:
             "contain"
@@ -1396,11 +1396,25 @@ const hubItems = [
             "#",
 
         image:
-            "",
+            "assets/p1.png",
 
         imageFit:
             "contain"
-    }
+    },
+
+    {
+    type:
+        "banner",
+
+    image:
+        "assets/p2.png",
+
+    imageFit:
+        "cover",
+
+    link:
+        "#"
+}
 
 ];
 
@@ -1437,59 +1451,93 @@ function initialiseOpportunitiesHub() {
             "hub-slide";
 
 
-        slide.innerHTML = `
+        /* =====================================================
+   RENDER SLIDE
+===================================================== */
 
-            <div class="hub-slide-image">
+if (item.type === "banner") {
 
-                ${
-                    item.image
+    slide.classList.add(
+        "hub-slide-banner"
+    );
 
-                    ?
+    slide.innerHTML = `
+        <a
+            href="${item.link || "#"}"
+            class="hub-banner-link"
+        >
 
-                    `<img
-                        src="${item.image}"
-                        alt="${item.title}"
-                        class="hub-image hub-image-${item.imageFit}"
-                    >`
+            <img
+                src="${item.image}"
+                alt=""
+                class="hub-banner-image"
+            >
 
-                    :
+        </a>
+    `;
 
-                    `<div class="hub-image-placeholder">
-                        <i data-lucide="${
-                            item.type === "collection"
-                            ? "book-open"
-                            : "mic-2"
-                        }"></i>
-                    </div>`
-                }
+} else {
 
-            </div>
+    slide.innerHTML = `
+
+        <div class="hub-slide-image">
+
+            ${
+                item.image
+
+                ?
+
+                `<img
+                    src="${item.image}"
+                    alt="${item.title}"
+                    class="hub-image hub-image-${item.imageFit}"
+                >`
+
+                :
+
+                `<div class="hub-image-placeholder">
+
+                    <i data-lucide="${
+                        item.type === "collection"
+                        ? "book-open"
+                        : "mic-2"
+                    }"></i>
+
+                </div>`
+            }
+
+        </div>
 
 
-            <div class="hub-slide-content">
+        <div class="hub-slide-content">
 
-                <span class="hub-slide-label">
-                    ${item.label}
-                </span>
+            <span class="hub-slide-label">
+                ${item.label}
+            </span>
 
-                <h3>
-                    ${item.title}
-                </h3>
+            <h3>
+                ${item.title}
+            </h3>
 
-                <p>
-                    ${item.description}
-                </p>
+            <p>
+                ${item.description}
+            </p>
 
-                <a
-                    href="${item.link}"
-                    class="hub-slide-button">
-                    ${item.action}
-                    <i data-lucide="arrow-right"></i>
-                </a>
+            <a
+                href="${item.link}"
+                class="hub-slide-button"
+            >
 
-            </div>
+                ${item.action}
 
-        `;
+                <i data-lucide="arrow-right"></i>
+
+            </a>
+
+        </div>
+
+    `;
+}
 
 
         track.appendChild(slide);

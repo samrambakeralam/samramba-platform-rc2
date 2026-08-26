@@ -9660,7 +9660,7 @@ a {
 .opportunities-hub{
 
     padding:
-        15px 8% 20px;
+        22px 8% 20px;
 
     background:
         #FFFFFF;
@@ -9812,7 +9812,7 @@ a {
         0;
 
     overflow:
-        hidden;
+        visible;
 
     background:
         #F8FAFC;
@@ -9841,6 +9841,9 @@ a {
     overflow:
         hidden;
 
+        border-radius:
+        18px;
+
 }
 
 
@@ -9860,6 +9863,7 @@ a {
 
 /* =========================================================
    SLIDE
+   TEXT LEFT / IMAGE RIGHT
 ========================================================= */
 
 .hub-slide {
@@ -9880,7 +9884,8 @@ a {
         grid;
 
     grid-template-columns:
-        170px minmax(0, 1fr);
+        minmax(0, 1fr)
+        500px;
 
     align-items:
         stretch;
@@ -9891,13 +9896,22 @@ a {
    POSTER AREA
 ========================================================= */
 
-.hub-slide-image{
+.hub-slide-image {
 
     width:
-        170px;
+        500px;
+
+    min-width:
+        500px;
 
     min-height:
         260px;
+
+    grid-column:
+        2;
+
+    grid-row:
+        1;
 
     display:
         flex;
@@ -9913,11 +9927,9 @@ a {
 
     background:
         #F1F5F9;
-
 }
 
-
-.hub-slide-image img{
+.hub-slide-image img {
 
     display:
         block;
@@ -9930,22 +9942,123 @@ a {
 
 }
 
+/* =========================================================
+   FULL-WIDTH PROMOTIONAL BANNER
+========================================================= */
 
-.hub-image-contain{
+.hub-slide-banner {
 
-    object-fit:
-        contain;
+    display:
+        block;
 
+    min-height:
+        300px;
+
+    padding:
+        0;
+
+    overflow:
+        hidden;
 }
 
 
-.hub-image-cover{
+.hub-banner-link {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    text-decoration:
+        none;
+}
+
+
+.hub-banner-image {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        300px;
 
     object-fit:
         cover;
 
+    object-position:
+        center;
 }
 
+/* =========================================================
+   FULL-WIDTH BANNER SLIDE — OVERRIDE
+========================================================= */
+
+.hub-slide.hub-slide-banner {
+
+    display: block;
+
+    width: 100%;
+    min-width: 100%;
+    min-height: 300px;
+
+    padding: 0;
+    margin: 0;
+
+    overflow: hidden;
+
+    background: transparent;
+
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
+}
+
+
+/* Remove any internal split */
+
+.hub-slide-banner .hub-banner-link {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+    margin: 0;
+
+    line-height: 0;
+
+    border: 0;
+}
+
+
+/* Make the actual image occupy the entire slide */
+
+.hub-slide-banner .hub-banner-image {
+
+    display: block;
+
+    width: 100%;
+    height: 300px;
+
+    margin: 0;
+    padding: 0;
+
+    object-fit: cover;
+    object-position: center;
+
+    border: 0;
+}
+
+.hub-track .hub-slide-banner {
+    flex: 0 0 100%;
+}
 
 /* =========================================================
    EMPTY / ICON PLACEHOLDER
@@ -10208,7 +10321,7 @@ a {
 .hub-prev{
 
     left:
-        10px;
+        -42px;
 
 }
 
@@ -10216,7 +10329,7 @@ a {
 .hub-next{
 
     right:
-        10px;
+        -42px;
 
 }
 
