@@ -5468,6 +5468,8 @@ section {
 
     position: sticky;
 
+    padding: 0;
+
     top: 0;
 
     width: 100%;
@@ -5774,12 +5776,18 @@ section {
     grid-template-columns:
         1.05fr .95fr;
 
+    grid-template-rows:
+        auto;
+
     align-items: center;
 
-    gap: 60px;
+    column-gap:
+        60px;
+
+    row-gap:
+        0;
 
 }
-
 
 .rc2-hero-content {
 
@@ -6097,10 +6105,10 @@ section {
 #featured-carousel {
 
     margin-top:
-        -70px;
+        0px;
 
     margin-bottom:
-        -55px;
+        0px;
 
     position:
         relative;
@@ -7909,7 +7917,7 @@ a {
 
     overflow: visible;
 
-    transform: translateY(-40px);
+    transform: translateY(0);
 
 }
 
@@ -8988,7 +8996,7 @@ a {
         grid-row: 1;
 
         transform:
-            translateY(-30px);
+            translateY(0);
 
     }
 
@@ -10479,6 +10487,23 @@ a {
 
         margin-top:
             7px;
+
+    }
+
+}
+
+/* =========================================================
+   RC2 — HERO CONTENT ALIGNMENT FIX
+   Restore natural vertical flow
+========================================================= */
+
+@media (min-width: 768px) {
+
+    .rc2-value-points,
+    .rc2-hero-actions,
+    .rc2-trust-line {
+
+        transform: none !important;
 
     }
 
