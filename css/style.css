@@ -102,6 +102,8 @@ transform:translateY(0px);
 .why-bundle {
     padding: 25px 8% 50px;
     background: #F8FAFC;
+    border-top:
+        1px solid #E5E7EB;
 }
 
 .why-bundle .container {
@@ -2512,6 +2514,9 @@ transform:translateY(0px);
     padding:40px 8% 40px;
 
     background:#FFFFFF;
+
+    border-top:
+        1px solid #E5E7EB;
 
 }
 
