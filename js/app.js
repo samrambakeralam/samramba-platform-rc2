@@ -992,7 +992,7 @@ function initialiseDynamicHeader() {
 
 // =========================================================
 // SAMRAMBA RC2
-// PREMIUM FABRIC REVEAL — DESKTOP FINAL MOTION
+// PREMIUM FABRIC REVEAL — OVERHEAD CURTAIN
 // =========================================================
 
 function initialiseUnboxingReveal() {
@@ -1000,60 +1000,63 @@ function initialiseUnboxingReveal() {
     const stage =
         document.getElementById("rc2UnboxingStage");
 
-        /* =====================================================
-   PODIUM — DYNAMIC STAGE ELEMENT
-===================================================== */
-
-let podium =
-    stage.querySelector(".rc2-unboxing-podium");
-
-if (!podium) {
-
-    podium =
-        document.createElement("img");
-
-    podium.className =
-        "rc2-unboxing-podium";
-
-    podium.src =
-        "SAMRAMBA_RC2_Podium.png";
-
-    podium.alt = "";
-
-    podium.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-    stage.appendChild(
-        podium
-    );
-}
-
-    const front =
-        document.querySelector(".rc2-cloth-front");
-
-    const hint =
-        document.getElementById("rc2UnboxingHint");
-
-    const product =
-        document.querySelector(".rc2-unboxing-product");
-
-
-    /* =====================================================
-       REQUIRED ELEMENTS
-    ===================================================== */
-
-    if (
-        !stage ||
-        !left ||
-        !right
-    ) {
+    if (!stage) {
         return;
     }
 
 
+    /* =====================================================
+       PODIUM — DYNAMIC STAGE ELEMENT
+    ===================================================== */
+
+    let podium =
+        stage.querySelector(".rc2-unboxing-podium");
+
+    if (!podium) {
+
+        podium =
+            document.createElement("img");
+
+        podium.className =
+            "rc2-unboxing-podium";
+
+        podium.src =
+            "SAMRAMBA_RC2_Podium.png";
+
+        podium.alt = "";
+
+        podium.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        stage.appendChild(
+            podium
+        );
+    }
+
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const hint =
+        document.getElementById(
+            "rc2UnboxingHint"
+        );
+
+    const product =
+        document.querySelector(
+            ".rc2-unboxing-product"
+        );
+
+
+    /* =====================================================
+       STATE
+    ===================================================== */
+
     let current = 0;
+
     let target = 0;
 
     let raf = null;
@@ -1113,64 +1116,15 @@ if (!podium) {
     }
 
 
-        /* =================================================
-           2. FRONT DRAPE
+    /* =====================================================
+       UPDATE
+    ===================================================== */
 
-           Optional.
-
-           If the front asset exists, it falls away
-           after the side curtains have opened.
-        ================================================= */
-
-        if (front) {
-
-            const frontProgress =
-                easeInOut(
-                    section(
-                        progress,
-                        0.48,
-                        0.82
-                    )
-                );
-
-
-            const dropY =
-                300 *
-                frontProgress;
-
-
-            const frontRotate =
-                2.5 *
-                frontProgress;
-
-
-            const frontScale =
-                1 -
-                (.06 * frontProgress);
-
-
-            front.style.transform =
-                `
-                translate3d(
-                    -50%,
-                    ${dropY}px,
-                    0
-                )
-                rotate(
-                    ${frontRotate}deg
-                )
-                scaleY(
-                    ${frontScale}
-                )
-                `;
-
-        }
+    function update(progress) {
 
 
         /* =================================================
-           3. PRODUCT
-
-           Very subtle forward emphasis.
+           PRODUCT
         ================================================= */
 
         if (product) {
@@ -1186,22 +1140,22 @@ if (!podium) {
 
 
             product.style.transform =
-    `
-    translate3d(
-        0,
-        ${35 - (6 * reveal)}px,
-        0
-    )
-    scale(
-        ${1 + (.022 * reveal)}
-    )
-    `;
+                `
+                translate3d(
+                    0,
+                    ${35 - (6 * reveal)}px,
+                    0
+                )
+                scale(
+                    ${1 + (.022 * reveal)}
+                )
+                `;
 
         }
 
 
         /* =================================================
-           4. SCROLL HINT
+           SCROLL HINT
         ================================================= */
 
         if (hint) {
@@ -1288,85 +1242,56 @@ if (!podium) {
 
     /* =====================================================
        CALCULATE SCROLL PROGRESS
-
-       IMPORTANT:
-
-       The reveal now starts when the stage
-       approaches the viewport instead of
-       simply using:
-
-           (viewport - rect.top) / 820
-
-       This gives us a predictable cinematic
-       reveal distance.
     ===================================================== */
 
-    /* =====================================================
-   SCROLL PROGRESS — HARD INITIAL LOCK
-===================================================== */
+    function calculate() {
 
-function calculate() {
+        const rect =
+            stage.getBoundingClientRect();
 
-    const rect =
-        stage.getBoundingClientRect();
-
-    const viewport =
-        window.innerHeight;
+        const viewport =
+            window.innerHeight;
 
 
-    /*
-       HARD LOCK AT THE TOP
+        /* ---------------------------------------------
+           HARD LOCK AT TOP
+        --------------------------------------------- */
 
-       When the page is freshly loaded,
-       the curtains must remain completely closed.
-    */
+        if (window.scrollY <= 2) {
 
-    if (window.scrollY <= 2) {
+            target = 0;
 
-        target = 0;
+        } else {
 
-    } else {
+            const startPoint =
+                viewport * 0.72;
 
-        /*
-           Reveal begins when the stage reaches
-           approximately 72% of the viewport.
-        */
-
-        const startPoint =
-            viewport * 0.72;
+            const revealDistance =
+                720;
 
 
-        /*
-           Distance over which the curtains
-           perform the complete reveal.
-        */
+            target =
+                clamp(
+                    (
+                        startPoint -
+                        rect.top
+                    ) /
+                    revealDistance
+                );
 
-        const revealDistance =
-            720;
+        }
 
 
-        target =
-            clamp(
-                (
-                    startPoint -
-                    rect.top
-                ) /
-                revealDistance
-            );
+        if (!raf) {
+
+            raf =
+                requestAnimationFrame(
+                    animate
+                );
+
+        }
 
     }
-
-
-    if (!raf) {
-
-        raf =
-            requestAnimationFrame(
-                animate
-            );
-
-    }
-
-}
 
 
     /* =====================================================
@@ -1416,9 +1341,317 @@ function calculate() {
        INITIAL STATE
     ===================================================== */
 
-update(0);
+    update(0);
 
-target = 0;
-current = 0;
+    target = 0;
+
+    current = 0;
 
 }
+
+/* =========================================================
+   OPPORTUNITIES & UPDATES HUB — V1
+========================================================= */
+
+const hubItems = [
+
+    {
+        type: "collection",
+
+        label: "NEW ADDITION",
+
+        title: "5 New Learning Guides Added",
+
+        description:
+            "Fresh learning resources are now available in the collection.",
+
+        action:
+            "Explore Collection",
+
+        link:
+            "#featured-modules",
+
+        image:
+            "",
+
+        imageFit:
+            "contain"
+    },
+
+
+    {
+        type: "opportunity",
+
+        label: "SPEAK WITH IMPACT",
+
+        title: "Public Speaking for Future Entrepreneurs",
+
+        description:
+            "Build confidence to present your ideas, communicate your vision, and speak with impact.",
+
+        action:
+            "Explore",
+
+        link:
+            "#",
+
+        image:
+            "",
+
+        imageFit:
+            "contain"
+    }
+
+];
+
+
+let hubCurrentIndex = 0;
+let hubTimer = null;
+
+
+/* -----------------------------------------
+   RENDER HUB
+----------------------------------------- */
+
+function initialiseOpportunitiesHub() {
+
+    const track =
+        document.getElementById("hubTrack");
+
+    const dots =
+        document.getElementById("hubDots");
+
+    if (!track || !dots) return;
+
+
+    track.innerHTML = "";
+    dots.innerHTML = "";
+
+
+    hubItems.forEach((item, index) => {
+
+        const slide =
+            document.createElement("article");
+
+        slide.className =
+            "hub-slide";
+
+
+        slide.innerHTML = `
+
+            <div class="hub-slide-image">
+
+                ${
+                    item.image
+
+                    ?
+
+                    `<img
+                        src="${item.image}"
+                        alt="${item.title}"
+                        class="hub-image hub-image-${item.imageFit}"
+                    >`
+
+                    :
+
+                    `<div class="hub-image-placeholder">
+                        <i data-lucide="${
+                            item.type === "collection"
+                            ? "book-open"
+                            : "mic-2"
+                        }"></i>
+                    </div>`
+                }
+
+            </div>
+
+
+            <div class="hub-slide-content">
+
+                <span class="hub-slide-label">
+                    ${item.label}
+                </span>
+
+                <h3>
+                    ${item.title}
+                </h3>
+
+                <p>
+                    ${item.description}
+                </p>
+
+                <a
+                    href="${item.link}"
+                    class="hub-slide-button">
+                    ${item.action}
+                    <i data-lucide="arrow-right"></i>
+                </a>
+
+            </div>
+
+        `;
+
+
+        track.appendChild(slide);
+
+
+        const dot =
+            document.createElement("button");
+
+        dot.type =
+            "button";
+
+        dot.className =
+            "hub-dot";
+
+        dot.setAttribute(
+            "aria-label",
+            `Show update ${index + 1}`
+        );
+
+
+        dot.addEventListener(
+            "click",
+            () => showHubSlide(index)
+        );
+
+
+        dots.appendChild(dot);
+
+    });
+
+
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+
+
+    showHubSlide(0);
+
+    startHubRotation();
+
+}
+
+
+/* -----------------------------------------
+   SHOW SLIDE
+----------------------------------------- */
+
+function showHubSlide(index) {
+
+    const track =
+        document.getElementById("hubTrack");
+
+    const dots =
+        document.querySelectorAll(".hub-dot");
+
+    if (!track) return;
+
+
+    hubCurrentIndex =
+        (index + hubItems.length)
+        % hubItems.length;
+
+
+    track.style.transform =
+        `translateX(-${hubCurrentIndex * 100}%)`;
+
+
+    dots.forEach((dot, i) => {
+
+        dot.classList.toggle(
+            "active",
+            i === hubCurrentIndex
+        );
+
+    });
+
+}
+
+
+/* -----------------------------------------
+   ROTATION
+----------------------------------------- */
+
+function startHubRotation() {
+
+    stopHubRotation();
+
+
+    hubTimer =
+        setInterval(() => {
+
+            showHubSlide(
+                hubCurrentIndex + 1
+            );
+
+        }, 6000);
+
+}
+
+
+/* -----------------------------------------
+   STOP ROTATION
+----------------------------------------- */
+
+function stopHubRotation() {
+
+    if (hubTimer) {
+
+        clearInterval(hubTimer);
+
+        hubTimer = null;
+
+    }
+
+}
+
+
+/* -----------------------------------------
+   ARROWS
+----------------------------------------- */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        const prev =
+            event.target.closest(".hub-prev");
+
+        const next =
+            event.target.closest(".hub-next");
+
+
+        if (prev) {
+
+            showHubSlide(
+                hubCurrentIndex - 1
+            );
+
+            startHubRotation();
+
+        }
+
+
+        if (next) {
+
+            showHubSlide(
+                hubCurrentIndex + 1
+            );
+
+            startHubRotation();
+
+        }
+
+    }
+);
+
+
+/* -----------------------------------------
+   INITIALISE
+----------------------------------------- */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    initialiseOpportunitiesHub
+);
