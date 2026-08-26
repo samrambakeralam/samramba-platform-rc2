@@ -5757,7 +5757,7 @@ section {
         );
 
     padding:
-        70px 0 35px;
+        70px 0 0px;
 
 }
 
@@ -9005,7 +9005,7 @@ a {
 
         grid-column: 2;
 
-        grid-row: 1 / span 4;
+        grid-row: 1;
 
     }
 
@@ -9655,7 +9655,7 @@ a {
 .opportunities-hub{
 
     padding:
-        28px 8% 34px;
+        60px 8% 75px;
 
     background:
         #FFFFFF;
@@ -10550,22 +10550,22 @@ a {
 
 
     /* -----------------------------------------------------
-       PRODUCT COLUMN
-       Restore a proper exhibition height
-    ----------------------------------------------------- */
+   PRODUCT COLUMN
+   Desktop exhibition
+----------------------------------------------------- */
 
-    .rc2-hero-product {
-        grid-column: 2;
-        grid-row: 1 / span 4;
+.rc2-hero-product {
+    grid-column: 2;
+    grid-row: 1;
 
-        min-height: 520px;
+    min-height: 520px;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        transform: translateY(-8px);
-    }
+    transform: translateY(25px);
+}
 
 
     /* -----------------------------------------------------
@@ -10666,7 +10666,7 @@ a {
 @media (min-width: 901px) {
 
     .rc2-hero-product {
-        transform: translateY(-85px);
+        transform: translateY(0px);
     }
 
     .rc2-unboxing-stage {
