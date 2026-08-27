@@ -756,7 +756,7 @@ function initialiseDynamicHeader() {
 
         if (
             currentScrollY > lastScrollY &&
-            currentScrollY > 100
+            currentScrollY > 60
         ) {
 
             header.classList.add("is-hidden");
