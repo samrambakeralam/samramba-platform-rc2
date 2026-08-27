@@ -752,25 +752,35 @@ function initialiseDynamicHeader() {
         }
 
 
-        /* Hide when scrolling down */
+        /* ---------------------------------------
+   HIDE / SHOW HEADER
+--------------------------------------- */
 
-        if (
-            currentScrollY > lastScrollY &&
-            currentScrollY > 60
-        ) {
-
-            header.classList.add("is-hidden");
-
-        }
+const scrollDifference =
+    currentScrollY - lastScrollY;
 
 
-        /* Show when scrolling up */
+/* Scrolling DOWN */
 
-        if (currentScrollY < lastScrollY) {
+if (
+    scrollDifference > 2 &&
+    currentScrollY > 100
+) {
 
-            header.classList.remove("is-hidden");
+    header.classList.add("is-hidden");
 
-        }
+}
+
+
+/* Scrolling UP */
+
+else if (
+    scrollDifference < -2
+) {
+
+    header.classList.remove("is-hidden");
+
+}
 
 
         /* Always show at top */
