@@ -6725,28 +6725,39 @@ section {
    RC2.2 — MOBILE
 ========================================================= */
 
-/* =========================================================
-   RC2.3 — FEATURED CAROUSEL
-   NORMAL PHONES
-========================================================= */
-
 @media (max-width: 767px) {
+
+    .rc2-header {
+
+        background:
+            linear-gradient(
+                135deg,
+                #F4FBF6 0%,
+                #EAF7EE 50%,
+                #F8FCF9 100%
+            );
+
+    }
+
 
     .rc2-header-inner {
 
         width:
             calc(100% - 28px);
 
-        min-height: 62px;
+        min-height:
+            58px;
 
     }
 
 
     .rc2-logo {
 
-        height: 46px;
+        height:
+            44px;
 
     }
+
 
 
     .rc2-hero {
