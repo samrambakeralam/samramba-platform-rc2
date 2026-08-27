@@ -9428,184 +9428,243 @@ a {
 }
 
 /* =========================================================
-   FINAL MOBILE HERO STRUCTURE FIX
-   ========================================================= */
+   FINAL MOBILE HERO STRUCTURE
+   BADGE → HEADING → DESCRIPTION → PRODUCT
+   → VALUES → ACTIONS → TRUST
+========================================================= */
 
 @media (max-width: 767px) {
 
     /* HERO CONTAINER */
+
     .rc2-hero-inner {
-        width: calc(100% - 24px) !important;
 
-        display: grid !important;
+        width:
+            calc(100% - 24px) !important;
 
-        grid-template-columns: 1fr !important;
+        display:
+            grid !important;
+
+        grid-template-columns:
+            1fr !important;
 
         grid-template-areas:
-            "intro"
+            "badge"
+            "heading"
+            "description"
             "product"
             "values"
             "actions"
             "trust" !important;
 
-        gap: 0 !important;
+        gap:
+            0 !important;
 
-        text-align: center !important;
+        text-align:
+            center !important;
     }
 
 
-    /* -----------------------------------------
-       INTRO = BADGE + HEADING + DESCRIPTION
-       ----------------------------------------- */
+    /* =====================================================
+       INTRO WRAPPER
+       Let its children become grid items
+    ===================================================== */
 
     .rc2-hero-intro {
-        grid-area: intro !important;
 
-        grid-column: 1 !important;
-        grid-row: auto !important;
-
-        width: 100% !important;
-        max-width: 100% !important;
-
-        display: block !important;
-
-        margin: 0 !important;
-
-        transform: none !important;
-
-        position: relative !important;
-        z-index: 20 !important;
+        display:
+            contents !important;
     }
 
 
-    /* BADGE */
+    /* =====================================================
+       BADGE
+    ===================================================== */
 
     .rc2-hero-intro .rc2-hero-badge {
-        display: inline-flex !important;
 
-        margin: 0 0 12px !important;
+        grid-area:
+            badge !important;
 
-        justify-self: center !important;
+        display:
+            inline-flex !important;
+
+        justify-self:
+            center !important;
+
+        margin:
+            0 0 12px !important;
     }
 
 
-    /* HEADING */
+    /* =====================================================
+       HEADING
+    ===================================================== */
 
     .rc2-hero-intro h1 {
-        display: block !important;
 
-        width: 100% !important;
+        grid-area:
+            heading !important;
 
-        margin: 0 0 12px !important;
+        display:
+            block !important;
 
-        font-size: clamp(
-            30px,
-            8.5vw,
-            36px
-        ) !important;
+        width:
+            100% !important;
 
-        line-height: 1.07 !important;
+        margin:
+            0 0 12px !important;
 
-        text-align: center !important;
+        font-size:
+            clamp(30px, 8.5vw, 36px) !important;
+
+        line-height:
+            1.07 !important;
+
+        text-align:
+            center !important;
     }
 
 
-    /* DESCRIPTION — FORCE VISIBLE */
+    /* =====================================================
+       DESCRIPTION
+    ===================================================== */
 
     .rc2-hero-intro .rc2-hero-description {
-        display: block !important;
 
-        visibility: visible !important;
+        grid-area:
+            description !important;
 
-        opacity: 1 !important;
+        display:
+            block !important;
 
-        width: 100% !important;
+        visibility:
+            visible !important;
 
-        max-width: 100% !important;
+        opacity:
+            1 !important;
 
-        height: auto !important;
+        width:
+            100% !important;
 
-        max-height: none !important;
+        max-width:
+            100% !important;
 
-        overflow: visible !important;
+        height:
+            auto !important;
 
-        margin: 0 auto 8px !important;
+        max-height:
+            none !important;
 
-        padding: 0 !important;
+        overflow:
+            visible !important;
 
-        color: #475569 !important;
+        margin:
+            0 auto 8px !important;
 
-        font-size: 14.5px !important;
+        padding:
+            0 !important;
 
-        line-height: 1.52 !important;
+        color:
+            #475569 !important;
 
-        text-align: center !important;
+        font-size:
+            14.5px !important;
 
-        position: relative !important;
+        line-height:
+            1.52 !important;
 
-        z-index: 30 !important;
+        text-align:
+            center !important;
     }
 
 
-    /* -----------------------------------------
-       PRODUCT
-       ----------------------------------------- */
+    /* =====================================================
+       PRODUCT IMAGE
+    ===================================================== */
 
     .rc2-hero-product {
-        grid-area: product !important;
 
-        grid-column: 1 !important;
-        grid-row: auto !important;
+        grid-area:
+            product !important;
 
-        width: 100% !important;
+        width:
+            100% !important;
 
-        margin: 0 0 17px !important;
+        grid-column:
+            1 !important;
 
-        transform: none !important;
+        grid-row:
+            auto !important;
+
+        margin:
+            0 0 17px !important;
+
+        transform:
+            none !important;
     }
 
 
-    /* -----------------------------------------
+    /* =====================================================
        VALUE POINTS
-       ----------------------------------------- */
+    ===================================================== */
 
     .rc2-value-points {
-        grid-area: values !important;
 
-        grid-column: 1 !important;
-        grid-row: auto !important;
+        grid-area:
+            values !important;
 
-        transform: none !important;
+        grid-column:
+            1 !important;
 
-        margin-top: 0 !important;
+        grid-row:
+            auto !important;
+
+        transform:
+            none !important;
+
+        margin-top:
+            0 !important;
     }
 
 
-    /* -----------------------------------------
+    /* =====================================================
        ACTIONS
-       ----------------------------------------- */
+    ===================================================== */
 
     .rc2-hero-actions {
-        grid-area: actions !important;
 
-        grid-column: 1 !important;
-        grid-row: auto !important;
+        grid-area:
+            actions !important;
 
-        transform: none !important;
+        grid-column:
+            1 !important;
+
+        grid-row:
+            auto !important;
+
+        transform:
+            none !important;
     }
 
 
-    /* -----------------------------------------
-       TRUST
-       ----------------------------------------- */
+    /* =====================================================
+       TRUST LINE
+    ===================================================== */
 
     .rc2-trust-line {
-        grid-area: trust !important;
 
-        grid-column: 1 !important;
-        grid-row: auto !important;
+        grid-area:
+            trust !important;
 
-        transform: none !important;
+        grid-column:
+            1 !important;
+
+        grid-row:
+            auto !important;
+
+        transform:
+            none !important;
     }
 
 }
