@@ -1039,6 +1039,12 @@ transform:translateY(0px);
 ========================================== */
 
 @media (max-width: 768px) {
+    
+    .section-badge {
+        font-size:
+        10px;
+
+       } 
 
     .topics-section {
 
@@ -1272,6 +1278,7 @@ transform:translateY(0px);
 .journey-left .section-badge{
 
     margin-bottom:10px;
+    font-size:13px;
 
 }
 
@@ -1448,6 +1455,7 @@ transform:translateY(0px);
 
         margin-bottom:
             6px;
+            font-size: 10px;
 
     }
 
