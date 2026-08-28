@@ -360,7 +360,7 @@ transform:translateY(0px);
             sans-serif;
 
         font-size:
-            22px;
+            20px;
 
         font-weight:
             700;
@@ -437,7 +437,7 @@ transform:translateY(0px);
         sans-serif;
 
     font-size:
-        22px;
+        20px;
 
     font-weight:
         700;
@@ -454,7 +454,7 @@ transform:translateY(0px);
     .why-bundle .section-title p {
 
         font-size:
-            14px;
+            12px;
 
         line-height:
             1.65;
@@ -564,7 +564,7 @@ transform:translateY(0px);
     .feature-card h3 {
 
         font-size:
-            15px;
+            13px;
 
         line-height:
             1.25;
@@ -624,7 +624,7 @@ transform:translateY(0px);
             sans-serif;
 
         font-size:
-            30px;
+            18px;
 
         font-weight:
             700;
@@ -638,7 +638,7 @@ transform:translateY(0px);
     .why-bundle .section-title p {
 
         font-size:
-            14.5px;
+            12px;
 
         line-height:
             1.6;
@@ -1009,7 +1009,7 @@ transform:translateY(0px);
 
     .topics-left h2 {
 
-        font-size: 36px;
+        font-size: 20px;
 
     }
 
@@ -1080,7 +1080,7 @@ transform:translateY(0px);
 
     .topics-left h2 {
 
-        font-size: 27px;
+        font-size: 20px;
 
         line-height: 1.15;
 
@@ -1091,7 +1091,7 @@ transform:translateY(0px);
 
     .topics-left p {
 
-        font-size: 15px;
+        font-size: 12px;
 
         line-height: 1.7;
 
@@ -1152,7 +1152,7 @@ transform:translateY(0px);
         sans-serif;
 
     font-size:
-        14px;
+        13px;
 
     line-height:
         1.25;
@@ -6763,7 +6763,7 @@ section {
     .rc2-hero {
 
         padding:
-            30px 0 48px;
+            18px 0 38px;
 
     }
 
@@ -6771,9 +6771,9 @@ section {
     .rc2-hero-inner {
 
         width:
-            calc(100% - 28px);
+            calc(100% - 24px);
 
-        gap: 24px;
+        gap: 0px;
 
     }
 
@@ -6788,10 +6788,10 @@ section {
 
     .rc2-hero-badge {
 
-        font-size: 10px;
+        font-size: 9.5px;
 
         padding:
-            6px 10px;
+            5px 9px;
 
     }
 
@@ -6799,13 +6799,16 @@ section {
     .rc2-hero h1 {
 
         margin-top:
-            16px;
+            10px;
+
+            margin-bottom:
+            10px;
 
         font-size:
-            clamp(30px, 8.5vw, 35px);
+            clamp(30px, 8.2vw, 35px);
 
         line-height:
-            1.08;
+            1.06;
 
         letter-spacing:
             -.025em;
@@ -6815,7 +6818,7 @@ section {
 
     .rc2-hero-description {
 
-        font-size: 15px;
+        font-size: 14px;
 
         line-height: 1.55;
 
@@ -10863,17 +10866,17 @@ a {
     }
 
     .rc2-carousel-heading h2 {
-        font-size: 22px;
+        font-size: 20px;
         line-height: 1.2;
     }
 
     .rc2-carousel-heading p {
-        font-size: 14px;
+        font-size: 12px;
         line-height: 1.55;
     }
 
     .rc2-carousel-content h3 {
-        font-size: 14px;
+        font-size: 13px;
         line-height: 1.3;
     }
 
