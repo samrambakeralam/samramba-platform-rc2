@@ -454,7 +454,7 @@ transform:translateY(0px);
     .why-bundle .section-title p {
 
         font-size:
-            13px;
+            12px;
 
         line-height:
             1.65;
@@ -582,7 +582,7 @@ transform:translateY(0px);
     .feature-card p {
 
         font-size:
-            13px;
+            12px;
 
         line-height:
             1.45;
@@ -1484,7 +1484,7 @@ transform:translateY(0px);
     .journey-left p{
 
         font-size:
-            13px;
+            12px;
 
         line-height:
             1.6;
@@ -1515,7 +1515,7 @@ transform:translateY(0px);
     .step-content h3{
 
         font-size:
-            15px;
+            13px;
 
         line-height:
             1.25;
@@ -1533,7 +1533,7 @@ transform:translateY(0px);
     .step-content p{
 
         font-size:
-            15px;
+            12px;
 
         line-height:
             1.5;
@@ -2262,7 +2262,7 @@ transform:translateY(0px);
 
 .featured-footer p{
 
-    font-size:14px;
+    font-size:12px;
 
     line-height:1.6;
 
@@ -2363,7 +2363,7 @@ transform:translateY(0px);
     .module-cover-text h4{
 
         font-size:
-            17px;
+            13px;
 
         line-height:
             1.25;
@@ -2376,7 +2376,7 @@ transform:translateY(0px);
             5px 9px;
 
         font-size:
-            9px;
+            7px;
 
     }
 
@@ -2387,7 +2387,7 @@ transform:translateY(0px);
         sans-serif;
 
         font-size:
-            15px;
+            13px;
 
         line-height:
             1.2;
@@ -2400,7 +2400,7 @@ transform:translateY(0px);
     .module-card p{
 
         font-size:
-            13px;
+            12px;
 
         line-height:
             1.6;
@@ -2419,7 +2419,7 @@ transform:translateY(0px);
             16px;
 
         font-size:
-            11px;
+            10px;
 
     }
 
@@ -2429,10 +2429,10 @@ transform:translateY(0px);
             14px;
 
         font-size:
-            13px;
+            12px;
 
         border-radius:
-            7px;
+            6px;
 
     }
 
@@ -7376,7 +7376,7 @@ section {
 
     .featured-grid .module-cover-text h4{
 
-        font-size:15px !important;
+        font-size:13px !important;
 
         line-height:1.2;
 
@@ -7586,7 +7586,7 @@ section {
     .featured-grid .module-cover-text h4{
 
         font-size:
-            14px;
+            13px;
 
         line-height:
             1.2;
@@ -9708,7 +9708,7 @@ a {
     }
 
 .featured-modules .section-title-center h2{
-    font-size:22px;
+    font-size:20px;
     font-weight:700;
     line-height:1.2;
     font-family:"Poppins", sans-serif;
@@ -9716,7 +9716,7 @@ a {
 
 .featured-modules .section-title-center p{
     font-family:"Inter", sans-serif;
-    font-size:14px;
+    font-size:12px;
     font-weight:400;
     line-height:1.6;
     color:#64748B;
