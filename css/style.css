@@ -2514,6 +2514,36 @@ transform:translateY(0px);
 
 }
 
+.learning-tracks .section-title-center p {
+
+    margin:
+        0 auto;
+
+    max-width:
+        820px;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:
+        16px;
+
+    font-weight:
+        400;
+
+    line-height:
+        1.7;
+
+    color:
+        #64748B;
+
+    text-align:
+        center;
+
+}
+
+
 
 /* =========================================================
    LEARNING TRACKS GRID — DESKTOP
@@ -2802,11 +2832,34 @@ transform:translateY(0px);
 
     }
 
+    .learning-tracks-eyebrow {
+
+        font-size:
+            12px;
+
+        margin-bottom:
+            9px;
+
+    }
+
 
     .learning-tracks .section-title-center h2 {
 
         font-size:
             30px;
+
+    }
+
+    .learning-tracks .section-title-center p {
+
+        max-width:
+            720px;
+
+        font-size:
+            15px;
+
+        line-height:
+            1.65;
 
     }
 
@@ -2910,13 +2963,26 @@ transform:translateY(0px);
     .learning-tracks .section-title-center h2 {
 
         font-size:
-            28px;
+            20px;
 
         line-height:
             1.2;
 
         margin-bottom:
             10px;
+
+    }
+
+    .learning-tracks .section-title-center p {
+
+        max-width:
+            100%;
+
+        font-size:
+            12px;
+
+        line-height:
+            1.6;
 
     }
 
@@ -2980,7 +3046,7 @@ transform:translateY(0px);
     .track-card h3 {
 
         font-size:
-            16px;
+            13px;
 
         line-height:
             1.3;
@@ -2997,7 +3063,7 @@ transform:translateY(0px);
     .track-card p {
 
         font-size:
-            13px;
+            12px;
 
         line-height:
             1.55;
@@ -3052,13 +3118,26 @@ transform:translateY(0px);
     .learning-tracks .section-title-center h2 {
 
         font-size:
-            26px;
+            18px;
 
         line-height:
             1.2;
 
         margin-bottom:
             8px;
+
+    }
+
+    .learning-tracks .section-title-center p {
+
+        max-width:
+            100%;
+
+        font-size:
+            11.5px;
+
+        line-height:
+            1.58;
 
     }
 
@@ -3119,7 +3198,7 @@ transform:translateY(0px);
     .track-card h3 {
 
         font-size:
-            17px;
+            12px;
 
         line-height:
             1.3;
@@ -3136,7 +3215,7 @@ transform:translateY(0px);
     .track-card p {
 
         font-size:
-            14px;
+            11px;
 
         line-height:
             1.6;
