@@ -7769,6 +7769,7 @@ section {
 @media (max-width: 767px) {
 
     .rc2-carousel-eyebrow {
+
         display: block;
 
         margin: 0 0 8px;
@@ -7794,9 +7795,11 @@ section {
 
         text-align:
             center;
+
     }
 
     .rc2-carousel-heading h2 {
+
         margin:
             0 0 10px;
 
@@ -7814,9 +7817,11 @@ section {
 
         color:
             #0B1F3A;
+
     }
 
     .rc2-carousel-heading p {
+
         max-width:
             100%;
 
@@ -7838,6 +7843,7 @@ section {
 
         color:
             #64748B;
+            
     }
 
     .rc2-carousel-content h3 {
