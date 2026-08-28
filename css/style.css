@@ -6665,6 +6665,39 @@ section {
 }
 
 
+.rc2-carousel-content h3 {
+
+    margin:
+        0 0 4px;
+
+    color:
+        var(--rc2-navy);
+
+    font-family:
+        Poppins,
+        sans-serif;
+
+    font-size:
+        15px;
+
+    line-height:
+        1.15;
+
+    letter-spacing:
+        -.01em;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+}
+
+
 .rc2-carousel-controls {
 
     display:
@@ -6859,57 +6892,6 @@ section {
         9px 8px 10px;
 
 }
-
-
-.rc2-carousel-content h3 {
-
-    margin:
-        0 0 4px;
-
-    color:
-        var(--rc2-navy);
-
-    font-family:
-        Poppins,
-        sans-serif;
-
-    font-size:
-        15px;
-
-    line-height:
-        1.15;
-
-    letter-spacing:
-        -.01em;
-
-    white-space:
-        nowrap;
-
-    overflow:
-        hidden;
-
-    text-overflow:
-        ellipsis;
-
-}
-
-
-.rc2-carousel-content p {
-
-    margin:
-        0 0 7px;
-
-    color:
-        var(--rc2-text-soft);
-
-    font-size:
-        9.5px;
-
-    line-height:
-        1.25;
-
-}
-
 
 .rc2-carousel-button {
 
@@ -7843,7 +7825,7 @@ section {
 
         color:
             #64748B;
-            
+
     }
 
     .rc2-carousel-content h3 {
