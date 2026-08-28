@@ -92,8 +92,7 @@
         Poppins,
         sans-serif;
 
-    font-size:
-        clamp(26px, 3vw, 36px);
+    font-size:32px;
 
     line-height: 1.15;
 
@@ -692,7 +691,7 @@
     .rc2-carousel-eyebrow {
 
         font-size:
-            11px;
+            10px;
 
     }
 
@@ -700,7 +699,7 @@
     .rc2-carousel-heading h2 {
 
         font-size:
-            27px;
+            20px;
 
     }
 
@@ -711,7 +710,7 @@
         14px 0 0;
 
         font-size:
-            15px;
+            12px;
 
         line-height:
             1.5;
@@ -763,7 +762,7 @@
     .rc2-carousel-content h3 {
 
         font-size:
-            15px;
+            13px;
 
     }
 
@@ -771,7 +770,7 @@
     .rc2-carousel-content p {
 
         font-size:
-            12px;
+            9.5px;
 
     }
 
