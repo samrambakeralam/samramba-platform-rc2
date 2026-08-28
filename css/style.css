@@ -6639,9 +6639,6 @@ section {
         Poppins,
         sans-serif;
 
-    font-size:
-        clamp(28px, 3vw, 38px);
-
     line-height:
         1.1;
 
@@ -7806,7 +7803,9 @@ section {
         font-family:
             "Poppins",
             sans-serif;
+
             font-size: 20px;
+
             font-weight: 700;
 
         line-height: 1.2;
@@ -7815,9 +7814,6 @@ section {
 
         color:
             #0B1F3A;
-
-        text-align:
-            center;
     }
 
     .rc2-carousel-heading p {
