@@ -3290,7 +3290,7 @@ transform:translateY(0px);
         "Poppins",
         sans-serif;
 
-    font-size:34px;
+    font-size:32px;
 
     font-weight:800;
 
@@ -3314,7 +3314,7 @@ transform:translateY(0px);
 
     margin:0 auto;
 
-    font-size:16px;
+    font-size:15px;
 
     line-height:1.9;
 
@@ -3398,7 +3398,7 @@ transform:translateY(0px);
 
 .mission-profile h3{
 
-    font-size:18px;
+    font-size:13px;
 
     color:#0B1F3A;
 
@@ -3410,7 +3410,7 @@ transform:translateY(0px);
 
 .profile-role{
 
-    font-size:15px;
+    font-size:12px;
 
     color:#64748B;
 
@@ -3431,7 +3431,7 @@ transform:translateY(0px);
 
 .mission-message{
 
-    font-size:16px;
+    font-size:14px;
 
     color:#475569;
 
@@ -3481,7 +3481,7 @@ transform:translateY(0px);
         0 10px 30px rgba(15,23,42,.05);
 
     font-size:
-        25px;
+        22px;
 
     line-height:
         1.5;
@@ -3673,13 +3673,13 @@ transform:translateY(0px);
 
     .mission-section h2{
 
-        font-size:36px;
+        font-size:32px;
 
     }
 
     .mission-section .section-description{
 
-        font-size:17px;
+        font-size:15px;
 
     }
 
@@ -3693,13 +3693,13 @@ transform:translateY(0px);
 
     .mission-profile h3{
 
-        font-size:26px;
+        font-size:15px;
 
     }
 
     .mission-message{
 
-        font-size:17px;
+        font-size:14px;
 
     }
 
@@ -3879,7 +3879,7 @@ transform:translateY(0px);
 
     font-family:'Poppins', sans-serif;
 
-     font-size:34px;
+     font-size:32px;
 
     line-height:1.18;
 
@@ -4318,6 +4318,21 @@ transform:translateY(0px);
 ========================================== */
 
 @media(max-width:768px){
+
+    .pricing-section .section-header h2{
+
+    font-family:'Poppins', sans-serif;
+
+     font-size:20px;
+
+}
+
+.pricing-section .section-header p{
+
+    font-size:12px;
+
+    }
+
 
     .pricing-section{
 
@@ -10243,767 +10258,27 @@ a {
 }
 
 /* =========================================================
-   OPPORTUNITIES & UPDATES HUB — V1
-   DESKTOP + NORMAL PHONE
-========================================================= */
-
-.opportunities-hub{
-
-    padding:
-        22px 8% 20px;
-
-    background:
-        #FFFFFF;
-
-    border-top:
-        1px solid #E5E7EB;
-
-    border-bottom:
-        1px solid #E5E7EB;
-
-}
-
-
-/* =========================================================
-   HUB INNER
-========================================================= */
-
-.opportunities-hub-inner{
-
-    width:
-        100%;
-
-    max-width:
-        1200px;
-
-    margin:
-        0 auto;
-
-    display:
-        grid;
-
-    grid-template-columns:
-        220px minmax(0,1fr);
-
-    gap:
-        30px;
-
-    align-items:
-        center;
-
-}
-
-
-/* =========================================================
-   LEFT LABEL
-========================================================= */
-
-.opportunities-hub-label{
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    justify-content:
-        center;
-
-}
-
-
-.hub-label-eyebrow{
-
-    display:
-        inline-block;
-
-    margin-bottom:
-        5px;
-
-    color:
-        #16A34A;
-
-    font-family:
-        "Poppins",
-        sans-serif;
-
-    font-size:
-        10px;
-
-    font-weight:
-        800;
-
-    letter-spacing:
-        1.2px;
-
-    text-transform:
-        uppercase;
-
-}
-
-
-.opportunities-hub-label h2{
-
-    margin:
-        0 0 5px;
-
-    color:
-        #0B1F3A;
-
-    font-family:
-        "Poppins",
-        sans-serif;
-
-    font-size:
-        22px;
-
-    font-weight:
-        700;
-
-    line-height:
-        1.2;
-
-}
-
-
-.opportunities-hub-label p{
-
-    max-width:
-        190px;
-
-    margin:
-        0;
-
-    color:
-        #64748B;
-
-    font-size:
-        11px;
-
-    line-height:
-        1.5;
-
-}
-
-
-/* =========================================================
-   BANNER
-========================================================= */
-
-.opportunities-hub-banner{
-
-    position:
-        relative;
-
-    width:
-        100%;
-
-    min-width:
-        0;
-
-    overflow:
-        visible;
-
-    background:
-        #F8FAFC;
-
-    border:
-        1px solid #E2E8F0;
-
-    border-radius:
-        18px;
-
-    box-shadow:
-        0 10px 30px rgba(15,23,42,.055);
-
-}
-
-
-/* =========================================================
-   VIEWPORT
-========================================================= */
-
-.hub-viewport{
-
-    width:
-        100%;
-
-    overflow:
-        hidden;
-
-        border-radius:
-        18px;
-
-}
-
-
-.hub-track{
-
-    width:
-        100%;
-
-    display:
-        flex;
-
-    transition:
-        transform .55s ease;
-
-}
-
-
-/* =========================================================
-   SLIDE
-   TEXT LEFT / IMAGE RIGHT
-========================================================= */
-
-.hub-slide {
-
-    flex:
-        0 0 100%;
-
-    width:
-        100%;
-
-    min-width:
-        100%;
-
-    min-height:
-        240px;
-
-    display:
-        grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        500px;
-
-    align-items:
-        stretch;
-}
-
-
-/* =========================================================
-   POSTER AREA
-========================================================= */
-
-.hub-slide-image {
-
-    width:
-        500px;
-
-    min-width:
-        500px;
-
-    min-height:
-        240px;
-
-    grid-column:
-        2;
-
-    grid-row:
-        1;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    overflow:
-        hidden;
-
-    background:
-        #FFFFFF;
-}
-
-.hub-slide-image img {
-
-    display:
-        block;
-
-    width:
-        100%;
-
-    height:
-        100%;
-}
-
-.hub-image-contain {
-
-    object-fit:
-        contain;
-
-}
-
-/* =========================================================
-   FULL-WIDTH PROMOTIONAL BANNER
-========================================================= */
-
-.hub-slide-banner {
-
-    display:
-        block;
-
-    min-height:
-        240px;
-
-    padding:
-        0;
-
-    overflow:
-        hidden;
-}
-
-
-.hub-banner-link {
-
-    display:
-        block;
-
-    width:
-        100%;
-
-    height:
-        100%;
-
-    text-decoration:
-        none;
-}
-
-
-.hub-banner-image {
-
-    display:
-        block;
-
-    width:
-        100%;
-
-    height:
-        240px;
-
-    object-fit:
-        contain;
-
-    object-position:
-        center;
-}
-
-/* =========================================================
-   FULL-WIDTH BANNER SLIDE — OVERRIDE
-========================================================= */
-
-.hub-slide.hub-slide-banner {
-
-    display: block;
-
-    width: 100%;
-    min-width: 100%;
-    min-height: 240px;
-
-    padding: 0;
-    margin: 0;
-
-    overflow: hidden;
-
-    background: #FFFFFF;
-
-    grid-column: 1 / -1;
-    grid-template-columns: 1fr;
-}
-
-
-/* Remove any internal split */
-
-.hub-slide-banner .hub-banner-link {
-
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    padding: 0;
-    margin: 0;
-
-    line-height: 0;
-
-    border: 0;
-}
-
-
-/* Make the actual image occupy the entire slide */
-
-.hub-slide-banner .hub-banner-image {
-
-    display: block;
-
-    width: 100%;
-    height: 240px;
-
-    margin: 0;
-    padding: 0;
-
-    object-fit: contain;
-    object-position: center;
-
-    border: 0;
-}
-
-.hub-track .hub-slide-banner {
-    flex: 0 0 100%;
-}
-
-/* =========================================================
-   EMPTY / ICON PLACEHOLDER
-========================================================= */
-
-.hub-image-placeholder{
-
-    width:
-        58px;
-
-    height:
-        58px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    border-radius:
-        16px;
-
-    background:
-        #ECFDF5;
-
-    color:
-        #16A34A;
-
-}
-
-
-.hub-image-placeholder svg{
-
-    width:
-        28px;
-
-    height:
-        28px;
-
-}
-
-
-/* =========================================================
-   SLIDE CONTENT
-========================================================= */
-
-.hub-slide-content{
-
-    min-width:
-        0;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    justify-content:
-        center;
-
-    padding:
-        16px 52px 16px 24px;
-
-}
-
-
-.hub-slide-label{
-
-    display:
-        inline-block;
-
-    margin-bottom:
-        5px;
-
-    color:
-        #16A34A;
-
-    font-size:
-        9px;
-
-    font-weight:
-        800;
-
-    letter-spacing:
-        1px;
-
-}
-
-
-.hub-slide-content h3{
-
-    margin:
-        0 0 5px;
-
-    color:
-        #0B1F3A;
-
-    font-family:
-        "Poppins",
-        sans-serif;
-
-    font-size:
-        19px;
-
-    font-weight:
-        700;
-
-    line-height:
-        1.25;
-
-}
-
-
-.hub-slide-content p{
-
-    max-width:
-        650px;
-
-    margin:
-        0 0 9px;
-
-    color:
-        #64748B;
-
-    font-size:
-        12px;
-
-    line-height:
-        1.5;
-
-}
-
-
-/* =========================================================
-   CTA
-========================================================= */
-
-.hub-slide-button{
-
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    gap:
-        5px;
-
-    width:
-        fit-content;
-
-    color:
-        #15803D;
-
-    text-decoration:
-        none;
-
-    font-size:
-        10.5px;
-
-    font-weight:
-        700;
-
-}
-
-
-.hub-slide-button svg{
-
-    width:
-        13px;
-
-    height:
-        13px;
-
-    transition:
-        transform .2s ease;
-
-}
-
-
-.hub-slide-button:hover svg{
-
-    transform:
-        translateX(3px);
-
-}
-
-
-/* =========================================================
-   ARROWS
-========================================================= */
-
-.hub-arrow{
-
-    position:
-        absolute;
-
-    top:
-        50%;
-
-    transform:
-        translateY(-50%);
-
-    z-index:
-        5;
-
-    width:
-        30px;
-
-    height:
-        30px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    padding:
-        0;
-
-    border:
-        1px solid #E2E8F0;
-
-    border-radius:
-        50%;
-
-    background:
-        rgba(255,255,255,.96);
-
-    color:
-        #0B1F3A;
-
-    cursor:
-        pointer;
-
-    box-shadow:
-        0 4px 12px rgba(15,23,42,.08);
-
-}
-
-
-.hub-arrow svg{
-
-    width:
-        14px;
-
-    height:
-        14px;
-
-}
-
-
-.hub-prev{
-
-    left:
-        -42px;
-
-}
-
-
-.hub-next{
-
-    right:
-        -42px;
-
-}
-
-
-/* =========================================================
-   DOTS
-========================================================= */
-
-.hub-dots{
-
-    display:
-        flex;
-
-    justify-content:
-        center;
-
-    align-items:
-        center;
-
-    gap:
-        5px;
-
-    margin-top:
-        8px;
-
-}
-
-
-.hub-dot{
-
-    width:
-        5px;
-
-    height:
-        5px;
-
-    padding:
-        0;
-
-    border:
-        0;
-
-    border-radius:
-        50%;
-
-    background:
-        #CBD5E1;
-
-}
-
-
-.hub-dot.active{
-
-    width:
-        16px;
-
-    border-radius:
-        999px;
-
-    background:
-        #16A34A;
-
-}
-
-
-/* =========================================================
-   NORMAL PHONE
+   OPPORTUNITIES & UPDATES HUB
+   NORMAL + SMALL PHONE
 ========================================================= */
 
 @media(max-width:767px){
 
+    /* -----------------------------------------
+       SECTION
+    ----------------------------------------- */
+
     .opportunities-hub{
 
         padding:
-            22px 18px 26px;
+            30px 18px 32px;
 
     }
 
+
+    /* -----------------------------------------
+       HUB INNER
+    ----------------------------------------- */
 
     .opportunities-hub-inner{
 
@@ -11014,13 +10289,13 @@ a {
 
 
     /* -----------------------------------------
-       LABEL
+       SECTION LABEL
     ----------------------------------------- */
 
     .opportunities-hub-label{
 
         margin-bottom:
-            12px;
+            16px;
 
     }
 
@@ -11028,21 +10303,24 @@ a {
     .hub-label-eyebrow{
 
         margin-bottom:
-            3px;
+            5px;
 
         font-size:
-            9px;
+            10px;
 
     }
 
 
     .opportunities-hub-label h2{
 
-        font-size:
-            20px;
+        margin:
+            0 0 5px;
 
-        margin-bottom:
-            4px;
+        font-size:
+            22px;
+
+        line-height:
+            1.2;
 
     }
 
@@ -11052,17 +10330,20 @@ a {
         max-width:
             100%;
 
+        margin:
+            0;
+
         font-size:
-            11px;
+            12px;
 
         line-height:
-            1.45;
+            1.5;
 
     }
 
 
     /* -----------------------------------------
-       MOBILE BANNER
+       BANNER
     ----------------------------------------- */
 
     .opportunities-hub-banner{
@@ -11070,97 +10351,184 @@ a {
         border-radius:
             15px;
 
-    }
-
-
-    .hub-slide{
-
-        min-height:
-            112px;
-
-        grid-template-columns:
-            88px minmax(0,1fr);
-
-    }
-
-
-    .hub-slide-image{
-
-        width:
-            88px;
-
-        min-height:
-            112px;
-
-    }
-
-
-    .hub-slide-content{
-
-        padding:
-            13px 36px 13px 14px;
-
-    }
-
-
-    .hub-slide-label{
-
-        font-size:
-            8px;
-
-        margin-bottom:
-            3px;
-
-    }
-
-
-    .hub-slide-content h3{
-
-        font-size:
-            14px;
-
-        line-height:
-            1.3;
-
-        margin-bottom:
-            4px;
-
-    }
-
-
-    .hub-slide-content p{
-
-        font-size:
-            10px;
-
-        line-height:
-            1.4;
-
-        margin-bottom:
-            6px;
-
-    }
-
-
-    .hub-slide-button{
-
-        font-size:
-            9.5px;
+        overflow:
+            hidden;
 
     }
 
 
     /* -----------------------------------------
-       MOBILE ARROWS
+       SLIDE
+       IMAGE ABOVE / CONTENT BELOW
+    ----------------------------------------- */
+
+    .hub-slide:not(.hub-slide-banner){
+
+        display:
+            grid;
+
+        grid-template-columns:
+            1fr;
+
+        grid-template-rows:
+            220px auto;
+
+        min-height:
+            0;
+
+    }
+
+
+    /* -----------------------------------------
+       SLIDE IMAGE
+    ----------------------------------------- */
+
+    .hub-slide:not(.hub-slide-banner)
+    .hub-slide-image{
+
+        width:
+            100%;
+
+        min-width:
+            0;
+
+        min-height:
+            220px;
+
+        grid-column:
+            1;
+
+        grid-row:
+            1;
+
+    }
+
+
+    .hub-slide:not(.hub-slide-banner)
+    .hub-slide-image img{
+
+        width:
+            100%;
+
+        height:
+            100%;
+
+        object-fit:
+            contain;
+
+        object-position:
+            center;
+
+    }
+
+
+    /* -----------------------------------------
+       SLIDE CONTENT
+    ----------------------------------------- */
+
+    .hub-slide:not(.hub-slide-banner)
+    .hub-slide-content{
+
+        grid-column:
+            1;
+
+        grid-row:
+            2;
+
+        padding:
+            18px 20px 20px;
+
+    }
+
+
+    /* -----------------------------------------
+       SLIDE LABEL
+    ----------------------------------------- */
+
+    .hub-slide-label{
+
+        margin-bottom:
+            4px;
+
+        font-size:
+            9px;
+
+    }
+
+
+    /* -----------------------------------------
+       SLIDE TITLE
+    ----------------------------------------- */
+
+    .hub-slide-content h3{
+
+        margin:
+            0 0 7px;
+
+        font-size:
+            19px;
+
+        line-height:
+            1.25;
+
+    }
+
+
+    /* -----------------------------------------
+       SLIDE DESCRIPTION
+    ----------------------------------------- */
+
+    .hub-slide-content p{
+
+        max-width:
+            100%;
+
+        margin:
+            0 0 9px;
+
+        font-size:
+            12px;
+
+        line-height:
+            1.5;
+
+    }
+
+
+    /* -----------------------------------------
+       CTA
+    ----------------------------------------- */
+
+    .hub-slide-button{
+
+        font-size:
+            10.5px;
+
+    }
+
+
+    .hub-slide-button svg{
+
+        width:
+            13px;
+
+        height:
+            13px;
+
+    }
+
+
+    /* -----------------------------------------
+       ARROWS
     ----------------------------------------- */
 
     .hub-arrow{
 
         width:
-            26px;
+            28px;
 
         height:
-            26px;
+            28px;
 
     }
 
@@ -11179,7 +10547,7 @@ a {
     .hub-prev{
 
         left:
-            6px;
+            8px;
 
     }
 
@@ -11187,7 +10555,7 @@ a {
     .hub-next{
 
         right:
-            6px;
+            8px;
 
     }
 
@@ -11199,7 +10567,7 @@ a {
     .hub-dots{
 
         margin-top:
-            7px;
+            8px;
 
     }
 
