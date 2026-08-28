@@ -9445,13 +9445,14 @@ a {
 
 /* =========================================================
    FINAL MOBILE HERO STRUCTURE
-   BADGE → HEADING → DESCRIPTION → PRODUCT
-   → VALUES → ACTIONS → TRUST
+   INTRO → PRODUCT → VALUES → CTA → TRUST
 ========================================================= */
 
 @media (max-width: 767px) {
 
-    /* HERO CONTAINER */
+    /* =====================================================
+       MOBILE HERO GRID
+    ===================================================== */
 
     .rc2-hero-inner {
 
@@ -9482,14 +9483,23 @@ a {
 
 
     /* =====================================================
-       INTRO WRAPPER
-       Let its children become grid items
+       IMPORTANT
+       Flatten the intro wrapper ONLY on phones
     ===================================================== */
 
     .rc2-hero-intro {
 
         display:
             contents !important;
+
+        margin:
+            0 !important;
+
+        padding:
+            0 !important;
+
+        transform:
+            none !important;
     }
 
 
@@ -9497,19 +9507,19 @@ a {
        BADGE
     ===================================================== */
 
-    .rc2-hero-intro .rc2-hero-badge {
+    .rc2-hero-badge {
 
         grid-area:
             badge !important;
-
-        display:
-            inline-flex !important;
 
         justify-self:
             center !important;
 
         margin:
             0 0 12px !important;
+
+        font-size:
+            10px !important;
     }
 
 
@@ -9521,9 +9531,6 @@ a {
 
         grid-area:
             heading !important;
-
-        display:
-            block !important;
 
         width:
             100% !important;
@@ -9546,19 +9553,10 @@ a {
        DESCRIPTION
     ===================================================== */
 
-    .rc2-hero-intro .rc2-hero-description {
+    .rc2-hero-description {
 
         grid-area:
             description !important;
-
-        display:
-            block !important;
-
-        visibility:
-            visible !important;
-
-        opacity:
-            1 !important;
 
         width:
             100% !important;
@@ -9566,23 +9564,11 @@ a {
         max-width:
             100% !important;
 
-        height:
-            auto !important;
-
-        max-height:
-            none !important;
-
-        overflow:
-            visible !important;
-
         margin:
             0 auto 8px !important;
 
         padding:
             0 !important;
-
-        color:
-            #475569 !important;
 
         font-size:
             14.5px !important;
@@ -9596,7 +9582,7 @@ a {
 
 
     /* =====================================================
-       PRODUCT IMAGE
+       HERO PRODUCT
     ===================================================== */
 
     .rc2-hero-product {
@@ -9622,7 +9608,7 @@ a {
 
 
     /* =====================================================
-       VALUE POINTS
+       FEATURE PILLS
     ===================================================== */
 
     .rc2-value-points {
@@ -9630,22 +9616,19 @@ a {
         grid-area:
             values !important;
 
-        grid-column:
-            1 !important;
+        width:
+            100% !important;
 
-        grid-row:
-            auto !important;
+        margin:
+            0 !important;
 
         transform:
             none !important;
-
-        margin-top:
-            0 !important;
     }
 
 
     /* =====================================================
-       ACTIONS
+       CTA BUTTONS
     ===================================================== */
 
     .rc2-hero-actions {
@@ -9653,11 +9636,11 @@ a {
         grid-area:
             actions !important;
 
-        grid-column:
-            1 !important;
+        width:
+            100% !important;
 
-        grid-row:
-            auto !important;
+        margin-top:
+            22px !important;
 
         transform:
             none !important;
@@ -9665,7 +9648,7 @@ a {
 
 
     /* =====================================================
-       TRUST LINE
+       TRUST ROW
     ===================================================== */
 
     .rc2-trust-line {
@@ -9673,11 +9656,11 @@ a {
         grid-area:
             trust !important;
 
-        grid-column:
-            1 !important;
+        width:
+            100% !important;
 
-        grid-row:
-            auto !important;
+        margin-top:
+            15px !important;
 
         transform:
             none !important;
