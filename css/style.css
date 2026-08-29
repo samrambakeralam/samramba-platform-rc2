@@ -11147,11 +11147,10 @@ a {
 
 
     /* -----------------------------------------
-       SLIDE
-       IMAGE LEFT / CONTENT RIGHT
-    ----------------------------------------- */
+   SLIDE
+----------------------------------------- */
 
-    .hub-slide {
+.hub-slide {
 
     flex:
         0 0 100%;
@@ -11172,7 +11171,7 @@ a {
         1fr;
 
     grid-template-rows:
-        250px auto;
+        auto auto;
 
     align-items:
         stretch;
@@ -11193,7 +11192,7 @@ a {
         0;
 
     min-height:
-        250px;
+        0;
 
     grid-column:
         1;
@@ -11228,10 +11227,13 @@ a {
         100%;
 
     height:
+        auto;
+
+    max-width:
         100%;
 
     object-fit:
-        contain;
+        cover;
 
     object-position:
         center;
