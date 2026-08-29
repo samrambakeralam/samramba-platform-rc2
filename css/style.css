@@ -10969,7 +10969,7 @@ a {
 
 
 /* =========================================================
-   OPPORTUNITIES & UPDATES
+   OPPORTUNITIES & UPDATES HUB
    NORMAL PHONE
 ========================================================= */
 
@@ -10989,7 +10989,7 @@ a {
 
 
     /* -----------------------------------------
-       SECTION INNER
+       HUB INNER
     ----------------------------------------- */
 
     .opportunities-hub-inner {
@@ -11058,7 +11058,7 @@ a {
 
 
     /* -----------------------------------------
-       CAROUSEL BANNER
+       CAROUSEL CONTAINER
     ----------------------------------------- */
 
     .opportunities-hub-banner {
@@ -11077,7 +11077,6 @@ a {
 
     /* -----------------------------------------
        VIEWPORT
-       TRUE HORIZONTAL CAROUSEL
     ----------------------------------------- */
 
     .hub-viewport {
@@ -11120,7 +11119,7 @@ a {
 
     /* -----------------------------------------
        SLIDE
-       FULL-WIDTH MOBILE SLIDE
+       IMAGE ABOVE / TEXT BELOW
     ----------------------------------------- */
 
     .hub-slide {
@@ -11149,12 +11148,15 @@ a {
         align-items:
             stretch;
 
+        overflow:
+            hidden;
+
     }
 
 
     /* -----------------------------------------
-       SLIDE IMAGE
-       EDGE-TO-EDGE
+       IMAGE
+       FULL WIDTH
     ----------------------------------------- */
 
     .hub-slide-image {
@@ -11207,7 +11209,7 @@ a {
             100%;
 
         object-fit:
-            cover;
+            contain;
 
         object-position:
             center;
@@ -11240,7 +11242,7 @@ a {
             center;
 
         padding:
-            16px 18px 18px;
+            15px 17px 17px;
 
     }
 
@@ -11303,7 +11305,7 @@ a {
 
 
     /* -----------------------------------------
-       SLIDE CTA
+       CTA
     ----------------------------------------- */
 
     .hub-slide-button {
@@ -11333,8 +11335,7 @@ a {
 
     /* -----------------------------------------
        ARROWS
-       HIDDEN ON PHONE
-       USE FINGER SWIPE
+       HIDDEN ON MOBILE
     ----------------------------------------- */
 
     .hub-arrow {
@@ -11346,7 +11347,7 @@ a {
 
 
     /* -----------------------------------------
-       CAROUSEL DOTS
+       DOTS
     ----------------------------------------- */
 
     .hub-dots {
