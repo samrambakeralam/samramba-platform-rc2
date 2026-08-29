@@ -11218,7 +11218,7 @@ a {
         100%;
 
     object-fit:
-        contain;
+        cover;
 
     object-position:
         center;
