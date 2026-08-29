@@ -11176,11 +11176,12 @@ a {
     min-width:
         0;
 
-    height:
-        auto;
+    height: 176px;
 
     min-height:
-        0;
+        176px;
+
+    max-height: 176px;
 
     grid-column:
         1;
