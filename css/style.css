@@ -11242,10 +11242,10 @@ a {
 
 
     /* -----------------------------------------
-       SLIDE CONTENT
-    ----------------------------------------- */
+   SLIDE CONTENT
+----------------------------------------- */
 
-    .hub-slide-content {
+.hub-slide-content {
 
     min-width:
         0;
@@ -11272,86 +11272,85 @@ a {
 
 
     /* -----------------------------------------
-       SLIDE LABEL
-    ----------------------------------------- */
+   SLIDE LABEL
+----------------------------------------- */
 
-    .hub-slide-label{
+.hub-slide-label {
 
-        margin-bottom:
-            3px;
+    margin-bottom:
+        4px;
 
-        font-size:
-            8px;
+    font-size:
+        9px;
 
-        line-height:
-            1.3;
+    line-height:
+        1.3;
 
-    }
-
-
-    /* -----------------------------------------
-       SLIDE TITLE
-    ----------------------------------------- */
-
-    .hub-slide-content h3{
-
-        margin:
-            0 0 4px;
-
-        font-size:
-            14px;
-
-        line-height:
-            1.3;
-
-    }
+}
 
 
-    /* -----------------------------------------
-       SLIDE DESCRIPTION
-    ----------------------------------------- */
+/* -----------------------------------------
+   SLIDE TITLE
+----------------------------------------- */
 
-    .hub-slide-content p{
+.hub-slide-content h3 {
 
-        max-width:
-            100%;
+    margin:
+        0 0 6px;
 
-        margin:
-            0 0 6px;
+    font-size:
+        16px;
 
-        font-size:
-            10px;
+    line-height:
+        1.3;
 
-        line-height:
-            1.4;
-
-    }
+}
 
 
-    /* -----------------------------------------
-       CTA
-    ----------------------------------------- */
+/* -----------------------------------------
+   SLIDE DESCRIPTION
+----------------------------------------- */
 
-    .hub-slide-button{
+.hub-slide-content p {
 
-        width:
-            fit-content;
+    max-width:
+        100%;
 
-        font-size:
-            9.5px;
+    margin:
+        0 0 8px;
 
-    }
+    font-size:
+        11px;
+
+    line-height:
+        1.45;
+
+}
 
 
-    .hub-slide-button svg{
+/* -----------------------------------------
+   CTA
+----------------------------------------- */
 
-        width:
-            13px;
+.hub-slide-button {
 
-        height:
-            13px;
+    width:
+        fit-content;
 
-    }
+    font-size:
+        10px;
+
+}
+
+.hub-slide-button svg {
+
+    width:
+        14px;
+
+    height:
+        14px;
+
+}
 
 
     /* -----------------------------------------
@@ -11423,97 +11422,107 @@ a {
 
 
     /* -----------------------------------------
-       CAROUSEL ARROWS
-    ----------------------------------------- */
+   MOBILE CAROUSEL ARROWS
+   Hidden — use finger swipe
+----------------------------------------- */
 
-    .hub-arrow{
+.hub-arrow {
 
-        width:
-            26px;
+    display:
+        none;
 
-        height:
-            26px;
-
-        top:
-            50%;
-
-        z-index:
-            5;
-
-    }
-
-
-    .hub-arrow svg{
-
-        width:
-            12px;
-
-        height:
-            12px;
-
-    }
-
-
-    .hub-prev{
-
-        left:
-            6px;
-
-    }
-
-
-    .hub-next{
-
-        right:
-            6px;
-
-    }
+}
 
 
     /* -----------------------------------------
-       DOTS
-    ----------------------------------------- */
+   CAROUSEL DOTS
+----------------------------------------- */
 
-    .hub-dots{
+.hub-dots {
 
-        display:
-            flex;
+    display:
+        flex;
 
-        justify-content:
-            center;
+    width:
+        100%;
 
-        align-items:
-            center;
+    height:
+        12px;
 
-        gap:
-            5px;
+    min-height:
+        12px;
 
-        margin-top:
-            8px;
+    align-items:
+        center;
 
-    }
+    justify-content:
+        center;
+
+    flex-direction:
+        row;
+
+    gap:
+        6px;
+
+    margin:
+        12px 0 0;
+
+}
 
 
-    .hub-dot{
+/* -----------------------------------------
+   DOT
+----------------------------------------- */
 
-        width:
-            5px;
+.hub-dot {
 
-        height:
-            5px;
+    flex:
+        0 0 auto;
 
-    }
+    width:
+        7px;
+
+    height:
+        7px;
+
+    min-width:
+        7px;
+
+    min-height:
+        7px;
+
+    padding:
+        0;
+
+    margin:
+        0;
+
+    border-radius:
+        50%;
+
+}
 
 
-    .hub-dot.active{
+/* -----------------------------------------
+   ACTIVE DOT
+----------------------------------------- */
 
-        width:
-            16px;
+.hub-dot.active {
 
-        height:
-            5px;
+    width:
+        18px;
 
-    }
+    height:
+        7px;
+
+    min-width:
+        18px;
+
+    min-height:
+        7px;
+
+    border-radius:
+        999px;
 
 }
 
