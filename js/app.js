@@ -1412,19 +1412,29 @@ const hubItems = [
             "contain"
     },
 
-    {
-    type:
-        "banner",
 
-    image:
-        "assets/p2.png",
+        {
+        type: "opportunity",
 
-    imageFit:
-        "cover",
+        label: "STARTUP ESSENTIAL",
 
-    link:
-        "#"
-}
+        title: "Premium Virtual Office",
+
+        description:
+            "Get a professional business address for company registration, GST registration and current account opening at an affordable price.",
+
+        action:
+            "Explore",
+
+        link:
+            "#",
+
+        image:
+            "assets/vo.png",
+
+        imageFit:
+            "contain"
+    }
 
 ];
 
