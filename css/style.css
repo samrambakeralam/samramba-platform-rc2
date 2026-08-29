@@ -10258,11 +10258,16 @@ a {
 }
 
 /* =========================================================
-   OPPORTUNITIES & UPDATES HUB — V1
-   DESKTOP + NORMAL PHONE
+   OPPORTUNITIES & UPDATES HUB
+   DESKTOP / BASE
 ========================================================= */
 
-.opportunities-hub{
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.opportunities-hub {
 
     padding:
         22px 8% 20px;
@@ -10283,7 +10288,7 @@ a {
    HUB INNER
 ========================================================= */
 
-.opportunities-hub-inner{
+.opportunities-hub-inner {
 
     width:
         100%;
@@ -10298,7 +10303,7 @@ a {
         grid;
 
     grid-template-columns:
-        220px minmax(0,1fr);
+        220px minmax(0, 1fr);
 
     gap:
         30px;
@@ -10310,10 +10315,10 @@ a {
 
 
 /* =========================================================
-   LEFT LABEL
+   SECTION LABEL
 ========================================================= */
 
-.opportunities-hub-label{
+.opportunities-hub-label {
 
     display:
         flex;
@@ -10327,7 +10332,7 @@ a {
 }
 
 
-.hub-label-eyebrow{
+.hub-label-eyebrow {
 
     display:
         inline-block;
@@ -10357,7 +10362,7 @@ a {
 }
 
 
-.opportunities-hub-label h2{
+.opportunities-hub-label h2 {
 
     margin:
         0 0 5px;
@@ -10381,7 +10386,7 @@ a {
 }
 
 
-.opportunities-hub-label p{
+.opportunities-hub-label p {
 
     max-width:
         190px;
@@ -10402,10 +10407,10 @@ a {
 
 
 /* =========================================================
-   BANNER
+   CAROUSEL CONTAINER
 ========================================================= */
 
-.opportunities-hub-banner{
+.opportunities-hub-banner {
 
     position:
         relative;
@@ -10438,7 +10443,7 @@ a {
    VIEWPORT
 ========================================================= */
 
-.hub-viewport{
+.hub-viewport {
 
     width:
         100%;
@@ -10446,13 +10451,17 @@ a {
     overflow:
         hidden;
 
-        border-radius:
+    border-radius:
         18px;
 
 }
 
 
-.hub-track{
+/* =========================================================
+   TRACK
+========================================================= */
+
+.hub-track {
 
     width:
         100%;
@@ -10467,7 +10476,7 @@ a {
 
 
 /* =========================================================
-   SLIDE
+   STANDARD SLIDE
    TEXT LEFT / IMAGE RIGHT
 ========================================================= */
 
@@ -10494,11 +10503,12 @@ a {
 
     align-items:
         stretch;
+
 }
 
 
 /* =========================================================
-   POSTER AREA
+   SLIDE IMAGE
 ========================================================= */
 
 .hub-slide-image {
@@ -10532,7 +10542,9 @@ a {
 
     background:
         #FFFFFF;
+
 }
+
 
 .hub-slide-image img {
 
@@ -10544,7 +10556,9 @@ a {
 
     height:
         100%;
+
 }
+
 
 .hub-image-contain {
 
@@ -10553,129 +10567,12 @@ a {
 
 }
 
-/* =========================================================
-   FULL-WIDTH PROMOTIONAL BANNER
-========================================================= */
-
-.hub-slide-banner {
-
-    display:
-        block;
-
-    min-height:
-        240px;
-
-    padding:
-        0;
-
-    overflow:
-        hidden;
-}
-
-
-.hub-banner-link {
-
-    display:
-        block;
-
-    width:
-        100%;
-
-    height:
-        100%;
-
-    text-decoration:
-        none;
-}
-
-
-.hub-banner-image {
-
-    display:
-        block;
-
-    width:
-        100%;
-
-    height:
-        240px;
-
-    object-fit:
-        contain;
-
-    object-position:
-        center;
-}
 
 /* =========================================================
-   FULL-WIDTH BANNER SLIDE — OVERRIDE
+   IMAGE PLACEHOLDER
 ========================================================= */
 
-.hub-slide.hub-slide-banner {
-
-    display: block;
-
-    width: 100%;
-    min-width: 100%;
-    min-height: 240px;
-
-    padding: 0;
-    margin: 0;
-
-    overflow: hidden;
-
-    background: #FFFFFF;
-
-    grid-column: 1 / -1;
-    grid-template-columns: 1fr;
-}
-
-
-/* Remove any internal split */
-
-.hub-slide-banner .hub-banner-link {
-
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    padding: 0;
-    margin: 0;
-
-    line-height: 0;
-
-    border: 0;
-}
-
-
-/* Make the actual image occupy the entire slide */
-
-.hub-slide-banner .hub-banner-image {
-
-    display: block;
-
-    width: 100%;
-    height: 240px;
-
-    margin: 0;
-    padding: 0;
-
-    object-fit: contain;
-    object-position: center;
-
-    border: 0;
-}
-
-.hub-track .hub-slide-banner {
-    flex: 0 0 100%;
-}
-
-/* =========================================================
-   EMPTY / ICON PLACEHOLDER
-========================================================= */
-
-.hub-image-placeholder{
+.hub-image-placeholder {
 
     width:
         58px;
@@ -10704,7 +10601,7 @@ a {
 }
 
 
-.hub-image-placeholder svg{
+.hub-image-placeholder svg {
 
     width:
         28px;
@@ -10719,10 +10616,16 @@ a {
    SLIDE CONTENT
 ========================================================= */
 
-.hub-slide-content{
+.hub-slide-content {
 
     min-width:
         0;
+
+    grid-column:
+        1;
+
+    grid-row:
+        1;
 
     display:
         flex;
@@ -10739,7 +10642,11 @@ a {
 }
 
 
-.hub-slide-label{
+/* =========================================================
+   SLIDE LABEL
+========================================================= */
+
+.hub-slide-label {
 
     display:
         inline-block;
@@ -10762,7 +10669,11 @@ a {
 }
 
 
-.hub-slide-content h3{
+/* =========================================================
+   SLIDE TITLE
+========================================================= */
+
+.hub-slide-content h3 {
 
     margin:
         0 0 5px;
@@ -10786,7 +10697,11 @@ a {
 }
 
 
-.hub-slide-content p{
+/* =========================================================
+   SLIDE DESCRIPTION
+========================================================= */
+
+.hub-slide-content p {
 
     max-width:
         650px;
@@ -10810,7 +10725,7 @@ a {
    CTA
 ========================================================= */
 
-.hub-slide-button{
+.hub-slide-button {
 
     display:
         inline-flex;
@@ -10839,7 +10754,7 @@ a {
 }
 
 
-.hub-slide-button svg{
+.hub-slide-button svg {
 
     width:
         13px;
@@ -10853,7 +10768,7 @@ a {
 }
 
 
-.hub-slide-button:hover svg{
+.hub-slide-button:hover svg {
 
     transform:
         translateX(3px);
@@ -10862,10 +10777,10 @@ a {
 
 
 /* =========================================================
-   ARROWS
+   DESKTOP CAROUSEL ARROWS
 ========================================================= */
 
-.hub-arrow{
+.hub-arrow {
 
     position:
         absolute;
@@ -10918,7 +10833,7 @@ a {
 }
 
 
-.hub-arrow svg{
+.hub-arrow svg {
 
     width:
         14px;
@@ -10929,7 +10844,7 @@ a {
 }
 
 
-.hub-prev{
+.hub-prev {
 
     left:
         -42px;
@@ -10937,7 +10852,7 @@ a {
 }
 
 
-.hub-next{
+.hub-next {
 
     right:
         -42px;
@@ -10946,30 +10861,36 @@ a {
 
 
 /* =========================================================
-   DOTS
+   DESKTOP CAROUSEL DOTS
 ========================================================= */
 
-.hub-dots{
+.hub-dots {
 
     display:
         flex;
 
+    align-items:
+        center;
+
     justify-content:
         center;
 
-    align-items:
-        center;
+    flex-direction:
+        row;
 
     gap:
         5px;
 
-    margin-top:
-        8px;
+    margin:
+        8px 0 0;
 
 }
 
 
-.hub-dot{
+.hub-dot {
+
+    flex:
+        0 0 auto;
 
     width:
         5px;
@@ -10977,7 +10898,16 @@ a {
     height:
         5px;
 
+    min-width:
+        5px;
+
+    min-height:
+        5px;
+
     padding:
+        0;
+
+    margin:
         0;
 
     border:
@@ -10992,10 +10922,19 @@ a {
 }
 
 
-.hub-dot.active{
+.hub-dot.active {
 
     width:
         16px;
+
+    min-width:
+        16px;
+
+    height:
+        5px;
+
+    min-height:
+        5px;
 
     border-radius:
         999px;
