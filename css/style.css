@@ -11081,19 +11081,22 @@ a {
 
     .hub-viewport {
 
-        width:
-            100%;
+    width:
+        100%;
 
-        overflow:
-            hidden;
+    height:
+        auto;
 
-        border-radius:
-            15px;
+    overflow:
+        hidden;
 
-        touch-action:
-            pan-y;
+    border-radius:
+        15px;
 
-    }
+    touch-action:
+        pan-y;
+
+}
 
 
     /* -----------------------------------------
@@ -11132,6 +11135,15 @@ a {
 
     min-width:
         100%;
+
+    height:
+        auto;
+
+    min-height:
+        0;
+
+    max-height:
+        none;
 
     display:
         grid;
