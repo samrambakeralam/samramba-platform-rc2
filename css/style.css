@@ -11176,6 +11176,9 @@ a {
     min-width:
         0;
 
+    height:
+        auto;
+
     min-height:
         0;
 
@@ -11186,13 +11189,7 @@ a {
         1;
 
     display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
+        block;
 
     overflow:
         hidden;
@@ -11201,6 +11198,7 @@ a {
         #FFFFFF;
 
 }
+
 
 
     .hub-slide-image img {
@@ -11212,6 +11210,9 @@ a {
         100%;
 
     height:
+        auto;
+
+    max-width:
         100%;
 
     object-fit:
