@@ -10213,21 +10213,6 @@ a {
 }
 
 /* ==========================================
-   NORMAL PHONE — HERO → FEATURED SPACING
-========================================== */
-
-@media (max-width: 767px) {
-
-    #featured-carousel {
-
-        margin-top:
-            -40px !important;
-
-    }
-
-}
-
-/* ==========================================
    NORMAL PHONE — FEATURED MODULES
 ========================================== */
 
@@ -10985,6 +10970,12 @@ a {
         padding:
             22px 18px 28px;
 
+    position:
+        relative;
+
+    z-index:
+        1;
+
     }
 
 
@@ -11387,6 +11378,11 @@ a {
         margin:
             10px 0 0;
 
+        position:
+        relative;
+
+        z-index: 2;
+
     }
 
 
@@ -11456,7 +11452,7 @@ a {
 #featured-carousel{
 
     margin-top:
-        16px;
+        0px;
 
 }
 
