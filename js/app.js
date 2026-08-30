@@ -1716,6 +1716,117 @@ document.addEventListener(
 
 
 /* -----------------------------------------
+   MOBILE FINGER SWIPE
+----------------------------------------- */
+
+let hubTouchStartX = 0;
+let hubTouchStartY = 0;
+
+
+const hubViewport =
+    document.querySelector(".hub-viewport");
+
+
+if (hubViewport) {
+
+    hubViewport.addEventListener(
+        "touchstart",
+        function(event) {
+
+            const touch =
+                event.touches[0];
+
+            hubTouchStartX =
+                touch.clientX;
+
+            hubTouchStartY =
+                touch.clientY;
+
+            stopHubRotation();
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    hubViewport.addEventListener(
+        "touchend",
+        function(event) {
+
+            const touch =
+                event.changedTouches[0];
+
+            const deltaX =
+                touch.clientX -
+                hubTouchStartX;
+
+            const deltaY =
+                touch.clientY -
+                hubTouchStartY;
+
+
+            /* Ignore vertical page scrolling */
+
+            if (
+                Math.abs(deltaX) <=
+                Math.abs(deltaY)
+            ) {
+
+                startHubRotation();
+
+                return;
+
+            }
+
+
+            /* Minimum finger movement */
+
+            if (
+                Math.abs(deltaX) < 50
+            ) {
+
+                startHubRotation();
+
+                return;
+
+            }
+
+
+            /* Swipe left → next */
+
+            if (deltaX < 0) {
+
+                showHubSlide(
+                    hubCurrentIndex + 1
+                );
+
+            }
+
+
+            /* Swipe right → previous */
+
+            else {
+
+                showHubSlide(
+                    hubCurrentIndex - 1
+                );
+
+            }
+
+
+            startHubRotation();
+
+        },
+        {
+            passive: true
+        }
+    );
+
+}
+
+/* -----------------------------------------
    INITIALISE
 ----------------------------------------- */
 
