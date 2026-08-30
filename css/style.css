@@ -11133,6 +11133,9 @@ a {
     min-height:
         0;
 
+    max-height:
+        none;
+
     display:
         grid;
 
