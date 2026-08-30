@@ -2032,3 +2032,72 @@ document.addEventListener(
     "DOMContentLoaded",
     initialiseVideoSwipe
 );
+
+
+/* =========================================================
+   VIDEO HUB — YOUTUBE PLAYBACK
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        const playButton =
+            event.target.closest(".hub-video-play");
+
+        if (!playButton) return;
+
+
+        const card =
+            playButton.closest(".hub-video-card");
+
+        if (!card) return;
+
+
+        const youtubeId =
+            card.dataset.youtubeId;
+
+        if (!youtubeId) return;
+
+
+        /* Prevent loading the same video twice */
+
+        if (card.querySelector("iframe")) return;
+
+
+        /* Create YouTube player */
+
+        const iframe =
+            document.createElement("iframe");
+
+
+        iframe.src =
+            `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`;
+
+
+        iframe.title =
+            "YouTube video";
+
+
+        iframe.frameBorder =
+            "0";
+
+
+        iframe.allow =
+            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+
+
+        iframe.referrerPolicy =
+            "strict-origin-when-cross-origin";
+
+
+        iframe.allowFullscreen =
+            true;
+
+
+        /* Replace thumbnail with player */
+
+        playButton.replaceWith(iframe);
+
+    }
+);
