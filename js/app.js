@@ -1834,3 +1834,201 @@ document.addEventListener(
     "DOMContentLoaded",
     initialiseOpportunitiesHub
 );
+
+/* =========================================================
+   VIDEO HUB — MOBILE SWIPE
+========================================================= */
+
+let videoCurrentIndex = 0;
+
+let videoTouchStartX = 0;
+let videoTouchStartY = 0;
+
+let videoTouchStartTime = 0;
+
+
+function initialiseVideoSwipe() {
+
+    const videoGrid =
+        document.querySelector(".hub-video-grid");
+
+    const videoCards =
+        document.querySelectorAll(".hub-video-card");
+
+
+    if (!videoGrid || !videoCards.length) return;
+
+
+    /* -----------------------------------------
+       POSITION VIDEO SLIDES
+    ----------------------------------------- */
+
+    function showVideoSlide(index) {
+
+        videoCurrentIndex =
+            Math.max(
+                0,
+                Math.min(
+                    index,
+                    videoCards.length - 1
+                )
+            );
+
+
+        if (window.innerWidth <= 767) {
+
+            videoGrid.style.transform =
+                `translateX(-${videoCurrentIndex * 100}%)`;
+
+        } else {
+
+            videoGrid.style.transform =
+                "translateX(0)";
+
+        }
+
+    }
+
+
+    /* -----------------------------------------
+       FINGER TOUCH START
+    ----------------------------------------- */
+
+    videoGrid.addEventListener(
+        "touchstart",
+        function(event) {
+
+            const touch =
+                event.touches[0];
+
+            videoTouchStartX =
+                touch.clientX;
+
+            videoTouchStartY =
+                touch.clientY;
+
+            videoTouchStartTime =
+                Date.now();
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    /* -----------------------------------------
+       FINGER TOUCH END
+    ----------------------------------------- */
+
+    videoGrid.addEventListener(
+        "touchend",
+        function(event) {
+
+            const touch =
+                event.changedTouches[0];
+
+            const deltaX =
+                touch.clientX -
+                videoTouchStartX;
+
+            const deltaY =
+                touch.clientY -
+                videoTouchStartY;
+
+            const duration =
+                Date.now() -
+                videoTouchStartTime;
+
+
+            /* Ignore vertical movement */
+
+            if (
+                Math.abs(deltaX) <=
+                Math.abs(deltaY)
+            ) {
+
+                return;
+
+            }
+
+
+            /* Minimum horizontal movement */
+
+            if (
+                Math.abs(deltaX) < 50
+            ) {
+
+                return;
+
+            }
+
+
+            /* Ignore extremely slow gestures */
+
+            if (
+                duration > 1000
+            ) {
+
+                return;
+
+            }
+
+
+            /* Swipe LEFT → next video */
+
+            if (deltaX < 0) {
+
+                showVideoSlide(
+                    videoCurrentIndex + 1
+                );
+
+            }
+
+
+            /* Swipe RIGHT → previous video */
+
+            else {
+
+                showVideoSlide(
+                    videoCurrentIndex - 1
+                );
+
+            }
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    /* -----------------------------------------
+       RESET WHEN SCREEN SIZE CHANGES
+    ----------------------------------------- */
+
+    window.addEventListener(
+        "resize",
+        function() {
+
+            showVideoSlide(
+                videoCurrentIndex
+            );
+
+        }
+    );
+
+
+    showVideoSlide(0);
+
+}
+
+
+/* -----------------------------------------
+   INITIALISE VIDEO SWIPE
+----------------------------------------- */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    initialiseVideoSwipe
+);
