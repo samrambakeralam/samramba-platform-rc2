@@ -1855,12 +1855,86 @@ function initialiseVideoSwipe() {
     const videoCards =
         document.querySelectorAll(".hub-video-card");
 
+    const videoDots =
+        document.querySelectorAll(".hub-video-dot");
+
+    const previousButton =
+        document.querySelector(".hub-video-prev");
+
+    const nextButton =
+        document.querySelector(".hub-video-next");
+
 
     if (!videoGrid || !videoCards.length) return;
 
 
     /* -----------------------------------------
-       POSITION VIDEO SLIDES
+       RESTORE VIDEO THUMBNAIL
+    ----------------------------------------- */
+
+    function restoreVideo(card) {
+
+        const iframe =
+            card.querySelector("iframe");
+
+        if (!iframe) return;
+
+
+        const youtubeId =
+            card.dataset.youtubeId;
+
+        if (!youtubeId) return;
+
+
+        const button =
+            document.createElement("button");
+
+        button.type =
+            "button";
+
+        button.className =
+            "hub-video-play";
+
+        button.setAttribute(
+            "aria-label",
+            "Play video"
+        );
+
+
+        button.innerHTML = `
+
+            <img
+                src="https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg"
+                alt="Entrepreneurial Story"
+                class="hub-video-thumbnail"
+            >
+
+            <span
+                class="hub-video-play-button"
+                aria-hidden="true"
+            >
+
+                <i data-lucide="play"></i>
+
+            </span>
+
+        `;
+
+
+        iframe.replaceWith(button);
+
+
+        if (window.lucide) {
+
+            lucide.createIcons();
+
+        }
+
+    }
+
+
+    /* -----------------------------------------
+       SHOW VIDEO SLIDE
     ----------------------------------------- */
 
     function showVideoSlide(index) {
@@ -1875,17 +1949,116 @@ function initialiseVideoSwipe() {
             );
 
 
-        if (window.innerWidth <= 767) {
+        /* Restore videos that are no longer active */
+
+        videoCards.forEach(
+            (card, i) => {
+
+                if (
+                    i !== videoCurrentIndex
+                ) {
+
+                    restoreVideo(card);
+
+                }
+
+            }
+        );
+
+
+        /* Mobile positioning */
+
+        if (
+            window.innerWidth <= 767
+        ) {
 
             videoGrid.style.transform =
                 `translateX(-${videoCurrentIndex * 100}%)`;
 
-        } else {
+        }
+
+        /* Desktop positioning */
+
+        else {
 
             videoGrid.style.transform =
                 "translateX(0)";
 
         }
+
+
+        /* Update dots */
+
+        videoDots.forEach(
+            (dot, i) => {
+
+                dot.classList.toggle(
+                    "active",
+                    i === videoCurrentIndex
+                );
+
+            }
+        );
+
+    }
+
+
+    /* -----------------------------------------
+       DOT NAVIGATION
+    ----------------------------------------- */
+
+    videoDots.forEach(
+        (dot, index) => {
+
+            dot.addEventListener(
+                "click",
+                function() {
+
+                    showVideoSlide(index);
+
+                }
+            );
+
+        }
+    );
+
+
+    /* -----------------------------------------
+       PREVIOUS BUTTON
+    ----------------------------------------- */
+
+    if (previousButton) {
+
+        previousButton.addEventListener(
+            "click",
+            function() {
+
+                showVideoSlide(
+                    videoCurrentIndex - 1
+                );
+
+            }
+        );
+
+    }
+
+
+    /* -----------------------------------------
+       NEXT BUTTON
+    ----------------------------------------- */
+
+    if (nextButton) {
+
+        nextButton.addEventListener(
+            "click",
+            function() {
+
+                showVideoSlide(
+                    videoCurrentIndex + 1
+                );
+
+            }
+        );
 
     }
 
@@ -1953,7 +2126,7 @@ function initialiseVideoSwipe() {
             }
 
 
-            /* Minimum horizontal movement */
+            /* Minimum swipe distance */
 
             if (
                 Math.abs(deltaX) < 50
@@ -1964,7 +2137,7 @@ function initialiseVideoSwipe() {
             }
 
 
-            /* Ignore extremely slow gestures */
+            /* Ignore very slow gestures */
 
             if (
                 duration > 1000
@@ -1975,7 +2148,7 @@ function initialiseVideoSwipe() {
             }
 
 
-            /* Swipe LEFT → next video */
+            /* Swipe LEFT */
 
             if (deltaX < 0) {
 
@@ -1986,7 +2159,7 @@ function initialiseVideoSwipe() {
             }
 
 
-            /* Swipe RIGHT → previous video */
+            /* Swipe RIGHT */
 
             else {
 
@@ -2004,7 +2177,7 @@ function initialiseVideoSwipe() {
 
 
     /* -----------------------------------------
-       RESET WHEN SCREEN SIZE CHANGES
+       RESET ON RESIZE
     ----------------------------------------- */
 
     window.addEventListener(
@@ -2018,6 +2191,10 @@ function initialiseVideoSwipe() {
         }
     );
 
+
+    /* -----------------------------------------
+       INITIAL STATE
+    ----------------------------------------- */
 
     showVideoSlide(0);
 
