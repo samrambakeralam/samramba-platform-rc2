@@ -11116,7 +11116,7 @@ a {
        IMAGE ABOVE / TEXT BELOW
     ----------------------------------------- */
 
-    .hub-slide {
+    .hub-slide{
 
     flex:
         0 0 100%;
@@ -11127,14 +11127,8 @@ a {
     min-width:
         100%;
 
-    height:
-        auto;
-
     min-height:
         0;
-
-    max-height:
-        none;
 
     display:
         grid;
@@ -11143,13 +11137,10 @@ a {
         1fr;
 
     grid-template-rows:
-        190px auto;
+        176px auto;
 
     align-items:
         stretch;
-
-    overflow:
-        hidden;
 
 }
 
@@ -11159,7 +11150,7 @@ a {
        FULL WIDTH
     ----------------------------------------- */
 
-    .hub-slide-image {
+    .hub-slide-image{
 
     width:
         100%;
@@ -11167,12 +11158,14 @@ a {
     min-width:
         0;
 
-    height: 176px;
+    height:
+        176px;
 
     min-height:
         176px;
 
-    max-height: 176px;
+    max-height:
+        176px;
 
     grid-column:
         1;
@@ -11181,7 +11174,13 @@ a {
         1;
 
     display:
-        block;
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
 
     overflow:
         hidden;
