@@ -1,3 +1,3148 @@
+/* =========================================================
+   SAMRAMBA KERALAM 2030
+   HEADER + NAVIGATION + HERO
+   CONSOLIDATED RC2 MASTER
+========================================================= */
+
+
+/* =========================================================
+   1. RC2 FOUNDATION
+========================================================= */
+
+:root {
+
+    /* Brand */
+    --rc2-navy: #0B1F3A;
+    --rc2-navy-dark: #07182D;
+    --rc2-green: #16A34A;
+    --rc2-green-dark: #0A8754;
+
+    /* Backgrounds */
+    --rc2-white: #FFFFFF;
+    --rc2-bg: #F8FAFC;
+    --rc2-bg-soft: #F1F5F9;
+
+    /* Text */
+    --rc2-text: #0F172A;
+    --rc2-text-soft: #475569;
+    --rc2-text-muted: #64748B;
+
+    /* Borders */
+    --rc2-border: #E2E8F0;
+
+    /* Layout */
+    --rc2-container: 1200px;
+
+    /* Motion */
+    --rc2-transition:
+        cubic-bezier(.22,.61,.36,1);
+
+}
+
+
+/* =========================================================
+   GLOBAL RC2 BEHAVIOUR
+========================================================= */
+
+html {
+
+    scroll-behavior:
+        smooth;
+
+    -webkit-text-size-adjust:
+        100%;
+
+}
+
+
+body {
+
+    overflow-x:
+        hidden;
+
+    -webkit-font-smoothing:
+        antialiased;
+
+    text-rendering:
+        optimizeLegibility;
+
+}
+
+
+button,
+a {
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+}
+
+
+/* =========================================================
+   2. HEADER
+========================================================= */
+
+.rc2-header {
+
+    position:
+        sticky;
+
+    top:
+        0;
+
+    width:
+        100%;
+
+    padding:
+        0;
+
+    background:
+        rgba(255,255,255,.96);
+
+    backdrop-filter:
+        blur(16px);
+
+    -webkit-backdrop-filter:
+        blur(16px);
+
+    border-bottom:
+        1px solid rgba(226,232,240,.8);
+
+    z-index:
+        5000;
+
+    transition:
+        transform .35s ease,
+        background .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+
+}
+
+
+/* =========================================================
+   3. HEADER INNER
+========================================================= */
+
+.rc2-header-inner {
+
+    width:
+        min(
+            calc(100% - 40px),
+            var(--rc2-container)
+        );
+
+    min-height:
+        72px;
+
+    margin:
+        0 auto;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        30px;
+
+    transition:
+        min-height .35s ease;
+
+}
+
+
+/* =========================================================
+   4. HEADER LOGO
+========================================================= */
+
+.rc2-logo-link {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    flex-shrink:
+        0;
+
+}
+
+
+.rc2-logo {
+
+    width:
+        auto;
+
+    height:
+        54px;
+
+    display:
+        block;
+
+}
+
+
+/* =========================================================
+   5. HEADER SCROLL STATES
+========================================================= */
+
+.rc2-header.is-scrolled {
+
+    background:
+        rgba(255,255,255,.90);
+
+    border-bottom:
+        1px solid rgba(226,232,240,.95);
+
+    box-shadow:
+        0 8px 28px
+        rgba(15,23,42,.08);
+
+}
+
+
+.rc2-header.is-scrolled .rc2-header-inner {
+
+    min-height:
+        60px;
+
+}
+
+
+.rc2-header.is-scrolled .rc2-logo {
+
+    height:
+        46px;
+
+}
+
+
+.rc2-header.is-hidden {
+
+    transform:
+        translateY(-100%);
+
+}
+
+
+/* =========================================================
+   6. DESKTOP NAVIGATION
+========================================================= */
+
+.rc2-desktop-nav {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        26px;
+
+    margin-left:
+        auto;
+
+}
+
+
+.rc2-desktop-nav a {
+
+    position:
+        relative;
+
+    color:
+        var(--rc2-text);
+
+    text-decoration:
+        none;
+
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+
+    transition:
+        color .2s ease;
+
+}
+
+
+.rc2-desktop-nav a:hover {
+
+    color:
+        var(--rc2-green);
+
+}
+
+
+/* =========================================================
+   7. ACTIVE NAVIGATION
+========================================================= */
+
+.rc2-desktop-nav a::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    right:
+        0;
+
+    bottom:
+        -8px;
+
+    height:
+        2px;
+
+    border-radius:
+        999px;
+
+    background:
+        var(--rc2-green);
+
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        center;
+
+    transition:
+        transform .25s ease;
+
+}
+
+
+.rc2-desktop-nav a.active {
+
+    color:
+        var(--rc2-green);
+
+}
+
+
+.rc2-desktop-nav a.active::after {
+
+    transform:
+        scaleX(1);
+
+}
+
+
+/* =========================================================
+   8. HEADER CTA
+========================================================= */
+
+.rc2-header-cta {
+
+    border:
+        none;
+
+    min-height:
+        44px;
+
+    padding:
+        0 20px;
+
+    border-radius:
+        12px;
+
+    background:
+        var(--rc2-green);
+
+    color:
+        #FFFFFF;
+
+    font-size:
+        14px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    white-space:
+        nowrap;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+}
+
+
+.rc2-header-cta:hover {
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 8px 18px
+        rgba(22,163,74,.20);
+
+}
+
+
+.rc2-header.is-scrolled .rc2-header-cta {
+
+    min-height:
+        40px;
+
+    padding-left:
+        17px;
+
+    padding-right:
+        17px;
+
+}
+
+
+/* =========================================================
+   9. MOBILE MENU BUTTON
+========================================================= */
+
+.rc2-menu-button {
+
+    display:
+        none;
+
+    flex-shrink:
+        0;
+
+    touch-action:
+        manipulation;
+
+}
+
+
+/* =========================================================
+   10. MOBILE MENU — BASE
+========================================================= */
+
+.rc2-mobile-menu {
+
+    display:
+        none;
+
+}
+
+
+/* =========================================================
+   7. HERO — DESKTOP / BASE
+========================================================= */
+
+.rc2-hero {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    background:
+        radial-gradient(
+            circle at 78% 18%,
+            rgba(22,163,74,.045),
+            transparent 27%
+        ),
+        linear-gradient(
+            180deg,
+            #FFFFFF 0%,
+            #F8FAFC 100%
+        );
+
+    padding:
+        70px 0 0;
+
+}
+
+
+.rc2-hero::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+
+    background:
+        radial-gradient(
+            circle at 78% 22%,
+            rgba(22,163,74,.055),
+            transparent 28%
+        );
+
+}
+
+
+.rc2-hero-inner {
+
+    position:
+        relative;
+
+    z-index:
+        1;
+
+    width:
+        min(
+            calc(100% - 40px),
+            var(--rc2-container)
+        );
+
+    margin:
+        0 auto;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1.05fr .95fr;
+
+    grid-template-rows:
+        auto;
+
+    align-items:
+        center;
+
+    column-gap:
+        60px;
+
+    row-gap:
+        0;
+
+}
+
+
+.rc2-hero-content {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    max-width:
+        650px;
+
+}
+
+
+/* =========================================================
+   8. HERO BADGE
+========================================================= */
+
+.rc2-hero-badge {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    padding:
+        7px 12px;
+
+    border-radius:
+        999px;
+
+    background:
+        #ECFDF5;
+
+    color:
+        var(--rc2-green-dark);
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .04em;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+.rc2-hero-badge:hover {
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(22,163,74,.10);
+
+}
+
+
+.rc2-badge-dot {
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    flex:
+        0 0 auto;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--rc2-green);
+
+}
+
+
+/* =========================================================
+   9. HERO TYPOGRAPHY
+========================================================= */
+
+.rc2-hero h1 {
+
+    margin:
+        20px 0 18px;
+
+    color:
+        var(--rc2-navy);
+
+    font-family:
+        Poppins,
+        sans-serif;
+
+    font-size:
+        clamp(38px, 5vw, 58px);
+
+    line-height:
+        1.08;
+
+    letter-spacing:
+        -.035em;
+
+}
+
+
+.rc2-hero h1 span {
+
+    display:
+        block;
+
+    color:
+        var(--rc2-green);
+
+}
+
+
+.rc2-hero-description {
+
+    max-width:
+        590px;
+
+    margin:
+        0;
+
+    color:
+        var(--rc2-text-soft);
+
+    font-size:
+        15px;
+
+    line-height:
+        1.65;
+
+}
+
+
+/* =========================================================
+   10. HERO VALUE POINTS
+========================================================= */
+
+.rc2-value-points {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        10px;
+
+    margin-top:
+        14px;
+
+}
+
+
+.rc2-value-points div {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    padding:
+        8px 11px;
+
+    background:
+        #FFFFFF;
+
+    border:
+        1px solid var(--rc2-border);
+
+    border-radius:
+        9px;
+
+    color:
+        var(--rc2-text);
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+
+}
+
+
+.rc2-value-points svg {
+
+    width:
+        16px;
+
+    height:
+        16px;
+
+    color:
+        var(--rc2-green);
+
+}
+
+
+/* =========================================================
+   11. HERO ACTIONS
+========================================================= */
+
+.rc2-hero-actions {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        12px;
+
+    margin-top:
+        16px;
+
+}
+
+
+.rc2-primary-cta,
+.rc2-secondary-cta {
+
+    transition:
+        transform .28s var(--rc2-transition),
+        box-shadow .28s ease,
+        border-color .28s ease,
+        background .28s ease;
+
+}
+
+
+.rc2-primary-cta {
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    height:
+        50px;
+
+    width:
+        230px;
+
+    min-height:
+        40px;
+
+    padding:
+        0 14px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        none;
+
+    border-radius:
+        10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #16A34A,
+            #0A8754
+        );
+
+    color:
+        #FFFFFF;
+
+    font-size:
+        18px;
+
+    font-weight:
+        400;
+
+    line-height:
+        1;
+
+    white-space:
+        nowrap;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 8px 20px
+        rgba(22,163,74,.20);
+
+}
+
+
+.rc2-primary-cta:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 16px 32px
+        rgba(22,163,74,.26);
+
+}
+
+
+.rc2-primary-cta:active,
+.rc2-secondary-cta:active {
+
+    transform:
+        translateY(0);
+
+}
+
+
+.rc2-secondary-cta {
+
+    min-height:
+        45px;
+
+    padding:
+        0 17px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    border:
+        1px solid var(--rc2-border);
+
+    border-radius:
+        13px;
+
+    background:
+        #FFFFFF;
+
+    color:
+        var(--rc2-navy);
+
+    text-decoration:
+        none;
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+}
+
+
+.rc2-secondary-cta:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(22,163,74,.42);
+
+    box-shadow:
+        0 10px 25px
+        rgba(15,23,42,.08);
+
+}
+
+
+.rc2-secondary-cta svg {
+
+    width:
+        17px;
+
+    height:
+        17px;
+
+}
+
+
+/* =========================================================
+   12. HERO TRUST LINE
+========================================================= */
+
+.rc2-trust-line {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        15px;
+
+    margin-top:
+        14px;
+
+    color:
+        var(--rc2-text-muted);
+
+    font-size:
+        11px;
+
+}
+
+
+.rc2-trust-line span {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        5px;
+
+    white-space:
+        nowrap;
+
+}
+
+
+.rc2-trust-line svg {
+
+    width:
+        14px;
+
+    height:
+        14px;
+
+    flex:
+        0 0 auto;
+
+    color:
+        var(--rc2-green);
+
+}
+
+
+/* =========================================================
+   13. HERO PRODUCT EXHIBITION
+========================================================= */
+
+.rc2-hero-product {
+
+    position:
+        relative;
+
+    min-height:
+        0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    isolation:
+        isolate;
+
+    overflow:
+        visible;
+
+    transform:
+        translateY(0);
+
+}
+
+
+.rc2-unboxing-stage {
+
+    position:
+        relative;
+
+    width:
+        min(100%, 560px);
+
+    min-height:
+        420px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    overflow:
+        hidden;
+
+    isolation:
+        isolate;
+
+    border-radius:
+        30px;
+
+    background:
+        radial-gradient(
+            ellipse 48% 38% at 50% 10%,
+            rgba(255,255,255,.20) 0%,
+            rgba(220,235,255,.09) 28%,
+            rgba(7,24,45,.35) 52%,
+            transparent 76%
+        ),
+        linear-gradient(
+            180deg,
+            #07182D 0%,
+            #061525 55%,
+            #030C18 100%
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.08),
+        inset 0 -45px 70px rgba(0,0,0,.24),
+        0 30px 70px rgba(15,23,42,.16);
+
+    transform:
+        translate3d(0,-35px,0);
+
+}
+
+
+/* =========================================================
+   14. PODIUM
+========================================================= */
+
+.rc2-unboxing-stage::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        50%;
+
+    bottom:
+        18px;
+
+    width:
+        88%;
+
+    height:
+        150px;
+
+    transform:
+        translateX(-50%);
+
+    background-image:
+        url("SAMRAMBA_RC2_Podium.png");
+
+    background-repeat:
+        no-repeat;
+
+    background-position:
+        center bottom;
+
+    background-size:
+        contain;
+
+    pointer-events:
+        none;
+
+    z-index:
+        3;
+
+}
+
+
+/* =========================================================
+   15. STAGE FLOOR LINE
+========================================================= */
+
+.rc2-unboxing-stage::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        5%;
+
+    right:
+        5%;
+
+    bottom:
+        25px;
+
+    height:
+        1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.11),
+            transparent
+        );
+
+    pointer-events:
+        none;
+
+    z-index:
+        2;
+
+}
+
+
+/* =========================================================
+   16. SPOTLIGHT
+========================================================= */
+
+.rc2-unboxing-spotlight {
+
+    position:
+        absolute;
+
+    top:
+        -105px;
+
+    left:
+        50%;
+
+    width:
+        470px;
+
+    height:
+        470px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255,255,255,.28) 0%,
+            rgba(205,230,255,.13) 26%,
+            rgba(205,230,255,.045) 47%,
+            transparent 72%
+        );
+
+    filter:
+        blur(2px);
+
+    pointer-events:
+        none;
+
+    z-index:
+        2;
+
+}
+
+
+/* =========================================================
+   17. PRODUCT SHADOW
+========================================================= */
+
+.rc2-unboxing-shadow {
+
+    position:
+        absolute;
+
+    left:
+        50%;
+
+    bottom:
+        66px;
+
+    width:
+        68%;
+
+    height:
+        52px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(0,0,0,.58);
+
+    filter:
+        blur(22px);
+
+    pointer-events:
+        none;
+
+    z-index:
+        3;
+
+}
+
+
+/* =========================================================
+   18. PODIUM IMAGE
+========================================================= */
+
+.rc2-unboxing-podium {
+
+    position:
+        absolute;
+
+    left:
+        50%;
+
+    bottom:
+        40px;
+
+    width:
+        92%;
+
+    max-width:
+        520px;
+
+    height:
+        auto;
+
+    transform:
+        translateX(-50%);
+
+    display:
+        block;
+
+    object-fit:
+        contain;
+
+    pointer-events:
+        none;
+
+    user-select:
+        none;
+
+    -webkit-user-drag:
+        none;
+
+    z-index:
+        3;
+
+    filter:
+        drop-shadow(
+            0 14px 20px
+            rgba(0,0,0,.38)
+        );
+
+}
+
+
+/* =========================================================
+   19. PRODUCT
+========================================================= */
+
+.rc2-unboxing-product {
+
+    position:
+        relative;
+
+    width:
+        min(92%, 500px);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    z-index:
+        4;
+
+    transform:
+        translate3d(0,28px,0);
+
+    transform-origin:
+        center bottom;
+
+    will-change:
+        transform;
+
+}
+
+
+.rc2-product-image {
+
+    display:
+        block;
+
+    width:
+        96%;
+
+    max-width:
+        480px;
+
+    max-height:
+        520px;
+
+    object-fit:
+        contain;
+
+    border-radius:
+        0;
+
+    filter:
+        drop-shadow(
+            0 30px 38px
+            rgba(0,0,0,.40)
+        );
+
+    user-select:
+        none;
+
+    -webkit-user-drag:
+        none;
+
+    will-change:
+        transform,
+        filter;
+
+}
+
+
+/* =========================================================
+   20. OBSOLETE PRODUCT BADGE
+   The current exhibition no longer uses it.
+========================================================= */
+
+.rc2-product-badge {
+
+    display:
+        none !important;
+
+}
+
+
+/* =========================================================
+   21. OVERHEAD VELVET CURTAIN
+========================================================= */
+
+.rc2-unboxing-cloth {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    z-index:
+        5;
+
+    pointer-events:
+        none;
+
+    overflow:
+        visible;
+
+}
+
+
+/* =========================================================
+   FOUR-HEADED NAVY VELVET OVERHEAD VALANCE
+========================================================= */
+
+.rc2-velvet-valance {
+
+    position:
+        absolute;
+
+    top:
+        -20px;
+
+    left:
+        -2%;
+
+    right:
+        -2%;
+
+    height:
+        145px;
+
+    z-index:
+        7;
+
+    pointer-events:
+        none;
+
+}
+
+
+.rc2-valance-panel {
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    height:
+        120px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #071A35 0%,
+            #06152D 30%,
+            #061329 60%,
+            #030D20 100%
+        );
+
+    border-radius:
+        0 0 50% 50% /
+        0 0 72% 72%;
+
+    box-shadow:
+        inset 0 3px 6px
+        rgba(255,255,255,.045),
+
+        inset 0 -12px 18px
+        rgba(0,0,0,.34),
+
+        0 8px 16px
+        rgba(0,0,0,.34);
+
+}
+
+
+/* Velvet fold texture */
+
+.rc2-valance-panel::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    border-radius:
+        inherit;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255,255,255,.035) 5%,
+            transparent 10%,
+            rgba(0,0,0,.13) 15%,
+            transparent 21%
+        );
+
+    opacity:
+        .8;
+
+    pointer-events:
+        none;
+
+}
+
+
+/* =========================================================
+   FOUR OVERLAPPING VALANCE HEADS
+========================================================= */
+
+.rc2-valance-1 {
+
+    left:
+        0;
+
+    width:
+        27%;
+
+}
+
+
+.rc2-valance-2 {
+
+    left:
+        24%;
+
+    width:
+        27%;
+
+}
+
+
+.rc2-valance-3 {
+
+    left:
+        49%;
+
+    width:
+        27%;
+
+}
+
+
+.rc2-valance-4 {
+
+    right:
+        0;
+
+    width:
+        27%;
+
+}
+
+
+/* =========================================================
+   FRONT VELVET DRAPE
+   Keep current working curtain system.
+========================================================= */
+
+.rc2-cloth-front {
+
+    left:
+        50%;
+
+    bottom:
+        12%;
+
+    width:
+        88%;
+
+    height:
+        auto;
+
+    z-index:
+        7;
+
+    transform:
+        translateX(-50%);
+
+    transform-origin:
+        50% 0%;
+
+    pointer-events:
+        none;
+
+    display:
+        block;
+
+    max-width:
+        none;
+
+    filter:
+        drop-shadow(
+            0 16px 22px
+            rgba(0,0,0,.30)
+        );
+
+    will-change:
+        transform,
+        opacity;
+
+}
+
+
+/* =========================================================
+   22. DESKTOP POSITIONING
+========================================================= */
+
+@media (min-width: 768px) {
+
+    .rc2-hero-inner {
+
+        grid-template-columns:
+            1.05fr .95fr;
+
+        column-gap:
+            60px;
+
+        align-items:
+            center;
+
+    }
+
+
+    .rc2-hero-intro {
+
+        grid-column:
+            1;
+
+        grid-row:
+            1;
+
+        display:
+            block;
+
+        transform:
+            none;
+
+    }
+
+
+    .rc2-hero-product {
+
+        grid-column:
+            2;
+
+        grid-row:
+            1;
+
+        transform:
+            none;
+
+    }
+
+
+    .rc2-value-points,
+    .rc2-hero-actions,
+    .rc2-trust-line {
+
+        transform:
+            none;
+
+    }
+
+}
+
+
+/* =========================================================
+   23. TABLET
+   768px–900px
+========================================================= */
+
+@media (min-width: 768px) and (max-width: 900px) {
+
+    .rc2-hero-product {
+
+        min-height:
+            480px;
+
+    }
+
+
+    .rc2-unboxing-stage {
+
+        width:
+            min(100%, 520px);
+
+        min-height:
+            480px;
+
+    }
+
+
+    .rc2-unboxing-product {
+
+        width:
+            min(92%, 460px);
+
+    }
+
+
+    .rc2-product-image {
+
+        max-height:
+            450px;
+
+    }
+
+}
+
+
+/* =========================================================
+   24. NORMAL PHONE
+   421px–767px
+========================================================= */
+
+@media (min-width: 421px) and (max-width: 767px) {
+
+    .rc2-hero {
+
+        padding:
+            22px 0 44px;
+
+    }
+
+
+    .rc2-hero-inner {
+
+        width:
+            calc(100% - 24px);
+
+        display:
+            grid;
+
+        grid-template-columns:
+            1fr;
+
+        grid-template-areas:
+            "badge"
+            "heading"
+            "description"
+            "product"
+            "values"
+            "actions"
+            "trust";
+
+        gap:
+            0;
+
+        text-align:
+            center;
+
+    }
+
+
+    .rc2-hero-intro {
+
+        display:
+            contents;
+
+        margin:
+            0;
+
+        padding:
+            0;
+
+        transform:
+            none;
+
+    }
+
+
+    .rc2-hero-badge {
+
+        grid-area:
+            badge;
+
+        justify-self:
+            center;
+
+        margin:
+            0 0 12px;
+
+        padding:
+            6px 10px;
+
+        font-size:
+            10px;
+
+    }
+
+
+    .rc2-hero-intro h1 {
+
+        grid-area:
+            heading;
+
+        width:
+            100%;
+
+        margin:
+            0 0 12px;
+
+        font-size:
+            clamp(30px, 8.5vw, 36px);
+
+        line-height:
+            1.07;
+
+        text-align:
+            center;
+
+    }
+
+
+    .rc2-hero-description {
+
+        grid-area:
+            description;
+
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+        margin:
+            0 auto 8px;
+
+        padding:
+            0;
+
+        font-size:
+            14.5px;
+
+        line-height:
+            1.52;
+
+        text-align:
+            center;
+
+    }
+
+
+    .rc2-hero-product {
+
+        grid-area:
+            product;
+
+        grid-column:
+            1;
+
+        grid-row:
+            auto;
+
+        width:
+            100%;
+
+        min-height:
+            410px;
+
+        margin:
+            0 0 17px;
+
+        overflow:
+            visible;
+
+        transform:
+            none;
+
+    }
+
+
+    .rc2-unboxing-stage {
+
+        width:
+            100%;
+
+        min-height:
+            410px;
+
+        border-radius:
+            24px;
+
+        transform:
+            translate3d(0,0,0);
+
+    }
+
+
+    /* Overhead curtain */
+
+    .rc2-velvet-valance {
+
+        top:
+            -40px;
+
+        height:
+            90px;
+
+    }
+
+
+    .rc2-valance-panel {
+
+        height:
+            90px;
+
+    }
+
+
+    /* Spotlight */
+
+    .rc2-unboxing-spotlight {
+
+        top:
+            -82px;
+
+        width:
+            360px;
+
+        height:
+            360px;
+
+    }
+
+
+    /* Product */
+
+    .rc2-unboxing-product {
+
+        width:
+            min(94%,390px);
+
+        transform:
+            translate3d(0,10px,0);
+
+    }
+
+
+    .rc2-product-image {
+
+        width:
+            100%;
+
+        max-height:
+            405px;
+
+    }
+
+
+    /* Shadow */
+
+    .rc2-unboxing-shadow {
+
+        bottom:
+            53px;
+
+        width:
+            72%;
+
+        height:
+            40px;
+
+        filter:
+            blur(19px);
+
+    }
+
+
+    /* Podium */
+
+    .rc2-unboxing-podium {
+
+        width:
+            94%;
+
+        bottom:
+            14px;
+
+    }
+
+
+    /* Front curtain */
+
+    .rc2-cloth-front {
+
+        left:
+            50%;
+
+        bottom:
+            4%;
+
+        width:
+            94%;
+
+        transform:
+            translateX(-50%);
+
+    }
+
+
+    /* Side curtain pieces */
+
+    .rc2-cloth-left {
+
+        left:
+            -14%;
+
+        top:
+            3%;
+
+        width:
+            67%;
+
+        z-index:
+            6;
+
+    }
+
+
+    .rc2-cloth-right {
+
+        right:
+            -14%;
+
+        top:
+            3%;
+
+        width:
+            67%;
+
+        z-index:
+            6;
+
+    }
+
+
+    /* Value points */
+
+    .rc2-value-points {
+
+        grid-area:
+            values;
+
+        width:
+            100%;
+
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(3,1fr);
+
+        gap:
+            6px;
+
+        margin:
+            0;
+
+        transform:
+            none;
+
+    }
+
+
+    .rc2-value-points div {
+
+        min-height:
+            40px;
+
+        padding:
+            7px 5px;
+
+        box-sizing:
+            border-box;
+
+        display:
+            inline-flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        gap:
+            4px;
+
+        white-space:
+            nowrap;
+
+        font-size:
+            9px;
+
+        font-weight:
+            600;
+
+    }
+
+
+    .rc2-value-points svg {
+
+        width:
+            14px;
+
+        height:
+            14px;
+
+        flex:
+            0 0 auto;
+
+    }
+
+
+    /* CTA */
+
+    .rc2-hero-actions {
+
+        grid-area:
+            actions;
+
+        width:
+            100%;
+
+        display:
+            grid;
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap:
+            7px;
+
+        margin:
+            22px 0 12px;
+
+        transform:
+            none;
+
+    }
+
+
+    .rc2-primary-cta,
+    .rc2-secondary-cta {
+
+        width:
+            100%;
+
+        min-width:
+            0;
+
+        height:
+            46px;
+
+        min-height:
+            46px;
+
+        margin:
+            0;
+
+        padding:
+            0 7px;
+
+        box-sizing:
+            border-box;
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        white-space:
+            nowrap;
+
+        border-radius:
+            11px;
+
+    }
+
+
+    .rc2-primary-cta {
+
+        font-size:
+            13px;
+
+        font-weight:
+            700;
+
+    }
+
+
+    .rc2-secondary-cta {
+
+        font-size:
+            11.5px;
+
+        font-weight:
+            700;
+
+        gap:
+            4px;
+
+    }
+
+
+    .rc2-secondary-cta svg {
+
+        width:
+            14px;
+
+        height:
+            14px;
+
+    }
+
+
+    /* Trust */
+
+    .rc2-trust-line {
+
+        grid-area:
+            trust;
+
+        width:
+            100%;
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            flex-start;
+
+        flex-wrap:
+            nowrap;
+
+        gap:
+            12px;
+
+        margin-top:
+            15px;
+
+        transform:
+            none;
+
+    }
+
+
+    .rc2-trust-line span {
+
+        display:
+            inline-flex;
+
+        align-items:
+            center;
+
+        gap:
+            4px;
+
+        white-space:
+            nowrap;
+
+    }
+
+
+    .rc2-trust-line svg {
+
+        width:
+            14px;
+
+        height:
+            14px;
+
+        flex:
+            0 0 auto;
+
+    }
+
+
+    /* Mobile menu */
+
+    .rc2-mobile-menu {
+
+        width:
+            100vw;
+
+        max-width:
+            100vw;
+
+        overflow-x:
+            hidden;
+
+        box-sizing:
+            border-box;
+
+    }
+
+
+    .rc2-mobile-menu-top {
+
+        min-height:
+            62px;
+
+        width:
+            100%;
+
+        box-sizing:
+            border-box;
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            space-between;
+
+    }
+
+
+    .rc2-mobile-nav {
+
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+        box-sizing:
+            border-box;
+
+        padding:
+            12px 20px;
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        overflow-x:
+            hidden;
+
+    }
+
+
+    .rc2-mobile-nav a {
+
+        min-height:
+            52px;
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        width:
+            100%;
+
+        box-sizing:
+            border-box;
+
+    }
+
+
+    .rc2-mobile-nav button {
+
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+        box-sizing:
+            border-box;
+
+        overflow:
+            hidden;
+
+    }
+
+}
+
+
+/* =========================================================
+   25. SMALL PHONE
+   420px AND BELOW
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .rc2-hero {
+
+        padding-top:
+            20px;
+
+    }
+
+
+    .rc2-hero-inner {
+
+        width:
+            calc(100% - 24px);
+
+    }
+
+
+    .rc2-hero h1 {
+
+        font-size:
+            clamp(28px,8.6vw,33px);
+
+    }
+
+
+    .rc2-hero-description {
+
+        font-size:
+            14px;
+
+        line-height:
+            1.55;
+
+    }
+
+
+    .rc2-hero-product {
+
+        min-height:
+            420px;
+
+    }
+
+
+    .rc2-unboxing-stage {
+
+        min-height:
+            420px;
+
+        border-radius:
+            22px;
+
+    }
+
+
+    .rc2-unboxing-spotlight {
+
+        top:
+            -78px;
+
+        width:
+            330px;
+
+        height:
+            330px;
+
+    }
+
+
+    .rc2-unboxing-product {
+
+        width:
+            min(94%,350px);
+
+    }
+
+
+    .rc2-product-image {
+
+        max-height:
+            375px;
+
+    }
+
+
+    .rc2-unboxing-shadow {
+
+        bottom:
+            52px;
+
+    }
+
+
+    .rc2-unboxing-podium {
+
+        width:
+            96%;
+
+        bottom:
+            12px;
+
+    }
+
+
+    .rc2-cloth-left {
+
+        left:
+            -17%;
+
+        width:
+            70%;
+
+    }
+
+
+    .rc2-cloth-right {
+
+        right:
+            -17%;
+
+        width:
+            70%;
+
+    }
+
+
+    .rc2-cloth-front {
+
+        bottom:
+            4%;
+
+        width:
+            97%;
+
+    }
+
+}
+
+
+/* =========================================================
+   26. MOBILE HEADER + MOBILE MENU
+========================================================= */
+
+@media (max-width: 900px) {
+
+    /* -----------------------------------------
+       MOBILE HEADER
+    ----------------------------------------- */
+
+    .rc2-header {
+
+        background:
+            linear-gradient(
+                135deg,
+                #F4FBF6 0%,
+                #EAF7EE 50%,
+                #F8FCF9 100%
+            );
+
+    }
+
+
+    .rc2-header-inner {
+
+        width:
+            calc(100% - 28px);
+
+        min-height:
+            58px;
+
+    }
+
+
+    .rc2-logo {
+
+        height:
+            44px;
+
+    }
+
+
+    /* -----------------------------------------
+       MOBILE MENU BUTTON
+    ----------------------------------------- */
+
+    .rc2-menu-button {
+
+        margin-left:
+            auto;
+
+        width:
+            44px;
+
+        height:
+            44px;
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        padding:
+            0;
+
+        border:
+            1px solid var(--rc2-border);
+
+        border-radius:
+            12px;
+
+        background:
+            #FFFFFF;
+
+        color:
+            var(--rc2-navy);
+
+        cursor:
+            pointer;
+
+    }
+
+
+    .rc2-menu-button svg {
+
+        width:
+            22px;
+
+        height:
+            22px;
+
+    }
+
+
+    /* -----------------------------------------
+       HIDE DESKTOP NAVIGATION
+    ----------------------------------------- */
+
+    .rc2-desktop-nav,
+    .rc2-header-cta {
+
+        display:
+            none;
+
+    }
+
+
+    /* -----------------------------------------
+       MOBILE MENU
+    ----------------------------------------- */
+
+    .rc2-mobile-menu {
+
+        position:
+            fixed;
+
+        inset:
+            0;
+
+        display:
+            block;
+
+        width:
+            100vw;
+
+        max-width:
+            100vw;
+
+        box-sizing:
+            border-box;
+
+        overflow-x:
+            hidden;
+
+        background:
+            rgba(255,255,255,.98);
+
+        backdrop-filter:
+            blur(18px);
+
+        -webkit-backdrop-filter:
+            blur(18px);
+
+        z-index:
+            6000;
+
+        transform:
+            translateX(100%);
+
+        transition:
+            transform .28s ease;
+
+    }
+
+
+    .rc2-mobile-menu.active {
+
+        transform:
+            translateX(0);
+
+    }
+
+
+    /* -----------------------------------------
+       MOBILE MENU TOP BAR
+    ----------------------------------------- */
+
+    .rc2-mobile-menu-top {
+
+        width:
+            100%;
+
+        min-height:
+            62px;
+
+        height:
+            62px;
+
+        padding:
+            0 18px;
+
+        box-sizing:
+            border-box;
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            space-between;
+
+        border-bottom:
+            1px solid var(--rc2-border);
+
+    }
+
+
+    .rc2-mobile-menu-top span {
+
+        font-family:
+            Poppins,
+            sans-serif;
+
+        color:
+            var(--rc2-navy);
+
+        font-size:
+            14px;
+
+        font-weight:
+            800;
+
+    }
+
+
+    /* -----------------------------------------
+       MOBILE CLOSE BUTTON
+    ----------------------------------------- */
+
+    .rc2-mobile-menu-top button {
+
+        width:
+            44px;
+
+        min-width:
+            44px;
+
+        max-width:
+            44px;
+
+        height:
+            44px;
+
+        padding:
+            0;
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        box-sizing:
+            border-box;
+
+        border:
+            none;
+
+        border-radius:
+            12px;
+
+        background:
+            transparent;
+
+        color:
+            var(--rc2-navy);
+
+        cursor:
+            pointer;
+
+    }
+
+
+    .rc2-mobile-menu-top button svg {
+
+        display:
+            none;
+
+    }
+
+
+    .rc2-mobile-menu-top button::before {
+
+        content:
+            "×";
+
+        display:
+            block;
+
+        font-family:
+            Arial,
+            sans-serif;
+
+        font-size:
+            36px;
+
+        font-weight:
+            300;
+
+        line-height:
+            1;
+
+        color:
+            #0B1F3A;
+
+    }
+
+
+    /* -----------------------------------------
+       MOBILE NAVIGATION
+    ----------------------------------------- */
+
+    .rc2-mobile-nav {
+
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+        box-sizing:
+            border-box;
+
+        padding:
+            12px 20px;
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        overflow-x:
+            hidden;
+
+    }
+
+
+    .rc2-mobile-nav a {
+
+        min-height:
+            52px;
+
+        width:
+            100%;
+
+        box-sizing:
+            border-box;
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        padding:
+            17px 4px;
+
+        border-bottom:
+            1px solid #F1F5F9;
+
+        color:
+            var(--rc2-navy);
+
+        text-decoration:
+            none;
+
+        font-size:
+            16px;
+
+        font-weight:
+            650;
+
+    }
+
+
+    /* -----------------------------------------
+       MOBILE MENU CTA
+    ----------------------------------------- */
+
+    .rc2-mobile-nav button {
+
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+        box-sizing:
+            border-box;
+
+        margin-top:
+            20px;
+
+        margin-left:
+            0;
+
+        margin-right:
+            0;
+
+        min-height:
+            52px;
+
+        padding:
+            0 16px;
+
+        overflow:
+            hidden;
+
+        border:
+            none;
+
+        border-radius:
+            14px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #16A34A,
+                #0A8754
+            );
+
+        color:
+            #FFFFFF;
+
+        font-size:
+            15px;
+
+        font-weight:
+            800;
+
+        box-shadow:
+            0 12px 28px
+            rgba(22,163,74,.22);
+
+    }
+
+}
+
+
+/* =========================================================
+   27. MOBILE MENU CLOSE BUTTON PROTECTION
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .rc2-mobile-menu-top button {
+
+        width:
+            44px;
+
+        min-width:
+            44px;
+
+        max-width:
+            44px;
+
+        height:
+            44px;
+
+        padding:
+            0;
+
+        box-sizing:
+            border-box;
+
+    }
+
+
+    .rc2-mobile-menu-top button svg {
+
+        display:
+            none;
+
+    }
+
+
+    .rc2-mobile-menu-top button::before {
+
+        content:
+            "×";
+
+        display:
+            block;
+
+        font-family:
+            Arial,
+            sans-serif;
+
+        font-size:
+            36px;
+
+        font-weight:
+            300;
+
+        line-height:
+            1;
+
+        color:
+            #0B1F3A;
+
+    }
+
+}
+
+
+/* =========================================================
+   28. FOCUS ACCESSIBILITY
+========================================================= */
+
+.rc2-menu-button:focus-visible,
+.rc2-mobile-menu-top button:focus-visible,
+.rc2-mobile-nav a:focus-visible,
+.rc2-mobile-nav button:focus-visible {
+
+    outline:
+        3px solid rgba(22,163,74,.28);
+
+    outline-offset:
+        3px;
+
+}
+
+
+/* =========================================================
+   29. TOUCH DEVICES
+========================================================= */
+
+@media (hover:none) and (pointer:coarse) {
+
+    .rc2-primary-cta:hover,
+    .rc2-secondary-cta:hover,
+    .rc2-hero-badge:hover {
+
+        transform:
+            none;
+
+        box-shadow:
+            none;
+
+    }
+
+}
+
+
+/* =========================================================
+   30. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+
+        scroll-behavior:
+            auto;
+
+    }
+
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            .01ms !important;
+
+        scroll-behavior:
+            auto !important;
+
+    }
+
+}
+
+
 /* ===========================
    SAMRAMBA KERALAM 2030
 =========================== */
@@ -6186,273 +9331,6 @@ section {
 
 }
 
-/* =========================================================
-   RC2.2 — HEADER
-========================================================= */
-
-.rc2-header {
-
-    position: sticky;
-
-    padding: 0;
-
-    top: 0;
-
-    width: 100%;
-
-    background: rgba(255,255,255,.96);
-
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-
-    border-bottom:
-        1px solid rgba(226,232,240,.8);
-
-    z-index: 5000;
-
-    transition:
-        transform .35s ease,
-        background .35s ease,
-        box-shadow .35s ease,
-        border-color .35s ease;
-
-}
-
-/* ==========================================
-   RC2 — DYNAMIC HEADER STATES
-========================================== */
-
-.rc2-header.is-scrolled {
-
-    background: rgba(255,255,255,.90);
-
-    border-bottom:
-        1px solid rgba(226,232,240,.95);
-
-    box-shadow:
-        0 8px 28px rgba(15,23,42,.08);
-
-}
-
-
-.rc2-header.is-hidden {
-
-    transform:
-        translateY(-100%);
-
-}
-
-
-.rc2-header-inner {
-
-    width: min(
-        calc(100% - 40px),
-        var(--rc2-container)
-    );
-
-    min-height: 72px;
-
-    margin: auto;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 30px;
-
-    transition:
-        min-height .35s ease;
-
-}
-
-.rc2-header.is-scrolled .rc2-header-inner {
-
-    min-height: 60px;
-
-}
-
-
-.rc2-header.is-scrolled .rc2-logo {
-
-    height: 46px;
-
-}
-
-
-.rc2-logo-link {
-
-    display: flex;
-
-    align-items: center;
-
-    flex-shrink: 0;
-
-}
-
-
-.rc2-logo {
-
-    width: auto;
-    height: 54px;
-
-    display: block;
-
-}
-
-
-.rc2-desktop-nav {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 26px;
-
-    margin-left: auto;
-
-}
-
-
-.rc2-desktop-nav a {
-
-    color:
-        var(--rc2-text);
-
-    text-decoration: none;
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    transition:
-        color .2s ease;
-
-}
-
-
-.rc2-desktop-nav a:hover {
-
-    color:
-        var(--rc2-green);
-
-}
-
-/* ==========================================
-   RC2 — ACTIVE NAVIGATION
-========================================== */
-
-.rc2-desktop-nav a {
-
-    position: relative;
-
-}
-
-
-.rc2-desktop-nav a::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-
-    bottom: -8px;
-
-    height: 2px;
-
-    border-radius: 999px;
-
-    background:
-        var(--rc2-green);
-
-    transform:
-        scaleX(0);
-
-    transform-origin:
-        center;
-
-    transition:
-        transform .25s ease;
-
-}
-
-
-.rc2-desktop-nav a.active {
-
-    color:
-        var(--rc2-green);
-
-}
-
-
-.rc2-desktop-nav a.active::after {
-
-    transform:
-        scaleX(1);
-
-}
-
-
-.rc2-header-cta {
-
-    border: none;
-
-    min-height: 44px;
-
-    padding:
-        0 20px;
-
-    border-radius:
-        12px;
-
-    background:
-        var(--rc2-green);
-
-    color:
-        white;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    white-space: nowrap;
-
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease;
-
-}
-
-.rc2-header-cta:hover {
-
-    transform:
-        translateY(-1px);
-
-    box-shadow:
-        0 8px 18px rgba(22,163,74,.20);
-
-}
-
-
-.rc2-header.is-scrolled .rc2-header-cta {
-
-    min-height: 40px;
-
-    padding-left: 17px;
-    padding-right: 17px;
-
-}
-
-
-.rc2-menu-button {
-
-    display: none;
-
-}
-
 
 /* =========================================================
    RC2.2 — MOBILE MENU
@@ -8589,1129 +11467,6 @@ a {
 
 
 /* =========================================================
-   RC2 HEADER — POLISHED FOUNDATION
-========================================================= */
-
-.rc2-header {
-    transition:
-        background .35s ease,
-        box-shadow .35s ease,
-        border-color .35s ease,
-        transform .35s var(--rc2-transition);
-}
-
-.rc2-header-inner {
-    transition:
-        min-height .35s var(--rc2-transition);
-}
-
-.rc2-logo-link {
-    display: inline-flex;
-    align-items: center;
-}
-
-.rc2-menu-button {
-    flex-shrink: 0;
-    touch-action: manipulation;
-}
-
-.rc2-menu-button:focus-visible,
-.rc2-mobile-menu-top button:focus-visible,
-.rc2-mobile-nav a:focus-visible,
-.rc2-mobile-nav button:focus-visible {
-    outline: 3px solid rgba(22, 163, 74, .28);
-    outline-offset: 3px;
-}
-
-
-/* =========================================================
-   RC2 HERO — DESKTOP POLISH
-========================================================= */
-
-.rc2-hero {
-    position: relative;
-    overflow: hidden;
-}
-
-.rc2-hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background:
-        radial-gradient(
-            circle at 78% 22%,
-            rgba(22, 163, 74, .055),
-            transparent 28%
-        );
-}
-
-.rc2-hero-inner {
-    position: relative;
-    z-index: 1;
-}
-
-.rc2-hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-.rc2-hero-badge {
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease;
-}
-
-.rc2-hero-badge:hover {
-    transform: translateY(-1px);
-    box-shadow:
-        0 8px 20px rgba(22, 163, 74, .10);
-}
-
-.rc2-primary-cta,
-.rc2-secondary-cta {
-    transition:
-        transform .28s var(--rc2-transition),
-        box-shadow .28s ease,
-        border-color .28s ease,
-        background .28s ease;
-}
-
-.rc2-primary-cta:hover {
-    transform: translateY(-3px);
-    box-shadow:
-        0 16px 32px rgba(22, 163, 74, .26);
-}
-
-.rc2-primary-cta:active,
-.rc2-secondary-cta:active {
-    transform: translateY(0);
-}
-
-.rc2-secondary-cta:hover {
-    transform: translateY(-2px);
-    border-color: rgba(22, 163, 74, .42);
-    box-shadow:
-        0 10px 25px rgba(15, 23, 42, .08);
-}
-
-
-/* =========================================================
-   RC2 3D UNBOXING STAGE
-========================================================= */
-
-.rc2-hero-product {
-    position: relative;
-    min-height: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    isolation: isolate;
-
-    overflow: visible;
-
-    transform: translateY(0);
-
-}
-
-.rc2-unboxing-stage {
-    position: relative;
-
-    width: min(100%, 560px);
-    min-height: 420px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-    isolation: isolate;
-
-    border-radius: 30px;
-
-    background:
-        radial-gradient(
-            ellipse 48% 38% at 50% 10%,
-            rgba(255, 255, 255, .20) 0%,
-            rgba(220, 235, 255, .09) 28%,
-            rgba(7, 24, 45, .35) 52%,
-            transparent 76%
-        ),
-        linear-gradient(
-            180deg,
-            #07182d 0%,
-            #061525 55%,
-            #030c18 100%
-        );
-
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, .08),
-        inset 0 -45px 70px rgba(0, 0, 0, .24),
-        0 30px 70px rgba(15, 23, 42, .16);
-
-    transform: translate3d(0, -35px, 0);
-}
-
-
-/* =========================================================
-   PODIUM — PREMIUM LAUNCH STAGE
-========================================================= */
-
-.rc2-unboxing-stage::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-    bottom: 18px;
-
-    width: 88%;
-    height: 150px;
-
-    transform:
-        translateX(-50%);
-
-    background-image:
-        url("SAMRAMBA_RC2_Podium.png");
-
-    background-repeat:
-        no-repeat;
-
-    background-position:
-        center bottom;
-
-    background-size:
-        contain;
-
-    pointer-events:
-        none;
-
-    z-index:
-        3;
-}
-
-
-/* =========================================================
-   SUBTLE STAGE FLOOR LINE
-========================================================= */
-
-.rc2-unboxing-stage::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 5%;
-    right: 5%;
-
-    bottom: 25px;
-
-    height: 1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 255, 255, .11),
-            transparent
-        );
-
-    pointer-events:
-        none;
-
-    z-index:
-        2;
-}
-
-
-/* =========================================================
-   SINGLE PREMIUM SPOTLIGHT
-========================================================= */
-
-.rc2-unboxing-spotlight {
-    position: absolute;
-
-    top: -105px;
-    left: 50%;
-
-    width: 470px;
-    height: 470px;
-
-    transform: translateX(-50%);
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            ellipse at center,
-            rgba(255, 255, 255, .28) 0%,
-            rgba(205, 230, 255, .13) 26%,
-            rgba(205, 230, 255, .045) 47%,
-            transparent 72%
-        );
-
-    filter: blur(2px);
-
-    pointer-events: none;
-    z-index: 2;
-}
-
-
-/* =========================================================
-   PRODUCT SHADOW
-========================================================= */
-
-.rc2-unboxing-shadow {
-    position: absolute;
-
-    left: 50%;
-    bottom: 66px;
-
-    width: 68%;
-    height: 52px;
-
-    transform: translateX(-50%);
-
-    border-radius: 50%;
-
-    background: rgba(0, 0, 0, .58);
-
-    filter: blur(22px);
-
-    pointer-events: none;
-    z-index: 3;
-}
-
-/* =========================================================
-   SAMRAMBA RC2 — PODIUM
-========================================================= */
-
-.rc2-unboxing-podium {
-    position: absolute;
-
-    left: 50%;
-    bottom: 40px;
-
-    width: 92%;
-    max-width: 520px;
-
-    height: auto;
-
-    transform: translateX(-50%);
-
-    display: block;
-
-    object-fit: contain;
-
-    pointer-events: none;
-    user-select: none;
-    -webkit-user-drag: none;
-
-    z-index: 3;
-
-    filter:
-        drop-shadow(
-            0 14px 20px rgba(0, 0, 0, .38)
-        );
-}
-
-/* =========================================================
-   PRODUCT
-========================================================= */
-
-.rc2-unboxing-product {
-    position: relative;
-
-    width: min(92%, 500px);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    z-index: 4;
-
-    /* Product lowered slightly onto the podium */
-    transform:
-        translate3d(0, 28px, 0);
-
-    transform-origin: center bottom;
-
-    will-change:
-        transform;
-}
-
-.rc2-product-image {
-    display: block;
-
-    width: 96%;
-    max-width: 480px;
-    max-height: 520px;
-
-    object-fit: contain;
-
-    border-radius: 0;
-
-    filter:
-        drop-shadow(
-            0 30px 38px rgba(0, 0, 0, .40)
-        );
-
-    user-select: none;
-    -webkit-user-drag: none;
-
-    will-change:
-        transform,
-        filter;
-}
-
-
-/* Old badge is no longer part of the exhibition composition */
-
-.rc2-product-badge {
-    display: none !important;
-}
-
-/* =========================================================
-   SCROLL REVEAL HINT
-========================================================= */
-
-.rc2-unboxing-hint {
-    position: absolute;
-
-    left: 50%;
-    bottom: 12px;
-
-    z-index: 8;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    gap: 3px;
-
-    transform:
-        translateX(-50%);
-
-    color:
-        rgba(255, 255, 255, .78);
-
-    font-size: 10px;
-    font-weight: 600;
-
-    letter-spacing: .05em;
-
-    white-space: nowrap;
-
-    transition:
-        opacity .3s ease,
-        transform .3s ease;
-}
-
-.rc2-unboxing-arrow {
-    font-size: 19px;
-    line-height: 1;
-
-    animation:
-        rc2UnboxingArrow 1.8s ease-in-out infinite;
-}
-
-@keyframes rc2UnboxingArrow {
-
-    0%,
-    100% {
-        transform: translateY(0);
-        opacity: .55;
-    }
-
-    50% {
-        transform: translateY(6px);
-        opacity: 1;
-    }
-}
-
-
-/* =========================================================
-   TABLET / SMALL LAPTOP
-========================================================= */
-
-@media (max-width: 900px) {
-
-    .rc2-hero-product {
-        min-height: 480px;
-    }
-
-    .rc2-unboxing-stage {
-        min-height: 480px;
-        width: min(100%, 520px);
-    }
-
-    .rc2-unboxing-product {
-        width: min(92%, 460px);
-    }
-
-    .rc2-product-image {
-        max-height: 450px;
-    }
-}
-
-
-/* =========================================================
-   MOBILE — PRIMARY EXPERIENCE
-   EXHIBITION-FIRST HERO
-========================================================= */
-
-@media (max-width: 767px) {
-
-    /* -----------------------------------------
-       HERO FOUNDATION
-    ----------------------------------------- */
-
-    .rc2-hero {
-
-        padding:
-            22px 0 44px;
-
-    }
-
-
-    .rc2-hero-inner {
-
-    width:
-        calc(100% - 24px);
-
-    display:
-        grid;
-
-    grid-template-columns:
-        1fr;
-
-    grid-template-areas:
-    "intro"
-    "product"
-    "values"
-    "actions"
-    "trust";
-
-    gap:
-        0;
-
-}
-
-    /* -----------------------------------------
-   INTRODUCTION
------------------------------------------ */
-
-.rc2-hero-intro {
-
-    grid-area:
-        intro;
-
-}
-
-
-.rc2-hero-badge {
-
-    justify-self:
-        start;
-
-    margin:
-        0 0 4px;
-
-    font-size:
-        10px;
-
-    padding:
-        6px 10px;
-
-}
-
-
-.rc2-hero h1 {
-
-    margin:
-        14px 0 16px;
-
-    font-size:
-        clamp(
-            30px,
-            8.5vw,
-            36px
-        );
-
-    line-height:
-        1.07;
-
-    letter-spacing:
-        -.035em;
-
-}
-
-
-.rc2-hero-description {
-
-    max-width:
-        100%;
-
-    margin:
-        0 0 8px;
-
-    font-size:
-        14.5px;
-
-    line-height:
-        1.52;
-
-}
-
-
-    /* -----------------------------------------
-   EXHIBITION PRODUCT
-   ----------------------------------------- */
-
-.rc2-hero-product {
-    grid-area: product !important;
-
-    grid-column: 1 !important;
-    grid-row: auto !important;
-
-    width: 100% !important;
-
-    min-height: 410px !important;
-
-    margin: 0 0 17px !important;
-
-    overflow: visible !important;
-
-    transform: none !important;
-}
-
-
-.rc2-unboxing-stage {
-    width: 100% !important;
-
-    min-height: 410px !important;
-
-    border-radius: 24px;
-
-    transform: translate3d(0, 0, 0) !important;
-}
-
-/* -----------------------------------------
-   MOBILE OVERHEAD CURTAIN
------------------------------------------ */
-
-.rc2-velvet-valance {
-
-    top:
-        -40px;
-
-    height:
-        90px;
-
-}
-
-
-.rc2-velvet-valance .rc2-valance-panel {
-
-    height:
-        90px;
-
-}
-
-    /* -----------------------------------------
-       SPOTLIGHT
-    ----------------------------------------- */
-
-    .rc2-unboxing-spotlight {
-
-        top:
-            -82px;
-
-        width:
-            360px;
-
-        height:
-            360px;
-
-    }
-
-
-    /* -----------------------------------------
-       PRODUCT — MORE VISIBLE
-    ----------------------------------------- */
-
-    .rc2-unboxing-product {
-
-        width:
-            min(
-                94%,
-                390px
-            );
-
-        transform:
-            translate3d(
-                0,
-                10px,
-                0
-            );
-
-    }
-
-
-    .rc2-product-image {
-
-        width:
-            100%;
-
-        max-height:
-            405px;
-
-        border-radius:
-            0;
-
-        filter:
-            drop-shadow(
-                0 25px 32px
-                rgba(0,0,0,.40)
-            );
-
-    }
-
-
-    /* -----------------------------------------
-       PRODUCT SHADOW
-    ----------------------------------------- */
-
-    .rc2-unboxing-shadow {
-
-        bottom:
-            53px;
-
-        width:
-            72%;
-
-        height:
-            40px;
-
-        filter:
-            blur(19px);
-
-    }
-
-
-    /* -----------------------------------------
-       SCROLL TO UNVEIL
-    ----------------------------------------- */
-
-    .rc2-unboxing-hint {
-
-        bottom:
-            8px;
-
-        font-size:
-            9.5px;
-
-        letter-spacing:
-            .045em;
-
-    }
-
-
-    .rc2-unboxing-arrow {
-
-        font-size:
-            20px;
-
-    }
-
-
-    /* -----------------------------------------
-   VALUE POINTS — SINGLE HORIZONTAL ROW
------------------------------------------ */
-
-.rc2-value-points {
-
-    grid-area:
-        values;
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap:
-        6px;
-
-    margin:
-        0 0 17px;
-
-}
-
-
-.rc2-value-points div {
-
-    min-height:
-        40px;
-
-    padding:
-        7px 5px;
-
-    box-sizing:
-        border-box;
-
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    gap:
-        4px;
-
-    white-space:
-        nowrap;
-
-    font-size:
-        9px;
-
-    font-weight:
-        600;
-
-}
-
-
-.rc2-value-points svg {
-
-    width:
-        14px;
-
-    height:
-        14px;
-
-    flex:
-        0 0 auto;
-
-}
-
-
-.rc2-value-points div:last-child {
-
-    grid-column:
-        auto;
-
-}
-
-
-    /* -----------------------------------------
-   CTA — COMPACT HORIZONTAL ROW
------------------------------------------ */
-
-.rc2-hero-actions {
-
-    grid-area:
-        actions;
-
-    display:
-        grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:
-        7px;
-
-    margin:
-        0 0 12px;
-
-}
-
-
-.rc2-primary-cta,
-.rc2-secondary-cta {
-
-    width:
-        100%;
-
-    min-width:
-        0;
-
-    height:
-        46px;
-
-    min-height:
-        46px;
-
-    margin:
-        0;
-
-    padding:
-        0 7px;
-
-    box-sizing:
-        border-box;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    white-space:
-        nowrap;
-
-    border-radius:
-        11px;
-
-}
-
-
-/* PRIMARY */
-
-.rc2-primary-cta {
-
-    font-size:
-        13px;
-
-    font-weight:
-        700;
-
-}
-
-
-/* SECONDARY */
-
-.rc2-secondary-cta {
-
-    font-size:
-        11.5px;
-
-    font-weight:
-        700;
-
-    gap:
-        4px;
-
-}
-
-
-.rc2-secondary-cta svg {
-
-    width:
-        14px;
-
-    height:
-        14px;
-
-    flex:
-        0 0 auto;
-
-}
-
-
-    /* -----------------------------------------
-   TRUST LINE — MOBILE / SINGLE ROW
------------------------------------------ */
-
-.rc2-trust-line {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        flex-start;
-
-    flex-wrap:
-        nowrap;
-
-    gap:
-        12px;
-
-    margin-top:
-        12px;
-
-    font-size:
-        10px;
-
-}
-
-
-.rc2-trust-line span {
-
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    gap:
-        4px;
-
-    white-space:
-        nowrap;
-
-}
-
-
-.rc2-trust-line svg {
-
-    width:
-        14px;
-
-    height:
-        14px;
-
-    flex:
-        0 0 auto;
-
-}
-
-
-    /* -----------------------------------------
-       MOBILE MENU
-       PRESERVE CURRENT WORKING BEHAVIOR
-    ----------------------------------------- */
-
-    .rc2-mobile-menu {
-
-        width:
-            100vw;
-
-        max-width:
-            100vw;
-
-        overflow-x:
-            hidden;
-
-        box-sizing:
-            border-box;
-
-    }
-
-
-    .rc2-mobile-menu-top {
-
-        min-height:
-            62px;
-
-    }
-
-
-    .rc2-mobile-nav a {
-
-        min-height:
-            52px;
-
-        display:
-            flex;
-
-        align-items:
-            center;
-
-    }
-
-}
-
-
-/* =========================================================
-   SMALL PHONES — 420px AND BELOW
-========================================================= */
-
-@media (max-width: 420px) {
-
-    .rc2-hero {
-        padding-top:
-            20px;
-    }
-
-    .rc2-hero-inner {
-        width:
-            calc(100% - 24px);
-    }
-
-    .rc2-hero h1 {
-        font-size:
-            clamp(28px, 8.6vw, 33px);
-    }
-
-    .rc2-hero-description {
-        font-size:
-            14px;
-
-        line-height:
-            1.55;
-    }
-
-    .rc2-hero-product {
-        min-height:
-            420px;
-    }
-
-    .rc2-unboxing-stage {
-        min-height:
-            420px;
-
-        border-radius:
-            22px;
-    }
-
-    .rc2-unboxing-spotlight {
-        top:
-            -78px;
-
-        width:
-            330px;
-
-        height:
-            330px;
-    }
-
-    .rc2-unboxing-product {
-        width:
-            min(94%, 350px);
-    }
-
-    .rc2-product-image {
-        max-height:
-            375px;
-    }
-
-    .rc2-unboxing-shadow {
-        bottom:
-            52px;
-    }
-
-    .rc2-cloth-left,
-    .rc2-cloth-right {
-        bottom:
-            26px;
-    }
-
-    .rc2-cloth-front {
-        bottom:
-            23px;
-    }
-
-    .rc2-unboxing-hint {
-        bottom:
-            8px;
-    }
-}
-
-
-/* =========================================================
    REDUCED MOTION
 ========================================================= */
 
@@ -10184,43 +11939,6 @@ a {
     }
 }
 
-/* ---------------------------------------------------------
-   REDUCED MOTION
---------------------------------------------------------- */
-
-@media (prefers-reduced-motion:reduce) {
-    .rc2-cloth-left,
-    .rc2-cloth-right,
-    .rc2-cloth-front,
-    .rc2-unboxing-product,
-    .rc2-unboxing-hint,
-    .rc2-unboxing-arrow {
-        transition:none !important;
-        animation:none !important;
-    }
-}
-
-
-/* Mobile */
-@media (max-width: 767px) {
-
-    .rc2-unboxing-podium {
-        width: 94%;
-        bottom: 14px;
-    }
-
-}
-
-
-/* Small phones */
-@media (max-width: 420px) {
-
-    .rc2-unboxing-podium {
-        width: 96%;
-        bottom: 12px;
-    }
-
-}
 
 /* =========================================================
    FINAL MOBILE HERO STRUCTURE
@@ -11868,4 +13586,3 @@ a {
     }
 
 }
-
