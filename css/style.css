@@ -1575,7 +1575,7 @@ transform:translateY(0px);
 }
 
 /* =========================================================
-   VIDEO NAVIGATION
+   VIDEO NAVIGATION — MOBILE
 ========================================================= */
 
 .hub-video-navigation{
@@ -1590,10 +1590,10 @@ transform:translateY(0px);
         center;
 
     gap:
-        18px;
+        12px;
 
     margin:
-        14px auto 0;
+        10px auto 0;
 
 }
 
@@ -1610,6 +1610,12 @@ transform:translateY(0px);
         center;
 
     gap:
+        6px;
+
+    width:
+        auto;
+
+    height:
         7px;
 
 }
@@ -1617,13 +1623,31 @@ transform:translateY(0px);
 
 .hub-video-dot{
 
+    flex:
+        0 0 7px;
+
     width:
+        7px;
+
+    min-width:
+        7px;
+
+    max-width:
         7px;
 
     height:
         7px;
 
+    min-height:
+        7px;
+
+    max-height:
+        7px;
+
     padding:
+        0;
+
+    margin:
         0;
 
     border:
@@ -1635,20 +1659,34 @@ transform:translateY(0px);
     background:
         #CBD5E1;
 
-    cursor:
-        pointer;
-
-    transition:
-        width 0.25s ease,
-        background 0.25s ease;
+    box-sizing:
+        border-box;
 
 }
 
 
 .hub-video-dot.active{
 
+    flex:
+        0 0 20px;
+
     width:
         20px;
+
+    min-width:
+        20px;
+
+    max-width:
+        20px;
+
+    height:
+        7px;
+
+    min-height:
+        7px;
+
+    max-height:
+        7px;
 
     border-radius:
         999px;
@@ -1661,10 +1699,25 @@ transform:translateY(0px);
 
 .hub-video-nav-button{
 
+    flex:
+        0 0 30px;
+
     width:
         30px;
 
+    min-width:
+        30px;
+
+    max-width:
+        30px;
+
     height:
+        30px;
+
+    min-height:
+        30px;
+
+    max-height:
         30px;
 
     display:
@@ -1691,8 +1744,8 @@ transform:translateY(0px);
     color:
         #0B1F3A;
 
-    cursor:
-        pointer;
+    box-sizing:
+        border-box;
 
 }
 
@@ -1700,10 +1753,10 @@ transform:translateY(0px);
 .hub-video-nav-button svg{
 
     width:
-        16px;
+        15px;
 
     height:
-        16px;
+        15px;
 
 }
 
