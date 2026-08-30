@@ -1252,434 +1252,249 @@ transform:translateY(0px);
 
 }
 
-/* ==========================================
-   LEARNING JOURNEY
-========================================== */
 
-.learning-journey{
-    padding:75px 8% 45px;
-    background:#F8FAFC;
-}
+/* =========================================================
+   ENTREPRENEURIAL VIDEO SECTION
+========================================================= */
 
-/* Two Column Layout */
+.hub-video-section{
 
-.journey-content{
-    display:flex;
-    align-items:center;
-    gap:70px;
-}
+    padding:
+        30px 8% 32px;
 
-.journey-left{
-    flex:1;
-    max-width:430px;
-    padding-top:0px;
-}
+    background:
+        #FFFFFF;
 
-.journey-left .section-badge{
-
-    margin-bottom:10px;
-    font-size:13px;
+    border-bottom:
+        1px solid #E5E7EB;
 
 }
 
-.journey-right{
-    flex:1.8;
-}
 
-/* Heading */
+.hub-video-inner{
 
-.journey-left h2{
+    width:
+        100%;
 
-    font-family:
-        "Poppins",
-        sans-serif;
+    max-width:
+        1200px;
 
-    font-size:32px;
-
-    font-weight:700;
-
-    line-height:1.2;
-
-    color:#0B1F3A;
-
-    margin:10px 0;
-}
-
-.journey-left p{
-    font-size:15px;
-    line-height:1.8;
-    color:#475569;
-}
-
-/* Timeline */
-
-.journey-timeline{
-    position:relative;
-    width:100%;
-}
-
-.journey-timeline::before{
-    content:"";
-    position:absolute;
-    left:33px;
-    top:0;
-    bottom:0;
-    width:4px;
-    opacity:.30;
-    background:linear-gradient(
-        to bottom,
-        #16A34A,
-        #0B2E6D
-    );
-}
-
-.journey-step{
-    display:flex;
-    align-items:flex-start;
-    gap:22px;
-    margin-bottom:32px;
-    position:relative;
-}
-
-.journey-step:last-child{
-    margin-bottom:0;
-}
-
-/* Step Number */
-
-.step-number{
-    width:70px;
-    height:70px;
-    min-width:70px;
-
-    border-radius:50%;
-
-    background:#16A34A;
-
-    color:#ffffff;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-size:20px;
-    font-weight:700;
-
-    z-index:2;
-
-    box-shadow:0 10px 30px rgba(22,163,74,.20);
-}
-
-/* Card */
-
-.step-content{
-
-    flex:1;
-
-    min-height:100px;
-
-    background:#ffffff;
-
-    padding:14px 22px;
-
-    border-radius:20px;
-
-    border:1px solid #E5E7EB;
-
-    box-shadow:0 8px 24px rgba(15,23,42,.06);
-
-    transition:
-        transform .35s ease,
-        box-shadow .35s ease,
-        border-color .35s ease;
-}
-
-.step-content:hover{
-
-    transform:translateY(-6px);
-
-    border-color:#16A34A;
-
-    box-shadow:0 18px 36px rgba(15,23,42,.10);
+    margin:
+        0 auto;
 
 }
 
-.step-content h3{
 
-    font-family:
-        "Poppins",
-        sans-serif;
-
-    font-size:18px;
-
-    color:#0B1F3A;
-
-    margin-bottom:12px;
-
-    font-weight:700;
-}
-
-.step-content p{
-
-    font-size:15px;
-
-    line-height:1.8;
-
-    color:#475569;
-
-}
-
-/* ==========================================
-   NORMAL PHONE — LEARNING JOURNEY
-========================================== */
-
-@media (max-width: 768px) {
-
-    /* --------------------------------------
-       INTRO
-    -------------------------------------- */
-
-    .journey-left {
-        width: 100%;
-        max-width: 100%;
-        padding-top: 0;
-        text-align: left;
-    }
-
-
-    /* --------------------------------------
-       BADGE — LEARNING JOURNEY
-    -------------------------------------- */
-
-    .journey-left .section-badge {
-
-        margin-bottom:
-            6px;
-            font-size: 10px;
-
-    }
-
-
-    /* --------------------------------------
-       MAIN HEADING
-    -------------------------------------- */
-
-    .journey-left h2{
-
-        font-family:
-            "Poppins",
-            sans-serif;
-
-        font-size:
-            20px;
-
-        font-weight:
-            700;
-
-        line-height:
-            1.18;
-
-        margin:
-            4px 0 12px;
-
-    }
-
-
-    /* --------------------------------------
-       INTRO DESCRIPTION
-    -------------------------------------- */
-
-    .journey-left p{
-
-        font-size:
-            12px;
-
-        line-height:
-            1.6;
-
-        margin:
-            0;
-
-    }
-
-
-    /* --------------------------------------
-       JOURNEY STEP TITLE
-    -------------------------------------- */
-
-    .step-content {
-
-        min-height:
-            auto;
-
-        padding:
-            15px 20px;
-
-        border-radius:
-            18px;
-
-    }
-
-    .step-content h3{
-
-        font-size:
-            13px;
-
-        line-height:
-            1.25;
-
-        margin-bottom:
-            8px;
-
-    }
-
-
-    /* --------------------------------------
-       JOURNEY STEP DESCRIPTION
-    -------------------------------------- */
-
-    .step-content p{
-
-        font-size:
-            12px;
-
-        line-height:
-            1.5;
-
-        margin:
-            0;
-
-    }
-
-}
-
-/* ==========================================
-   MOBILE — COMPACT LEARNING JOURNEY
-========================================== */
-
-@media(max-width:900px){
-
-    .learning-journey{
-        padding:50px 22px 65px;
-    }
-
-    .featured-modules{
-        padding:35px 22px 70px;
-    }
-
-    .journey-content{
-        flex-direction:column;
-        gap:28px;
-    }
-
-    /* --------------------------------------
-       INTRO
-    -------------------------------------- */
-
-    .journey-left{
-        width:100%;
-        max-width:100%;
-        padding-top:0;
-        text-align:left;
-    }
-
-    .journey-left .section-badge {
+.hub-video-label{
 
     margin-bottom:
-        6px;
+        14px;
 
 }
 
-    .journey-left h2 {
+
+.hub-video-eyebrow{
+
+    display:
+        inline-block;
+
+    margin-bottom:
+        4px;
+
+    color:
+        #16A34A;
 
     font-family:
         "Poppins",
         sans-serif;
 
-    font-size:20px;
-    line-height:1.18;
-    margin:4px 0 12px;
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1.2px;
+
 }
 
-    .journey-left p{
-    font-size:12px;
-    line-height:1.6;
-    margin:0;
+
+.hub-video-label h2{
+
+    margin:
+        0 0 4px;
+
+    color:
+        #0B1F3A;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size:
+        22px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.2;
+
 }
 
-    /* --------------------------------------
-       TIMELINE
-    -------------------------------------- */
 
-    .journey-right{
-        width:100%;
-    }
+.hub-video-label p{
 
-    .journey-timeline{
-        width:100%;
-    }
+    margin:
+        0;
 
-    .journey-timeline::before{
-        left:27px;
-        width:3px;
-        top:0;
-        bottom:0;
-    }
+    color:
+        #64748B;
 
-    /* --------------------------------------
-       JOURNEY STEP
-    -------------------------------------- */
+    font-size:
+        11px;
 
-    .journey-step{
-        gap:16px;
-        margin-bottom:28px;
-        align-items:flex-start;
-    }
+    line-height:
+        1.5;
 
-    /* --------------------------------------
-       NUMBER
-    -------------------------------------- */
+}
 
-    .step-number{
-        width:54px;
-        height:54px;
-        min-width:54px;
 
-        font-size:14px;
+.hub-video-banner{
 
-        box-shadow:
-            0 8px 22px rgba(22,163,74,.18);
-    }
+    width:
+        100%;
 
-    /* --------------------------------------
-       STEP CARD
-    -------------------------------------- */
+    overflow:
+        hidden;
 
-    .step-content{
-        min-height:auto;
+    border:
+        1px solid #E2E8F0;
 
-        padding:20px 20px;
+    border-radius:
+        18px;
 
-        border-radius:18px;
-    }
+    background:
+        #F8FAFC;
 
-    .step-content h3{
-        font-size:13px;
-        line-height:1.25;
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.055);
 
-        margin-bottom:8px;
-    }
+}
 
-    .step-content p{
-        font-size:12px;
-        line-height:1.6;
 
-        margin:0;
-    }
+.hub-video-link{
 
-    .journey-step:last-child{
-        margin-bottom:0;
-    }
+    display:
+        block;
+
+    width:
+        100%;
+
+    text-decoration:
+        none;
+
+    line-height:
+        0;
+
+}
+
+
+.hub-video-image{
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        auto;
+
+    object-fit:
+        contain;
+
+}
+
+@media (max-width:767px){
+
+    /* =========================================================
+       VIDEO SECTION — MOBILE
+       ========================================================= */
+
+.hub-video-section{
+
+    padding:
+        24px 18px 28px;
+
+}
+
+
+.hub-video-label{
+
+    margin-bottom:
+        12px;
+
+}
+
+
+.hub-video-eyebrow{
+
+    margin-bottom:
+        3px;
+
+    font-size:
+        9px;
+
+}
+
+
+.hub-video-label h2{
+
+    margin:
+        0 0 4px;
+
+    font-size:
+        20px;
+
+    line-height:
+        1.2;
+
+}
+
+
+.hub-video-label p{
+
+    font-size:
+        11px;
+
+    line-height:
+        1.45;
+
+}
+
+
+.hub-video-banner{
+
+    border-radius:
+        15px;
+
+}
+
+
+.hub-video-image{
+
+    width:
+        100%;
+
+    height:
+        auto;
+
+    object-fit:
+        contain;
+
+}
 
 }
 
@@ -8222,33 +8037,6 @@ section {
 
     }
 
-    /* ==========================================
-       LEARNING JOURNEY — SMALL PHONE
-    ========================================== */
-
-    .step-content h3{
-
-        font-size:18px;
-
-        line-height:1.25;
-
-        margin-bottom:8px;
-
-    }
-
-    .step-content p{
-
-        font-size:13px;
-
-        line-height:1.5;
-
-    }
-
-    .step-content{
-
-        padding:14px 16px;
-
-    }
 
     /* ==========================================
    FEATURED MODULES — SMALL PHONE
