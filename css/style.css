@@ -438,7 +438,7 @@ a {
 
 
 /* =========================================================
-   7. HERO — DESKTOP / BASE
+   11. HERO — BASE
 ========================================================= */
 
 .rc2-hero {
@@ -491,6 +491,10 @@ a {
 }
 
 
+/* =========================================================
+   12. HERO INNER
+========================================================= */
+
 .rc2-hero-inner {
 
     position:
@@ -529,6 +533,10 @@ a {
 }
 
 
+/* =========================================================
+   13. HERO CONTENT
+========================================================= */
+
 .rc2-hero-content {
 
     position:
@@ -544,7 +552,7 @@ a {
 
 
 /* =========================================================
-   8. HERO BADGE
+   14. HERO BADGE
 ========================================================= */
 
 .rc2-hero-badge {
@@ -619,7 +627,7 @@ a {
 
 
 /* =========================================================
-   9. HERO TYPOGRAPHY
+   15. HERO HEADING
 ========================================================= */
 
 .rc2-hero h1 {
@@ -657,6 +665,10 @@ a {
 }
 
 
+/* =========================================================
+   16. HERO DESCRIPTION
+========================================================= */
+
 .rc2-hero-description {
 
     max-width:
@@ -678,7 +690,7 @@ a {
 
 
 /* =========================================================
-   10. HERO VALUE POINTS
+   17. HERO VALUE POINTS
 ========================================================= */
 
 .rc2-value-points {
@@ -716,7 +728,8 @@ a {
         #FFFFFF;
 
     border:
-        1px solid var(--rc2-border);
+        1px solid
+        var(--rc2-border);
 
     border-radius:
         9px;
@@ -748,7 +761,7 @@ a {
 
 
 /* =========================================================
-   11. HERO ACTIONS
+   18. HERO ACTIONS
 ========================================================= */
 
 .rc2-hero-actions {
@@ -771,173 +784,8 @@ a {
 }
 
 
-.rc2-primary-cta,
-.rc2-secondary-cta {
-
-    transition:
-        transform .28s var(--rc2-transition),
-        box-shadow .28s ease,
-        border-color .28s ease,
-        background .28s ease;
-
-}
-
-
-.rc2-primary-cta {
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    height:
-        50px;
-
-    width:
-        230px;
-
-    min-height:
-        40px;
-
-    padding:
-        0 14px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    border:
-        none;
-
-    border-radius:
-        10px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #16A34A,
-            #0A8754
-        );
-
-    color:
-        #FFFFFF;
-
-    font-size:
-        18px;
-
-    font-weight:
-        400;
-
-    line-height:
-        1;
-
-    white-space:
-        nowrap;
-
-    cursor:
-        pointer;
-
-    box-shadow:
-        0 8px 20px
-        rgba(22,163,74,.20);
-
-}
-
-
-.rc2-primary-cta:hover {
-
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 16px 32px
-        rgba(22,163,74,.26);
-
-}
-
-
-.rc2-primary-cta:active,
-.rc2-secondary-cta:active {
-
-    transform:
-        translateY(0);
-
-}
-
-
-.rc2-secondary-cta {
-
-    min-height:
-        45px;
-
-    padding:
-        0 17px;
-
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    gap:
-        7px;
-
-    border:
-        1px solid var(--rc2-border);
-
-    border-radius:
-        13px;
-
-    background:
-        #FFFFFF;
-
-    color:
-        var(--rc2-navy);
-
-    text-decoration:
-        none;
-
-    font-size:
-        13px;
-
-    font-weight:
-        700;
-
-}
-
-
-.rc2-secondary-cta:hover {
-
-    transform:
-        translateY(-2px);
-
-    border-color:
-        rgba(22,163,74,.42);
-
-    box-shadow:
-        0 10px 25px
-        rgba(15,23,42,.08);
-
-}
-
-
-.rc2-secondary-cta svg {
-
-    width:
-        17px;
-
-    height:
-        17px;
-
-}
-
-
 /* =========================================================
-   12. HERO TRUST LINE
+   19. HERO TRUST LINE
 ========================================================= */
 
 .rc2-trust-line {
@@ -998,8 +846,13 @@ a {
 
 
 /* =========================================================
-   13. HERO PRODUCT EXHIBITION
+   20. HERO PRODUCT EXHIBITION
 ========================================================= */
+
+
+/* ---------------------------------------------------------
+   PRODUCT CONTAINER
+--------------------------------------------------------- */
 
 .rc2-hero-product {
 
@@ -1029,6 +882,10 @@ a {
 
 }
 
+
+/* ---------------------------------------------------------
+   UNBOXING STAGE
+--------------------------------------------------------- */
 
 .rc2-unboxing-stage {
 
@@ -1075,9 +932,14 @@ a {
         );
 
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.08),
-        inset 0 -45px 70px rgba(0,0,0,.24),
-        0 30px 70px rgba(15,23,42,.16);
+        inset 0 1px 0
+        rgba(255,255,255,.08),
+
+        inset 0 -45px 70px
+        rgba(0,0,0,.24),
+
+        0 30px 70px
+        rgba(15,23,42,.16);
 
     transform:
         translate3d(0,-35px,0);
@@ -1085,57 +947,9 @@ a {
 }
 
 
-/* =========================================================
-   14. PODIUM
-========================================================= */
-
-.rc2-unboxing-stage::before {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    left:
-        50%;
-
-    bottom:
-        18px;
-
-    width:
-        88%;
-
-    height:
-        150px;
-
-    transform:
-        translateX(-50%);
-
-    background-image:
-        url("SAMRAMBA_RC2_Podium.png");
-
-    background-repeat:
-        no-repeat;
-
-    background-position:
-        center bottom;
-
-    background-size:
-        contain;
-
-    pointer-events:
-        none;
-
-    z-index:
-        3;
-
-}
-
-
-/* =========================================================
-   15. STAGE FLOOR LINE
-========================================================= */
+/* ---------------------------------------------------------
+   STAGE FLOOR
+--------------------------------------------------------- */
 
 .rc2-unboxing-stage::after {
 
@@ -1174,9 +988,42 @@ a {
 }
 
 
-/* =========================================================
-   16. SPOTLIGHT
-========================================================= */
+/* ---------------------------------------------------------
+   STAGE LIGHTING
+--------------------------------------------------------- */
+
+.rc2-unboxing-stage::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+
+    background:
+        radial-gradient(
+            ellipse 48% 38% at 50% 10%,
+            rgba(255,255,255,.20) 0%,
+            rgba(220,235,255,.09) 28%,
+            rgba(7,24,45,.35) 52%,
+            transparent 76%
+        );
+
+    z-index:
+        1;
+
+}
+
+
+/* ---------------------------------------------------------
+   SPOTLIGHT
+--------------------------------------------------------- */
 
 .rc2-unboxing-spotlight {
 
@@ -1222,9 +1069,9 @@ a {
 }
 
 
-/* =========================================================
-   17. PRODUCT SHADOW
-========================================================= */
+/* ---------------------------------------------------------
+   PRODUCT SHADOW
+--------------------------------------------------------- */
 
 .rc2-unboxing-shadow {
 
@@ -1264,9 +1111,9 @@ a {
 }
 
 
-/* =========================================================
-   18. PODIUM IMAGE
-========================================================= */
+/* ---------------------------------------------------------
+   PODIUM
+--------------------------------------------------------- */
 
 .rc2-unboxing-podium {
 
@@ -1318,9 +1165,9 @@ a {
 }
 
 
-/* =========================================================
-   19. PRODUCT
-========================================================= */
+/* ---------------------------------------------------------
+   PRODUCT WRAPPER
+--------------------------------------------------------- */
 
 .rc2-unboxing-product {
 
@@ -1353,6 +1200,10 @@ a {
 
 }
 
+
+/* ---------------------------------------------------------
+   PRODUCT IMAGE
+--------------------------------------------------------- */
 
 .rc2-product-image {
 
@@ -1393,10 +1244,9 @@ a {
 }
 
 
-/* =========================================================
-   20. OBSOLETE PRODUCT BADGE
-   The current exhibition no longer uses it.
-========================================================= */
+/* ---------------------------------------------------------
+   OBSOLETE PRODUCT EFFECT
+--------------------------------------------------------- */
 
 .rc2-product-badge {
 
@@ -1410,29 +1260,9 @@ a {
    21. OVERHEAD VELVET CURTAIN
 ========================================================= */
 
-.rc2-unboxing-cloth {
-
-    position:
-        absolute;
-
-    inset:
-        0;
-
-    z-index:
-        5;
-
-    pointer-events:
-        none;
-
-    overflow:
-        visible;
-
-}
-
-
-/* =========================================================
+/* ---------------------------------------------------------
    FOUR-HEADED NAVY VELVET OVERHEAD VALANCE
-========================================================= */
+--------------------------------------------------------- */
 
 .rc2-velvet-valance {
 
@@ -1459,6 +1289,10 @@ a {
 
 }
 
+
+/* ---------------------------------------------------------
+   INDIVIDUAL VELVET PANELS
+--------------------------------------------------------- */
 
 .rc2-valance-panel {
 
@@ -1497,7 +1331,9 @@ a {
 }
 
 
-/* Velvet fold texture */
+/* ---------------------------------------------------------
+   VELVET FOLD TEXTURE
+--------------------------------------------------------- */
 
 .rc2-valance-panel::after {
 
@@ -1532,9 +1368,9 @@ a {
 }
 
 
-/* =========================================================
+/* ---------------------------------------------------------
    FOUR OVERLAPPING VALANCE HEADS
-========================================================= */
+--------------------------------------------------------- */
 
 .rc2-valance-1 {
 
@@ -1579,56 +1415,267 @@ a {
 
 }
 
-
 /* =========================================================
-   FRONT VELVET DRAPE
-   Keep current working curtain system.
+   DESKTOP HERO
+   901px and above
 ========================================================= */
 
-.rc2-cloth-front {
+@media (min-width: 901px) {
 
-    left:
-        50%;
+    /* -----------------------------------------
+       HERO
+    ----------------------------------------- */
 
-    bottom:
-        12%;
+    .rc2-hero {
 
-    width:
-        88%;
+        padding:
+            70px 0 60px;
 
-    height:
-        auto;
+    }
 
-    z-index:
-        7;
 
-    transform:
-        translateX(-50%);
+    /* -----------------------------------------
+       HERO GRID
+    ----------------------------------------- */
 
-    transform-origin:
-        50% 0%;
+    .rc2-hero-inner {
 
-    pointer-events:
-        none;
+        grid-template-columns:
+            1.05fr .95fr;
 
-    display:
-        block;
+        align-items:
+            center;
 
-    max-width:
-        none;
+        gap:
+            60px;
 
-    filter:
-        drop-shadow(
-            0 16px 22px
-            rgba(0,0,0,.30)
-        );
+    }
 
-    will-change:
-        transform,
-        opacity;
+
+    /* -----------------------------------------
+       HERO INTRO
+    ----------------------------------------- */
+
+    .rc2-hero-intro {
+
+        grid-column:
+            1;
+
+        grid-row:
+            1;
+
+        transform:
+            translateY(0);
+
+    }
+
+
+    /* -----------------------------------------
+       PRODUCT COLUMN
+    ----------------------------------------- */
+
+    .rc2-hero-product {
+
+        grid-column:
+            2;
+
+        grid-row:
+            1;
+
+        min-height:
+            520px;
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        transform:
+            translateY(0);
+
+    }
+
+
+    /* -----------------------------------------
+       EXHIBITION STAGE
+    ----------------------------------------- */
+
+    .rc2-unboxing-stage {
+
+        width:
+            min(100%, 560px);
+
+        min-height:
+            520px;
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        border-radius:
+            30px;
+
+        transform:
+            translate3d(0,0,0);
+
+    }
+
+
+    /* -----------------------------------------
+       PRODUCT
+    ----------------------------------------- */
+
+    .rc2-unboxing-product {
+
+        position:
+            relative;
+
+        transform:
+            translateY(-18px);
+
+        z-index:
+            5;
+
+    }
+
+
+    /* -----------------------------------------
+       PRODUCT IMAGE
+    ----------------------------------------- */
+
+    .rc2-product-image {
+
+        display:
+            block;
+
+        max-height:
+            500px;
+
+        width:
+            auto;
+
+        object-fit:
+            contain;
+
+    }
+
+
+    /* -----------------------------------------
+       PODIUM
+    ----------------------------------------- */
+
+    .rc2-unboxing-podium {
+
+        position:
+            absolute;
+
+        left:
+            50%;
+
+        bottom:
+            28px;
+
+        width:
+            88%;
+
+        max-width:
+            500px;
+
+        height:
+            auto;
+
+        transform:
+            translateX(-50%);
+
+        z-index:
+            4;
+
+        pointer-events:
+            none;
+
+    }
+
+
+    /* -----------------------------------------
+       OVERHEAD CURTAIN
+    ----------------------------------------- */
+
+    .rc2-unboxing-cloth {
+
+        z-index:
+            7;
+
+    }
 
 }
 
+/* =========================================================
+   TABLET HERO
+   768px–900px
+========================================================= */
+
+@media (min-width: 768px) and (max-width: 900px) {
+
+    /* -----------------------------------------
+       PRODUCT COLUMN
+    ----------------------------------------- */
+
+    .rc2-hero-product {
+
+        min-height:
+            480px;
+
+    }
+
+
+    /* -----------------------------------------
+       EXHIBITION STAGE
+    ----------------------------------------- */
+
+    .rc2-unboxing-stage {
+
+        width:
+            min(100%, 520px);
+
+        min-height:
+            480px;
+
+    }
+
+
+    /* -----------------------------------------
+       PRODUCT
+    ----------------------------------------- */
+
+    .rc2-unboxing-product {
+
+        width:
+            min(92%, 460px);
+
+    }
+
+
+    /* -----------------------------------------
+       PRODUCT IMAGE
+    ----------------------------------------- */
+
+    .rc2-product-image {
+
+        max-height:
+            450px;
+
+    }
+
+}
 
 /* =========================================================
    22. DESKTOP POSITIONING
@@ -2008,60 +2055,6 @@ a {
 
     }
 
-
-    /* Front curtain */
-
-    .rc2-cloth-front {
-
-        left:
-            50%;
-
-        bottom:
-            4%;
-
-        width:
-            94%;
-
-        transform:
-            translateX(-50%);
-
-    }
-
-
-    /* Side curtain pieces */
-
-    .rc2-cloth-left {
-
-        left:
-            -14%;
-
-        top:
-            3%;
-
-        width:
-            67%;
-
-        z-index:
-            6;
-
-    }
-
-
-    .rc2-cloth-right {
-
-        right:
-            -14%;
-
-        top:
-            3%;
-
-        width:
-            67%;
-
-        z-index:
-            6;
-
-    }
 
 
     /* Value points */
@@ -2525,39 +2518,6 @@ a {
 
         bottom:
             12px;
-
-    }
-
-
-    .rc2-cloth-left {
-
-        left:
-            -17%;
-
-        width:
-            70%;
-
-    }
-
-
-    .rc2-cloth-right {
-
-        right:
-            -17%;
-
-        width:
-            70%;
-
-    }
-
-
-    .rc2-cloth-front {
-
-        bottom:
-            4%;
-
-        width:
-            97%;
 
     }
 
@@ -9266,15 +9226,7 @@ section {
 }
 
 
-/* =========================================================
-   RC2.2 — MOBILE MENU
-========================================================= */
 
-.rc2-mobile-menu {
-
-    display: none;
-
-}
 
 
 /* =========================================================
@@ -11227,265 +11179,10 @@ a {
 }
 
 /* =========================================================
-   SAMRAMBA RC2
-   REAL VELVET FABRIC UNVEILING
-========================================================= */
-
-.rc2-unboxing-cloth {
-
-    position: absolute;
-
-    inset: 0;
-
-    z-index: 5;
-
-    pointer-events: none;
-
-    overflow: visible;
-
-}
-
-
-/* =========================================================
-   INDIVIDUAL VELVET SWAGS
-========================================================= */
-
-.rc2-valance-panel {
-
-    position: absolute;
-
-    top: 0;
-
-    height: 112px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #14284a 0%,
-            #0d1d38 35%,
-            #08162d 68%,
-            #050f21 100%
-        );
-
-    box-shadow:
-        inset 0 3px 5px rgba(255,255,255,.045),
-        inset 0 -10px 15px rgba(0,0,0,.30),
-        0 8px 14px rgba(0,0,0,.30);
-
-}
-
-/* =========================================================
-   FOUR-HEADED NAVY VELVET OVERHEAD CURTAIN
-========================================================= */
-
-.rc2-velvet-valance {
-    position: absolute;
-
-    top: -20px;
-
-    left: -2%;
-    right: -2%;
-
-    height: 145px;
-
-    z-index: 7;
-
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   FOUR VELVET SWAGS
-========================================================= */
-
-.rc2-valance-panel {
-    position: absolute;
-
-    top: 0;
-
-    height: 120px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #071a35 0%,
-            #06152d 30%,
-            #061329 60%,
-            #030d20 100%
-        );
-
-    box-shadow:
-        inset 0 3px 6px rgba(255,255,255,.045),
-        inset 0 -12px 18px rgba(0,0,0,.34),
-        0 8px 16px rgba(0,0,0,.34);
-}
-
-
-/* =========================================================
-   FOUR OVERLAPPING HEADS
-========================================================= */
-
-.rc2-valance-1 {
-    left: 0;
-    width: 27%;
-}
-
-.rc2-valance-2 {
-    left: 24%;
-    width: 27%;
-}
-
-.rc2-valance-3 {
-    left: 49%;
-    width: 27%;
-}
-
-.rc2-valance-4 {
-    right: 0;
-    width: 27%;
-}
-
-
-/* =========================================================
-   DEEP CURVED SWAG
-========================================================= */
-
-.rc2-valance-panel {
-    border-radius:
-        0 0 50% 50% / 0 0 72% 72%;
-}
-
-
-/* =========================================================
-   VELVET FOLDS
-========================================================= */
-
-.rc2-valance-panel::after {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    border-radius: inherit;
-
-    background:
-        repeating-linear-gradient(
-            90deg,
-            transparent 0%,
-            rgba(40,75,145,.12) 4%,
-            transparent 9%,
-            rgba(0,0,0,.18) 14%,
-            transparent 20%
-        );
-
-    opacity: .9;
-
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   VELVET FOLDING
-========================================================= */
-
-.rc2-valance-panel::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    border-radius:
-        inherit;
-
-    background:
-        repeating-linear-gradient(
-            90deg,
-            transparent 0%,
-            rgba(255,255,255,.035) 5%,
-            transparent 10%,
-            rgba(0,0,0,.13) 15%,
-            transparent 21%
-        );
-
-    opacity: .8;
-
-}
-
-
-/* =========================================================
-   FRONT VELVET DRAPE — CORRECTED POSITION
-========================================================= */
-
-.rc2-cloth-front {
-
-    left: 50%;
-
-    bottom: 12%;
-
-    width: 88%;
-
-    height: auto;
-
-    z-index: 7;
-
-    transform:
-        translateX(-50%);
-
-    transform-origin:
-        50% 0%;
-
-    pointer-events: none;
-
-    display: block;
-
-    max-width: none;
-
-    filter:
-        drop-shadow(
-            0 16px 22px
-            rgba(0,0,0,.30)
-        );
-
-    will-change:
-        transform,
-        opacity;
-}
-
-
-/* =========================================================
    MOBILE — PRIMARY EXPERIENCE
 ========================================================= */
 
 @media (max-width: 767px) {
-
-    .rc2-unboxing-cloth {
-        overflow: visible;
-    }
-
-    .rc2-cloth-left {
-        left: -14%;
-        top: 3%;
-        width: 67%;
-        z-index: 6;
-    }
-
-    .rc2-cloth-right {
-        right: -14%;
-        top: 3%;
-        width: 67%;
-        z-index: 6;
-    }
-
-    .rc2-cloth-front {
-        left: 50%;
-        bottom: 4%;
-        width: 94%;
-        z-index: 7;
-        transform: translateX(-50%);
-    }
 
     /* -----------------------------------------
        MOBILE HERO PRODUCT — FINAL OVERRIDE
@@ -11497,29 +11194,6 @@ a {
         grid-area: product;
     }
 
-}
-
-
-/* =========================================================
-   SMALL PHONES
-========================================================= */
-
-@media (max-width: 420px) {
-
-    .rc2-cloth-left {
-        left: -17%;
-        width: 70%;
-    }
-
-    .rc2-cloth-right {
-        right: -17%;
-        width: 70%;
-    }
-
-    .rc2-cloth-front {
-        bottom: 4%;
-        width: 97%;
-    }
 }
 
 
@@ -13145,25 +12819,6 @@ a {
         z-index: 4;
 
         pointer-events: none;
-    }
-
-
-    /* -----------------------------------------------------
-       OVERHEAD / CLOTH
-    ----------------------------------------------------- */
-
-    .rc2-unboxing-cloth {
-        z-index: 7;
-    }
-
-
-    /* -----------------------------------------------------
-       REVEAL HINT
-    ----------------------------------------------------- */
-
-    .rc2-unboxing-hint {
-        bottom: 22px;
-        z-index: 10;
     }
 
 }
