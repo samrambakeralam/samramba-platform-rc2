@@ -6982,200 +6982,169 @@ transform:translateY(0px);
    RESPONSIVE
 ===================================================== */
 
-@media(max-width:992px){
+@media (max-width: 992px) {
 
-    .mission-content{
-
-        grid-template-columns:1fr;
-
-        gap:50px;
-
+    .mission-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
     }
 
-    .mission-profile{
-
-        position:static;
-
+    .mission-profile {
+        position: static;
     }
 
-    .mission-values{
-
-        grid-template-columns:1fr;
-
-        gap:22px;
-
+    .mission-values {
+        grid-template-columns: 1fr;
+        gap: 22px;
     }
 
-    .mission-message blockquote{
-
-        font-size:24px;
-
-        padding:24px;
-
+    .mission-message blockquote {
+        font-size: 24px;
+        padding: 24px;
     }
 
 }
 
-@media(max-width:768px){
 
-    .mission-section{
+/* =====================================================
+   NORMAL MOBILE
+   421px – 576px
+===================================================== */
 
-        padding:32px 6% 90px;
+@media (min-width: 421px) and (max-width: 576px) {
 
+    .mission-section {
+        padding: 32px 6% 90px;
     }
 
-    .mission-section h2{
-
-        font-size:32px;
-
+    .mission-section h2 {
+        font-size: 32px;
     }
 
-    .mission-section .section-description{
-
-        font-size:15px;
-
+    .mission-section .section-description {
+        font-size: 15px;
     }
 
-    .profile-image{
-
-        width:180px;
-
-        height:180px;
-
+    .profile-image {
+        width: 180px;
+        height: 180px;
     }
 
-    .mission-profile h3{
-
-        font-size:15px;
-
+    .mission-profile h3 {
+        font-size: 15px;
     }
 
-    .mission-message{
-
-        font-size:14px;
-
+    .mission-message {
+        font-size: 14px;
     }
 
-    .value-card{
-
-        padding:30px 24px;
-
+    .value-card {
+        padding: 30px 24px;
     }
 
-    /* ==========================================
-   VISION • MISSION • PROMISE
-   MOBILE COVER-FLOW
-========================================== */
 
-.mission-values{
+    /* ------------------------------------------
+       MOBILE COVER-FLOW
+    ------------------------------------------ */
 
-    position:relative;
+    .mission-values {
+        position: relative;
+        display: block;
+        height: 360px;
+        padding: 20px 0 30px;
+        overflow: hidden;
+        touch-action: pan-y;
+        user-select: none;
+        -webkit-user-select: none;
+        perspective: 1000px;
+    }
 
-    display:block;
+    .mission-values .value-card {
+        position: absolute;
+        top: 20px;
+        left: 50% !important;
+        width: 78%;
+        margin: 0 !important;
 
-    height:360px;
+        transform:
+            translateX(-50%)
+            scale(.92);
 
-    padding:20px 0 30px;
+        opacity: .65;
 
-    overflow:hidden;
+        transition:
+            transform .55s cubic-bezier(.22,.61,.36,1),
+            opacity .55s ease,
+            box-shadow .55s ease;
+    }
 
-    touch-action: pan-y;
 
-    user-select: none;
+    /* LEFT CARD */
 
-    -webkit-user-select: none;
+    .mission-values .value-card.mvc-left {
+        left: 50% !important;
 
-    perspective: 1000px;
+        transform:
+            translateX(-88%)
+            scale(.92)
+            rotateY(8deg);
+
+        opacity: .65;
+        z-index: 1;
+    }
+
+
+    /* CENTRE CARD */
+
+    .mission-values .value-card.mvc-center {
+        left: 50% !important;
+
+        transform:
+            translateX(-50%)
+            scale(1.05);
+
+        opacity: 1;
+        z-index: 3;
+
+        box-shadow:
+            0 24px 55px rgba(15,23,42,.18);
+    }
+
+
+    /* RIGHT CARD */
+
+    .mission-values .value-card.mvc-right {
+        left: 50% !important;
+
+        transform:
+            translateX(-12%)
+            scale(.92)
+            rotateY(-8deg);
+
+        opacity: .65;
+        z-index: 1;
+    }
 
 }
 
 
-.mission-values .value-card{
+/* =====================================================
+   SMALL MOBILE
+   420px AND BELOW
+===================================================== */
 
-    position:absolute;
+@media (max-width: 420px) {
 
-    top:20px;
+    .mission-section {
+        padding: 18px 6% 70px;
+    }
 
-    left:50% !important;
-
-    width:78%;
-
-    margin:0 !important;
-
-    transform:
-        translateX(-50%)
-        scale(.92);
-
-    opacity:.65;
-
-    transition:
-    transform .55s cubic-bezier(.22,.61,.36,1),
-    opacity .55s ease,
-    box-shadow .55s ease;
-
-}
-
-
-/* ------------------------------------------
-   LEFT CARD
------------------------------------------- */
-
-.mission-values .value-card.mvc-left{
-
-    left:50% !important;
-
-    transform:
-    translateX(-88%)
-    scale(.92)
-    rotateY(8deg);
-
-    opacity:.65;
-
-    z-index:1;
-
-}
-
-
-/* ------------------------------------------
-   CENTRE CARD
------------------------------------------- */
-
-.mission-values .value-card.mvc-center{
-
-    left:50% !important;
-
-    transform:
-        translateX(-50%)
-        scale(1.05);
-
-    opacity:1;
-
-    z-index:3;
-
-    box-shadow:
-        0 24px 55px rgba(15,23,42,.18);
-
-}
-
-
-/* ------------------------------------------
-   RIGHT CARD
------------------------------------------- */
-
-.mission-values .value-card.mvc-right{
-
-    left:50% !important;
-
-    transform:
-    translateX(-12%)
-    scale(.92)
-    rotateY(-8deg);
-
-    opacity:.65;
-
-    z-index:1;
-
-}
+    .mission-values .value-card {
+        width: 72%;
+        height: 300px;
+        box-sizing: border-box;
+        padding: 22px 18px;
+    }
 
 }
 
@@ -7667,216 +7636,154 @@ transform:translateY(0px);
 
 
 /* ==========================================
-   MOBILE
+   TABLET
+   577px – 992px
 ========================================== */
 
-@media(max-width:768px){
+@media (min-width: 577px) and (max-width: 992px) {
 
-    .pricing-section .section-header h2{
-
-    font-family:'Poppins', sans-serif;
-
-     font-size:20px;
-
-}
-
-.pricing-section .section-header p{
-
-    font-size:12px;
-
-    }
-
-
-    .pricing-section{
-
-         padding:50px 0 90px;
-
-    }
-
-    .pricing-card{
-
-        padding:40px 28px;
-
-    }
-
-    .amount{
-
-        font-size:4rem;
-
+    .pricing-wrapper {
+        grid-template-columns: 1fr;
+        gap: 50px;
     }
 
 }
+
 
 /* ==========================================
-   PRICING CARD — SMALL PHONE POLISH
-   Only for small mobile screens
+   NORMAL MOBILE
+   421px – 576px
 ========================================== */
 
-@media (max-width:480px){
+@media (min-width: 421px) and (max-width: 576px) {
 
-    .pricing-section{
-
-         padding-top:45px;
-
+    .pricing-section {
+        padding: 50px 0 90px;
     }
 
-    .pricing-card{
-
-        max-width:calc(100% - 12px);
-
-        padding:20px 18px;
-
-        border-radius:18px;
-
+    .pricing-section .section-header h2 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
     }
 
-
-    .pricing-badge{
-
-        top:-14px;
-
-        padding:6px 18px;
-
-        font-size:.72rem;
-
+    .pricing-section .section-header p {
+        font-size: 12px;
     }
 
-
-    .pricing-card h3{
-
-        margin-top:4px;
-
-        margin-bottom:4px;
-
-        font-size:1.3rem;
-
-        line-height:1.22;
-
+    .pricing-card {
+        padding: 40px 28px;
     }
 
-
-    .price{
-
-        margin:8px 0 2px;
-
+    .amount {
+        font-size: 4rem;
     }
 
+}
 
-    .currency{
 
-        font-size:1.75rem;
+/* ==========================================
+   SMALL MOBILE
+   420px AND BELOW
+========================================== */
 
+@media (max-width: 420px) {
+
+    .pricing-section {
+        padding: 45px 0 90px;
     }
 
-
-    .amount{
-
-        font-size:3.8rem;
-
+    .pricing-section .section-header h2 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
     }
 
-
-    .price-note{
-
-        font-size:.82rem;
-
-        margin-bottom:10px;
-
+    .pricing-section .section-header p {
+        font-size: 12px;
     }
 
-
-    .pricing-features{
-
-        margin-bottom:9px;
-
+    .pricing-card {
+        max-width: calc(100% - 12px);
+        padding: 20px 18px;
+        border-radius: 18px;
     }
 
-
-    .pricing-features li{
-
-        padding:4px 0;
-
-        font-size:12.5px;
-
-        line-height:1.2;
-
+    .pricing-badge {
+        top: -14px;
+        padding: 6px 18px;
+        font-size: .72rem;
     }
 
-
-    #pricingButton{
-
-        padding:12px 12px;
-
-        font-size:.95rem;
-
-        border-radius:11px;
-
+    .pricing-card h3 {
+        margin-top: 4px;
+        margin-bottom: 4px;
+        font-size: 1.3rem;
+        line-height: 1.22;
     }
 
-
-    .secure-payment{
-
-        margin-top:6px;
-
-        margin-bottom:0;
-
-        font-size:.68rem;
-
+    .price {
+        margin: 8px 0 2px;
     }
 
-
-    /* ==========================================
-       TRUST GRID — SMALL PHONE
-       Keep 2 × 2 arrangement
-    ========================================== */
-
-    .pricing-card .trust-grid{
-
-        display:grid;
-
-        grid-template-columns:repeat(2, minmax(0, 1fr));
-
-        gap:6px;
-
-        margin-top:8px;
-
+    .currency {
+        font-size: 1.75rem;
     }
 
-
-    .pricing-card .trust-item{
-
-        gap:4px;
-
-        padding:5px 6px;
-
-        border-radius:7px;
-
-        width:100%;
-
-        min-width:0;
-
-        box-sizing:border-box;
-
+    .amount {
+        font-size: 3.8rem;
     }
 
-
-    .trust-icon{
-
-        width:22px;
-
-        height:22px;
-
-        font-size:10px;
-
+    .price-note {
+        font-size: .82rem;
+        margin-bottom: 10px;
     }
 
+    .pricing-features {
+        margin-bottom: 9px;
+    }
 
-    .trust-item span{
+    .pricing-features li {
+        padding: 4px 0;
+        font-size: 12.5px;
+        line-height: 1.2;
+    }
 
-        font-size:.61rem;
+    #pricingButton {
+        padding: 12px 12px;
+        font-size: .95rem;
+        border-radius: 11px;
+    }
 
-        line-height:1.15;
+    .secure-payment {
+        margin-top: 6px;
+        margin-bottom: 0;
+        font-size: .68rem;
+    }
 
+    .pricing-card .trust-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+        margin-top: 8px;
+    }
+
+    .pricing-card .trust-item {
+        gap: 4px;
+        padding: 5px 6px;
+        border-radius: 7px;
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .trust-icon {
+        width: 22px;
+        height: 22px;
+        font-size: 10px;
+    }
+
+    .trust-item span {
+        font-size: .61rem;
+        line-height: 1.15;
     }
 
 }
@@ -9856,7 +9763,7 @@ section {
 
     }
 
-}
+
 
 
 
