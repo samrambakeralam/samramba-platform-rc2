@@ -45,17 +45,20 @@
 ========================================================= */
 
 html {
-
     scroll-behavior:
         smooth;
 
     -webkit-text-size-adjust:
         100%;
-
 }
 
 
 body {
+    width:
+        100%;
+
+    max-width:
+        100%;
 
     overflow-x:
         hidden;
@@ -2846,6 +2849,8 @@ a {
 
     .rc2-mobile-nav button {
 
+        display: block;
+
         width:
             100%;
 
@@ -5595,7 +5600,7 @@ transform:translateY(0px);
 .featured-grid .module-footer{
 
     margin-top:
-        auto;
+        20px;
 
 }
 
@@ -5694,6 +5699,93 @@ transform:translateY(0px);
 
     }
 
+}
+
+/* ==========================================
+   FEATURED MODULES — SMALL PHONE
+   ≤ 380px
+========================================== */
+
+@media (max-width:380px){
+
+    .featured-grid{
+        gap:10px;
+        padding-left:2px;
+        padding-right:2px;
+    }
+
+    .featured-grid .module-card{
+        flex:0 0 86% !important;
+        min-height:0 !important;
+        height:auto !important;
+        padding:14px !important;
+        border-radius:16px;
+    }
+
+    .featured-grid .module-cover{
+        height:95px !important;
+        padding:12px !important;
+        margin-bottom:14px !important;
+        border-radius:13px;
+    }
+
+    .featured-grid .module-cover-text{
+        gap:5px;
+    }
+
+    .featured-grid .module-cover-text h4{
+        font-size:13px !important;
+        line-height:1.2;
+    }
+
+    .featured-grid .module-cover .module-number{
+        font-size:9px !important;
+    }
+
+    .featured-grid .module-cover .preview-badge{
+        padding:4px 7px;
+        font-size:8px;
+    }
+
+    .featured-grid .module-card h3{
+        font-size:22px !important;
+        line-height:1.15;
+        margin-bottom:8px;
+    }
+
+    .featured-grid .module-card p{
+        font-size:13px !important;
+        line-height:1.45;
+        margin-bottom:12px;
+    }
+
+    .featured-grid .module-footer{
+        margin-top:8px !important;
+    }
+
+    .featured-grid .module-meta{
+        gap:7px;
+        margin-bottom:10px;
+        font-size:11px;
+    }
+
+    .featured-grid .module-button{
+        padding:11px;
+        font-size:10px;
+        border-radius:10px;
+    }
+}
+
+/* ==========================================
+   FEATURED MODULES — EXTRA SMALL PHONE
+   ≤ 360px
+========================================== */
+
+@media (max-width:360px){
+
+    .featured-grid .module-button{
+        font-size:14px;
+    }
 }
 
 /* =========================================================
@@ -6251,13 +6343,16 @@ transform:translateY(0px);
     }
 
 
-    .track-card {
+        .track-card {
 
         padding:
-            24px 14px;
+            16px 16px;
+
+        min-height:
+            auto;
 
         border-radius:
-            18px;
+            20px;
 
     }
 
@@ -6265,16 +6360,16 @@ transform:translateY(0px);
     .track-card i {
 
         width:
-            54px;
+            52px;
 
         height:
-            54px;
-
-        border-radius:
-            16px;
+            52px;
 
         margin-bottom:
-            16px;
+            10px;
+
+        border-radius:
+            15px;
 
     }
 
@@ -6282,13 +6377,10 @@ transform:translateY(0px);
     .track-card svg {
 
         width:
-            34px;
+            28px;
 
         height:
-            34px;
-
-        margin-bottom:
-            0;
+            28px;
 
     }
 
@@ -6296,16 +6388,16 @@ transform:translateY(0px);
     .track-card h3 {
 
         font-size:
-            12px;
+            19px;
 
         line-height:
-            1.3;
-
-        min-height:
-            52px;
+            1.25;
 
         margin-bottom:
-            10px;
+            8px;
+
+        min-height:
+            0;
 
     }
 
@@ -6313,10 +6405,13 @@ transform:translateY(0px);
     .track-card p {
 
         font-size:
-            12px;
+            13px;
 
         line-height:
-            1.55;
+            1.45;
+
+        margin:
+            0;
 
     }
 
@@ -6351,6 +6446,7 @@ transform:translateY(0px);
 
     }
 
+
     .learning-tracks-eyebrow {
 
         font-size:
@@ -6377,6 +6473,7 @@ transform:translateY(0px);
             8px;
 
     }
+
 
     .learning-tracks .section-title-center p {
 
@@ -6409,10 +6506,13 @@ transform:translateY(0px);
     .track-card {
 
         padding:
-            24px 18px;
+            16px 16px;
+
+        min-height:
+            auto;
 
         border-radius:
-            18px;
+            20px;
 
     }
 
@@ -6420,16 +6520,16 @@ transform:translateY(0px);
     .track-card i {
 
         width:
-            56px;
+            52px;
 
         height:
-            56px;
-
-        border-radius:
-            16px;
+            52px;
 
         margin-bottom:
-            16px;
+            10px;
+
+        border-radius:
+            15px;
 
     }
 
@@ -6437,10 +6537,10 @@ transform:translateY(0px);
     .track-card svg {
 
         width:
-            36px;
+            28px;
 
         height:
-            36px;
+            28px;
 
     }
 
@@ -6448,16 +6548,16 @@ transform:translateY(0px);
     .track-card h3 {
 
         font-size:
-            11px;
+            15px;
 
         line-height:
-            1.3;
-
-        min-height:
-            auto;
+            1.25;
 
         margin-bottom:
-            10px;
+            8px;
+
+        min-height:
+            0;
 
     }
 
@@ -6465,10 +6565,13 @@ transform:translateY(0px);
     .track-card p {
 
         font-size:
-            11px;
+            10px;
 
         line-height:
-            1.6;
+            1.45;
+
+        margin:
+            0;
 
     }
 
@@ -6479,7 +6582,7 @@ transform:translateY(0px);
             18px;
 
         padding:
-            7px 14px;
+            7px 13px;
 
         font-size:
             12px;
@@ -9608,48 +9711,6 @@ section {
 
 }
 
-
-/* =========================================================
-   RC2 MOBILE POLISH — MENU + OVERFLOW + CTA + IMAGE
-========================================================= */
-
-@media (max-width: 767px) {
-
-    /* -----------------------------------------
-       PREVENT HORIZONTAL PAGE SCROLL
-    ----------------------------------------- */
-
-    html,
-    body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-
-
-    /* -----------------------------------------
-       MOBILE MENU CTA
-    ----------------------------------------- */
-
-    .rc2-mobile-nav button {
-        display: block;
-
-        width: 100%;
-        max-width: 100%;
-
-        box-sizing: border-box;
-
-        margin-left: 0;
-        margin-right: 0;
-
-        padding-left: 16px;
-        padding-right: 16px;
-
-        overflow: hidden;
-    }
-
-}
-
 /* =========================================================
    RC2.3 — FEATURED CAROUSEL
    NORMAL PHONES
@@ -9742,278 +9803,6 @@ section {
 
     }
 
-/* =====================================================
-   SMALL PHONES — COMPACT FEATURED MODULES
-===================================================== */
-
-@media (max-width:380px){
-
-    .featured-grid{
-
-        gap:10px;
-
-        padding-left:2px;
-        padding-right:2px;
-
-    }
-
-
-    .featured-grid .module-card{
-
-        flex:0 0 86% !important;
-
-        min-height:0 !important;
-
-        height:auto !important;
-
-        padding:14px !important;
-
-        border-radius:16px;
-
-    }
-
-
-    .featured-grid .module-cover{
-
-        height:95px !important;
-
-        padding:12px !important;
-
-        margin-bottom:14px !important;
-
-        border-radius:13px;
-
-    }
-
-
-    .featured-grid .module-cover-text{
-
-        gap:5px;
-
-    }
-
-
-    .featured-grid .module-cover-text h4{
-
-        font-size:13px !important;
-
-        line-height:1.2;
-
-    }
-
-
-    .featured-grid .module-cover .module-number{
-
-        font-size:9px !important;
-
-    }
-
-
-    .featured-grid .module-cover .preview-badge{
-
-        padding:4px 7px;
-
-        font-size:8px;
-
-    }
-
-
-    .featured-grid .module-card h3{
-
-        font-size:22px !important;
-
-        line-height:1.15;
-
-        margin-bottom:8px;
-
-    }
-
-
-    .featured-grid .module-card p{
-
-        font-size:13px !important;
-
-        line-height:1.45;
-
-        margin-bottom:12px;
-
-    }
-
-
-    .featured-grid .module-footer{
-
-        margin-top:8px !important;
-
-    }
-
-
-    .featured-grid .module-meta{
-
-        gap:7px;
-
-        margin-bottom:10px;
-
-        font-size:11px;
-
-    }
-
-
-    .featured-grid .module-button{
-
-        padding:11px;
-
-        font-size:10px;
-
-        border-radius:10px;
-
-    }
-
-}
-
-/* =====================================================
-   FINAL MOBILE FIX — FEATURED LEARNING MODULE CARDS
-   ===================================================== */
-
-@media (max-width: 768px) {
-
-    .featured-grid .module-card {
-        flex: 0 0 88% !important;
-        min-height: 0 !important;
-        height: auto !important;
-        padding: 22px !important;
-    }
-
-    .featured-grid .module-footer {
-        margin-top: 20px !important;
-    }
-
-}
-
-
-/* =====================================================
-   SMALL PHONE — EXTRA COMPACT
-   ===================================================== */
-
-@media (max-width: 360px) {
-
-    .featured-grid {
-        gap: 10px;
-        padding-left: 2px;
-        padding-right: 2px;
-    }
-
-    .featured-grid .module-card {
-        flex: 0 0 86% !important;
-        min-height: 0 !important;
-        height: auto !important;
-        padding: 14px !important;
-        border-radius: 16px;
-    }
-
-    .featured-grid .module-cover {
-        height: 95px !important;
-        padding: 12px !important;
-        margin-bottom: 14px !important;
-        border-radius: 13px;
-    }
-
-    .featured-grid .module-cover-text {
-        gap: 5px;
-    }
-
-    .featured-grid .module-cover-text h4 {
-        font-size: 15px !important;
-        line-height: 1.2;
-    }
-
-    .featured-grid .module-cover .module-number {
-        font-size: 9px !important;
-    }
-
-    .featured-grid .module-cover .preview-badge {
-        padding: 4px 7px;
-        font-size: 8px;
-    }
-
-    .featured-grid .module-card h3 {
-        font-size: 22px !important;
-        line-height: 1.15;
-        margin-bottom: 8px;
-    }
-
-    .featured-grid .module-card p {
-        font-size: 13px !important;
-        line-height: 1.45;
-        margin-bottom: 12px;
-    }
-
-    .featured-grid .module-footer {
-        margin-top: 8px !important;
-    }
-
-    .featured-grid .module-meta {
-        gap: 7px;
-        margin-bottom: 10px;
-        font-size: 11px;
-    }
-
-    .featured-grid .module-button {
-        padding: 11px;
-        font-size: 14px;
-        border-radius: 10px;
-    }
-
-}
-
-/* ==========================================
-   LEARNING JOURNEY → FEATURED MODULES
-   MOBILE GAP — FINAL
-========================================== */
-
-@media (max-width:900px){
-
-    .learning-journey{
-        padding-bottom:40px !important;
-    }
-
-    .featured-modules{
-        padding-top:40px !important;
-    }
-
-}
-
-/* Ensure normal mobile phones also use the same spacing */
-
-@media (max-width:768px){
-
-    .learning-journey{
-        padding-bottom:40px !important;
-    }
-
-    .featured-modules{
-        padding-top:40px !important;
-    }
-
-}
-
-/* ==========================================
-   VERY SMALL PHONES — MODULE COVER TITLES
-========================================== */
-
-@media (max-width:480px){
-
-    .featured-grid .module-cover-text h4{
-
-        font-size:
-            13px;
-
-        line-height:
-            1.2;
-
-    }
-
-}
-
 /* ==========================================
    FEATURED MODULES — DESCRIPTION TO CARDS
 ========================================== */
@@ -10023,91 +9812,6 @@ section {
     margin-top:20px !important;
 
 }
-
-/* ==========================================
-   LEARNING TRACKS — MOBILE COMPACT CARDS
-========================================== */
-
-@media(max-width:768px){
-
-    .track-card{
-
-        padding:16px 16px;
-
-        min-height:auto;
-
-        border-radius:20px;
-
-    }
-
-    .track-card i{
-
-        width:52px;
-
-        height:52px;
-
-        margin-bottom:10px;
-
-        border-radius:15px;
-
-    }
-
-    .track-card svg{
-
-        width:28px;
-
-        height:28px;
-
-    }
-
-    .track-card h3{
-
-        font-size:19px;
-
-        line-height:1.25;
-
-        margin-bottom:8px;
-
-        min-height:0;
-
-    }
-
-    .track-card p{
-
-        font-size:13px;
-
-        line-height:1.45;
-
-        margin:0;
-
-    }
-
-}
-
-/* ==========================================
-   LEARNING TRACKS — SMALL PHONE TITLES
-========================================== */
-
-@media(max-width:480px){
-
-    .track-card h3{
-
-        font-size:15px;
-
-        line-height:1.25;
-
-    }
-
-    .track-card p{
-
-        font-size:10px;
-
-        line-height:1.45;
-
-        margin:0;
-
-    }
-
 
     /* ==========================================
    FEATURED MODULES — SMALL PHONE
