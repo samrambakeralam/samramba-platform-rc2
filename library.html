@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Entrepreneurial Library — SAMRAMBA KERALAM 2030</title>
+<meta name="description" content="Your Entrepreneurial Library — explore 500+ condensed business and self-development books from SAMRAMBA KERALAM 2030.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/library.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div class="library-app" id="libraryApp">
+
+    <!-- Mobile backdrop -->
+    <div class="library-sidebar-backdrop" id="librarySidebarBackdrop" aria-hidden="true"></div>
+
+    <!-- =====================================================
+         LIBRARY SIDEBAR
+         Desktop: visible
+         Mobile: hidden; opened by hamburger
+    ====================================================== -->
+    <aside class="library-sidebar" id="librarySidebar" aria-label="Library navigation">
+        <div class="library-sidebar-brand">
+            <a href="index.html" class="library-brand-link">
+                <img src="assets/logo.png" alt="SAMRAMBA KERALAM 2030" class="library-brand-logo">
+            </a>
+            <button class="library-sidebar-close" id="librarySidebarClose" type="button" aria-label="Close library navigation">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+
+        <nav class="library-nav" aria-label="Library">
+            <div class="library-nav-group">
+                <span class="library-nav-label">LIBRARY</span>
+                <a href="#library-home" class="library-nav-item is-active" data-library-view="home"><i data-lucide="library"></i><span>Explore Library</span></a>
+                <a href="#categories" class="library-nav-item" data-library-view="categories"><i data-lucide="grid-2x2"></i><span>Categories</span></a>
+                <a href="#popular-books" class="library-nav-item" data-library-view="popular"><i data-lucide="flame"></i><span>Popular Books</span></a>
+                <a href="#new-releases" class="library-nav-item" data-library-view="new"><i data-lucide="sparkles"></i><span>New Releases</span></a>
+            </div>
+
+            <div class="library-nav-group">
+                <span class="library-nav-label">MY LIBRARY</span>
+                <a href="#my-books" class="library-nav-item" data-library-view="my-books"><i data-lucide="book-open"></i><span>My Books</span></a>
+                <a href="#favourites" class="library-nav-item" data-library-view="favourites"><i data-lucide="heart"></i><span>Favourites</span></a>
+                <a href="#bookmarks" class="library-nav-item" data-library-view="bookmarks"><i data-lucide="bookmark"></i><span>Bookmarks</span></a>
+                <a href="#notes" class="library-nav-item" data-library-view="notes"><i data-lucide="notebook-pen"></i><span>Notes &amp; Highlights</span></a>
+                <a href="#reading-progress" class="library-nav-item" data-library-view="progress"><i data-lucide="chart-no-axes-column"></i><span>Reading Progress</span></a>
+                <a href="#history" class="library-nav-item" data-library-view="history"><i data-lucide="history"></i><span>History</span></a>
+            </div>
+
+            <div class="library-nav-group">
+                <span class="library-nav-label">SETTINGS</span>
+                <button type="button" class="library-nav-item library-nav-button" id="libraryDndToggle">
+                    <i data-lucide="moon"></i><span>DND Mode</span>
+                    <span class="library-toggle" aria-hidden="true"><span class="library-toggle-knob"></span></span>
+                </button>
+                <a href="#settings" class="library-nav-item" data-library-view="settings"><i data-lucide="settings"></i><span>Settings</span></a>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- =====================================================
+         MAIN LIBRARY AREA
+    ====================================================== -->
+    <main class="library-main" id="libraryMain">
+        <header class="library-topbar">
+            <button class="library-menu-button" id="libraryMenuButton" type="button" aria-label="Open library navigation" aria-expanded="false" aria-controls="librarySidebar">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <div class="library-mobile-title"><span>YOUR LIBRARY</span></div>
+
+            <div class="library-search" role="search">
+                <i data-lucide="search"></i>
+                <input id="librarySearchInput" type="search" placeholder="Search books, authors, topics..." autocomplete="off" aria-label="Search books, authors and topics">
+            </div>
+
+            <div class="library-topbar-actions">
+                <button type="button" class="library-profile-button" id="libraryProfileButton" aria-label="Open profile">
+                    <i data-lucide="user"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="library-content" id="libraryHome">
+
+            <!-- Dynamic ecosystem banner -->
+            <section class="library-banner" id="libraryBanner" aria-label="Library highlights">
+                <div class="library-banner-content">
+                    <span class="library-banner-eyebrow" id="libraryBannerEyebrow">YOUR ENTREPRENEURIAL LIBRARY</span>
+                    <h1 id="libraryBannerTitle">Welcome to Your Entrepreneurial Library</h1>
+                    <p id="libraryBannerText">Explore 500+ powerful condensed books across 12 learning categories.</p>
+                    <a href="#popular-books" class="library-banner-action" id="libraryBannerAction">Explore Library <i data-lucide="arrow-right"></i></a>
+                </div>
+                <div class="library-banner-visual" id="libraryBannerVisual" aria-hidden="true"></div>
+                <div class="library-banner-controls" id="libraryBannerControls" aria-label="Library banner controls"></div>
+            </section>
+
+            <!-- Continue Reading -->
+            <section class="library-section library-continue-section" id="continue-reading" data-library-section="continue">
+                <div class="library-section-heading">
+                    <div><span class="library-section-eyebrow">PICK UP WHERE YOU LEFT OFF</span><h2>Continue Reading</h2></div>
+                    <a href="#reading-progress" class="library-view-all">Reading Progress</a>
+                </div>
+                <div class="library-continue-grid" id="continueReadingGrid"></div>
+            </section>
+
+            <!-- Popular Books -->
+            <section class="library-section" id="popular-books">
+                <div class="library-section-heading">
+                    <div><span class="library-section-eyebrow">DISCOVER</span><h2>Popular Books</h2></div>
+                    <a href="#popular-books" class="library-view-all" data-library-view="popular">View all</a>
+                </div>
+                <div class="library-book-grid" id="popularBooksGrid"></div>
+            </section>
+
+            <!-- Categories -->
+            <section class="library-section library-categories-section" id="categories">
+                <div class="library-section-heading">
+                    <div><span class="library-section-eyebrow">LEARN BY TOPIC</span><h2>Learning Categories</h2></div>
+                    <a href="#categories" class="library-view-all" data-library-view="categories">View all</a>
+                </div>
+                <div class="library-category-scroller" id="libraryCategoryScroller">
+                    <div class="library-category-track" id="libraryCategoryTrack"></div>
+                </div>
+            </section>
+
+            <!-- New Releases -->
+            <section class="library-section" id="new-releases">
+                <div class="library-section-heading">
+                    <div><span class="library-section-eyebrow">JUST ADDED</span><h2>New Releases</h2></div>
+                    <a href="#new-releases" class="library-view-all" data-library-view="new">View all</a>
+                </div>
+                <div class="library-book-grid" id="newReleasesGrid"></div>
+            </section>
+
+            <!-- Recommended -->
+            <section class="library-section" id="recommended">
+                <div class="library-section-heading">
+                    <div><span class="library-section-eyebrow">PERSONALIZED</span><h2>Recommended for You</h2></div>
+                    <span class="library-section-note" id="recommendationNote">Based on your learning activity</span>
+                </div>
+                <div class="library-book-grid" id="recommendedBooksGrid"></div>
+            </section>
+        </div>
+    </main>
+</div>
+
+<!-- =========================================================
+     BOOK PREVIEW / LOCKED BOOK MODAL
+========================================================== -->
+<div class="library-book-modal" id="libraryBookModal" aria-hidden="true" hidden>
+    <div class="library-book-modal-backdrop" data-library-modal-close></div>
+    <div class="library-book-modal-panel" role="dialog" aria-modal="true" aria-labelledby="libraryBookModalTitle">
+        <button type="button" class="library-book-modal-close" data-library-modal-close aria-label="Close book preview"><i data-lucide="x"></i></button>
+        <div class="library-book-modal-cover" id="libraryBookModalCover"></div>
+        <div class="library-book-modal-content">
+            <span class="library-book-modal-eyebrow" id="libraryBookModalEyebrow">YOUR ENTREPRENEURIAL LIBRARY</span>
+            <h2 id="libraryBookModalTitle">Book Title</h2>
+            <p id="libraryBookModalAuthor">Author</p>
+            <div class="library-book-modal-action" id="libraryBookModalAction"></div>
+        </div>
+    </div>
+</div>
+
+<script src="js/library-catalogue.js"></script>
+<script src="js/library.js"></script>
+<script>if (window.lucide) { lucide.createIcons(); }</script>
+</body>
+</html>
