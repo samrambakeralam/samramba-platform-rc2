@@ -6,6 +6,7 @@
    - Single source of truth for Library book metadata
    - Data-driven rendering for Library Home
    - Designed to scale from prototype to 500+ books
+   - Google Sheet is now the catalogue source
    - Keeps catalogue data separate from user activity data
 
    IMPORTANT:
@@ -27,433 +28,617 @@
      *
      * Use the category ID in each book record.
      */
+
     const CATEGORIES = [
+
         {
             id: "entrepreneurship",
             name: "Entrepreneurship"
         },
+
         {
             id: "sales",
             name: "Sales"
         },
+
         {
             id: "investing",
             name: "Investing"
         },
+
         {
             id: "marketing",
             name: "Marketing"
         },
+
         {
             id: "business",
             name: "Business"
         },
+
         {
             id: "money",
             name: "Money"
         },
+
         {
             id: "mindset-motivation",
             name: "Mindset & Motivation"
         },
+
         {
             id: "self-help",
             name: "Self-Help"
         },
+
         {
             id: "psychology",
             name: "Psychology"
         },
+
         {
             id: "discipline",
             name: "Discipline"
         },
+
         {
             id: "health",
             name: "Health"
         },
+
         {
             id: "wisdom",
             name: "Wisdom"
         }
+
     ];
 
 
     /* =========================================================
-       02. PROTOTYPE BOOK CATALOGUE
+       02. LIVE BOOK CATALOGUE
     ========================================================= */
 
     /*
-     * This is intentionally a small prototype catalogue.
+     * Google Sheet tab:
      *
-     * We first establish and test the data structure with
-     * a limited number of books before entering 500+ books.
+     *     LIBRARY_CATALOGUE
      *
-     * IMPORTANT:
-     * Cover paths are placeholders until the actual approved
-     * cover assets are placed in the project.
+     * is now the single source of truth.
      *
-     * Actual condensed-book content will be connected later
-     * through the versions/contentRef structure.
+     * Apps Script returns the catalogue as JSONP so this
+     * static Library page can load the data.
+     *
+     * Actual reader content is NOT loaded here.
+     * Only catalogue metadata is returned.
      */
 
-    const BOOKS = [
-
-        /* -----------------------------------------------------
-           BOOK 001
-        ----------------------------------------------------- */
-
-        {
-            id: "book-001",
-
-            title: "Rich Dad Poor Dad",
-
-            author: "Robert T. Kiyosaki",
-
-            category: "money",
-
-            cover: "assets/library/covers/book-001.webp",
-
-            pages: 8,
-
-            popularity: 100,
-
-            releaseDate: "2026-09-01",
-
-            isNew: true,
-
-            isLocked: true,
-
-            versions: [
-                {
-                    id: "book-001-v1",
-
-                    label: "Condensed Edition",
-
-                    pageCount: 8,
-
-                    contentRef: "book-001-v1"
-                }
-            ]
-        },
-
-
-        /* -----------------------------------------------------
-           BOOK 002
-        ----------------------------------------------------- */
-
-        {
-            id: "book-002",
-
-            title: "The Lean Startup",
-
-            author: "Eric Ries",
-
-            category: "entrepreneurship",
-
-            cover: "assets/library/covers/book-002.webp",
-
-            pages: 9,
-
-            popularity: 95,
-
-            releaseDate: "2026-09-01",
-
-            isNew: true,
-
-            isLocked: true,
-
-            versions: [
-                {
-                    id: "book-002-v1",
-
-                    label: "Condensed Edition",
-
-                    pageCount: 9,
-
-                    contentRef: "book-002-v1"
-                }
-            ]
-        },
-
-
-        /* -----------------------------------------------------
-           BOOK 003
-        ----------------------------------------------------- */
-
-        {
-            id: "book-003",
-
-            title: "The Psychology of Money",
-
-            author: "Morgan Housel",
-
-            category: "money",
-
-            cover: "assets/library/covers/book-003.webp",
-
-            pages: 10,
-
-            popularity: 98,
-
-            releaseDate: "2026-09-01",
-
-            isNew: true,
-
-            isLocked: true,
-
-            versions: [
-                {
-                    id: "book-003-v1",
-
-                    label: "Condensed Edition",
-
-                    pageCount: 10,
-
-                    contentRef: "book-003-v1"
-                }
-            ]
-        },
-
-
-        /* -----------------------------------------------------
-           BOOK 004
-        ----------------------------------------------------- */
-
-        {
-            id: "book-004",
-
-            title: "Atomic Habits",
-
-            author: "James Clear",
-
-            category: "discipline",
-
-            cover: "assets/library/covers/book-004.webp",
-
-            pages: 10,
-
-            popularity: 97,
-
-            releaseDate: "2026-09-01",
-
-            isNew: true,
-
-            isLocked: true,
-
-            versions: [
-                {
-                    id: "book-004-v1",
-
-                    label: "Condensed Edition",
-
-                    pageCount: 10,
-
-                    contentRef: "book-004-v1"
-                }
-            ]
-        },
-
-
-        /* -----------------------------------------------------
-           BOOK 005
-        ----------------------------------------------------- */
-
-        {
-            id: "book-005",
-
-            title: "Think and Grow Rich",
-
-            author: "Napoleon Hill",
-
-            category: "mindset-motivation",
-
-            cover: "assets/library/covers/book-005.webp",
-
-            pages: 9,
-
-            popularity: 96,
-
-            releaseDate: "2026-09-01",
-
-            isNew: true,
-
-            isLocked: true,
-
-            versions: [
-                {
-                    id: "book-005-v1",
-
-                    label: "Condensed Edition",
-
-                    pageCount: 9,
-
-                    contentRef: "book-005-v1"
-                }
-            ]
-        },
-
-
-        /* -----------------------------------------------------
-           BOOK 006
-        ----------------------------------------------------- */
-
-        {
-            id: "book-006",
-
-            title: "How to Win Friends and Influence People",
-
-            author: "Dale Carnegie",
-
-            category: "psychology",
-
-            cover: "assets/library/covers/book-006.webp",
-
-            pages: 10,
-
-            popularity: 94,
-
-            releaseDate: "2026-09-01",
-
-            isNew: true,
-
-            isLocked: true,
-
-            versions: [
-                {
-                    id: "book-006-v1",
-
-                    label: "Condensed Edition",
-
-                    pageCount: 10,
-
-                    contentRef: "book-006-v1"
-                }
-            ]
-        },
-
-
-        /* -----------------------------------------------------
-           BOOK 007
-        ----------------------------------------------------- */
-
-        {
-            id: "book-007",
-
-            title: "The 7 Habits of Highly Effective People",
-
-            author: "Stephen R. Covey",
-
-            category: "self-help",
-
-            cover: "assets/library/covers/book-007.webp",
-
-            pages: 11,
-
-            popularity: 93,
-
-            releaseDate: "2026-09-01",
-
-            isNew: true,
-
-            isLocked: true,
-
-            versions: [
-                {
-                    id: "book-007-v1",
-
-                    label: "Condensed Edition",
-
-                    pageCount: 11,
-
-                    contentRef: "book-007-v1"
-                }
-            ]
-        },
-
-
-        /* -----------------------------------------------------
-           BOOK 008
-        ----------------------------------------------------- */
-
-        {
-            id: "book-008",
-
-            title: "The 4-Hour Workweek",
-
-            author: "Timothy Ferriss",
-
-            category: "business",
-
-            cover: "assets/library/covers/book-008.webp",
-
-            pages: 9,
-
-            popularity: 91,
-
-            releaseDate: "2026-09-01",
-
-            isNew: true,
-
-            isLocked: true,
-
-            versions: [
-                {
-                    id: "book-008-v1",
-
-                    label: "Condensed Edition",
-
-                    pageCount: 9,
-
-                    contentRef: "book-008-v1"
-                }
-            ]
-        },
-
-
-        /* -----------------------------------------------------
-           BOOK 009
-        ----------------------------------------------------- */
-
-        {
-            id: "book-009",
-
-            title: "Influence",
-
-            author: "Robert B. Cialdini",
-
-            category: "sales",
-
-            cover: "assets/library/covers/book-009.webp",
-
-            pages: 10,
-
-            popularity: 90,
-
-            releaseDate: "2026-09-01",
-
-            isNew: true,
-
-            isLocked: true,
-
-            versions: [
-                {
-                    id: "book-009-v1",
-
-                    label: "Condensed Edition",
-
-                    pageCount: 10,
-
-                    contentRef: "book-009-v1"
-                }
-            ]
-        }
-
-    ];
+    const LIBRARY_API_URL =
+        "https://script.google.com/macros/s/" +
+        "AKfycbzQFLeWMQAX7gbedsu859N8nEZnGoAFinj4dn1JgpX0La7GSy-2xGHK38MdjcHM2ckk/" +
+        "exec";
+
+
+    /*
+     * Keep this array object stable.
+     *
+     * library.js reads window.LIBRARY_BOOKS during
+     * initialization.
+     *
+     * We therefore populate this SAME array after the
+     * Google Sheet response arrives rather than replacing
+     * it with another array.
+     */
+
+    const BOOKS = [];
 
 
     /* =========================================================
-       03. CATALOGUE VALIDATION
+       03. CATEGORY NORMALIZATION
+    ========================================================= */
+
+    /*
+     * Google Sheets stores human-readable category names:
+     *
+     *     Money
+     *     Entrepreneurship
+     *     Mindset & Motivation
+     *
+     * library.js uses category IDs:
+     *
+     *     money
+     *     entrepreneurship
+     *     mindset-motivation
+     */
+
+    function normalizeCategory(categoryName) {
+
+        const value =
+            String(categoryName || "")
+                .trim()
+                .toLowerCase();
+
+
+        const category =
+            CATEGORIES.find(
+                function (item) {
+
+                    return (
+                        item.name.toLowerCase() === value ||
+                        item.id === value
+                    );
+
+                }
+            );
+
+
+        if (category) {
+            return category.id;
+        }
+
+
+        /*
+         * Fallback normalization in case a new category
+         * is temporarily added to the spreadsheet.
+         */
+
+        return value
+            .replace(/&/g, "and")
+            .replace(/\s+/g, "-");
+
+    }
+
+
+    /* =========================================================
+       04. COVER PATH NORMALIZATION
+    ========================================================= */
+
+    /*
+     * Google Sheet:
+     *
+     *     book-001.webp
+     *
+     * becomes:
+     *
+     *     assets/library/covers/book-001.webp
+     *
+     * If a complete URL/path is already stored, it is
+     * preserved.
+     */
+
+    function normalizeCover(coverFile) {
+
+        const value =
+            String(coverFile || "").trim();
+
+
+        if (!value) {
+            return "";
+        }
+
+
+        if (
+            value.startsWith("assets/") ||
+            value.startsWith("/") ||
+            value.startsWith("http://") ||
+            value.startsWith("https://")
+        ) {
+
+            return value;
+
+        }
+
+
+        return (
+            "assets/library/covers/" +
+            value
+        );
+
+    }
+
+
+    /* =========================================================
+       05. BOOK NORMALIZATION
+    ========================================================= */
+
+    /*
+     * Convert one Apps Script book record into the exact
+     * structure expected by library.js.
+     */
+
+    function normalizeBook(record) {
+
+        const pages =
+            Number(record.pages || 0);
+
+
+        const versionId =
+            String(
+
+                record.versionId ||
+
+                (
+                    Array.isArray(record.versions) &&
+                    record.versions[0] &&
+                    record.versions[0].id
+                ) ||
+
+                ""
+
+            ).trim();
+
+
+        const versionLabel =
+            String(
+
+                record.versionLabel ||
+
+                (
+                    Array.isArray(record.versions) &&
+                    record.versions[0] &&
+                    record.versions[0].label
+                ) ||
+
+                "Condensed Edition"
+
+            ).trim();
+
+
+        const contentRef =
+            String(
+
+                record.contentRef ||
+
+                (
+                    Array.isArray(record.versions) &&
+                    record.versions[0] &&
+                    record.versions[0].contentRef
+                ) ||
+
+                ""
+
+            ).trim();
+
+
+        return {
+
+            id:
+                String(
+                    record.id || ""
+                ).trim(),
+
+
+            title:
+                String(
+                    record.title || ""
+                ).trim(),
+
+
+            author:
+                String(
+                    record.author || ""
+                ).trim(),
+
+
+            category:
+                normalizeCategory(
+                    record.category
+                ),
+
+
+            cover:
+                normalizeCover(
+                    record.cover
+                ),
+
+
+            pages:
+                pages,
+
+
+            popularity:
+                Number(
+                    record.popularity || 0
+                ),
+
+
+            releaseDate:
+                String(
+                    record.releaseDate || ""
+                ).trim(),
+
+
+            isNew:
+                Boolean(
+                    record.isNew
+                ),
+
+
+            isLocked:
+                Boolean(
+                    record.isLocked
+                ),
+
+
+            versions: [
+
+                {
+
+                    id:
+                        versionId,
+
+                    label:
+                        versionLabel,
+
+                    pageCount:
+                        pages,
+
+                    contentRef:
+                        contentRef
+
+                }
+
+            ],
+
+
+            description:
+                String(
+                    record.description || ""
+                ).trim()
+
+        };
+
+    }
+
+
+    /* =========================================================
+       06. RECEIVE LIVE CATALOGUE
+    ========================================================= */
+
+    /*
+     * This function receives the JSONP response from
+     * Google Apps Script.
+     */
+
+    function receiveLibraryCatalogue(response) {
+
+        /*
+         * Basic response validation.
+         */
+
+        if (
+            !response ||
+            response.success !== true ||
+            !Array.isArray(response.books)
+        ) {
+
+            console.error(
+                "SAMRAMBA Library catalogue failed:",
+                response
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * Normalize every book received from Google Sheets.
+         */
+
+        const normalizedBooks =
+            response.books
+
+                .map(
+                    normalizeBook
+                )
+
+                .filter(
+                    function (book) {
+
+                        return (
+                            book.id &&
+                            book.title &&
+                            book.author
+                        );
+
+                    }
+                );
+
+
+        /*
+         * IMPORTANT:
+         *
+         * Do not replace BOOKS with another array.
+         *
+         * Mutate the existing array so library.js keeps
+         * the same reference.
+         */
+
+        BOOKS.length = 0;
+
+
+        normalizedBooks.forEach(
+            function (book) {
+
+                BOOKS.push(book);
+
+            }
+        );
+
+
+        /*
+         * library.js may have already rendered the page
+         * with an empty catalogue.
+         *
+         * Refresh it after the live catalogue arrives.
+         */
+
+        if (
+            window.SamrambaLibrary &&
+            typeof window.SamrambaLibrary.refresh ===
+                "function"
+        ) {
+
+            window.SamrambaLibrary.refresh();
+
+        }
+
+
+        /*
+         * Validate the live catalogue.
+         */
+
+        validateCatalogue(
+            BOOKS
+        );
+
+
+        console.info(
+            `SAMRAMBA Library live catalogue loaded: ${BOOKS.length} books.`
+        );
+
+    }
+
+
+    /* =========================================================
+       07. JSONP LOADER
+    ========================================================= */
+
+    /*
+     * Google Apps Script is being accessed from the static
+     * Library website.
+     *
+     * JSONP avoids depending on normal cross-origin fetch.
+     */
+
+    function loadLibraryCatalogue() {
+
+        const callbackName =
+            "__samrambaLibraryCatalogue_" +
+            Date.now();
+
+
+        let script = null;
+
+
+        /*
+         * Create the global JSONP callback.
+         */
+
+        window[callbackName] =
+            function (response) {
+
+                try {
+
+                    receiveLibraryCatalogue(
+                        response
+                    );
+
+                }
+
+                finally {
+
+                    /*
+                     * Clean up the temporary callback.
+                     */
+
+                    delete window[
+                        callbackName
+                    ];
+
+
+                    /*
+                     * Remove the temporary script element.
+                     */
+
+                    if (
+                        script &&
+                        script.parentNode
+                    ) {
+
+                        script.parentNode.removeChild(
+                            script
+                        );
+
+                    }
+
+                }
+
+            };
+
+
+        /*
+         * Create script element.
+         */
+
+        script =
+            document.createElement(
+                "script"
+            );
+
+
+        /*
+         * Build the Apps Script URL.
+         */
+
+        script.src =
+            LIBRARY_API_URL +
+            "?action=librarycatalogue" +
+            "&callback=" +
+            encodeURIComponent(
+                callbackName
+            ) +
+            "&_=" +
+            Date.now();
+
+
+        script.async = true;
+
+
+        /*
+         * Handle loading failure.
+         */
+
+        script.onerror =
+            function () {
+
+                console.error(
+                    "SAMRAMBA Library catalogue could not be loaded."
+                );
+
+
+                delete window[
+                    callbackName
+                ];
+
+
+                if (
+                    script &&
+                    script.parentNode
+                ) {
+
+                    script.parentNode.removeChild(
+                        script
+                    );
+
+                }
+
+            };
+
+
+        /*
+         * Start request.
+         */
+
+        document.head.appendChild(
+            script
+        );
+
+    }
+
+
+    /* =========================================================
+       08. CATALOGUE VALIDATION
     ========================================================= */
 
     /*
@@ -461,6 +646,7 @@
      * the catalogue becomes large.
      *
      * It checks:
+     *
      * - Missing book IDs
      * - Duplicate book IDs
      * - Missing titles
@@ -471,15 +657,21 @@
      * - Missing content references
      */
 
-    function validateCatalogue(books) {
+    function validateCatalogue(
+        books
+    ) {
 
         const categoryIds =
             new Set(
+
                 CATEGORIES.map(
                     function (category) {
+
                         return category.id;
+
                     }
                 )
+
             );
 
 
@@ -503,17 +695,25 @@
                         `Book at index ${index} has no ID.`
                     );
 
-                } else if (
-                    bookIds.has(book.id)
+                }
+
+                else if (
+                    bookIds.has(
+                        book.id
+                    )
                 ) {
 
                     errors.push(
                         `Duplicate book ID: ${book.id}`
                     );
 
-                } else {
+                }
 
-                    bookIds.add(book.id);
+                else {
+
+                    bookIds.add(
+                        book.id
+                    );
 
                 }
 
@@ -550,7 +750,9 @@
 
                 if (
                     !book.category ||
-                    !categoryIds.has(book.category)
+                    !categoryIds.has(
+                        book.category
+                    )
                 ) {
 
                     errors.push(
@@ -565,7 +767,9 @@
                 --------------------------------------------- */
 
                 if (
-                    !Array.isArray(book.versions)
+                    !Array.isArray(
+                        book.versions
+                    )
                 ) {
 
                     errors.push(
@@ -580,7 +784,9 @@
                 --------------------------------------------- */
 
                 if (
-                    Array.isArray(book.versions)
+                    Array.isArray(
+                        book.versions
+                    )
                 ) {
 
                     book.versions.forEach(
@@ -595,7 +801,9 @@
                             }
 
 
-                            if (!version.contentRef) {
+                            if (
+                                !version.contentRef
+                            ) {
 
                                 errors.push(
                                     `${book.id || "Unknown book"} has a version without contentRef.`
@@ -623,7 +831,9 @@
                 errors
             );
 
-        } else {
+        }
+
+        else {
 
             console.info(
                 `SAMRAMBA Library catalogue validated: ${books.length} books.`
@@ -633,16 +843,20 @@
 
 
         return {
-            valid: errors.length === 0,
 
-            errors: errors
+            valid:
+                errors.length === 0,
+
+            errors:
+                errors
+
         };
 
     }
 
 
     /* =========================================================
-       04. PUBLIC CATALOGUE API
+       09. PUBLIC CATALOGUE API
     ========================================================= */
 
     /*
@@ -658,84 +872,99 @@
            All categories
         --------------------------------------------- */
 
-        categories: CATEGORIES,
+        categories:
+            CATEGORIES,
 
 
         /* ---------------------------------------------
            All books
         --------------------------------------------- */
 
-        books: BOOKS,
+        books:
+            BOOKS,
 
 
         /* ---------------------------------------------
            Validate catalogue
         --------------------------------------------- */
 
-        validate: function () {
+        validate:
+            function () {
 
-            return validateCatalogue(
-                BOOKS
-            );
+                return validateCatalogue(
+                    BOOKS
+                );
 
-        },
+            },
 
 
         /* ---------------------------------------------
            Find a single book
         --------------------------------------------- */
 
-        getBook: function (bookId) {
+        getBook:
+            function (bookId) {
 
-            return BOOKS.find(
-                function (book) {
+                return BOOKS.find(
+                    function (book) {
 
-                    return book.id === bookId;
+                        return (
+                            book.id ===
+                            bookId
+                        );
 
-                }
-            ) || null;
+                    }
+                ) || null;
 
-        },
+            },
 
 
         /* ---------------------------------------------
            Find a category
         --------------------------------------------- */
 
-        getCategory: function (categoryId) {
+        getCategory:
+            function (categoryId) {
 
-            return CATEGORIES.find(
-                function (category) {
+                return CATEGORIES.find(
+                    function (category) {
 
-                    return category.id === categoryId;
+                        return (
+                            category.id ===
+                            categoryId
+                        );
 
-                }
-            ) || null;
+                    }
+                ) || null;
 
-        },
+            },
 
 
         /* ---------------------------------------------
            Find books by category
         --------------------------------------------- */
 
-        getBooksByCategory: function (categoryId) {
+        getBooksByCategory:
+            function (categoryId) {
 
-            return BOOKS.filter(
-                function (book) {
+                return BOOKS.filter(
+                    function (book) {
 
-                    return book.category === categoryId;
+                        return (
+                            book.category ===
+                            categoryId
+                        );
 
-                }
-            );
+                    }
+                );
 
-        }
+            }
 
     };
 
 
     /* =========================================================
-       05. LIBRARY.JS COMPATIBILITY
+       10. LIBRARY.JS COMPATIBILITY
     ========================================================= */
 
     /*
@@ -743,27 +972,27 @@
      *
      *     window.LIBRARY_BOOKS
      *
-     * So expose the catalogue there.
+     * Expose the SAME mutable BOOKS array.
      *
-     * This allows library.js to remain focused on UI and
-     * interaction while this file remains the catalogue source.
+     * library.js therefore does not need to be changed.
      */
 
-    window.LIBRARY_BOOKS = BOOKS;
+    window.LIBRARY_BOOKS =
+        BOOKS;
 
 
     /* =========================================================
-       06. INITIAL VALIDATION
+       11. LOAD LIVE CATALOGUE
     ========================================================= */
 
     /*
-     * Validate the prototype catalogue once when this file
-     * loads.
+     * Start loading the Google Sheet catalogue.
+     *
+     * The array is initially empty and is populated when
+     * Apps Script responds.
      */
 
-    validateCatalogue(
-        BOOKS
-    );
+    loadLibraryCatalogue();
 
 
 })();
