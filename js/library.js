@@ -988,8 +988,65 @@
 
 
         function activateCard() {
-            openBookModal(book);
-        }
+
+    const version =
+        Array.isArray(book.versions) &&
+        book.versions.length
+            ? book.versions[0]
+            : null;
+
+    if (!version) {
+
+        console.warn(
+            "No readable version found for:",
+            book.id
+        );
+
+        return;
+    }
+
+    const params =
+        new URLSearchParams();
+
+    const currentParams =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const customerID =
+        currentParams.get("cid");
+
+    const token =
+        currentParams.get("t");
+
+    if (customerID) {
+        params.set(
+            "cid",
+            customerID
+        );
+    }
+
+    if (token) {
+        params.set(
+            "t",
+            token
+        );
+    }
+
+    params.set(
+        "bookId",
+        book.id
+    );
+
+    params.set(
+        "versionId",
+        version.id
+    );
+
+    window.location.href =
+        "reader.html?" +
+        params.toString();
+}
 
 
         article.addEventListener(

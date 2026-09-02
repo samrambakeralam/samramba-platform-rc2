@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, Arial, sans-serif;
+    background: #f5f6f8;
+    color: #111827;
+}
+
+.reader-app {
+    min-height: 100vh;
+}
+
+.reader-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    padding: 18px 24px;
+
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.reader-back {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+}
+
+.reader-book-meta {
+    flex: 1;
+}
+
+.reader-book-meta h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.reader-book-meta p {
+    margin: 4px 0 0;
+    color: #6b7280;
+}
+
+.reader-page-indicator {
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.reader-content {
+    width: min(820px, calc(100% - 32px));
+    margin: 40px auto;
+    padding: 40px;
+
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.reader-heading {
+    margin-top: 30px;
+}
+
+.reader-paragraph {
+    line-height: 1.8;
+}
+
+.reader-list-item {
+    display: flex;
+    gap: 10px;
+    margin: 12px 0;
+}
+
+.reader-quote {
+    margin: 24px 0;
+    padding: 20px;
+    border-left: 4px solid #111827;
+    background: #f3f4f6;
+}
+
+.reader-comparison {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    margin: 14px 0;
+    padding: 16px;
+
+    background: #f3f4f6;
+    border-radius: 10px;
+}
+
+.reader-takeaway {
+    margin-top: 24px;
+    padding: 20px;
+
+    font-weight: 600;
+
+    background: #eef2ff;
+    border-radius: 12px;
+}
+
+.reader-controls {
+    display: flex;
+    justify-content: space-between;
+
+    width: min(820px, calc(100% - 32px));
+    margin: 0 auto 40px;
+}
+
+.reader-controls button {
+    padding: 12px 20px;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.reader-controls button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.reader-loading,
+.reader-error {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.reader-error h2 {
+    margin-bottom: 10px;
+}
+
+.reader-error a {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+@media (max-width: 700px) {
+
+    .reader-header {
+        gap: 12px;
+        padding: 14px 16px;
+    }
+
+    .reader-page-indicator {
+        font-size: 13px;
+    }
+
+    .reader-content {
+        width: calc(100% - 20px);
+        margin: 20px auto;
+        padding: 24px 18px;
+        border-radius: 12px;
+    }
+
+    .reader-controls {
+        width: calc(100% - 20px);
+    }
+
+}

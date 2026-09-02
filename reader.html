@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Reading — SAMRAMBA KERALAM 2030</title>
+
+    <link
+        rel="stylesheet"
+        href="css/reader.css"
+    >
+</head>
+
+<body>
+
+    <main class="reader-app">
+
+        <header class="reader-header">
+
+            <a
+                href="library.html"
+                class="reader-back"
+            >
+                ← Library
+            </a>
+
+            <div class="reader-book-meta">
+                <h1 id="readerBookTitle">
+                    Loading…
+                </h1>
+
+                <p id="readerBookAuthor"></p>
+            </div>
+
+            <div
+                class="reader-page-indicator"
+                id="readerPageIndicator"
+            >
+                Page 0 / 0
+            </div>
+
+        </header>
+
+
+        <section
+            class="reader-content"
+            id="readerContent"
+        >
+            <div class="reader-loading">
+                Loading book…
+            </div>
+        </section>
+
+
+        <footer class="reader-controls">
+
+            <button
+                type="button"
+                id="readerPrevious"
+                disabled
+            >
+                Previous
+            </button>
+
+            <button
+                type="button"
+                id="readerNext"
+                disabled
+            >
+                Next
+            </button>
+
+        </footer>
+
+    </main>
+
+
+    <script src="js/reader.js"></script>
+
+</body>
+</html>
