@@ -995,6 +995,7 @@
             ? book.versions[0]
             : null;
 
+
     if (!version) {
 
         console.warn(
@@ -1005,13 +1006,16 @@
         return;
     }
 
-    const params =
-        new URLSearchParams();
 
+    /*
+     * Preserve the authenticated
+     * Library session information.
+     */
     const currentParams =
         new URLSearchParams(
             window.location.search
         );
+
 
     const customerID =
         currentParams.get("cid");
@@ -1019,33 +1023,50 @@
     const token =
         currentParams.get("t");
 
+
+    /*
+     * Build Reader URL.
+     */
+    const params =
+        new URLSearchParams();
+
+
     if (customerID) {
+
         params.set(
             "cid",
             customerID
         );
+
     }
 
+
     if (token) {
+
         params.set(
             "t",
             token
         );
+
     }
+
 
     params.set(
         "bookId",
         book.id
     );
 
+
     params.set(
         "versionId",
         version.id
     );
 
+
     window.location.href =
         "reader.html?" +
         params.toString();
+
 }
 
 
