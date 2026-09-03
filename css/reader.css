@@ -174,10 +174,10 @@ body {
 ========================================================= */
 
 .reader-content {
-    width: min(820px, calc(100% - 40px));
+    width: min(780px, calc(100% - 40px));
 
-    margin: 42px auto 28px;
-    padding: 52px 58px;
+    margin: 32px auto 22px;
+    padding: 38px 46px;
 
     background: #ffffff;
 
@@ -213,7 +213,7 @@ body {
 ========================================================= */
 
 .reader-heading {
-    margin: 34px 0 13px;
+    margin: 27px 0 11px;
 
     color: #102a43;
 
@@ -234,12 +234,12 @@ body {
 ========================================================= */
 
 .reader-paragraph {
-    margin: 0 0 18px;
+    margin: 0 0 15px;
 
     color: #334155;
 
-    font-size: 16px;
-    line-height: 1.85;
+    font-size: 15px;
+    line-height: 1.72;
 }
 
 
