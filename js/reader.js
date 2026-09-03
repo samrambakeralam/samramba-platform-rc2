@@ -35,6 +35,31 @@
         params.get("versionId") || "";
 
 
+        const libraryParams =
+    new URLSearchParams();
+
+if (customerID) {
+    libraryParams.set(
+        "cid",
+        customerID
+    );
+}
+
+if (token) {
+    libraryParams.set(
+        "t",
+        token
+    );
+}
+
+const libraryURL =
+    "library.html" +
+    (
+        libraryParams.toString()
+            ? "?" + libraryParams.toString()
+            : ""
+    );
+
     /* =========================================================
        DOM
     ========================================================= */
@@ -68,6 +93,11 @@
         document.getElementById(
             "readerNext"
         );
+
+        const backButton =
+    document.getElementById(
+        "readerBackButton"
+    );
 
 
     /* =========================================================
@@ -361,24 +391,41 @@
 
     function showError(message) {
 
-        content.innerHTML = `
-            <div class="reader-error">
-                <h2>Unable to open this book</h2>
-                <p>
-                    ${escapeHTML(message)}
-                </p>
-                <a href="library.html">
-                    Return to Library
-                </a>
-            </div>
-        `;
+    content.innerHTML = `
+        <div class="reader-error">
 
-    }
+            <h2>
+                Unable to open this book
+            </h2>
+
+            <p>
+                ${escapeHTML(message)}
+            </p>
+
+            <a href="${escapeHTML(libraryURL)}">
+                Return to Library
+            </a>
+
+        </div>
+    `;
+
+}
 
 
     /* =========================================================
        NAVIGATION
     ========================================================= */
+
+    backButton.addEventListener(
+    "click",
+    function () {
+
+        window.location.href =
+            libraryURL;
+
+    }
+);
+
 
     previousButton.addEventListener(
         "click",
