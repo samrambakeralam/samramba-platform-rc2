@@ -598,11 +598,11 @@ body {
 
 
     .reader-content {
-        width: calc(100% - 20px);
+    width: calc(100% - 18px);
 
-        margin: 18px auto 20px;
+    margin: 15px auto 17px;
 
-        padding: 30px 20px;
+    padding: 24px 17px;
 
         border-radius: 14px;
 
@@ -618,16 +618,16 @@ body {
 
 
     .reader-heading {
-        margin-top: 27px;
+        margin-top: 23px;
 
-        font-size: 19px;
+        font-size: 18px;
     }
 
 
     .reader-paragraph {
-        font-size: 15px;
+        font-size: 14.5px;
 
-        line-height: 1.8;
+        line-height: 1.7;
     }
 
 
