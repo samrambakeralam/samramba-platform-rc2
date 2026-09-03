@@ -380,10 +380,21 @@
             ],
 
 
-            description:
-                String(
-                    record.description || ""
-                ).trim()
+                    themePrimary:
+            String(
+                record.themePrimary || ""
+            ).trim(),
+
+        themeSecondary:
+            String(
+                record.themeSecondary || ""
+            ).trim(),
+
+        description:
+            String(
+                record.description || ""
+            ).trim()
+
 
         };
 
