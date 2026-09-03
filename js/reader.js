@@ -34,6 +34,12 @@
     const versionID =
         params.get("versionId") || "";
 
+        const themePrimary =
+        params.get("themePrimary") || "";
+
+    const themeSecondary =
+        params.get("themeSecondary") || "";
+
 
         const libraryParams =
     new URLSearchParams();
@@ -107,6 +113,30 @@ const libraryURL =
     let pages = [];
 
     let currentPageIndex = 0;
+
+
+    /* =========================================================
+   BOOK THEME
+========================================================= */
+
+if (themePrimary) {
+
+    document.documentElement.style.setProperty(
+        "--reader-theme-primary",
+        themePrimary
+    );
+
+}
+
+
+if (themeSecondary) {
+
+    document.documentElement.style.setProperty(
+        "--reader-theme-secondary",
+        themeSecondary
+    );
+
+}
 
 
     /* =========================================================

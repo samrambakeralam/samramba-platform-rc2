@@ -214,14 +214,22 @@ body {
 
 .reader-heading {
     margin: 27px 0 11px;
+    padding: 9px 14px;
 
-    color: #102a43;
+    background: var(
+        --reader-theme-primary,
+        #5B1A8F
+    );
 
-    font-size: 21px;
+    color: #ffffff;
+
+    font-size: 19px;
     font-weight: 750;
     line-height: 1.35;
 
     letter-spacing: -.01em;
+
+    border-radius: 7px;
 }
 
 .reader-heading:first-child {
