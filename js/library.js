@@ -1052,20 +1052,44 @@
 
 
     params.set(
-        "bookId",
-        book.id
-    );
+    "bookId",
+    book.id
+);
 
+
+params.set(
+    "versionId",
+    version.id
+);
+
+
+/*
+ * Pass the book-specific theme
+ * to the Reader.
+ */
+if (book.themePrimary) {
 
     params.set(
-        "versionId",
-        version.id
+        "themePrimary",
+        book.themePrimary
     );
 
+}
 
-    window.location.href =
-        "reader.html?" +
-        params.toString();
+
+if (book.themeSecondary) {
+
+    params.set(
+        "themeSecondary",
+        book.themeSecondary
+    );
+
+}
+
+
+window.location.href =
+    "reader.html?" +
+    params.toString();
 
 }
 
