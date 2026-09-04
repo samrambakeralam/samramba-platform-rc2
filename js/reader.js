@@ -428,138 +428,89 @@ function renderVisualBlock(block) {
     let visualData;
 
     try {
-
         visualData =
             typeof block.content === "string"
                 ? JSON.parse(block.content)
                 : block.content;
-
     } catch (error) {
-
         console.error(
             "Invalid visual block data:",
             error
         );
-
         return "";
     }
 
-
-    if (!visualData || !visualData.type) {
+    if (
+        !visualData ||
+        !visualData.type
+    ) {
         return "";
     }
-
 
     switch (visualData.type) {
 
-        case "mindset":
-
-            return renderMindsetVisual(
+        case "image":
+            return renderImageVisual(
                 visualData
             );
 
-
         default:
-
             console.warn(
                 "Unknown visual type:",
                 visualData.type
             );
-
             return "";
-
     }
-
 }
 
 
-/* =========================================================
-   MINDSET VISUAL
-========================================================= */
+function renderImageVisual(data) {
 
-function renderMindsetVisual(data) {
+    const src =
+        String(
+            data.src || ""
+        ).trim();
 
-    const title =
+    if (!src) {
+        console.warn(
+            "Visual image source is missing."
+        );
+        return "";
+    }
+
+    const alt =
         escapeHTML(
-            data.title || ""
+            data.alt ||
+            "Learning infographic"
         );
 
-
-    const leftTitle =
+    const caption =
         escapeHTML(
-            data.leftTitle || ""
+            data.caption || ""
         );
-
-
-    const leftText =
-        escapeHTML(
-            data.leftText || ""
-        );
-
-
-    const rightTitle =
-        escapeHTML(
-            data.rightTitle || ""
-        );
-
-
-    const rightText =
-        escapeHTML(
-            data.rightText || ""
-        );
-
 
     return `
-        <div class="reader-visual reader-visual-mindset">
+        <figure class="reader-visual-image">
+
+            <img
+                src="${src}"
+                alt="${alt}"
+                loading="lazy"
+                decoding="async"
+            >
 
             ${
-                title
+                caption
                     ? `
-                        <div class="reader-visual-title">
-                            ${title}
-                        </div>
+                        <figcaption>
+                            ${caption}
+                        </figcaption>
                       `
                     : ""
             }
 
-
-            <div class="reader-visual-columns">
-
-                <div class="reader-visual-column reader-visual-left">
-
-                    <div class="reader-visual-column-title">
-                        ${leftTitle}
-                    </div>
-
-                    <div class="reader-visual-column-text">
-                        ${leftText}
-                    </div>
-
-                </div>
-
-
-                <div class="reader-visual-arrow">
-                    →
-                </div>
-
-
-                <div class="reader-visual-column reader-visual-right">
-
-                    <div class="reader-visual-column-title">
-                        ${rightTitle}
-                    </div>
-
-                    <div class="reader-visual-column-text">
-                        ${rightText}
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
+        </figure>
     `;
-
 }
 
 
