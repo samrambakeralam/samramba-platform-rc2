@@ -1118,6 +1118,7 @@ if (book.displayTitle) {
     );
 }
 
+
 /* TEMPORARY DEBUG */
 console.log(
     "BOOK TITLE DATA:",
