@@ -186,27 +186,13 @@ body {
 ========================================================= */
 
 .reader-content {
-    width: min(
-        960px,
-        calc(100% - 32px)
-    );
-
+    width: min(1180px, calc(100% - 48px));
     margin: 24px auto 20px;
-
-    padding: 38px 46px;
-
+    padding: 38px 52px;
     background: #ffffff;
-
-    border:
-        1px solid
-        #e6eaf0;
-
+    border: 1px solid #e6eaf0;
     border-radius: 14px;
-
-    box-shadow:
-        0 8px 28px
-        rgba(15, 23, 42, 0.06);
-
+    box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
     min-height: 500px;
 }
 
@@ -660,15 +646,10 @@ body {
     }
 
     .reader-content {
-        width:
-            calc(100% - 24px);
-
-        padding:
-            32px 34px;
-
-        margin:
-            18px auto 18px;
-    }
+    width: min(100% - 28px, 1040px);
+    margin: 20px auto 18px;
+    padding: 30px 34px;
+}
 
     .reader-paragraph {
         font-size: 17px;
