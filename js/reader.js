@@ -52,26 +52,6 @@ const titleSecondary =
 const displayTitle =
     params.get("displayTitle") || "";
 
-    console.log(
-    "DISPLAY TITLE:",
-    displayTitle
-);
-
-console.log(
-    "TITLE BACKGROUND:",
-    titleBackground
-);
-
-console.log(
-    "TITLE PRIMARY:",
-    titlePrimary
-);
-
-console.log(
-    "TITLE SECONDARY:",
-    titleSecondary
-);
-
 
         const libraryParams =
     new URLSearchParams();
