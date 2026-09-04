@@ -381,19 +381,39 @@
 
 
                     themePrimary:
-            String(
-                record.themePrimary || ""
-            ).trim(),
+    String(
+        record.themePrimary || ""
+    ).trim(),
 
-        themeSecondary:
-            String(
-                record.themeSecondary || ""
-            ).trim(),
+themeSecondary:
+    String(
+        record.themeSecondary || ""
+    ).trim(),
 
-        description:
-            String(
-                record.description || ""
-            ).trim()
+titleBackground:
+    String(
+        record.titleBackground || ""
+    ).trim(),
+
+titlePrimary:
+    String(
+        record.titlePrimary || ""
+    ).trim(),
+
+titleSecondary:
+    String(
+        record.titleSecondary || ""
+    ).trim(),
+
+displayTitle:
+    String(
+        record.displayTitle || ""
+    ).trim(),
+
+description:
+    String(
+        record.description || ""
+    ).trim()
 
 
         };

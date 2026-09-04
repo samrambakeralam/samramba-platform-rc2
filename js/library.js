@@ -1078,14 +1078,45 @@ if (book.themePrimary) {
 
 
 if (book.themeSecondary) {
-
     params.set(
         "themeSecondary",
         book.themeSecondary
     );
-
 }
 
+
+/*
+ * Pass the book-specific
+ * title styling to the Reader.
+ */
+
+if (book.titleBackground) {
+    params.set(
+        "titleBackground",
+        book.titleBackground
+    );
+}
+
+if (book.titlePrimary) {
+    params.set(
+        "titlePrimary",
+        book.titlePrimary
+    );
+}
+
+if (book.titleSecondary) {
+    params.set(
+        "titleSecondary",
+        book.titleSecondary
+    );
+}
+
+if (book.displayTitle) {
+    params.set(
+        "displayTitle",
+        book.displayTitle
+    );
+}
 
 window.location.href =
     "reader.html?" +

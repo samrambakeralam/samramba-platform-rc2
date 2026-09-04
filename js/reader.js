@@ -40,6 +40,18 @@
     const themeSecondary =
         params.get("themeSecondary") || "";
 
+        const titleBackground =
+    params.get("titleBackground") || "";
+
+const titlePrimary =
+    params.get("titlePrimary") || "";
+
+const titleSecondary =
+    params.get("titleSecondary") || "";
+
+const displayTitle =
+    params.get("displayTitle") || "";
+
 
         const libraryParams =
     new URLSearchParams();
@@ -260,14 +272,27 @@ if (themeSecondary) {
         }
 
 
-        content.innerHTML =
-            page.blocks
-                .map(function (block) {
+        let pageHTML =
+    page.blocks
+        .map(renderBlock)
+        .join("");
 
-                    return renderBlock(block);
+/*
+ * Display the book-specific
+ * title card on Page 1.
+ */
 
-                })
-                .join("");
+if (
+    currentPageIndex === 0 &&
+    displayTitle
+) {
+    pageHTML =
+        renderDisplayTitle() +
+        pageHTML;
+}
+
+content.innerHTML =
+    pageHTML;
 
 
         pageIndicator.textContent =
@@ -540,6 +565,106 @@ function animatePageTransition(
         }
 
     }
+
+
+function renderDisplayTitle() {
+
+    if (!displayTitle) {
+        return "";
+    }
+
+    let titleParts;
+
+    try {
+        titleParts =
+            JSON.parse(displayTitle);
+    } catch (error) {
+
+        console.error(
+            "Invalid DisplayTitle data:",
+            error
+        );
+
+        return "";
+    }
+
+    if (
+        !Array.isArray(titleParts) ||
+        !titleParts.length
+    ) {
+        return "";
+    }
+
+    const background =
+        titleBackground ||
+        "#5B1A8F";
+
+    const primary =
+        titlePrimary ||
+        "#F5C518";
+
+    const secondary =
+        titleSecondary ||
+        "#FFFFFF";
+
+    const titleHTML =
+        titleParts
+            .map(
+                part => {
+
+                    const text =
+                        escapeHTML(
+                            part.text || ""
+                        );
+
+                    const size =
+                        [
+                            "large",
+                            "medium",
+                            "small"
+                        ].includes(
+                            part.size
+                        )
+                            ? part.size
+                            : "medium";
+
+                    const color =
+                        part.color === "primary"
+                            ? primary
+                            : secondary;
+
+                    const weight =
+                        part.weight === "normal"
+                            ? "400"
+                            : "700";
+
+                    return `
+                        <span
+                            class="reader-display-title-line
+                                   reader-display-title-${size}"
+                            style="
+                                color: ${color};
+                                font-weight: ${weight};
+                            "
+                        >
+                            ${text}
+                        </span>
+                    `;
+                }
+            )
+            .join("");
+
+    return `
+        <div
+            class="reader-display-title"
+            style="
+                background: ${background};
+            "
+        >
+            ${titleHTML}
+        </div>
+    `;
+}
 
 
     /* =========================================================

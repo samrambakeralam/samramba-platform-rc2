@@ -589,6 +589,121 @@ body {
 
 
 /* =========================================================
+   READER DISPLAY TITLE
+========================================================= */
+
+.reader-display-title {
+    width: 100%;
+    margin: 0 0 34px;
+    padding: 22px 26px;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.reader-display-title-line {
+    display: block;
+    margin: 0;
+    line-height: 1.08;
+    letter-spacing: 0;
+}
+
+.reader-display-title-large {
+    font-size: 38px;
+}
+
+.reader-display-title-medium {
+    font-size: 30px;
+}
+
+.reader-display-title-small {
+    font-size: 22px;
+}
+
+
+/* ---------------------------------------------------------
+   TABLET
+--------------------------------------------------------- */
+
+@media (max-width: 820px) {
+
+    .reader-display-title {
+        margin-bottom: 30px;
+        padding: 19px 22px;
+        border-radius: 9px;
+    }
+
+    .reader-display-title-large {
+        font-size: 34px;
+    }
+
+    .reader-display-title-medium {
+        font-size: 27px;
+    }
+
+    .reader-display-title-small {
+        font-size: 20px;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   PHONE
+--------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    .reader-display-title {
+        margin-bottom: 26px;
+        padding: 17px 16px;
+        border-radius: 8px;
+    }
+
+    .reader-display-title-large {
+        font-size: 28px;
+    }
+
+    .reader-display-title-medium {
+        font-size: 23px;
+    }
+
+    .reader-display-title-small {
+        font-size: 18px;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   SMALL PHONE
+--------------------------------------------------------- */
+
+@media (max-width: 380px) {
+
+    .reader-display-title {
+        margin-bottom: 24px;
+        padding: 15px 13px;
+        border-radius: 7px;
+    }
+
+    .reader-display-title-large {
+        font-size: 25px;
+    }
+
+    .reader-display-title-medium {
+        font-size: 21px;
+    }
+
+    .reader-display-title-small {
+        font-size: 17px;
+    }
+
+}
+
+
+/* =========================================================
    QUOTE
 ========================================================= */
 
