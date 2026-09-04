@@ -194,17 +194,13 @@ body {
     border-radius: 14px;
     box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
     min-height: 900px;
+    will-change: transform, opacity;
 }
 
 
 /* =========================================================
    PAGE TRANSITION
 ========================================================= */
-
-.reader-content {
-    will-change: transform, opacity;
-}
-
 
 /* Swipe / next page */
 
@@ -721,7 +717,7 @@ body {
 
 
 /* =========================================================
-   READER PAGE CONTROLS
+   READER PAGE DOTS
 ========================================================= */
 
 .reader-controls {
@@ -739,14 +735,17 @@ body {
     align-items: center;
     justify-content: center;
 
-    gap: 7px;
+    gap: 9px;
 }
 
 .reader-page-dot {
     width: 8px;
     height: 8px;
 
+    flex: 0 0 8px;
+
     padding: 0;
+    margin: 0;
 
     border: 0;
     border-radius: 50%;
@@ -757,7 +756,9 @@ body {
 
     transition:
         width 0.2s ease,
+        height 0.2s ease,
         background-color 0.2s ease,
+        box-shadow 0.2s ease,
         transform 0.2s ease;
 }
 
@@ -766,20 +767,25 @@ body {
 }
 
 .reader-page-dot.is-active {
-    width: 22px;
+    width: 10px;
+    height: 10px;
 
-    border-radius: 999px;
+    flex: 0 0 10px;
 
     background:
         var(
             --reader-theme-primary,
             #5B1A8F
         );
+
+    box-shadow:
+        0 0 0 2px
+        rgba(91, 26, 143, 0.15);
 }
 
 
 /* =========================================================
-   PAGE DOTS — MOBILE
+   READER PAGE DOTS — PHONE
 ========================================================= */
 
 @media (max-width: 600px) {
@@ -790,16 +796,21 @@ body {
     }
 
     .reader-page-dots {
-        gap: 6px;
+        gap: 9px;
     }
 
     .reader-page-dot {
         width: 7px;
         height: 7px;
+
+        flex-basis: 7px;
     }
 
     .reader-page-dot.is-active {
-        width: 20px;
+        width: 9px;
+        height: 9px;
+
+        flex-basis: 9px;
     }
 }
 
