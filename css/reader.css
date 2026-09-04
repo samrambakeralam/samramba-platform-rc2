@@ -1124,23 +1124,14 @@ body {
 
 
     /* -------------------------------------------------------
-       TEMPORARY CONTROLS
-    ------------------------------------------------------- */
+   PAGE DOTS
+------------------------------------------------------- */
 
-    .reader-controls {
+.reader-controls {
 
-        padding:
-            0 12px 20px;
-    }
-
-    .reader-controls button {
-
-        min-height: 36px;
-
-        min-width: 92px;
-
-        font-size: 13px;
-    }
+    padding:
+        0 12px 20px;
+}
 
 }
 
