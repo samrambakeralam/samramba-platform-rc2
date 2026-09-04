@@ -416,8 +416,17 @@ body {
     width: 300px;
     max-width: 100%;
     margin: 0 auto 30px;
+
     padding: 0;
+
     text-align: center;
+
+    border-radius: 12px;
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 20px
+        rgba(15, 23, 42, 0.12);
 }
 
 .reader-cover img {
@@ -426,13 +435,9 @@ body {
     width: 100%;
     height: auto;
 
-    margin: 0 auto;
+    margin: 0;
 
     object-fit: cover;
-
-    box-shadow:
-        0 8px 20px
-        rgba(15, 23, 42, 0.12);
 }
 
 
@@ -445,6 +450,7 @@ body {
     .reader-cover {
         width: 250px;
         margin-bottom: 26px;
+        border-radius: 11px;
     }
 }
 
@@ -458,6 +464,7 @@ body {
     .reader-cover {
         width: 190px;
         margin-bottom: 24px;
+        border-radius: 10px;
     }
 }
 
@@ -471,6 +478,7 @@ body {
     .reader-cover {
         width: 175px;
         margin-bottom: 22px;
+        border-radius: 9px;
     }
 }
 
