@@ -405,6 +405,9 @@ if (themeSecondary) {
 
     return renderVisualBlock(block);
 
+    case "cover":
+    return renderCoverBlock(block);
+
 
             default:
 
@@ -510,6 +513,64 @@ function renderImageVisual(data) {
             }
 
         </figure>
+    `;
+}
+
+
+function renderCoverBlock(block) {
+
+    let coverData;
+
+    try {
+        coverData =
+            typeof block.content === "string"
+                ? JSON.parse(block.content)
+                : block.content;
+    } catch (error) {
+
+        console.error(
+            "Invalid cover block data:",
+            error
+        );
+
+        return "";
+    }
+
+    if (!coverData) {
+        return "";
+    }
+
+    const src =
+        String(
+            coverData.src || ""
+        ).trim();
+
+    if (!src) {
+
+        console.warn(
+            "Cover image source is missing."
+        );
+
+        return "";
+    }
+
+    const alt =
+        escapeHTML(
+            coverData.alt ||
+            "Book cover"
+        );
+
+    return `
+        <div class="reader-cover">
+
+            <img
+                src="${src}"
+                alt="${alt}"
+                loading="eager"
+                decoding="async"
+            >
+
+        </div>
     `;
 }
 

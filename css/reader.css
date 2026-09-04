@@ -409,6 +409,75 @@ body {
 
 
 /* =========================================================
+   BOOK COVER
+========================================================= */
+
+.reader-cover {
+    width: 100%;
+    margin: 0 auto 30px;
+    padding: 0;
+    text-align: center;
+}
+
+.reader-cover img {
+    display: block;
+    width: auto;
+    max-width: 360px;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   BOOK COVER — TABLET
+========================================================= */
+
+@media (max-width: 820px) {
+
+    .reader-cover {
+        margin-bottom: 26px;
+    }
+
+    .reader-cover img {
+        max-width: 300px;
+    }
+}
+
+
+/* =========================================================
+   BOOK COVER — PHONE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .reader-cover {
+        margin-bottom: 24px;
+    }
+
+    .reader-cover img {
+        max-width: 260px;
+    }
+}
+
+
+/* =========================================================
+   BOOK COVER — SMALL PHONE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .reader-cover {
+        margin-bottom: 22px;
+    }
+
+    .reader-cover img {
+        max-width: 220px;
+    }
+}
+
+
+/* =========================================================
    QUOTE
 ========================================================= */
 
@@ -824,7 +893,7 @@ body {
 
         color: #000000;
 
-        font-size: 18px;
+        font-size: 17px;
 
         line-height: 1.68;
     }
