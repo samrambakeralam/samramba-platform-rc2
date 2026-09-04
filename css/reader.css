@@ -370,6 +370,198 @@ body {
 
 
 /* =========================================================
+   VISUAL LEARNING BLOCK
+========================================================= */
+
+.reader-visual {
+    margin: 26px 0 24px;
+
+    padding: 18px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 5px 18px
+        rgba(15, 23, 42, 0.05);
+}
+
+
+/* =========================================================
+   VISUAL TITLE
+========================================================= */
+
+.reader-visual-title {
+    margin-bottom: 15px;
+
+    color:
+        var(
+            --reader-theme-primary,
+            #5B1A8F
+        );
+
+    font-size: 16px;
+    font-weight: 700;
+
+    line-height: 1.35;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    letter-spacing: .03em;
+}
+
+
+/* =========================================================
+   VISUAL COLUMNS
+========================================================= */
+
+.reader-visual-columns {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        auto
+        minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   VISUAL COLUMN
+========================================================= */
+
+.reader-visual-column {
+    min-width: 0;
+
+    padding: 14px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 8px;
+}
+
+
+/* =========================================================
+   VISUAL COLUMN TITLE
+========================================================= */
+
+.reader-visual-column-title {
+    margin-bottom: 7px;
+
+    color:
+        var(
+            --reader-theme-primary,
+            #5B1A8F
+        );
+
+    font-size: 15px;
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   VISUAL COLUMN TEXT
+========================================================= */
+
+.reader-visual-column-text {
+    color: #000000;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   VISUAL ARROW
+========================================================= */
+
+.reader-visual-arrow {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color:
+        var(
+            --reader-theme-secondary,
+            #F5C518
+        );
+
+    font-size: 24px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   VISUAL — PHONE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .reader-visual {
+        margin: 22px 0 20px;
+
+        padding: 14px;
+
+        border-radius: 8px;
+    }
+
+
+    .reader-visual-title {
+        margin-bottom: 12px;
+
+        font-size: 14px;
+    }
+
+
+    .reader-visual-columns {
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+    }
+
+
+    .reader-visual-column {
+        padding: 12px;
+    }
+
+
+    .reader-visual-column-title {
+        font-size: 14px;
+    }
+
+
+    .reader-visual-column-text {
+        font-size: 15px;
+
+        line-height: 1.5;
+    }
+
+
+    .reader-visual-arrow {
+        transform: rotate(90deg);
+
+        font-size: 20px;
+    }
+
+}
+
+
+/* =========================================================
    QUOTE
 ========================================================= */
 

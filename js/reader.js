@@ -401,6 +401,10 @@ if (themeSecondary) {
                     </div>
                 `;
 
+                case "visual":
+
+    return renderVisualBlock(block);
+
 
             default:
 
@@ -413,6 +417,150 @@ if (themeSecondary) {
         }
 
     }
+
+
+    /* =========================================================
+   RENDER VISUAL BLOCK
+========================================================= */
+
+function renderVisualBlock(block) {
+
+    let visualData;
+
+    try {
+
+        visualData =
+            typeof block.content === "string"
+                ? JSON.parse(block.content)
+                : block.content;
+
+    } catch (error) {
+
+        console.error(
+            "Invalid visual block data:",
+            error
+        );
+
+        return "";
+    }
+
+
+    if (!visualData || !visualData.type) {
+        return "";
+    }
+
+
+    switch (visualData.type) {
+
+        case "mindset":
+
+            return renderMindsetVisual(
+                visualData
+            );
+
+
+        default:
+
+            console.warn(
+                "Unknown visual type:",
+                visualData.type
+            );
+
+            return "";
+
+    }
+
+}
+
+
+/* =========================================================
+   MINDSET VISUAL
+========================================================= */
+
+function renderMindsetVisual(data) {
+
+    const title =
+        escapeHTML(
+            data.title || ""
+        );
+
+
+    const leftTitle =
+        escapeHTML(
+            data.leftTitle || ""
+        );
+
+
+    const leftText =
+        escapeHTML(
+            data.leftText || ""
+        );
+
+
+    const rightTitle =
+        escapeHTML(
+            data.rightTitle || ""
+        );
+
+
+    const rightText =
+        escapeHTML(
+            data.rightText || ""
+        );
+
+
+    return `
+        <div class="reader-visual reader-visual-mindset">
+
+            ${
+                title
+                    ? `
+                        <div class="reader-visual-title">
+                            ${title}
+                        </div>
+                      `
+                    : ""
+            }
+
+
+            <div class="reader-visual-columns">
+
+                <div class="reader-visual-column reader-visual-left">
+
+                    <div class="reader-visual-column-title">
+                        ${leftTitle}
+                    </div>
+
+                    <div class="reader-visual-column-text">
+                        ${leftText}
+                    </div>
+
+                </div>
+
+
+                <div class="reader-visual-arrow">
+                    →
+                </div>
+
+
+                <div class="reader-visual-column reader-visual-right">
+
+                    <div class="reader-visual-column-title">
+                        ${rightTitle}
+                    </div>
+
+                    <div class="reader-visual-column-text">
+                        ${rightText}
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+}
 
 
     /* =========================================================
