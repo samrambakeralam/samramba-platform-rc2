@@ -415,17 +415,28 @@ body {
 .reader-cover {
     width: 100%;
     margin: 0 auto 30px;
-    padding: 0;
+    padding: 24px 20px;
     text-align: center;
+
+    background: #f8fafc;
+    border: 1px solid #e6eaf0;
+    border-radius: 10px;
 }
 
 .reader-cover img {
     display: block;
+
     width: auto;
-    max-width: 360px;
+    max-width: 300px;
     height: auto;
+
     margin: 0 auto;
+
     object-fit: contain;
+
+    box-shadow:
+        0 8px 20px
+        rgba(15, 23, 42, 0.12);
 }
 
 
@@ -437,26 +448,29 @@ body {
 
     .reader-cover {
         margin-bottom: 26px;
+        padding: 20px 16px;
     }
 
     .reader-cover img {
-        max-width: 300px;
+        max-width: 250px;
     }
 }
 
 
 /* =========================================================
-   BOOK COVER — PHONE
+   BOOK COVER — NORMAL PHONE
 ========================================================= */
 
 @media (max-width: 600px) {
 
     .reader-cover {
         margin-bottom: 24px;
+        padding: 18px 12px;
+        border-radius: 8px;
     }
 
     .reader-cover img {
-        max-width: 260px;
+        max-width: 210px;
     }
 }
 
@@ -469,10 +483,11 @@ body {
 
     .reader-cover {
         margin-bottom: 22px;
+        padding: 16px 10px;
     }
 
     .reader-cover img {
-        max-width: 220px;
+        max-width: 190px;
     }
 }
 
