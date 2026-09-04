@@ -90,15 +90,10 @@ const libraryURL =
             "readerPageIndicator"
         );
 
-    const previousButton =
-        document.getElementById(
-            "readerPrevious"
-        );
-
-    const nextButton =
-        document.getElementById(
-            "readerNext"
-        );
+    const pageDots =
+    document.getElementById(
+        "readerPageDots"
+    );
 
         const backButton =
     document.getElementById(
@@ -282,13 +277,7 @@ if (themeSecondary) {
             pages.length;
 
 
-        previousButton.disabled =
-            currentPageIndex === 0;
-
-
-        nextButton.disabled =
-            currentPageIndex ===
-            pages.length - 1;
+        renderPageDots();
 
 
         window.scrollTo({
@@ -297,6 +286,76 @@ if (themeSecondary) {
         });
 
     }
+
+
+    function renderPageDots() {
+
+    if (!pageDots) {
+        return;
+    }
+
+    pageDots.innerHTML =
+        pages
+            .map(
+                (_, index) => `
+                    <button
+                        type="button"
+                        class="reader-page-dot ${
+                            index === currentPageIndex
+                                ? "is-active"
+                                : ""
+                        }"
+                        data-page-index="${index}"
+                        aria-label="Go to page ${index + 1}"
+                        aria-current="${
+                            index === currentPageIndex
+                                ? "page"
+                                : "false"
+                        }"
+                    ></button>
+                `
+            )
+            .join("");
+
+    pageDots
+        .querySelectorAll(
+            ".reader-page-dot"
+        )
+        .forEach(
+            dot => {
+
+                dot.addEventListener(
+                    "click",
+                    () => {
+
+                        const index =
+                            Number(
+                                dot.dataset.pageIndex
+                            );
+
+                        goToPage(index);
+                    }
+                );
+
+            }
+        );
+}
+
+
+function goToPage(index) {
+
+    if (
+        index < 0 ||
+        index >= pages.length ||
+        index === currentPageIndex
+    ) {
+        return;
+    }
+
+    currentPageIndex = index;
+
+    renderPage();
+}
 
 
     /* =========================================================
@@ -617,39 +676,112 @@ function renderCoverBlock(block) {
 );
 
 
-    previousButton.addEventListener(
-        "click",
-        function () {
+/* =========================================================
+   TOUCH SWIPE NAVIGATION
+========================================================= */
 
-            if (currentPageIndex <= 0) {
-                return;
-            }
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
 
-            currentPageIndex--;
+content.addEventListener(
+    "touchstart",
+    event => {
 
-            renderPage();
-
+        if (
+            !event.touches ||
+            !event.touches.length
+        ) {
+            return;
         }
-    );
+
+        touchStartX =
+            event.touches[0].clientX;
+
+        touchStartY =
+            event.touches[0].clientY;
+    },
+    {
+        passive: true
+    }
+);
 
 
-    nextButton.addEventListener(
-        "click",
-        function () {
+content.addEventListener(
+    "touchend",
+    event => {
 
-            if (
-                currentPageIndex >=
-                pages.length - 1
-            ) {
-                return;
-            }
-
-            currentPageIndex++;
-
-            renderPage();
-
+        if (
+            !event.changedTouches ||
+            !event.changedTouches.length
+        ) {
+            return;
         }
-    );
+
+        touchEndX =
+            event.changedTouches[0].clientX;
+
+        touchEndY =
+            event.changedTouches[0].clientY;
+
+        handleSwipe();
+    },
+    {
+        passive: true
+    }
+);
+
+
+function handleSwipe() {
+
+    const deltaX =
+        touchEndX - touchStartX;
+
+    const deltaY =
+        touchEndY - touchStartY;
+
+    const minimumSwipeDistance = 50;
+
+    /*
+     * Ignore mostly-vertical gestures.
+     */
+    if (
+        Math.abs(deltaX) <=
+        Math.abs(deltaY)
+    ) {
+        return;
+    }
+
+    /*
+     * Ignore very short horizontal movements.
+     */
+    if (
+        Math.abs(deltaX) <
+        minimumSwipeDistance
+    ) {
+        return;
+    }
+
+    if (deltaX < 0) {
+
+        /*
+         * Swipe left → next page
+         */
+        goToPage(
+            currentPageIndex + 1
+        );
+
+    } else {
+
+        /*
+         * Swipe right → previous page
+         */
+        goToPage(
+            currentPageIndex - 1
+        );
+    }
+}
 
 
     /* =========================================================

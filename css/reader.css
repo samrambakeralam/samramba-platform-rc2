@@ -612,81 +612,86 @@ body {
 
 
 /* =========================================================
-   TEMPORARY READER CONTROLS
-   These will be replaced by pagination dots
-   in Step 2.
+   READER PAGE CONTROLS
 ========================================================= */
 
 .reader-controls {
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    gap: 12px;
+    width: 100%;
 
-    padding: 0 20px 26px;
+    padding: 10px 20px 22px;
 }
 
-.reader-controls button {
-    min-width: 100px;
+.reader-page-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    min-height: 38px;
+    gap: 7px;
+}
 
-    padding: 8px 15px;
+.reader-page-dot {
+    width: 8px;
+    height: 8px;
 
-    background: #ffffff;
+    padding: 0;
 
-    color: #172033;
+    border: 0;
+    border-radius: 50%;
 
-    font-family: Arial, Helvetica, sans-serif;
-
-    font-size: 14px;
-    font-weight: 700;
-
-    border:
-        1px solid
-        #cbd5e1;
-
-    border-radius: 7px;
+    background: #cbd5e1;
 
     cursor: pointer;
 
     transition:
-        background 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.15s ease;
+        width 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease;
 }
 
-.reader-controls button:hover:not(:disabled) {
-    background: #f8fafc;
+.reader-page-dot:hover {
+    transform: scale(1.15);
+}
 
-    border-color:
+.reader-page-dot.is-active {
+    width: 22px;
+
+    border-radius: 999px;
+
+    background:
         var(
             --reader-theme-primary,
             #5B1A8F
         );
 }
 
-.reader-controls button:active:not(:disabled) {
-    transform: translateY(1px);
-}
 
-.reader-controls button:focus-visible {
-    outline:
-        2px solid
-        var(
-            --reader-theme-primary,
-            #5B1A8F
-        );
+/* =========================================================
+   PAGE DOTS — MOBILE
+========================================================= */
 
-    outline-offset: 2px;
-}
+@media (max-width: 600px) {
 
-.reader-controls button:disabled {
-    opacity: 0.4;
+    .reader-controls {
+        padding:
+            8px 16px 18px;
+    }
 
-    cursor: default;
+    .reader-page-dots {
+        gap: 6px;
+    }
+
+    .reader-page-dot {
+        width: 7px;
+        height: 7px;
+    }
+
+    .reader-page-dot.is-active {
+        width: 20px;
+    }
 }
 
 
