@@ -198,6 +198,115 @@ body {
 
 
 /* =========================================================
+   PAGE TRANSITION
+========================================================= */
+
+.reader-content {
+    will-change: transform, opacity;
+}
+
+
+/* Swipe / next page */
+
+.reader-content.reader-page-exit-left {
+    animation:
+        readerPageExitLeft
+        150ms
+        ease
+        forwards;
+}
+
+.reader-content.reader-page-enter-right {
+    animation:
+        readerPageEnterRight
+        220ms
+        ease
+        both;
+}
+
+
+/* Swipe / previous page */
+
+.reader-content.reader-page-exit-right {
+    animation:
+        readerPageExitRight
+        150ms
+        ease
+        forwards;
+}
+
+.reader-content.reader-page-enter-left {
+    animation:
+        readerPageEnterLeft
+        220ms
+        ease
+        both;
+}
+
+
+/* =========================================================
+   NEXT PAGE
+========================================================= */
+
+@keyframes readerPageExitLeft {
+
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(-32px);
+        opacity: 0;
+    }
+}
+
+@keyframes readerPageEnterRight {
+
+    from {
+        transform: translateX(32px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   PREVIOUS PAGE
+========================================================= */
+
+@keyframes readerPageExitRight {
+
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(32px);
+        opacity: 0;
+    }
+}
+
+@keyframes readerPageEnterLeft {
+
+    from {
+        transform: translateX(-32px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
    BOOK TITLE
 ========================================================= */
 

@@ -352,9 +352,70 @@ function goToPage(index) {
         return;
     }
 
-    currentPageIndex = index;
+    const direction =
+        index > currentPageIndex
+            ? "next"
+            : "previous";
 
-    renderPage();
+    animatePageTransition(
+        index,
+        direction
+    );
+}
+
+
+function animatePageTransition(
+    index,
+    direction
+) {
+
+    if (!content) {
+        currentPageIndex = index;
+        renderPage();
+        return;
+    }
+
+    const exitClass =
+        direction === "next"
+            ? "reader-page-exit-left"
+            : "reader-page-exit-right";
+
+    const enterClass =
+        direction === "next"
+            ? "reader-page-enter-right"
+            : "reader-page-enter-left";
+
+    content.classList.add(exitClass);
+
+    window.setTimeout(
+        () => {
+
+            currentPageIndex = index;
+
+            renderPage();
+
+            content.classList.remove(
+                exitClass
+            );
+
+            content.classList.add(
+                enterClass
+            );
+
+            /*
+             * Force the browser to register
+             * the starting position before
+             * beginning the entrance animation.
+             */
+            void content.offsetWidth;
+
+            content.classList.remove(
+                enterClass
+            );
+
+        },
+        150
+    );
 }
 
 
