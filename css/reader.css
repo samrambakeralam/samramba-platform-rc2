@@ -62,17 +62,15 @@ body {
 
     gap: 22px;
 
-    min-height: 70px;
+    min-height: 66px;
 
-    padding: 11px 24px;
+    padding: 9px 24px;
 
-    background: rgba(255, 255, 255, 0.97);
+    background: #ffffff;
 
     border-bottom:
-        1px solid #e5e7eb;
-
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+        2px solid
+        var(--reader-theme-primary, #5B1A8F);
 }
 
 
@@ -163,21 +161,21 @@ body {
     align-items: center;
     justify-content: center;
 
-    min-width: 62px;
-    min-height: 36px;
+    min-width: 54px;
+    min-height: 31px;
 
-    padding: 6px 10px;
+    padding: 4px 8px;
 
-    color: #172033;
+    color: #000000;
 
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
 
     border:
         1px solid
-        #cbd5e1;
+        var(--reader-theme-secondary, #F5C518);
 
-    border-radius: 8px;
+    border-radius: 6px;
 
     background: #ffffff;
 }
