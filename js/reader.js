@@ -424,9 +424,33 @@ async function loadBookTitleStyle() {
         }
 
 
-        let pageHTML =
+        let introParagraphRendered = false;
+
+let pageHTML =
     page.blocks
-        .map(renderBlock)
+        .map(
+            block => {
+
+                if (
+                    currentPageIndex === 0 &&
+                    block.type === "paragraph" &&
+                    !introParagraphRendered
+                ) {
+
+                    introParagraphRendered = true;
+
+                    return renderBlock(
+                        block,
+                        true
+                    );
+                }
+
+                return renderBlock(
+                    block,
+                    false
+                );
+            }
+        )
         .join("");
 
 /*
@@ -641,11 +665,15 @@ function animatePageTransition(
 
             case "paragraph":
 
-                return `
-                    <p class="reader-block reader-paragraph">
-                        ${text}
-                    </p>
-                `;
+    return `
+        <p class="reader-block reader-paragraph ${
+            arguments[1]
+                ? "reader-intro"
+                : ""
+        }">
+            ${text}
+        </p>
+    `;
 
 
             case "list":
