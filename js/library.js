@@ -1118,26 +1118,6 @@ if (book.displayTitle) {
     );
 }
 
-
-/* TEMPORARY DEBUG */
-console.log(
-    "BOOK TITLE DATA:",
-    {
-        titleBackground: book.titleBackground,
-        titlePrimary: book.titlePrimary,
-        titleSecondary: book.titleSecondary,
-        displayTitle: book.displayTitle
-    }
-);
-
-
-
-console.log(
-    "READER URL:",
-    "reader.html?" +
-    params.toString()
-);
-
 window.location.href =
     "reader.html?" +
     params.toString();
