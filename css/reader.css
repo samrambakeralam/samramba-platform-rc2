@@ -698,15 +698,15 @@ body {
     }
 
     .reader-display-title-large {
-        font-size: 23px;
+        font-size: 21px;
     }
 
     .reader-display-title-medium {
-        font-size: 19px;
+        font-size: 18px;
     }
 
     .reader-display-title-small {
-        font-size: 16px;
+        font-size: 15px;
     }
 
 }
