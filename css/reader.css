@@ -458,8 +458,8 @@ body {
 
 .reader-visual-image img {
     display: block;
-    width: 100%;
-    max-width: 100%;
+    width: 88%;
+    max-width: 1000px;
     height: auto;
     margin: 0 auto;
     object-fit: contain;
