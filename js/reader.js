@@ -87,16 +87,6 @@ const libraryURL =
             "readerContent"
         );
 
-    const title =
-        document.getElementById(
-            "readerBookTitle"
-        );
-
-    const author =
-        document.getElementById(
-            "readerBookAuthor"
-        );
-
     const pageIndicator =
         document.getElementById(
             "readerPageIndicator"
@@ -120,6 +110,8 @@ const libraryURL =
     let pages = [];
 
     let currentPageIndex = 0;
+
+    let bookAuthor = "";
 
 
     /* =========================================================
@@ -636,22 +628,17 @@ function animatePageTransition(
 
             case "title":
 
-                title.textContent =
-                    block.content;
-
-                return `
-                    <div class="reader-block reader-title">
-                        ${text}
-                    </div>
-                `;
+    return "";
 
 
-            case "author":
+case "author":
 
-                author.textContent =
-                    block.content;
+    bookAuthor =
+        String(
+            block.content || ""
+        ).trim();
 
-                return "";
+    return "";
 
 
             case "heading":
@@ -834,16 +821,28 @@ function renderDisplayTitle() {
             )
             .join("");
 
+            const authorHTML =
+    bookAuthor
+        ? `
+            <div class="reader-display-title-author">
+                ${escapeHTML(bookAuthor)}
+            </div>
+          `
+        : "";
+
     return `
-        <div
-            class="reader-display-title"
-            style="
-                background: ${background};
-            "
-        >
-            ${titleHTML}
-        </div>
-    `;
+    <div
+        class="reader-display-title"
+        style="
+            background: ${background};
+        "
+    >
+        ${titleHTML}
+
+        ${authorHTML}
+    </div>
+`;
+
 }
 
 
