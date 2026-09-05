@@ -373,7 +373,7 @@ body {
 
     color: #000000;
 
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 400;
 
     line-height: 1.65;
@@ -1178,7 +1178,7 @@ body {
 
         color: #000000;
 
-        font-size: 18px;
+        font-size: 17px;
 
         line-height: 1.6;
     }
@@ -1313,7 +1313,7 @@ body {
 
     .reader-paragraph,
     .reader-list-item {
-        font-size: 15px;
+        font-size: 14px;
 
         line-height: 1.64;
     }
