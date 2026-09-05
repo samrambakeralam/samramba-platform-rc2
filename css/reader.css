@@ -692,21 +692,21 @@ body {
 @media (max-width: 380px) {
 
     .reader-display-title {
-        margin-bottom: 24px;
-        padding: 15px 13px;
+        margin-bottom: 22px;
+        padding: 11px 12px;
         border-radius: 7px;
     }
 
     .reader-display-title-large {
-        font-size: 25px;
+        font-size: 23px;
     }
 
     .reader-display-title-medium {
-        font-size: 21px;
+        font-size: 19px;
     }
 
     .reader-display-title-small {
-        font-size: 17px;
+        font-size: 16px;
     }
 
 }
