@@ -686,7 +686,7 @@ body {
     .reader-display-title {
         width: 100%;
         margin: 0 0 20px;
-        padding: 9px 12px;
+        padding: 6px 12px;
         border-radius: 7px;
         text-align: center;
         box-sizing: border-box;
@@ -1309,9 +1309,9 @@ body {
         justify-content: space-between;
 
         width: 100%;
-        min-height: 28px;
+        min-height: 26px;
 
-        padding: 1px 12px;
+        padding: 0 12px;
 
         background: #ffffff;
         border-bottom: 0;
