@@ -172,7 +172,7 @@ body {
 
 .reader-content {
     width: min(1180px, calc(100% - 48px));
-    margin: 24px auto 20px;
+    margin: 8px auto 20px;
     padding: 38px 52px;
     background: #ffffff;
     border: 1px solid #e6eaf0;
@@ -501,7 +501,7 @@ body {
 ========================================================= */
 
 .reader-cover {
-    width: 300px;
+    width: 260px;
     max-width: 100%;
     margin: 16px auto 34px;
 
@@ -650,7 +650,7 @@ body {
 
  .reader-display-title {
         width: 100%;
-        margin: 10px 0 22px;
+        margin: 5px 0 22px;
         padding: 13px 16px;
         border-radius: 8px;
         text-align: center;
@@ -687,7 +687,7 @@ body {
 
     .reader-display-title {
         width: 100%;
-        margin: 8px 0 20px;
+        margin: 4px 0 20px;
         padding: 9px 12px;
         border-radius: 7px;
         text-align: center;
