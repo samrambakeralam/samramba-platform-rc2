@@ -1132,6 +1132,12 @@ console.log(
 
 
 
+console.log(
+    "READER URL:",
+    "reader.html?" +
+    params.toString()
+);
+
 window.location.href =
     "reader.html?" +
     params.toString();
