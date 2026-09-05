@@ -1133,7 +1133,7 @@ body {
             8px 0 12px;
 
         padding:
-            22px 14px 24px;
+            12px 14px 24px;
 
         border: 0;
 
@@ -1332,7 +1332,7 @@ body {
 
 
     .reader-content {
-        padding: 19px 11px 22px;
+        padding: 8px 11px 22px;
         min-height: 620px;
     }
 
