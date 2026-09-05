@@ -469,10 +469,9 @@ content.innerHTML =
 
 
         pageIndicator.textContent =
-            "Page " +
-            page.page +
-            " / " +
-            pages.length;
+    page.page +
+    " / " +
+    pages.length;
 
 
         renderPageDots();

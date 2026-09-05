@@ -1304,13 +1304,26 @@ body {
 @media (max-width: 380px) {
 
     .reader-header {
-        min-height: 40px;
-        padding: 5px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 100%;
+        min-height: 32px;
+
+        padding: 2px 14px;
+
+        background: #ffffff;
+        border-bottom: 0;
     }
 
-
     .reader-back {
-        font-size: 13px;
+        min-height: 0;
+        padding: 0;
+
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.15;
     }
 
 
@@ -1324,10 +1337,21 @@ body {
     }
 
 
-   .reader-page-indicator {
-        padding: 4px 7px;
-        font-size: 10px;
-         font-weight: 500;
+      .reader-page-indicator {
+        min-width: 0;
+        min-height: 0;
+
+        padding: 0;
+        margin: 0;
+
+        background: transparent;
+
+        border: 0;
+        border-radius: 0;
+
+        font-size: 11px;
+        font-weight: 500;
+        line-height: 1.15;
     }
 
 
