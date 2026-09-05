@@ -40,16 +40,16 @@
     const themeSecondary =
         params.get("themeSecondary") || "";
 
-        const titleBackground =
+        let titleBackground =
     params.get("titleBackground") || "";
 
-const titlePrimary =
+let titlePrimary =
     params.get("titlePrimary") || "";
 
-const titleSecondary =
+let titleSecondary =
     params.get("titleSecondary") || "";
 
-const displayTitle =
+let displayTitle =
     params.get("displayTitle") || "";
 
 
@@ -239,6 +239,8 @@ if (themeSecondary) {
             }
 
 
+            await loadBookTitleStyle();
+
             renderPage();
 
         } catch (error) {
@@ -255,6 +257,156 @@ if (themeSecondary) {
         }
 
     }
+
+
+    /* =========================================================
+   LOAD BOOK TITLE STYLE
+========================================================= */
+
+async function loadBookTitleStyle() {
+
+    /*
+     * If the Reader URL already contains
+     * title styling, keep using it.
+     */
+    if (
+        displayTitle &&
+        titleBackground &&
+        titlePrimary &&
+        titleSecondary
+    ) {
+        return;
+    }
+
+
+    try {
+
+        const url =
+            LIBRARY_API_URL +
+            "?action=librarycatalogue";
+
+
+        const response =
+            await fetch(url);
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Unable to load the Library catalogue."
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !data.success ||
+            !Array.isArray(data.books)
+        ) {
+
+            console.warn(
+                "Library catalogue did not return books."
+            );
+
+            return;
+        }
+
+
+        const book =
+            data.books.find(
+                item =>
+                    String(item.id) ===
+                    String(bookID)
+            );
+
+
+        if (!book) {
+
+            console.warn(
+                "Book not found in catalogue:",
+                bookID
+            );
+
+            return;
+        }
+
+
+        /*
+         * Use catalogue values only when
+         * the Reader URL does not already
+         * provide them.
+         */
+
+        if (!titleBackground) {
+
+            titleBackground =
+                book.titleBackground || "";
+
+        }
+
+
+        if (!titlePrimary) {
+
+            titlePrimary =
+                book.titlePrimary || "";
+
+        }
+
+
+        if (!titleSecondary) {
+
+            titleSecondary =
+                book.titleSecondary || "";
+
+        }
+
+
+        if (!displayTitle) {
+
+            displayTitle =
+                book.displayTitle || "";
+
+        }
+
+
+        /*
+         * Apply the general Reader theme
+         * when available from the catalogue.
+         */
+
+        if (book.themePrimary) {
+
+            document.documentElement.style.setProperty(
+                "--reader-theme-primary",
+                book.themePrimary
+            );
+
+        }
+
+
+        if (book.themeSecondary) {
+
+            document.documentElement.style.setProperty(
+                "--reader-theme-secondary",
+                book.themeSecondary
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Book title style error:",
+            error
+        );
+
+    }
+
+}
 
 
     /* =========================================================
