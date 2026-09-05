@@ -102,6 +102,11 @@ const libraryURL =
         "readerBackButton"
     );
 
+    const readerHeader =
+    document.querySelector(
+        ".reader-header"
+    );
+
 
     /* =========================================================
        READER STATE
@@ -1040,6 +1045,83 @@ function renderCoverBlock(block) {
     }
 );
 
+
+/* =========================================================
+   HEADER SHOW / HIDE ON SCROLL
+========================================================= */
+
+let lastScrollY = window.scrollY;
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if (!readerHeader) {
+            return;
+        }
+
+
+        const currentScrollY =
+            window.scrollY;
+
+
+        /*
+         * Always show the header
+         * when the Reader is near the top.
+         */
+        if (currentScrollY <= 20) {
+
+            readerHeader.classList.remove(
+                "reader-header-hidden"
+            );
+
+            lastScrollY =
+                currentScrollY;
+
+            return;
+        }
+
+
+        /*
+         * Scrolling down:
+         * hide the header.
+         */
+        if (
+            currentScrollY >
+            lastScrollY
+        ) {
+
+            readerHeader.classList.add(
+                "reader-header-hidden"
+            );
+
+        }
+
+
+        /*
+         * Scrolling up:
+         * show the header.
+         */
+        else if (
+            currentScrollY <
+            lastScrollY
+        ) {
+
+            readerHeader.classList.remove(
+                "reader-header-hidden"
+            );
+
+        }
+
+
+        lastScrollY =
+            currentScrollY;
+
+    },
+    {
+        passive: true
+    }
+);
 
 /* =========================================================
    TOUCH SWIPE NAVIGATION

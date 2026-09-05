@@ -47,14 +47,35 @@ body {
 ========================================================= */
 
 .reader-header {
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     width: 100%;
+
     min-height: 44px;
-    padding: 7px 20px;
+
+    padding:
+        7px 20px;
+
     background: #ffffff;
+
     border-bottom: 0;
+
+    transform: translateY(0);
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.reader-header.reader-header-hidden {
+    transform: translateY(-100%);
 }
 
 
@@ -163,50 +184,41 @@ body {
 
 
 /* =========================================================
-   PAGE TRANSITION
+   READER PAGE TRANSITIONS
 ========================================================= */
-
-/* Swipe / next page */
 
 .reader-content.reader-page-exit-left {
     animation:
         readerPageExitLeft
-        150ms
-        ease
+        180ms
+        cubic-bezier(0.4, 0, 1, 1)
         forwards;
 }
 
 .reader-content.reader-page-enter-right {
     animation:
         readerPageEnterRight
-        220ms
-        ease
+        300ms
+        cubic-bezier(0.16, 1, 0.3, 1)
         both;
 }
-
-
-/* Swipe / previous page */
 
 .reader-content.reader-page-exit-right {
     animation:
         readerPageExitRight
-        150ms
-        ease
+        180ms
+        cubic-bezier(0.4, 0, 1, 1)
         forwards;
 }
 
 .reader-content.reader-page-enter-left {
     animation:
         readerPageEnterLeft
-        220ms
-        ease
+        300ms
+        cubic-bezier(0.16, 1, 0.3, 1)
         both;
 }
 
-
-/* =========================================================
-   NEXT PAGE
-========================================================= */
 
 @keyframes readerPageExitLeft {
 
@@ -216,15 +228,16 @@ body {
     }
 
     to {
-        transform: translateX(-32px);
+        transform: translateX(-20px);
         opacity: 0;
     }
 }
 
+
 @keyframes readerPageEnterRight {
 
     from {
-        transform: translateX(32px);
+        transform: translateX(20px);
         opacity: 0;
     }
 
@@ -234,10 +247,6 @@ body {
     }
 }
 
-
-/* =========================================================
-   PREVIOUS PAGE
-========================================================= */
 
 @keyframes readerPageExitRight {
 
@@ -247,15 +256,16 @@ body {
     }
 
     to {
-        transform: translateX(32px);
+        transform: translateX(20px);
         opacity: 0;
     }
 }
 
+
 @keyframes readerPageEnterLeft {
 
     from {
-        transform: translateX(-32px);
+        transform: translateX(-20px);
         opacity: 0;
     }
 
