@@ -529,7 +529,7 @@ body {
 .reader-cover {
     width: 300px;
     max-width: 100%;
-    margin: 0 auto 30px;
+    margin: 16px auto 34px;
 
     padding: 0;
 
@@ -577,7 +577,7 @@ body {
 
     .reader-cover {
         width: 155px;
-        margin-bottom: 24px;
+        margin: 14px auto 26px;
         border-radius: 10px;
     }
 }
@@ -591,8 +591,8 @@ body {
 
     .reader-cover {
         width: 135px;
-        margin-bottom: 18px;
-        border-radius: 9px;
+        margin: 12px auto 22px;
+        border-radius: 8px;
     }
 }
 
