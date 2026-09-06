@@ -373,7 +373,7 @@ body {
 
     color: #000000;
 
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 400;
 
     line-height: 1.65;
@@ -756,7 +756,7 @@ body {
 
     color: #000000;
 
-    font-size: 17px;
+    font-size: 18px;
     font-style: italic;
 
     line-height: 1.6;
@@ -782,7 +782,7 @@ body {
 
     color: #000000;
 
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 700;
 
     line-height: 1.5;
@@ -1282,7 +1282,7 @@ body {
         padding:
             13px 14px;
 
-        font-size: 14px;
+        font-size: 17px;
 
         line-height: 1.55;
     }
@@ -1300,7 +1300,7 @@ body {
         padding:
             10px 12px;
 
-        font-size: 14px;
+        font-size: 15px;
 
         line-height: 1.5;
     }
@@ -1403,6 +1403,40 @@ body {
         line-height: 1.25;
 
         border-radius: 5px;
+    }
+
+    /* -------------------------------------------------------
+       QUOTE — SMALL PHONE
+       ------------------------------------------------------- */
+
+    .reader-quote {
+
+        margin: 16px 0;
+
+        padding:
+            11px 12px;
+
+        font-size: 14px;
+
+        line-height: 1.5;
+    }
+
+
+    /* -------------------------------------------------------
+       TAKEAWAY — SMALL PHONE
+    ------------------------------------------------------- */
+
+    .reader-takeaway {
+
+        margin:
+            16px 0 6px;
+
+        padding:
+            9px 11px;
+
+        font-size: 14px;
+
+        line-height: 1.45;
     }
 
 }
