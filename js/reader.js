@@ -34,49 +34,53 @@
     const versionID =
         params.get("versionId") || "";
 
-        const themePrimary =
+    const themePrimary =
         params.get("themePrimary") || "";
 
     const themeSecondary =
         params.get("themeSecondary") || "";
 
-        let titleBackground =
-    params.get("titleBackground") || "";
+    let titleBackground =
+        params.get("titleBackground") || "";
 
-let titlePrimary =
-    params.get("titlePrimary") || "";
+    let titlePrimary =
+        params.get("titlePrimary") || "";
 
-let titleSecondary =
-    params.get("titleSecondary") || "";
+    let titleSecondary =
+        params.get("titleSecondary") || "";
 
-let displayTitle =
-    params.get("displayTitle") || "";
+    let displayTitle =
+        params.get("displayTitle") || "";
 
 
-        const libraryParams =
-    new URLSearchParams();
+    const libraryParams =
+        new URLSearchParams();
 
-if (customerID) {
-    libraryParams.set(
-        "cid",
-        customerID
-    );
-}
 
-if (token) {
-    libraryParams.set(
-        "t",
-        token
-    );
-}
+    if (customerID) {
+        libraryParams.set(
+            "cid",
+            customerID
+        );
+    }
 
-const libraryURL =
-    "library.html" +
-    (
-        libraryParams.toString()
-            ? "?" + libraryParams.toString()
-            : ""
-    );
+
+    if (token) {
+        libraryParams.set(
+            "t",
+            token
+        );
+    }
+
+
+    const libraryURL =
+        "library.html" +
+        (
+            libraryParams.toString()
+                ? "?" + libraryParams.toString()
+                : ""
+        );
+
 
     /* =========================================================
        DOM
@@ -93,19 +97,14 @@ const libraryURL =
         );
 
     const pageDots =
-    document.getElementById(
-        "readerPageDots"
-    );
+        document.getElementById(
+            "readerPageDots"
+        );
 
-        const backButton =
-    document.getElementById(
-        "readerBackButton"
-    );
-
-    const readerHeader =
-    document.querySelector(
-        ".reader-header"
-    );
+    const backButton =
+        document.getElementById(
+            "readerBackButton"
+        );
 
 
     /* =========================================================
@@ -120,27 +119,27 @@ const libraryURL =
 
 
     /* =========================================================
-   BOOK THEME
-========================================================= */
+       BOOK THEME
+    ========================================================= */
 
-if (themePrimary) {
+    if (themePrimary) {
 
-    document.documentElement.style.setProperty(
-        "--reader-theme-primary",
-        themePrimary
-    );
+        document.documentElement.style.setProperty(
+            "--reader-theme-primary",
+            themePrimary
+        );
 
-}
+    }
 
 
-if (themeSecondary) {
+    if (themeSecondary) {
 
-    document.documentElement.style.setProperty(
-        "--reader-theme-secondary",
-        themeSecondary
-    );
+        document.documentElement.style.setProperty(
+            "--reader-theme-secondary",
+            themeSecondary
+        );
 
-}
+    }
 
 
     /* =========================================================
@@ -199,9 +198,11 @@ if (themeSecondary) {
 
 
             if (!response.ok) {
+
                 throw new Error(
                     "Unable to connect to the Library."
                 );
+
             }
 
 
@@ -257,159 +258,156 @@ if (themeSecondary) {
 
 
     /* =========================================================
-   LOAD BOOK TITLE STYLE
-========================================================= */
+       LOAD BOOK TITLE STYLE
+    ========================================================= */
 
-async function loadBookTitleStyle() {
+    async function loadBookTitleStyle() {
 
-    /*
-     * If the Reader URL already contains
-     * title styling, keep using it.
-     */
-    if (
-        displayTitle &&
-        titleBackground &&
-        titlePrimary &&
-        titleSecondary
-    ) {
-        return;
-    }
-
-
-    try {
-
-        const url =
-            LIBRARY_API_URL +
-            "?action=librarycatalogue";
-
-
-        const response =
-            await fetch(url);
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                "Unable to load the Library catalogue."
-            );
-
-        }
-
-
-        const data =
-            await response.json();
-
+        /*
+         * If the Reader URL already contains
+         * title styling, keep using it.
+         */
 
         if (
-            !data.success ||
-            !Array.isArray(data.books)
+            displayTitle &&
+            titleBackground &&
+            titlePrimary &&
+            titleSecondary
         ) {
 
-            console.warn(
-                "Library catalogue did not return books."
-            );
-
             return;
+
         }
 
 
-        const book =
-            data.books.find(
-                item =>
-                    String(item.id) ===
-                    String(bookID)
+        try {
+
+            const url =
+                LIBRARY_API_URL +
+                "?action=librarycatalogue";
+
+
+            const response =
+                await fetch(url);
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Unable to load the Library catalogue."
+                );
+
+            }
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                !data.success ||
+                !Array.isArray(data.books)
+            ) {
+
+                console.warn(
+                    "Library catalogue did not return books."
+                );
+
+                return;
+            }
+
+
+            const book =
+                data.books.find(
+                    item =>
+                        String(item.id) ===
+                        String(bookID)
+                );
+
+
+            if (!book) {
+
+                console.warn(
+                    "Book not found in catalogue:",
+                    bookID
+                );
+
+                return;
+            }
+
+
+            /*
+             * Use catalogue values only when
+             * the Reader URL does not already
+             * provide them.
+             */
+
+            if (!titleBackground) {
+
+                titleBackground =
+                    book.titleBackground || "";
+
+            }
+
+
+            if (!titlePrimary) {
+
+                titlePrimary =
+                    book.titlePrimary || "";
+
+            }
+
+
+            if (!titleSecondary) {
+
+                titleSecondary =
+                    book.titleSecondary || "";
+
+            }
+
+
+            if (!displayTitle) {
+
+                displayTitle =
+                    book.displayTitle || "";
+
+            }
+
+
+            /*
+             * Apply the general Reader theme
+             * when available from the catalogue.
+             */
+
+            if (book.themePrimary) {
+
+                document.documentElement.style.setProperty(
+                    "--reader-theme-primary",
+                    book.themePrimary
+                );
+
+            }
+
+
+            if (book.themeSecondary) {
+
+                document.documentElement.style.setProperty(
+                    "--reader-theme-secondary",
+                    book.themeSecondary
+                );
+
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Book title style error:",
+                error
             );
 
-
-        if (!book) {
-
-            console.warn(
-                "Book not found in catalogue:",
-                bookID
-            );
-
-            return;
         }
-
-
-        /* Get author from LIBRARY_CATALOGUE */
-
-        bookAuthor =
-        String(book.author || "").trim();
-
-
-        /*
-         * Use catalogue values only when
-         * the Reader URL does not already
-         * provide them.
-         */
-
-        if (!titleBackground) {
-
-            titleBackground =
-                book.titleBackground || "";
-
-        }
-
-
-        if (!titlePrimary) {
-
-            titlePrimary =
-                book.titlePrimary || "";
-
-        }
-
-
-        if (!titleSecondary) {
-
-            titleSecondary =
-                book.titleSecondary || "";
-
-        }
-
-
-        if (!displayTitle) {
-
-            displayTitle =
-                book.displayTitle || "";
-
-        }
-
-
-        /*
-         * Apply the general Reader theme
-         * when available from the catalogue.
-         */
-
-        if (book.themePrimary) {
-
-            document.documentElement.style.setProperty(
-                "--reader-theme-primary",
-                book.themePrimary
-            );
-
-        }
-
-
-        if (book.themeSecondary) {
-
-            document.documentElement.style.setProperty(
-                "--reader-theme-secondary",
-                book.themeSecondary
-            );
-
-        }
-
-    } catch (error) {
-
-        console.error(
-            "Book title style error:",
-            error
-        );
 
     }
-
-}
 
 
     /* =========================================================
@@ -429,55 +427,64 @@ async function loadBookTitleStyle() {
 
         let introParagraphRendered = false;
 
-let pageHTML =
-    page.blocks
-        .map(
-            block => {
 
-                if (
-                    currentPageIndex === 0 &&
-                    block.type === "paragraph" &&
-                    !introParagraphRendered
-                ) {
+        let pageHTML =
+            page.blocks
+                .map(
+                    block => {
 
-                    introParagraphRendered = true;
+                        if (
+                            currentPageIndex === 0 &&
+                            block.type === "paragraph" &&
+                            !introParagraphRendered
+                        ) {
 
-                    return renderBlock(
-                        block,
-                        true
-                    );
-                }
+                            introParagraphRendered = true;
 
-                return renderBlock(
-                    block,
-                    false
-                );
-            }
-        )
-        .join("");
+                            return renderBlock(
+                                block,
+                                true
+                            );
 
-/*
- * Display the book-specific
- * title card on Page 1.
- */
+                        }
 
-if (
-    currentPageIndex === 0 &&
-    displayTitle
-) {
-    pageHTML =
-        renderDisplayTitle() +
-        pageHTML;
-}
 
-content.innerHTML =
-    pageHTML;
+                        return renderBlock(
+                            block,
+                            false
+                        );
+
+                    }
+                )
+                .join("");
+
+
+        /*
+         * Display the book-specific
+         * title card on Page 1.
+         */
+
+        if (
+            currentPageIndex === 0 &&
+            displayTitle
+        ) {
+
+            pageHTML =
+                renderDisplayTitle() +
+                pageHTML;
+
+        }
+
+
+        content.innerHTML =
+            pageHTML;
 
 
         pageIndicator.textContent =
-    page.page +
-    " / " +
-    pages.length;
+            "Page " +
+            page.page +
+            " / " +
+            pages.length;
 
 
         renderPageDots();
@@ -491,142 +498,349 @@ content.innerHTML =
     }
 
 
+    /* =========================================================
+       PAGE DOTS
+    ========================================================= */
+
     function renderPageDots() {
 
-    if (!pageDots) {
-        return;
-    }
+        if (!pageDots) {
+            return;
+        }
 
-    pageDots.innerHTML =
-        pages
-            .map(
-                (_, index) => `
-                    <button
-                        type="button"
-                        class="reader-page-dot ${
-                            index === currentPageIndex
-                                ? "is-active"
-                                : ""
-                        }"
-                        data-page-index="${index}"
-                        aria-label="Go to page ${index + 1}"
-                        aria-current="${
-                            index === currentPageIndex
-                                ? "page"
-                                : "false"
-                        }"
-                    ></button>
-                `
+
+        pageDots.innerHTML =
+            pages
+                .map(
+                    (_, index) => `
+
+                        <button
+                            type="button"
+                            class="reader-page-dot ${
+                                index === currentPageIndex
+                                    ? "is-active"
+                                    : ""
+                            }"
+                            data-page-index="${index}"
+                            aria-label="Go to page ${index + 1}"
+                            aria-current="${
+                                index === currentPageIndex
+                                    ? "page"
+                                    : "false"
+                            }"
+                        ></button>
+
+                    `
+                )
+                .join("");
+
+
+        pageDots
+            .querySelectorAll(
+                ".reader-page-dot"
             )
-            .join("");
+            .forEach(
+                dot => {
 
-    pageDots
-        .querySelectorAll(
-            ".reader-page-dot"
-        )
-        .forEach(
-            dot => {
+                    dot.addEventListener(
+                        "click",
+                        () => {
 
-                dot.addEventListener(
-                    "click",
-                    () => {
+                            const index =
+                                Number(
+                                    dot.dataset.pageIndex
+                                );
 
-                        const index =
-                            Number(
-                                dot.dataset.pageIndex
-                            );
+                            goToPage(index);
 
-                        goToPage(index);
-                    }
-                );
+                        }
+                    );
 
-            }
-        );
-}
+                }
+            );
 
-
-function goToPage(index) {
-
-    if (
-        index < 0 ||
-        index >= pages.length ||
-        index === currentPageIndex
-    ) {
-        return;
     }
 
-    const direction =
-        index > currentPageIndex
-            ? "next"
-            : "previous";
 
-    animatePageTransition(
+    /* =========================================================
+       GO TO PAGE
+    ========================================================= */
+
+    function goToPage(index) {
+
+        if (
+            index < 0 ||
+            index >= pages.length ||
+            index === currentPageIndex
+        ) {
+
+            return;
+
+        }
+
+
+        const direction =
+            index > currentPageIndex
+                ? "next"
+                : "previous";
+
+
+        animatePageTransition(
+            index,
+            direction
+        );
+
+    }
+
+
+    /* =========================================================
+       PAGE TRANSITION
+    ========================================================= */
+
+    function animatePageTransition(
         index,
         direction
-    );
-}
+    ) {
 
+        if (!content) {
 
-function animatePageTransition(
-    index,
-    direction
-) {
-
-    if (!content) {
-        currentPageIndex = index;
-        renderPage();
-        return;
-    }
-
-    const exitClass =
-        direction === "next"
-            ? "reader-page-exit-left"
-            : "reader-page-exit-right";
-
-    const enterClass =
-        direction === "next"
-            ? "reader-page-enter-right"
-            : "reader-page-enter-left";
-
-    content.classList.add(exitClass);
-
-    window.setTimeout(
-        () => {
-
-            currentPageIndex = index;
+            currentPageIndex =
+                index;
 
             renderPage();
 
-            content.classList.remove(
-                exitClass
-            );
+            return;
+        }
 
-            content.classList.add(
-                enterClass
-            );
 
-            /*
-             * Force the browser to register
-             * the starting position before
-             * beginning the entrance animation.
-             */
-            void content.offsetWidth;
+        const exitClass =
+            direction === "next"
+                ? "reader-page-exit-left"
+                : "reader-page-exit-right";
 
-            content.classList.remove(
-                enterClass
-            );
 
-        },
-        150
-    );
-}
+        const enterClass =
+            direction === "next"
+                ? "reader-page-enter-right"
+                : "reader-page-enter-left";
+
+
+        content.classList.add(
+            exitClass
+        );
+
+
+        window.setTimeout(
+            () => {
+
+                currentPageIndex =
+                    index;
+
+
+                renderPage();
+
+
+                content.classList.remove(
+                    exitClass
+                );
+
+
+                content.classList.add(
+                    enterClass
+                );
+
+
+                /*
+                 * Force the browser to register
+                 * the starting position before
+                 * beginning the entrance animation.
+                 */
+
+                void content.offsetWidth;
+
+
+                content.classList.remove(
+                    enterClass
+                );
+
+            },
+            150
+        );
+
+    }
 
 
     /* =========================================================
        RENDER BLOCK
     ========================================================= */
 
-    function renderBlock(block) {
+    function parseStyledBlockContent(value) {
+
+        if (
+            value &&
+            typeof value === "object"
+        ) {
+
+            return value;
+
+        }
+
+
+        const raw =
+            String(
+                value ?? ""
+            ).trim();
+
+
+        if (!raw) {
+
+            return {
+                text: ""
+            };
+
+        }
+
+
+        try {
+
+            const parsed =
+                JSON.parse(raw);
+
+
+            if (
+                parsed &&
+                typeof parsed === "object" &&
+                !Array.isArray(parsed)
+            ) {
+
+                return parsed;
+
+            }
+
+        } catch (error) {
+
+            /*
+             * Plain text is valid legacy content.
+             */
+
+        }
+
+
+        return {
+            text: raw
+        };
+
+    }
+
+
+    /* =========================================================
+       SAFE CSS FONT FAMILY
+    ========================================================= */
+
+    function safeCssFontFamily(value) {
+
+        const cleaned =
+            String(
+                value || ""
+            )
+                .replace(
+                    /[^a-zA-Z0-9 ,"\'_-]/g,
+                    ""
+                )
+                .trim();
+
+
+        return cleaned ||
+            "inherit";
+
+    }
+
+
+    /* =========================================================
+       SAFE CSS WEIGHT
+    ========================================================= */
+
+    function safeCssWeight(value) {
+
+        const raw =
+            String(
+                value || ""
+            )
+                .trim()
+                .toLowerCase();
+
+
+        if (
+            [
+                "normal",
+                "bold"
+            ].includes(raw)
+        ) {
+
+            return raw;
+
+        }
+
+
+        const numeric =
+            Number(raw);
+
+
+        if (
+            Number.isFinite(numeric) &&
+            numeric >= 100 &&
+            numeric <= 900
+        ) {
+
+            return String(
+                Math.round(
+                    numeric / 100
+                ) * 100
+            );
+
+        }
+
+
+        return "700";
+
+    }
+
+
+    /* =========================================================
+       SAFE CSS LETTER SPACING
+    ========================================================= */
+
+    function safeCssLetterSpacing(value) {
+
+        const raw =
+            String(
+                value || ""
+            ).trim();
+
+
+        if (
+            /^-?(?:0|[0-9]+(?:\.[0-9]+)?)(?:px|em|rem|%)$/
+                .test(raw)
+        ) {
+
+            return raw;
+
+        }
+
+
+        return "0";
+
+    }
+
+
+    /* =========================================================
+       RENDER STANDARD BLOCKS
+    ========================================================= */
+
+    function renderBlock(
+        block,
+        isIntro = false
+    ) {
 
         const text =
             escapeHTML(
@@ -636,146 +850,258 @@ function animatePageTransition(
 
         switch (block.type) {
 
+
+            /* =================================================
+               TITLE
+            ================================================= */
+
             case "title":
 
-    return "";
+                /*
+                 * Title is intentionally not rendered here.
+                 * The book-specific title card is rendered
+                 * separately by renderDisplayTitle().
+                 */
+
+                return "";
 
 
-case "author":
+            /* =================================================
+               AUTHOR
+            ================================================= */
 
-    bookAuthor =
-        String(
-            block.content || ""
-        ).trim();
+            case "author":
 
-    return "";
+                bookAuthor =
+                    String(
+                        block.content || ""
+                    ).trim();
 
+
+                return "";
+
+
+            /* =================================================
+               HEADING
+            ================================================= */
 
             case "heading":
 
                 return `
-                    <h2 class="reader-block reader-heading">
+                    <h2
+                        class="reader-block reader-heading"
+                    >
                         ${text}
                     </h2>
                 `;
 
 
-            case "paragraph": {
+            /* =================================================
+               SUBHEADING
+            ================================================= */
 
-    let paragraphText =
-        String(block.content || "");
+            case "subheading": {
 
-    let paragraphBold = false;
-    let paragraphItalic = false;
+                const data =
+                    parseStyledBlockContent(
+                        block.content
+                    );
 
-    /*
-     * Optional paragraph formatting.
-     *
-     * Plain text remains fully compatible.
-     *
-     * Formatted text can be stored as:
-     * {
-     *     "text": "Poor & middle class:",
-     *     "bold": true
-     * }
-     */
 
-    try {
+                const subText =
+                    escapeHTML(
+                        data.text || ""
+                    );
 
-        const paragraphData =
-            JSON.parse(paragraphText);
 
-        if (
-            paragraphData &&
-            typeof paragraphData === "object" &&
-            typeof paragraphData.text === "string"
-        ) {
+                const color =
+                    escapeHTML(
+                        data.color ||
+                        "var(--reader-theme-primary, #C62828)"
+                    );
 
-            paragraphText =
-                paragraphData.text;
 
-            paragraphBold =
-                paragraphData.bold === true;
+                const weight =
+                    safeCssWeight(
+                        data.weight ||
+                        700
+                    );
 
-            paragraphItalic =
-                paragraphData.italic === true;
-        }
 
-    } catch (error) {
+                const fontFamily =
+                    safeCssFontFamily(
+                        data.fontFamily ||
+                        "inherit"
+                    );
 
-        /*
-         * Plain paragraph text.
-         * No formatting metadata present.
-         */
 
-    }
+                const letterSpacing =
+                    safeCssLetterSpacing(
+                        data.letterSpacing ||
+                        "0"
+                    );
 
-    const paragraphClasses = [
-        "reader-block",
-        "reader-paragraph",
-        arguments[1]
-            ? "reader-intro"
-            : "",
-        paragraphBold
-            ? "reader-paragraph-bold"
-            : "",
-        paragraphItalic
-            ? "reader-paragraph-italic"
-            : ""
-    ]
-        .filter(Boolean)
-        .join(" ");
 
-    return `
-        <p class="${paragraphClasses}">
-            ${escapeHTML(paragraphText)}
-        </p>
-    `;
-}
+                return `
+                    <div
+                        class="
+                            reader-block
+                            reader-subheading
+                        "
+                        style="
+                            color: ${color};
+                            font-weight: ${weight};
+                            font-family: ${fontFamily};
+                            letter-spacing: ${letterSpacing};
+                        "
+                    >
+                        ${subText}
+                    </div>
+                `;
 
+            }
+
+
+            /* =================================================
+               BULLET
+            ================================================= */
+
+            case "bullet": {
+
+                const data =
+                    parseStyledBlockContent(
+                        block.content
+                    );
+
+
+                let bulletText =
+                    String(
+                        data.text || ""
+                    ).trim();
+
+
+                /*
+                 * Backward compatibility:
+                 *
+                 * Existing rows may contain
+                 * a leading emoji marker.
+                 *
+                 * Remove it from the text and render
+                 * a dedicated, smaller marker.
+                 */
+
+                bulletText =
+                    bulletText.replace(
+                        /^(?:[🟠🔴🟡🟢🔵🟣⚫⚪🟤]\s*)/u,
+                        ""
+                    );
+
+
+                const marker =
+                    escapeHTML(
+                        data.marker ||
+                        "●"
+                    );
+
+
+                const markerColor =
+                    escapeHTML(
+                        data.markerColor ||
+                        "var(--reader-theme-secondary, #F5C518)"
+                    );
+
+
+                const fontFamily =
+                    safeCssFontFamily(
+                        data.fontFamily ||
+                        "inherit"
+                    );
+
+
+                const weight =
+                    safeCssWeight(
+                        data.weight ||
+                        400
+                    );
+
+
+                return `
+                    <div
+                        class="
+                            reader-block
+                            reader-bullet
+                        "
+                        style="
+                            font-family: ${fontFamily};
+                            font-weight: ${weight};
+                        "
+                    >
+
+                        <span
+                            class="reader-bullet-marker"
+                            style="
+                                color: ${markerColor};
+                            "
+                            aria-hidden="true"
+                        >
+                            ${marker}
+                        </span>
+
+
+                        <span
+                            class="reader-bullet-text"
+                        >
+                            ${escapeHTML(
+                                bulletText
+                            )}
+                        </span>
+
+                    </div>
+                `;
+
+            }
+
+
+            /* =================================================
+               PARAGRAPH
+            ================================================= */
+
+            case "paragraph":
+
+                return `
+                    <p
+                        class="
+                            reader-block
+                            reader-paragraph
+                            ${
+                                isIntro
+                                    ? "reader-intro"
+                                    : ""
+                            }
+                        "
+                    >
+                        ${text}
+                    </p>
+                `;
+
+
+            /* =================================================
+               LEGACY LIST
+            ================================================= */
 
             case "list":
 
                 return `
-                    <div class="reader-block reader-list-item">
-                        <span>•</span>
-                        <span>${text}</span>
-                    </div>
-                `;
+                    <div
+                        class="
+                            reader-block
+                            reader-list-item
+                        "
+                    >
 
-
-            case "quote":
-
-                return `
-                    <blockquote class="reader-block reader-quote">
-                        ${text}
-                    </blockquote>
-                `;
-
-
-            case "takeaway":
-
-                return `
-                    <div class="reader-block reader-takeaway">
-                        ${text}
-                    </div>
-                `;
-
-
-            case "comparison":
-
-                return `
-                    <div class="reader-block reader-comparison">
-
-                        ${
-                            block.label
-                                ? `
-                                    <strong>
-                                        ${escapeHTML(block.label)}
-                                    </strong>
-                                  `
-                                : ""
-                        }
+                        <span>
+                            •
+                        </span>
 
                         <span>
                             ${text}
@@ -784,18 +1110,113 @@ case "author":
                     </div>
                 `;
 
-                case "visual":
 
-    return renderVisualBlock(block);
+            /* =================================================
+               QUOTE
+            ================================================= */
 
-    case "cover":
-    return renderCoverBlock(block);
+            case "quote":
 
+                return `
+                    <blockquote
+                        class="
+                            reader-block
+                            reader-quote
+                        "
+                    >
+                        ${text}
+                    </blockquote>
+                `;
+
+
+            /* =================================================
+               TAKEAWAY
+            ================================================= */
+
+            case "takeaway":
+
+                return `
+                    <div
+                        class="
+                            reader-block
+                            reader-takeaway
+                        "
+                    >
+                        ${text}
+                    </div>
+                `;
+
+
+            /* =================================================
+               COMPARISON
+            ================================================= */
+
+            case "comparison":
+
+                return `
+                    <div
+                        class="
+                            reader-block
+                            reader-comparison
+                        "
+                    >
+
+                        ${
+                            block.label
+                                ? `
+                                    <strong>
+                                        ${escapeHTML(
+                                            block.label
+                                        )}
+                                    </strong>
+                                  `
+                                : ""
+                        }
+
+
+                        <span>
+                            ${text}
+                        </span>
+
+                    </div>
+                `;
+
+
+            /* =================================================
+               VISUAL
+            ================================================= */
+
+            case "visual":
+
+                return renderVisualBlock(
+                    block
+                );
+
+
+            /* =================================================
+               COVER
+            ================================================= */
+
+            case "cover":
+
+                return renderCoverBlock(
+                    block
+                );
+
+
+            /* =================================================
+               DEFAULT
+            ================================================= */
 
             default:
 
                 return `
-                    <p class="reader-block reader-paragraph">
+                    <p
+                        class="
+                            reader-block
+                            reader-paragraph
+                        "
+                    >
                         ${text}
                     </p>
                 `;
@@ -805,296 +1226,422 @@ case "author":
     }
 
 
-function renderDisplayTitle() {
+    /* =========================================================
+       DISPLAY TITLE
+    ========================================================= */
 
-    if (!displayTitle) {
-        return "";
-    }
+    function renderDisplayTitle() {
 
-    let titleParts;
+        if (!displayTitle) {
+            return "";
+        }
 
-    try {
-        titleParts =
-            JSON.parse(displayTitle);
-    } catch (error) {
 
-        console.error(
-            "Invalid DisplayTitle data:",
-            error
-        );
+        let titleParts;
 
-        return "";
-    }
 
-    if (
-        !Array.isArray(titleParts) ||
-        !titleParts.length
-    ) {
-        return "";
-    }
+        try {
 
-    const background =
-        titleBackground ||
-        "#5B1A8F";
+            titleParts =
+                JSON.parse(
+                    displayTitle
+                );
 
-    const primary =
-        titlePrimary ||
-        "#F5C518";
+        } catch (error) {
 
-    const secondary =
-        titleSecondary ||
-        "#FFFFFF";
+            console.error(
+                "Invalid DisplayTitle data:",
+                error
+            );
 
-    const titleHTML =
-        titleParts
-            .map(
-                part => {
+            return "";
+        }
 
-                    const text =
-                        escapeHTML(
-                            part.text || ""
-                        );
 
-                    const size =
-                        [
-                            "large",
-                            "medium",
-                            "small"
-                        ].includes(
-                            part.size
-                        )
-                            ? part.size
-                            : "medium";
+        if (
+            !Array.isArray(titleParts) ||
+            !titleParts.length
+        ) {
 
-                    const color =
-                        part.color === "primary"
-                            ? primary
-                            : secondary;
+            return "";
 
-                    const weight =
-                        part.weight === "normal"
-                            ? "400"
-                            : "700";
+        }
 
-                    return `
-                        <span
-                            class="reader-display-title-line
-                                   reader-display-title-${size}"
-                            style="
-                                color: ${color};
-                                font-weight: ${weight};
-                            "
-                        >
-                            ${text}
-                        </span>
-                    `;
-                }
-            )
-            .join("");
 
-            const authorHTML =
-    bookAuthor
-        ? `
-            <div class="reader-display-title-author">
-                ${escapeHTML(bookAuthor)}
+        const background =
+            titleBackground ||
+            "#5B1A8F";
+
+
+        const primary =
+            titlePrimary ||
+            "#F5C518";
+
+
+        const secondary =
+            titleSecondary ||
+            "#FFFFFF";
+
+
+        const titleHTML =
+            titleParts
+                .map(
+                    part => {
+
+                        const text =
+                            escapeHTML(
+                                part.text || ""
+                            );
+
+
+                        const size =
+                            [
+                                "large",
+                                "medium",
+                                "small"
+                            ].includes(
+                                part.size
+                            )
+                                ? part.size
+                                : "medium";
+
+
+                        const color =
+                            part.color === "primary"
+                                ? primary
+                                : secondary;
+
+
+                        const weight =
+                            safeCssWeight(
+                                part.weight ||
+                                700
+                            );
+
+
+                        const fontFamily =
+                            safeCssFontFamily(
+                                part.fontFamily ||
+                                "inherit"
+                            );
+
+
+                        const letterSpacing =
+                            safeCssLetterSpacing(
+                                part.letterSpacing ||
+                                "0"
+                            );
+
+
+                        return `
+                            <span
+                                class="
+                                    reader-display-title-line
+                                    reader-display-title-${size}
+                                "
+                                style="
+                                    color: ${color};
+                                    font-weight: ${weight};
+                                    font-family: ${fontFamily};
+                                    letter-spacing: ${letterSpacing};
+                                "
+                            >
+                                ${text}
+                            </span>
+                        `;
+
+                    }
+                )
+                .join("");
+
+
+        const authorHTML =
+            bookAuthor
+                ? `
+                    <div
+                        class="
+                            reader-display-title-author
+                        "
+                    >
+                        ${escapeHTML(
+                            bookAuthor
+                        )}
+                    </div>
+                  `
+                : "";
+
+
+        return `
+            <div
+                class="reader-display-title"
+                style="
+                    background: ${background};
+                "
+            >
+
+                ${titleHTML}
+
+                ${authorHTML}
+
             </div>
-          `
-        : "";
+        `;
 
-    return `
-    <div
-        class="reader-display-title"
-        style="
-            background: ${background};
-        "
-    >
-        ${titleHTML}
-
-        ${authorHTML}
-    </div>
-`;
-
-}
+    }
 
 
     /* =========================================================
-   RENDER VISUAL BLOCK
-========================================================= */
+       RENDER VISUAL BLOCK
+    ========================================================= */
 
-function renderVisualBlock(block) {
-
-    let visualData;
-
-    try {
-        visualData =
-            typeof block.content === "string"
-                ? JSON.parse(block.content)
-                : block.content;
-    } catch (error) {
-        console.error(
-            "Invalid visual block data:",
-            error
-        );
-        return "";
-    }
-
-    if (
-        !visualData ||
-        !visualData.type
+    function renderVisualBlock(
+        block
     ) {
-        return "";
-    }
 
-    switch (visualData.type) {
+        let visualData;
 
-        case "image":
-            return renderImageVisual(
-                visualData
+
+        try {
+
+            visualData =
+                typeof block.content === "string"
+                    ? JSON.parse(
+                        block.content
+                    )
+                    : block.content;
+
+        } catch (error) {
+
+            console.error(
+                "Invalid visual block data:",
+                error
             );
 
-        default:
-            console.warn(
-                "Unknown visual type:",
-                visualData.type
-            );
             return "";
+        }
+
+
+        if (
+            !visualData ||
+            !visualData.type
+        ) {
+
+            return "";
+
+        }
+
+
+        switch (
+            visualData.type
+        ) {
+
+            case "image":
+
+                return renderImageVisual(
+                    visualData
+                );
+
+
+            default:
+
+                console.warn(
+                    "Unknown visual type:",
+                    visualData.type
+                );
+
+                return "";
+
+        }
+
     }
-}
 
 
-function renderImageVisual(data) {
+    /* =========================================================
+       RENDER IMAGE VISUAL
+    ========================================================= */
 
-    const src =
-        String(
-            data.src || ""
-        ).trim();
+    function renderImageVisual(
+        data
+    ) {
 
-    if (!src) {
-        console.warn(
-            "Visual image source is missing."
-        );
-        return "";
-    }
+        const src =
+            String(
+                data.src || ""
+            ).trim();
 
-    const alt =
-        escapeHTML(
-            data.alt ||
-            "Learning infographic"
-        );
 
-    const caption =
-        escapeHTML(
-            data.caption || ""
-        );
+        if (!src) {
 
-    return `
-        <figure class="reader-visual-image">
+            console.warn(
+                "Visual image source is missing."
+            );
 
-            <img
-                src="${src}"
-                alt="${alt}"
-                loading="lazy"
-                decoding="async"
+            return "";
+
+        }
+
+
+        const alt =
+            escapeHTML(
+                data.alt ||
+                "Learning infographic"
+            );
+
+
+        const caption =
+            escapeHTML(
+                data.caption ||
+                ""
+            );
+
+
+        return `
+            <figure
+                class="
+                    reader-visual-image
+                "
             >
 
-            ${
-                caption
-                    ? `
-                        <figcaption>
-                            ${caption}
-                        </figcaption>
-                      `
-                    : ""
-            }
-
-        </figure>
-    `;
-}
+                <img
+                    src="${src}"
+                    alt="${alt}"
+                    loading="lazy"
+                    decoding="async"
+                >
 
 
-function renderCoverBlock(block) {
+                ${
+                    caption
+                        ? `
+                            <figcaption>
+                                ${caption}
+                            </figcaption>
+                          `
+                        : ""
+                }
 
-    let coverData;
+            </figure>
+        `;
 
-    try {
-        coverData =
-            typeof block.content === "string"
-                ? JSON.parse(block.content)
-                : block.content;
-    } catch (error) {
-
-        console.error(
-            "Invalid cover block data:",
-            error
-        );
-
-        return "";
     }
 
-    if (!coverData) {
-        return "";
-    }
 
-    const src =
-        String(
-            coverData.src || ""
-        ).trim();
+    /* =========================================================
+       RENDER COVER BLOCK
+    ========================================================= */
 
-    if (!src) {
+    function renderCoverBlock(
+        block
+    ) {
 
-        console.warn(
-            "Cover image source is missing."
-        );
+        let coverData;
 
-        return "";
-    }
 
-    const alt =
-        escapeHTML(
-            coverData.alt ||
-            "Book cover"
-        );
+        try {
 
-    return `
-        <div class="reader-cover">
+            coverData =
+                typeof block.content === "string"
+                    ? JSON.parse(
+                        block.content
+                    )
+                    : block.content;
 
-            <img
-                src="${src}"
-                alt="${alt}"
-                loading="eager"
-                decoding="async"
+        } catch (error) {
+
+            console.error(
+                "Invalid cover block data:",
+                error
+            );
+
+            return "";
+        }
+
+
+        if (!coverData) {
+            return "";
+        }
+
+
+        const src =
+            String(
+                coverData.src || ""
+            ).trim();
+
+
+        if (!src) {
+
+            console.warn(
+                "Cover image source is missing."
+            );
+
+            return "";
+
+        }
+
+
+        const alt =
+            escapeHTML(
+                coverData.alt ||
+                "Book cover"
+            );
+
+
+        return `
+            <div
+                class="reader-cover"
             >
 
-        </div>
-    `;
-}
+                <img
+                    src="${src}"
+                    alt="${alt}"
+                    loading="eager"
+                    decoding="async"
+                >
+
+            </div>
+        `;
+
+    }
 
 
     /* =========================================================
        ERROR
     ========================================================= */
 
-    function showError(message) {
+    function showError(
+        message
+    ) {
 
-    content.innerHTML = `
-        <div class="reader-error">
+        content.innerHTML = `
 
-            <h2>
-                Unable to open this book
-            </h2>
+            <div
+                class="reader-error"
+            >
 
-            <p>
-                ${escapeHTML(message)}
-            </p>
+                <h2>
+                    Unable to open this book
+                </h2>
 
-            <a href="${escapeHTML(libraryURL)}">
-                Return to Library
-            </a>
 
-        </div>
-    `;
+                <p>
+                    ${escapeHTML(
+                        message
+                    )}
+                </p>
 
-}
+
+                <a
+                    href="${escapeHTML(
+                        libraryURL
+                    )}"
+                >
+                    Return to Library
+                </a>
+
+            </div>
+
+        `;
+
+    }
 
 
     /* =========================================================
@@ -1102,199 +1649,155 @@ function renderCoverBlock(block) {
     ========================================================= */
 
     backButton.addEventListener(
-    "click",
-    function () {
+        "click",
+        function () {
 
-        window.location.href =
-            libraryURL;
+            window.location.href =
+                libraryURL;
 
-    }
-);
-
-
-/* =========================================================
-   HEADER SHOW / HIDE ON SCROLL
-========================================================= */
-
-let lastScrollY = window.scrollY;
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-        if (!readerHeader) {
-            return;
         }
+    );
 
 
-        const currentScrollY =
-            window.scrollY;
+    /* =========================================================
+       TOUCH SWIPE NAVIGATION
+    ========================================================= */
+
+    let touchStartX = 0;
+
+    let touchStartY = 0;
+
+    let touchEndX = 0;
+
+    let touchEndY = 0;
+
+
+    content.addEventListener(
+        "touchstart",
+        event => {
+
+            if (
+                !event.touches ||
+                !event.touches.length
+            ) {
+
+                return;
+
+            }
+
+
+            touchStartX =
+                event.touches[0].clientX;
+
+
+            touchStartY =
+                event.touches[0].clientY;
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    content.addEventListener(
+        "touchend",
+        event => {
+
+            if (
+                !event.changedTouches ||
+                !event.changedTouches.length
+            ) {
+
+                return;
+
+            }
+
+
+            touchEndX =
+                event.changedTouches[0].clientX;
+
+
+            touchEndY =
+                event.changedTouches[0].clientY;
+
+
+            handleSwipe();
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    function handleSwipe() {
+
+        const deltaX =
+            touchEndX -
+            touchStartX;
+
+
+        const deltaY =
+            touchEndY -
+            touchStartY;
+
+
+        const minimumSwipeDistance =
+            50;
 
 
         /*
-         * Always show the header
-         * when the Reader is near the top.
+         * Ignore mostly-vertical gestures.
          */
-        if (currentScrollY <= 20) {
-
-            readerHeader.classList.remove(
-                "reader-header-hidden"
-            );
-
-            lastScrollY =
-                currentScrollY;
-
-            return;
-        }
-
-
-        /*
-         * Scrolling down:
-         * hide the header.
-         */
-        if (
-            currentScrollY >
-            lastScrollY
-        ) {
-
-            readerHeader.classList.add(
-                "reader-header-hidden"
-            );
-
-        }
-
-
-        /*
-         * Scrolling up:
-         * show the header.
-         */
-        else if (
-            currentScrollY <
-            lastScrollY
-        ) {
-
-            readerHeader.classList.remove(
-                "reader-header-hidden"
-            );
-
-        }
-
-
-        lastScrollY =
-            currentScrollY;
-
-    },
-    {
-        passive: true
-    }
-);
-
-/* =========================================================
-   TOUCH SWIPE NAVIGATION
-========================================================= */
-
-let touchStartX = 0;
-let touchStartY = 0;
-let touchEndX = 0;
-let touchEndY = 0;
-
-content.addEventListener(
-    "touchstart",
-    event => {
-
-        if (
-            !event.touches ||
-            !event.touches.length
-        ) {
-            return;
-        }
-
-        touchStartX =
-            event.touches[0].clientX;
-
-        touchStartY =
-            event.touches[0].clientY;
-    },
-    {
-        passive: true
-    }
-);
-
-
-content.addEventListener(
-    "touchend",
-    event => {
 
         if (
-            !event.changedTouches ||
-            !event.changedTouches.length
+            Math.abs(deltaX) <=
+            Math.abs(deltaY)
         ) {
+
             return;
+
         }
 
-        touchEndX =
-            event.changedTouches[0].clientX;
-
-        touchEndY =
-            event.changedTouches[0].clientY;
-
-        handleSwipe();
-    },
-    {
-        passive: true
-    }
-);
-
-
-function handleSwipe() {
-
-    const deltaX =
-        touchEndX - touchStartX;
-
-    const deltaY =
-        touchEndY - touchStartY;
-
-    const minimumSwipeDistance = 50;
-
-    /*
-     * Ignore mostly-vertical gestures.
-     */
-    if (
-        Math.abs(deltaX) <=
-        Math.abs(deltaY)
-    ) {
-        return;
-    }
-
-    /*
-     * Ignore very short horizontal movements.
-     */
-    if (
-        Math.abs(deltaX) <
-        minimumSwipeDistance
-    ) {
-        return;
-    }
-
-    if (deltaX < 0) {
 
         /*
-         * Swipe left → next page
+         * Ignore very short horizontal movements.
          */
-        goToPage(
-            currentPageIndex + 1
-        );
 
-    } else {
+        if (
+            Math.abs(deltaX) <
+            minimumSwipeDistance
+        ) {
 
-        /*
-         * Swipe right → previous page
-         */
-        goToPage(
-            currentPageIndex - 1
-        );
+            return;
+
+        }
+
+
+        if (deltaX < 0) {
+
+            /*
+             * Swipe left → next page
+             */
+
+            goToPage(
+                currentPageIndex + 1
+            );
+
+        } else {
+
+            /*
+             * Swipe right → previous page
+             */
+
+            goToPage(
+                currentPageIndex - 1
+            );
+
+        }
+
     }
-}
 
 
     /* =========================================================
