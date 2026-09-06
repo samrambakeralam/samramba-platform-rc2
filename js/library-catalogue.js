@@ -432,103 +432,248 @@ description:
 
     function receiveLibraryCatalogue(response) {
 
-        /*
-         * Basic response validation.
-         */
+    /*
+     * Basic response validation.
+     */
 
-        if (
-            !response ||
-            response.success !== true ||
-            !Array.isArray(response.books)
-        ) {
+    if (
+        !response ||
+        response.success !== true ||
+        !Array.isArray(response.books)
+    ) {
 
-            console.error(
-                "SAMRAMBA Library catalogue failed:",
-                response
+        console.error(
+            "SAMRAMBA Library catalogue failed:",
+            response
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * Normalize every book received from Google Sheets.
+     */
+
+    const normalizedBooks =
+        response.books
+
+            .map(
+                normalizeBook
+            )
+
+            .filter(
+                function (book) {
+
+                    return (
+                        book.id &&
+                        book.title &&
+                        book.author
+                    );
+
+                }
             );
 
-            return;
 
-        }
+    /*
+     * GROUP VERSION ROWS BY BOOK ID
+     *
+     * Example:
+     *
+     * book-001 / v1
+     * book-001 / v2
+     *
+     * becomes ONE Library book:
+     *
+     * book-001
+     *    ├── v2
+     *    └── v1
+     */
+
+    const groupedBooks =
+        new Map();
 
 
-        /*
-         * Normalize every book received from Google Sheets.
-         */
+    normalizedBooks.forEach(
+        function (book) {
 
-        const normalizedBooks =
-            response.books
+            if (!groupedBooks.has(book.id)) {
 
-                .map(
-                    normalizeBook
-                )
-
-                .filter(
-                    function (book) {
-
-                        return (
-                            book.id &&
-                            book.title &&
-                            book.author
-                        );
-
+                groupedBooks.set(
+                    book.id,
+                    {
+                        ...book,
+                        versions: []
                     }
                 );
 
-
-        /*
-         * IMPORTANT:
-         *
-         * Do not replace BOOKS with another array.
-         *
-         * Mutate the existing array so library.js keeps
-         * the same reference.
-         */
-
-        BOOKS.length = 0;
+            }
 
 
-        normalizedBooks.forEach(
-            function (book) {
+            const groupedBook =
+                groupedBooks.get(book.id);
 
-                BOOKS.push(book);
+
+            /*
+             * Add this row's version.
+             */
+
+            if (
+                Array.isArray(book.versions) &&
+                book.versions.length
+            ) {
+
+                groupedBook.versions.push(
+                    ...book.versions
+                );
 
             }
-        );
 
 
-        /*
-         * library.js may have already rendered the page
-         * with an empty catalogue.
-         *
-         * Refresh it after the live catalogue arrives.
-         */
+            /*
+             * Keep the latest catalogue row's
+             * metadata as the main book metadata.
+             *
+             * Since your catalogue currently lists
+             * V1 first and V2 second, V2 becomes
+             * the active/latest book metadata.
+             */
 
-        if (
-            window.SamrambaLibrary &&
-            typeof window.SamrambaLibrary.refresh ===
-                "function"
-        ) {
-
-            window.SamrambaLibrary.refresh();
+            Object.assign(
+                groupedBook,
+                {
+                    title: book.title,
+                    author: book.author,
+                    category: book.category,
+                    cover: book.cover,
+                    pages: book.pages,
+                    popularity: book.popularity,
+                    releaseDate: book.releaseDate,
+                    isNew: book.isNew,
+                    isLocked: book.isLocked,
+                    themePrimary: book.themePrimary,
+                    themeSecondary: book.themeSecondary,
+                    titleBackground: book.titleBackground,
+                    titlePrimary: book.titlePrimary,
+                    titleSecondary: book.titleSecondary,
+                    displayTitle: book.displayTitle,
+                    description: book.description
+                }
+            );
 
         }
+    );
 
 
-        /*
-         * Validate the live catalogue.
-         */
+    /*
+     * Convert grouped books back into an array.
+     */
 
-        validateCatalogue(
-            BOOKS
+    const uniqueBooks =
+        Array.from(
+            groupedBooks.values()
         );
 
 
-        console.info(
-            `SAMRAMBA Library live catalogue loaded: ${BOOKS.length} books.`
-        );
+    /*
+     * Put the newest version first.
+     *
+     * Your current activateCard() already uses
+     * versions[0], so this makes V2 the active
+     * version without changing library.js.
+     */
+
+    uniqueBooks.forEach(
+        function (book) {
+
+            book.versions.sort(
+                function (a, b) {
+
+                    const aMatch =
+                        String(a.id || "")
+                            .match(/v(\d+)$/i);
+
+                    const bMatch =
+                        String(b.id || "")
+                            .match(/v(\d+)$/i);
+
+
+                    const aNumber =
+                        aMatch
+                            ? Number(aMatch[1])
+                            : 0;
+
+                    const bNumber =
+                        bMatch
+                            ? Number(bMatch[1])
+                            : 0;
+
+
+                    return bNumber - aNumber;
+
+                }
+            );
+
+        }
+    );
+
+
+    /*
+     * IMPORTANT:
+     *
+     * Do not replace BOOKS with another array.
+     *
+     * Mutate the existing array so library.js
+     * keeps the same reference.
+     */
+
+    BOOKS.length = 0;
+
+
+    uniqueBooks.forEach(
+        function (book) {
+
+            BOOKS.push(
+                book
+            );
+
+        }
+    );
+
+
+    /*
+     * library.js may have already rendered the page
+     * with an empty catalogue.
+     *
+     * Refresh it after the live catalogue arrives.
+     */
+
+    if (
+        window.SamrambaLibrary &&
+        typeof window.SamrambaLibrary.refresh ===
+            "function"
+    ) {
+
+        window.SamrambaLibrary.refresh();
 
     }
+
+
+    /*
+     * Validate the live catalogue.
+     */
+
+    validateCatalogue(
+        BOOKS
+    );
+
+
+    console.info(
+        `SAMRAMBA Library live catalogue loaded: ${BOOKS.length} books.`
+    );
+
+}
 
 
     /* =========================================================
