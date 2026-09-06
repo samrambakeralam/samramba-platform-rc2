@@ -332,6 +332,12 @@ async function loadBookTitleStyle() {
         }
 
 
+        /* Get author from LIBRARY_CATALOGUE */
+
+        bookAuthor =
+        String(book.author || "").trim();
+
+
         /*
          * Use catalogue values only when
          * the Reader URL does not already
