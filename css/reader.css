@@ -357,6 +357,18 @@ body {
     letter-spacing: 0;
 }
 
+/* -------------------------------------------------------
+   PARAGRAPH FORMATTING
+------------------------------------------------------- */
+
+.reader-paragraph-bold {
+    font-weight: 700;
+}
+
+.reader-paragraph-italic {
+    font-style: italic;
+}
+
 
 /* =========================================================
    LIST

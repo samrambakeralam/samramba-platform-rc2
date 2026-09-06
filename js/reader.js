@@ -654,17 +654,78 @@ case "author":
                 `;
 
 
-            case "paragraph":
+            case "paragraph": {
+
+    let paragraphText =
+        String(block.content || "");
+
+    let paragraphBold = false;
+    let paragraphItalic = false;
+
+    /*
+     * Optional paragraph formatting.
+     *
+     * Plain text remains fully compatible.
+     *
+     * Formatted text can be stored as:
+     * {
+     *     "text": "Poor & middle class:",
+     *     "bold": true
+     * }
+     */
+
+    try {
+
+        const paragraphData =
+            JSON.parse(paragraphText);
+
+        if (
+            paragraphData &&
+            typeof paragraphData === "object" &&
+            typeof paragraphData.text === "string"
+        ) {
+
+            paragraphText =
+                paragraphData.text;
+
+            paragraphBold =
+                paragraphData.bold === true;
+
+            paragraphItalic =
+                paragraphData.italic === true;
+        }
+
+    } catch (error) {
+
+        /*
+         * Plain paragraph text.
+         * No formatting metadata present.
+         */
+
+    }
+
+    const paragraphClasses = [
+        "reader-block",
+        "reader-paragraph",
+        arguments[1]
+            ? "reader-intro"
+            : "",
+        paragraphBold
+            ? "reader-paragraph-bold"
+            : "",
+        paragraphItalic
+            ? "reader-paragraph-italic"
+            : ""
+    ]
+        .filter(Boolean)
+        .join(" ");
 
     return `
-        <p class="reader-block reader-paragraph ${
-            arguments[1]
-                ? "reader-intro"
-                : ""
-        }">
-            ${text}
+        <p class="${paragraphClasses}">
+            ${escapeHTML(paragraphText)}
         </p>
     `;
+}
 
 
             case "list":
