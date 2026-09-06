@@ -696,7 +696,7 @@ body {
    SMALL PHONE
 --------------------------------------------------------- */
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
 
     .reader-display-title {
         width: 100%;
