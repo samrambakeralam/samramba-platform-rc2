@@ -566,7 +566,7 @@ body {
    BOOK COVER — SMALL PHONE
 ========================================================= */
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
 
      .reader-cover {
         width: 125px;
