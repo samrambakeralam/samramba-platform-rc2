@@ -569,7 +569,7 @@ body {
 @media (max-width: 400px) {
 
      .reader-cover {
-        width: 125px;
+        width: 120px;
         max-width: 100%;
         margin: 16px auto 28px;
         padding: 0;
@@ -1323,7 +1323,7 @@ body {
    VERY SMALL PHONES
 ========================================================= */
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
 
     .reader-header {
         display: flex;
