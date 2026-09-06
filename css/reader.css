@@ -547,10 +547,17 @@ body {
 
 @media (max-width: 600px) {
 
-    .reader-cover {
-        width: 155px;
-        margin: 14px auto 26px;
+      .reader-cover {
+        width: 175px;
+        max-width: 100%;
+        margin: 18px auto 32px;
+        padding: 0;
+        text-align: center;
         border-radius: 10px;
+        overflow: hidden;
+        box-shadow:
+            0 7px 18px
+            rgba(15, 23, 42, 0.12);
     }
 }
 
@@ -561,11 +568,19 @@ body {
 
 @media (max-width: 380px) {
 
-    .reader-cover {
-        width: 135px;
-        margin: 12px auto 22px;
+     .reader-cover {
+        width: 125px;
+        max-width: 100%;
+        margin: 16px auto 28px;
+        padding: 0;
+        text-align: center;
         border-radius: 8px;
+        overflow: hidden;
+        box-shadow:
+            0 6px 16px
+            rgba(15, 23, 42, 0.12);
     }
+
 }
 
 
@@ -686,23 +701,30 @@ body {
     .reader-display-title {
         width: 100%;
         margin: 0 0 20px;
-        padding: 6px 12px;
+        padding: 5px 10px;
         border-radius: 7px;
         text-align: center;
         box-sizing: border-box;
         overflow: hidden;
     }
 
+    .reader-display-title-line {
+        line-height: 1.05;
+    }
+
     .reader-display-title-large {
-        font-size: 21px;
+        font-size: 19px;
+        font-weight: 700;
     }
 
     .reader-display-title-medium {
-        font-size: 18px;
+        font-size: 16px;
+        font-weight: 700;
     }
 
     .reader-display-title-small {
-        font-size: 15px;
+        font-size: 14px;
+        font-weight: 600;
     }
 
     .reader-display-title-author {
@@ -1309,7 +1331,7 @@ body {
         justify-content: space-between;
 
         width: 100%;
-        min-height: 26px;
+        min-height: 24px;
 
         padding: 0 12px;
 
@@ -1368,9 +1390,19 @@ body {
     }
 
 
-    .reader-heading {
+   .reader-heading {
+        width: fit-content;
+        max-width: 100%;
+
+        margin: 24px 0 14px;
+
+        padding: 5px 8px;
+
         font-size: 15px;
-        margin-top: 24px;
+        font-weight: 700;
+        line-height: 1.25;
+
+        border-radius: 5px;
     }
 
 }
