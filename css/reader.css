@@ -534,7 +534,7 @@ body {
 @media (max-width: 820px) {
 
     .reader-cover {
-        width: 250px;
+        width: 2O0px;
         margin-bottom: 26px;
         border-radius: 11px;
     }
@@ -569,7 +569,7 @@ body {
 @media (max-width: 400px) {
 
      .reader-cover {
-        width: 120px;
+        width: 115px;
         max-width: 100%;
         margin: 16px auto 28px;
         padding: 0;
@@ -1398,7 +1398,7 @@ body {
 
         padding: 5px 8px;
 
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 700;
         line-height: 1.25;
 
