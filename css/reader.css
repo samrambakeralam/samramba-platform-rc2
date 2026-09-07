@@ -1613,31 +1613,38 @@ body {
     ----------------------------------------------------- */
 
     .reader-bullet {
+        display: flex;
+        align-items: center;
 
-        gap:
-            8px;
+        gap: 9px;
+        margin: 6px 0;
 
-        margin:
-            6px 0;
-
-        font-size:
-            17px;
-
-        line-height:
-            1.6;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.6;
     }
 
-
     .reader-bullet-marker {
+        flex: 0 0 auto;
 
-        width:
-            0.8em;
+        width: 0.75em;
 
-        margin-top:
-            0.27em;
+        /*
+           Optimum marker size:
+           clearly visible but smaller than the text.
+        */
+        font-size: 0.72em;
+        font-weight: 700;
 
-        font-size:
-            0.5em;
+        line-height: 1;
+
+        margin-top: 0;
+
+        text-align: center;
+    }
+
+    .reader-bullet-text {
+        min-width: 0;
     }
 
 
@@ -1892,31 +1899,26 @@ body {
     ------------------------------------------------------- */
 
     .reader-bullet {
+        gap: 8px;
+        margin: 5px 0;
 
-        gap:
-            8px;
+        font-size: 17px;
+        line-height: 1.58;
 
-        margin:
-            6px 0;
-
-        font-size:
-            17px;
-
-        line-height:
-            1.58;
+        align-items: center;
     }
 
-
     .reader-bullet-marker {
+        width: 0.75em;
 
-        width:
-            0.8em;
+        font-size: 0.72em;
+        font-weight: 700;
 
-        margin-top:
-            0.27em;
+        line-height: 1;
 
-        font-size:
-            0.5em;
+        margin-top: 0;
+
+        text-align: center;
     }
 
 
@@ -2228,28 +2230,26 @@ body {
     ------------------------------------------------------- */
 
     .reader-bullet {
+        gap: 7px;
+        margin: 5px 0;
 
-        gap:
-            7px;
+        font-size: 14px;
+        line-height: 1.55;
 
-        margin:
-            5px 0;
-
-        font-size:
-            14px;
-
-        line-height:
-            1.55;
+        align-items: center;
     }
 
-
     .reader-bullet-marker {
+        width: 0.75em;
 
-        margin-top:
-            0.29em;
+        font-size: 0.72em;
+        font-weight: 700;
 
-        font-size:
-            0.5em;
+        line-height: 1;
+
+        margin-top: 0;
+
+        text-align: center;
     }
 
 }
