@@ -897,76 +897,63 @@
 
 
             /* =================================================
-               SUBHEADING
-            ================================================= */
+   SUBHEADING
+================================================= */
 
-            case "subheading": {
+case "subheading": {
 
-                const data =
-                    parseStyledBlockContent(
-                        block.content
-                    );
-
-
-                const subText =
-                    escapeHTML(
-                        data.text || ""
-                    );
+    const data =
+        parseStyledBlockContent(
+            block.content
+        );
 
 
-                const color =
-                    escapeHTML(
-                        data.color ||
-                        "var(--reader-theme-primary, #C62828)"
-                    );
+    const subText =
+        escapeHTML(
+            data.text || ""
+        );
 
 
-                const weight =
-                    safeCssWeight(
-                        data.weight ||
-                        700
-                    );
+    const weight =
+        safeCssWeight(
+            data.weight ||
+            700
+        );
 
 
-                const fontFamily =
-                    safeCssFontFamily(
-                        data.fontFamily ||
-                        "inherit"
-                    );
+    const fontFamily =
+        safeCssFontFamily(
+            data.fontFamily ||
+            "inherit"
+        );
 
 
-                const letterSpacing =
-                    safeCssLetterSpacing(
-                        data.letterSpacing ||
-                        "0"
-                    );
+    const letterSpacing =
+        safeCssLetterSpacing(
+            data.letterSpacing ||
+            "0"
+        );
 
 
-                    const backgroundColor =
-    escapeHTML(
-        data.backgroundColor || "transparent"
-    );
+    return `
+        <div
+            class="
+                reader-block
+                reader-subheading
+            "
+            style="
+                color: #000000;
+                font-weight: ${weight};
+                font-family: ${fontFamily};
+                letter-spacing: ${letterSpacing};
+                background-color: transparent;
+            "
+        >
+            ${subText}
+        </div>
+    `;
 
-
-                return `
-                    <div
-                        class="
-                            reader-block
-                            reader-subheading
-                        "
-                        style="
-    color: ${color};
-    font-weight: ${weight};
-    font-family: ${fontFamily};
-    letter-spacing: ${letterSpacing};
-    background-color: ${backgroundColor};
-"
-                    >
-                        ${subText}
-                    </div>
-                `;
-
-            }
+}
 
 
             /* =================================================
