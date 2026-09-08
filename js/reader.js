@@ -942,6 +942,12 @@
                     );
 
 
+                    const backgroundColor =
+    escapeHTML(
+        data.backgroundColor || "transparent"
+    );
+
+
                 return `
                     <div
                         class="
@@ -949,11 +955,12 @@
                             reader-subheading
                         "
                         style="
-                            color: ${color};
-                            font-weight: ${weight};
-                            font-family: ${fontFamily};
-                            letter-spacing: ${letterSpacing};
-                        "
+    color: ${color};
+    font-weight: ${weight};
+    font-family: ${fontFamily};
+    letter-spacing: ${letterSpacing};
+    background-color: ${backgroundColor};
+"
                     >
                         ${subText}
                     </div>
@@ -1025,6 +1032,19 @@
                     );
 
 
+                    const textColor =
+    escapeHTML(
+        data.color || "#000000"
+    );
+
+
+const backgroundColor =
+    escapeHTML(
+        data.backgroundColor || "transparent"
+    );
+
+
+
                 return `
                     <div
                         class="
@@ -1032,9 +1052,11 @@
                             reader-bullet
                         "
                         style="
-                            font-family: ${fontFamily};
-                            font-weight: ${weight};
-                        "
+    color: ${textColor};
+    font-family: ${fontFamily};
+    font-weight: ${weight};
+    background-color: ${backgroundColor};
+"
                     >
 
                         <span

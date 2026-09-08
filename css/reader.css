@@ -443,25 +443,25 @@ body {
 ========================================================= */
 
 .reader-subheading {
-
     display: block;
 
-    margin:
-        22px 0 10px;
+    width: fit-content;
+    max-width: 100%;
 
-    color:
-        var(
-            --reader-theme-primary,
-            #C62828
-        );
+    margin: 22px 0 10px;
+    padding: 6px 10px;
+
+    color: var(
+        --reader-theme-primary,
+        #C62828
+    );
 
     font-size: 17px;
-
     font-weight: 700;
 
     line-height: 1.4;
 
-    letter-spacing: 0;
+    border-radius: 5px;
 }
 
 
