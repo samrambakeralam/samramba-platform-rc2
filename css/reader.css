@@ -520,62 +520,40 @@ body {
 
 
 /* =========================================================
-   COMPARISON
+   COMPARISON TABLE
 ========================================================= */
 
 .reader-comparison {
 
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 5px;
+    width: 100%;
 
     margin:
-        13px 0;
+        18px 0 20px;
 
-    padding:
-        13px 15px;
+    padding: 0;
 
     background:
-        #f8fafc;
+        #ffffff;
 
     border:
-        1px solid
-        #e5e7eb;
+        1px solid #777777;
 
-    border-left:
-        3px solid
-        var(
-            --reader-theme-secondary,
-            #F5C518
-        );
+    border-radius: 0;
 
-    border-radius:
-        7px;
+    overflow: hidden;
 }
 
 
-.reader-comparison strong {
+.reader-comparison-title {
+
+    padding:
+        8px 10px;
 
     color:
         #000000;
 
-    font-size:
-        16px;
-
-    font-weight:
-        700;
-
-    line-height:
-        1.4;
-}
-
-
-.reader-comparison span {
-
-    color:
-        #000000;
+    background:
+        #ffffff;
 
     font-size:
         16px;
@@ -584,7 +562,81 @@ body {
         400;
 
     line-height:
-        1.55;
+        1.4;
+
+    border-bottom:
+        1px solid #777777;
+}
+
+
+.reader-comparison-table-wrap {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+
+.reader-comparison-table {
+
+    width: 100%;
+
+    border-collapse:
+        collapse;
+
+    table-layout:
+        fixed;
+
+    color:
+        #000000;
+
+    background:
+        #ffffff;
+
+    font-size:
+        15px;
+
+    line-height:
+        1.4;
+}
+
+
+.reader-comparison-table td {
+
+    padding:
+        5px 8px;
+
+    color:
+        #000000;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid #777777;
+
+    vertical-align:
+        middle;
+
+    text-align:
+        left;
+}
+
+
+/* First row = table header */
+
+.reader-comparison-table tr:first-child td {
+
+    color:
+        #D32F2F;
+
+    font-weight:
+        400;
+
+    background:
+        #ffffff;
 }
 
 
