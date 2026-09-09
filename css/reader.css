@@ -528,7 +528,7 @@ body {
     width: 100%;
 
     margin:
-        18px 0 20px;
+        20px 0 22px;
 
     padding: 0;
 
@@ -538,11 +538,15 @@ body {
     border:
         1px solid #777777;
 
-    border-radius: 0;
+    border-radius:
+        0;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 }
 
+
+/* TABLE TITLE */
 
 .reader-comparison-title {
 
@@ -569,15 +573,21 @@ body {
 }
 
 
+/* TABLE WRAPPER */
+
 .reader-comparison-table-wrap {
 
     width: 100%;
 
-    overflow-x: auto;
+    overflow-x:
+        auto;
 
-    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling:
+        touch;
 }
 
+
+/* TABLE */
 
 .reader-comparison-table {
 
@@ -599,14 +609,16 @@ body {
         15px;
 
     line-height:
-        1.4;
+        1.45;
 }
 
+
+/* ALL CELLS */
 
 .reader-comparison-table td {
 
     padding:
-        5px 8px;
+        6px 10px;
 
     color:
         #000000;
@@ -614,18 +626,21 @@ body {
     background:
         #ffffff;
 
-    border:
-        1px solid #777777;
-
     vertical-align:
         middle;
 
     text-align:
         left;
+
+    border-top:
+        1px solid #999999;
+
+    border-bottom:
+        1px solid #999999;
 }
 
 
-/* First row = table header */
+/* HEADER ROW */
 
 .reader-comparison-table tr:first-child td {
 
@@ -637,6 +652,47 @@ body {
 
     background:
         #ffffff;
+
+    padding-top:
+        7px;
+
+    padding-bottom:
+        7px;
+}
+
+
+/* COLUMN WIDTHS */
+
+.reader-comparison-table td:first-child {
+
+    width:
+        18%;
+}
+
+
+.reader-comparison-table td:nth-child(2) {
+
+    width:
+        36%;
+}
+
+
+.reader-comparison-table td:nth-child(3) {
+
+    width:
+        46%;
+}
+
+
+/* BODY ROW SPACING */
+
+.reader-comparison-table tr:not(:first-child) td {
+
+    padding-top:
+        6px;
+
+    padding-bottom:
+        6px;
 }
 
 
