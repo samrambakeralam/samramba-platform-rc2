@@ -1248,35 +1248,99 @@ const backgroundColor =
                COMPARISON
             ================================================= */
 
-            case "comparison":
+            case "comparison": {
 
-                return `
-                    <div
-                        class="
-                            reader-block
-                            reader-comparison
-                        "
-                    >
+    let comparisonData = null;
 
-                        ${
-                            block.label
-                                ? `
-                                    <strong>
-                                        ${escapeHTML(
-                                            block.label
-                                        )}
-                                    </strong>
-                                  `
-                                : ""
-                        }
+    try {
+        comparisonData =
+            JSON.parse(
+                block.content || text || "{}"
+            );
+    } catch (error) {
+        console.error(
+            "Invalid comparison data:",
+            error
+        );
+    }
 
+    if (
+        !comparisonData ||
+        !Array.isArray(
+            comparisonData.rows
+        )
+    ) {
+        return `
+            <div class="reader-block reader-comparison">
+                ${escapeHTML(
+                    text || ""
+                )}
+            </div>
+        `;
+    }
 
-                        <span>
-                            ${text}
-                        </span>
+    const comparisonTitle =
+        comparisonData.title
+            ? `
+                <div class="reader-comparison-title">
+                    ${escapeHTML(
+                        comparisonData.title
+                    )}
+                </div>
+              `
+            : "";
 
-                    </div>
-                `;
+    const tableRows =
+        comparisonData.rows
+            .map(
+                (row, rowIndex) => {
+
+                    const cells =
+                        Array.isArray(row.cells)
+                            ? row.cells
+                            : [];
+
+                    return `
+                        <tr>
+                            ${cells
+                                .map(
+                                    cell => `
+                                        <td>
+                                            ${escapeHTML(
+                                                cell
+                                            )}
+                                        </td>
+                                    `
+                                )
+                                .join("")}
+                        </tr>
+                    `;
+                }
+            )
+            .join("");
+
+    return `
+        <div class="reader-block reader-comparison">
+
+            ${comparisonTitle}
+
+            <div class="reader-comparison-table-wrap">
+
+                <table
+                    class="reader-comparison-table"
+                >
+
+                    <tbody>
+                        ${tableRows}
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+    `;
+}
 
 
             /* =================================================
