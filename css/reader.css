@@ -346,7 +346,11 @@ body {
             #5B1A8F
         );
 
-    color: #ffffff;
+    color:
+    var(
+        --reader-theme-secondary,
+        #ffffff
+    );
 
     font-size: 18px;
     font-weight: 700;
