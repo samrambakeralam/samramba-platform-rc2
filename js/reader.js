@@ -882,18 +882,81 @@
 
 
             /* =================================================
-               HEADING
-            ================================================= */
+   HEADING
+================================================= */
 
-            case "heading":
+case "heading": {
 
-                return `
-                    <h2
-                        class="reader-block reader-heading"
-                    >
-                        ${text}
-                    </h2>
-                `;
+    const data =
+        parseStyledBlockContent(
+            block.content
+        );
+
+    const headingText =
+        escapeHTML(
+            data.text || ""
+        );
+
+    const color =
+        data.color
+            ? escapeHTML(data.color)
+            : "";
+
+    const backgroundColor =
+        data.backgroundColor
+            ? escapeHTML(data.backgroundColor)
+            : "";
+
+    const weight =
+        data.weight
+            ? safeCssWeight(data.weight)
+            : "";
+
+    const fontFamily =
+        data.fontFamily
+            ? safeCssFontFamily(data.fontFamily)
+            : "";
+
+    const fontSize =
+        data.fontSize
+            ? safeCssLength(data.fontSize)
+            : "";
+
+    const lineHeight =
+        data.lineHeight
+            ? safeCssLength(data.lineHeight)
+            : "";
+
+    const letterSpacing =
+        data.letterSpacing
+            ? safeCssLetterSpacing(data.letterSpacing)
+            : "";
+
+    const fontStyle =
+        data.fontStyle === "italic"
+            ? "italic"
+            : data.fontStyle === "normal"
+                ? "normal"
+                : "";
+
+    return `
+        <h2
+            class="reader-block reader-heading"
+            style="
+                ${color ? `color: ${color};` : ""}
+                ${backgroundColor ? `background-color: ${backgroundColor};` : ""}
+                ${weight ? `font-weight: ${weight};` : ""}
+                ${fontFamily ? `font-family: ${fontFamily};` : ""}
+                ${fontSize ? `font-size: ${fontSize};` : ""}
+                ${lineHeight ? `line-height: ${lineHeight};` : ""}
+                ${letterSpacing ? `letter-spacing: ${letterSpacing};` : ""}
+                ${fontStyle ? `font-style: ${fontStyle};` : ""}
+            "
+        >
+            ${headingText}
+        </h2>
+    `;
+}
 
 
             /* =================================================
