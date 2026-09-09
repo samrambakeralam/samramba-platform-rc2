@@ -1379,6 +1379,9 @@ const backgroundColor =
             titleSecondary ||
             "#FFFFFF";
 
+            const hasSecondaryTitle =
+    titleParts.length > 1;
+
 
         const titleHTML =
             titleParts
@@ -1435,6 +1438,8 @@ const fontSize =
         ? safeCssLength(part.fontSize)
         : "";
 
+        const isPrimaryTitle =
+    titleParts.indexOf(part) === 0;
 
 return `
     <span
@@ -1448,6 +1453,7 @@ return `
             font-family: ${fontFamily};
             letter-spacing: ${letterSpacing};
             ${fontSize ? `font-size: ${fontSize};` : ""}
+            ${hasSecondaryTitle && isPrimaryTitle ? "margin-bottom: 6px;" : ""}
         "
     >
         ${text}
