@@ -1399,28 +1399,35 @@ const backgroundColor =
 
 
                         const letterSpacing =
-                            safeCssLetterSpacing(
-                                part.letterSpacing ||
-                                "0"
-                            );
+    safeCssLetterSpacing(
+        part.letterSpacing ||
+        "0"
+    );
 
 
-                        return `
-                            <span
-                                class="
-                                    reader-display-title-line
-                                    reader-display-title-${size}
-                                "
-                                style="
-                                    color: ${color};
-                                    font-weight: ${weight};
-                                    font-family: ${fontFamily};
-                                    letter-spacing: ${letterSpacing};
-                                "
-                            >
-                                ${text}
-                            </span>
-                        `;
+const fontSize =
+    part.fontSize
+        ? safeCssLength(part.fontSize)
+        : "";
+
+
+return `
+    <span
+        class="
+            reader-display-title-line
+            reader-display-title-${size}
+        "
+        style="
+            color: ${color};
+            font-weight: ${weight};
+            font-family: ${fontFamily};
+            letter-spacing: ${letterSpacing};
+            ${fontSize ? `font-size: ${fontSize};` : ""}
+        "
+    >
+        ${text}
+    </span>
+`;
 
                     }
                 )
