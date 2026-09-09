@@ -1460,19 +1460,22 @@ return `
 
 
         const authorHTML =
-            bookAuthor
-                ? `
-                    <div
-                        class="
-                            reader-display-title-author
-                        "
-                    >
-                        ${escapeHTML(
-                            bookAuthor
-                        )}
-                    </div>
-                  `
-                : "";
+    bookAuthor
+        ? `
+            <div
+                class="
+                    reader-display-title-author
+                "
+                style="
+                    font-size: 12px;
+                "
+            >
+                ${escapeHTML(
+                    bookAuthor
+                )}
+            </div>
+          `
+        : "";
 
 
         return `
