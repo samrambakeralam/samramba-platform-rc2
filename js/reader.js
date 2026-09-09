@@ -1379,6 +1379,10 @@ const backgroundColor =
             titleSecondary ||
             "#FFFFFF";
 
+        const authorColor =
+    titleParts[0]?.authorColor ||
+    "#000000";
+
             const hasSecondaryTitle =
     titleParts.length > 1;
 
@@ -1473,6 +1477,7 @@ return `
                     reader-display-title-author
                 "
                 style="
+                    color: ${authorColor};
                     font-size: 12px;
                 "
             >
