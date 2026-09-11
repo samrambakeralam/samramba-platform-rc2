@@ -1045,6 +1045,106 @@ case "subheading": {
 
 
             /* =================================================
+               BOLD
+            ================================================= */
+
+            case "bold": {
+
+                const data =
+                    parseStyledBlockContent(
+                        block.content
+                    );
+
+
+                const boldText =
+                    escapeHTML(
+                        data.text || ""
+                    );
+
+
+                const color =
+                    data.color
+                        ? escapeHTML(data.color)
+                        : "#000000";
+
+
+                const backgroundColor =
+                    data.backgroundColor
+                        ? escapeHTML(data.backgroundColor)
+                        : "transparent";
+
+
+                const weight =
+                    safeCssWeight(
+                        data.weight ||
+                        700
+                    );
+
+
+                const fontFamily =
+                    safeCssFontFamily(
+                        data.fontFamily ||
+                        "inherit"
+                    );
+
+
+                const fontSize =
+                    data.fontSize
+                        ? safeCssLength(
+                            data.fontSize
+                        )
+                        : "";
+
+
+                const lineHeight =
+                    data.lineHeight
+                        ? safeCssLength(
+                            data.lineHeight
+                        )
+                        : "";
+
+
+                const letterSpacing =
+                    data.letterSpacing
+                        ? safeCssLetterSpacing(
+                            data.letterSpacing
+                        )
+                        : "";
+
+
+                const fontStyle =
+                    data.fontStyle === "italic"
+                        ? "italic"
+                        : data.fontStyle === "normal"
+                            ? "normal"
+                            : "";
+
+
+                return `
+                    <div
+                        class="
+                            reader-block
+                            reader-bold
+                        "
+                        style="
+                            color: ${color};
+                            font-weight: ${weight};
+                            font-family: ${fontFamily};
+                            background-color: ${backgroundColor};
+                            ${fontSize ? `font-size: ${fontSize};` : ""}
+                            ${lineHeight ? `line-height: ${lineHeight};` : ""}
+                            ${letterSpacing ? `letter-spacing: ${letterSpacing};` : ""}
+                            ${fontStyle ? `font-style: ${fontStyle};` : ""}
+                        "
+                    >
+                        ${boldText}
+                    </div>
+                `;
+
+            }
+
+
+            /* =================================================
                BULLET
             ================================================= */
 
