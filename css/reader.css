@@ -387,6 +387,30 @@ body {
     letter-spacing: 0;
 }
 
+/* =========================================================
+   BOLD TEXT
+   Same normal block spacing as paragraph,
+   but with bold typography supplied by reader.js.
+========================================================= */
+
+.reader-bold {
+
+    margin:
+        0 0 17px;
+
+    color:
+        #000000;
+
+    font-size:
+        19px;
+
+    line-height:
+        1.65;
+
+    letter-spacing:
+        0;
+}
+
 
 /* =========================================================
    LEGACY LIST
@@ -516,6 +540,83 @@ body {
 
 .reader-bullet-text {
     min-width: 0;
+}
+
+
+/* =========================================================
+   GENERIC PDF TABLE
+
+   Used when BOOK_CONTENT contains BlockType = table.
+========================================================= */
+
+.reader-table-block {
+    width: 100%;
+    margin: 18px 0 24px;
+}
+
+.reader-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.reader-table {
+    width: 100%;
+    min-width: 0;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+    color: #000000;
+    background: transparent;
+
+    font-size: 18px;
+    line-height: 1.55;
+}
+
+.reader-table th,
+.reader-table td {
+    padding: 7px 14px;
+
+    text-align: left;
+    vertical-align: top;
+
+    border: 0;
+}
+
+.reader-table th {
+    font-weight: 700;
+}
+
+.reader-table td {
+    font-weight: 400;
+}
+
+.reader-table th:first-child,
+.reader-table td:first-child {
+    width: 50%;
+}
+
+.reader-table th:nth-child(2),
+.reader-table td:nth-child(2) {
+    width: 50%;
+}
+
+.reader-table-error {
+    margin: 16px 0;
+    color: #000000;
+}
+
+@media (max-width: 600px) {
+
+    .reader-table {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .reader-table th,
+    .reader-table td {
+        padding: 6px 8px;
+    }
 }
 
 
@@ -1695,6 +1796,18 @@ body {
             17px;
     }
 
+    .reader-bold {
+
+    margin-bottom:
+        15px;
+
+    font-size:
+        17px;
+
+    line-height:
+        1.68;
+}
+
 
     .reader-list-item {
 
@@ -2054,6 +2167,19 @@ body {
     }
 
 
+    .reader-bold {
+
+    margin-bottom:
+        15px;
+
+    font-size:
+        17px;
+
+    line-height:
+        1.68;
+}
+
+
     /* -------------------------------------------------------
        LEGACY LIST
     ------------------------------------------------------- */
@@ -2290,6 +2416,18 @@ body {
         line-height:
             1.64;
     }
+
+    .reader-bold {
+
+    font-size:
+        14px;
+
+    line-height:
+        1.64;
+
+    margin-bottom:
+        15px;
+}
 
 
     .reader-heading {

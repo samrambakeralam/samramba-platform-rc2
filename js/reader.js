@@ -1343,6 +1343,79 @@ const backgroundColor =
                     </div>
                 `;
 
+            
+                /* =================================================
+   TABLE
+
+   Content format:
+   {"headers":[...],"rows":[[...],[...]]}
+================================================= */
+
+case "table": {
+
+    let tableData = null;
+
+    try {
+        tableData = JSON.parse(
+            String(block.content || text || "{}").trim()
+        );
+    } catch (error) {
+        console.error("Invalid table data:", error);
+    }
+
+    if (
+        !tableData ||
+        !Array.isArray(tableData.headers) ||
+        !tableData.headers.length ||
+        !Array.isArray(tableData.rows)
+    ) {
+        return `
+            <div class="reader-block reader-table-error">
+                ${escapeHTML(block.content || "")}
+            </div>
+        `;
+    }
+
+    const headersHTML = tableData.headers
+        .map(header => `
+            <th scope="col">${escapeHTML(header)}</th>
+        `)
+        .join("");
+
+    const rowsHTML = tableData.rows
+        .map(row => {
+
+            const cells = Array.isArray(row)
+                ? row
+                : (Array.isArray(row?.cells) ? row.cells : []);
+
+            return `
+                <tr>
+                    ${tableData.headers.map((_, index) => `
+                        <td>${escapeHTML(cells[index] ?? "")}</td>
+                    `).join("")}
+                </tr>
+            `;
+        })
+        .join("");
+
+    return `
+        <div class="reader-block reader-table-block">
+            <div class="reader-table-wrap">
+                <table class="reader-table">
+                    <thead>
+                        <tr>${headersHTML}</tr>
+                    </thead>
+
+                    <tbody>
+                        ${rowsHTML}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    `;
+}
+
 
             /* =================================================
                COMPARISON
