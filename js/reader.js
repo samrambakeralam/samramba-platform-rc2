@@ -379,24 +379,24 @@
              * when available from the catalogue.
              */
 
-            if (book.themePrimary) {
+            if (!themePrimary && book.themePrimary) {
 
-                document.documentElement.style.setProperty(
-                    "--reader-theme-primary",
-                    book.themePrimary
-                );
+    document.documentElement.style.setProperty(
+        "--reader-theme-primary",
+        book.themePrimary
+    );
 
-            }
+}
 
 
-            if (book.themeSecondary) {
+           if (!themeSecondary && book.themeSecondary) {
 
-                document.documentElement.style.setProperty(
-                    "--reader-theme-secondary",
-                    book.themeSecondary
-                );
+    document.documentElement.style.setProperty(
+        "--reader-theme-secondary",
+        book.themeSecondary
+    );
 
-            }
+}
 
         } catch (error) {
 
@@ -925,12 +925,12 @@ case "heading": {
     const color =
         data.color
             ? escapeHTML(data.color)
-            : "";
+            : "var(--reader-theme-secondary, #FFFFFF)";
 
     const backgroundColor =
         data.backgroundColor
             ? escapeHTML(data.backgroundColor)
-            : "";
+            : "var(--reader-theme-primary, #5B1A8F)";
 
     const weight =
         data.weight
@@ -968,8 +968,8 @@ case "heading": {
         <h2
             class="reader-block reader-heading"
             style="
-                ${color ? `color: ${color};` : ""}
-                ${backgroundColor ? `background-color: ${backgroundColor};` : ""}
+                color: ${color};
+                background-color: ${backgroundColor};
                 ${weight ? `font-weight: ${weight};` : ""}
                 ${fontFamily ? `font-family: ${fontFamily};` : ""}
                 ${fontSize ? `font-size: ${fontSize};` : ""}
